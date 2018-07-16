@@ -86,21 +86,12 @@
               </div>
             </div>
             <!-- Megamenu end     -->
-<<<<<<< HEAD
             <!-- Laad Balance          -->
             <div class="list-inline-item logout">
               <a rel="nofollow" href="#"><span>Load Balance: &nbsp;</span><span class="pull-right"><img src="img/dollar.png" width="15px"> &nbsp; $0.00</span></a>
             </div>
             <div class="list-inline-item logout">
               <a rel="nofollow" href="#"> <span>Sapphire Tokens: &nbsp;</span><span class="pull-right"><img src="img/gem.png" width="20px"> &nbsp; 0.00&nbsp;&nbsp;</span></a>
-=======
-            <!-- Tasks-->
-            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><span class="d-none d-sm-inline-block"><?php echo htmlentities($_SESSION['name']);?></span></a>
-              <div aria-labelledby="languages" class="dropdown-menu">
-                <a rel="nofollow" href="#" class="dropdown-item"><span>Load Balance: </span><span class="pull-right"><img src="img/dollar.png" width="20px"> &nbsp; $<?php echo $num['ewallet']; ?></span></a>
-                <a rel="nofollow" href="#" class="dropdown-item"> <span>Sapphire Tokens: </span><span class="pull-right"><img src="img/gem.png" width="20px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span></a>
-              </div>
->>>>>>> b8ce5da42f35145cb9faa11955cac3072adcae0c
             </div>
              &nbsp;
             <!-- Log out               -->
