@@ -86,18 +86,18 @@
               </div>
             </div>
             <!-- Megamenu end     -->
-            <!-- Tasks-->
-            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><span class="d-none d-sm-inline-block"><?php echo htmlentities($_SESSION['name']);?></span></a>
-              <div aria-labelledby="languages" class="dropdown-menu">
-                <a rel="nofollow" href="#" class="dropdown-item"><span>Load Balance: </span><span class="pull-right"><img src="img/dollar.png" width="20px"> &nbsp; $0.00</span></a>
-                <a rel="nofollow" href="#" class="dropdown-item"> <span>Sapphire Tokens: </span><span class="pull-right"><img src="img/gem.png" width="20px"> &nbsp; 0.00&nbsp;&nbsp;</span></a>
-              </div>
+            <!-- Laad Balance          -->
+            <div class="list-inline-item logout">
+              <a rel="nofollow" href="#"><span>Load Balance: &nbsp;</span><span class="pull-right"><img src="img/dollar.png" width="15px"> &nbsp; $0.00</span></a>
             </div>
-            <!-- Tasks end-->
-            <!-- Languages dropdown    -->
+            <div class="list-inline-item logout">
+              <a rel="nofollow" href="#"> <span>Sapphire Tokens: &nbsp;</span><span class="pull-right"><img src="img/gem.png" width="20px"> &nbsp; 0.00&nbsp;&nbsp;</span></a>
+            </div>
              &nbsp;
             <!-- Log out               -->
-            <div class="list-inline-item logout">                   <a id="logout" href="logout.php" class="nav-link">Logout <i class="icon-logout"></i></a></div>
+            <div class="list-inline-item logout">
+              <a id="logout" href="logout.php" class="nav-link">Logout <i class="icon-logout"></i></a>
+            </div>
           </div>
         </div>
       </nav>
