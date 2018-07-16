@@ -1,6 +1,11 @@
 <?php include 'includes/connect.php';
 $hi = $_GET['id'];
- ?>
+$id= $_SESSION['id'];
+$query = "SELECT * FROM shopusers WHERE id=$id";
+$results = mysqli_query($con, $query);
+$num=mysqli_fetch_assoc($results);
+?>
+
 <!DOCTYPE html>
 <html>
   <head> 
@@ -207,7 +212,7 @@ echo '
 </div>
 </div>
 </div>
-</div>'; ?>
+</div>'; } ?>
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-lg">
