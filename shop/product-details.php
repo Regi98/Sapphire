@@ -41,13 +41,11 @@ header('location:my-wishlist.php');
 }
 if(isset($_POST['submit']))
 {
-	$qty=$_POST['quality'];
-	$price=$_POST['price'];
-	$value=$_POST['value'];
+	$rate=$_POST['rate'];
 	$name=$_POST['name'];
 	$summary=$_POST['summary'];
 	$review=$_POST['review'];
-	mysqli_query($con,"insert into productreviews(productId,quality,price,value,name,summary,review) values('$pid','$qty','$price','$value','$name','$summary','$review')");
+	mysqli_query($con,"insert into productreviews(productId,rate,name,summary,review) values('$pid','$rate','$price','$value','$name','$summary','$review')");
 	$host=$_SERVER['HTTP_HOST'];
 	$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 	$location = basename($_SERVER['REQUEST_URI']);
@@ -462,45 +460,40 @@ $num=mysqli_num_rows($rt);
 
 														<div class="product-reviews">
 															<h4 class="title">Customer Reviews</h4>
+															<hr>
 															<?php $qry=mysqli_query($con,"select * from productreviews where productId='$pid'");
 while($rvw=mysqli_fetch_array($qry))
 {
 ?>
 
-															<div class="reviews" style="border: solid 1px #000; padding-left: 2% ">
+															<div class="reviews" style="">
 																<div class="review">
-																	<div class="review-title">
-																		<span class="summary">
-																			<?php echo htmlentities($rvw['summary']);?>
-																		</span>
-																		<span class="date">
-																			<i class="fa fa-calendar"></i>
+																		<?php
+																			for($x=1;$x<=5;$x++){
+																				if($x<=$rvw['rate']){
+																					echo '<img height="4%" width="4%" src="img/star.png">';
+																				} else {
+																					echo '<img height="4%" width="4%" src="img/no-star.png">';
+																				}
+																			}
+																		?>
+																		&nbsp;<?php echo htmlentities($rvw['summary']);?>
+																		<div class="text pull-right">
+																		<?php echo htmlentities($rvw['reviewDate']);
+																		
+																		?>
+																		</div>
+																		<br>
+																	<small>
 																			<span>
-																				<?php echo htmlentities($rvw['reviewDate']);?>
+																				by <?php echo htmlentities($rvw['name']);?>
 																			</span>
-																		</span>
-																	</div>
-
-																	<div class="text">"
-																		<?php echo htmlentities($rvw['review']);?>"</div>
+																	</small><br><br>
 																	<div class="text">
-																		<b>Quality :</b>
-																		<?php echo htmlentities($rvw['quality']);?> Star</div>
-																	<div class="text">
-																		<b>Price :</b>
-																		<?php echo htmlentities($rvw['price']);?> Star</div>
-																	<div class="text">
-																		<b>value :</b>
-																		<?php echo htmlentities($rvw['value']);?> Star</div>
-																	<div class="author m-t-15">
-																		<i class="fa fa-pencil-square-o"></i>
-																		<span class="name">
-																			<?php echo htmlentities($rvw['name']);?>
-																		</span>
-																	</div>
+																		<?php echo htmlentities($rvw['review']);?></div>
 																</div>
 
-															</div><br>
+															</div><hr><br>
 															<?php } ?>
 															<!-- /.reviews -->
 														</div>
@@ -525,57 +518,21 @@ while($rvw=mysqli_fetch_array($qry))
 																			</thead>
 																			<tbody>
 																				<tr>
-																					<td class="cell-label">Quality</td>
+																					<td class="cell-label">Rate</td>
 																					<td>
-																						<input type="radio" name="quality" class="radio" value="1">
+																						<input type="radio" name="rate" class="radio" value="1">
 																					</td>
 																					<td>
-																						<input type="radio" name="quality" class="radio" value="2">
+																						<input type="radio" name="rate" class="radio" value="2">
 																					</td>
 																					<td>
-																						<input type="radio" name="quality" class="radio" value="3">
+																						<input type="radio" name="rate" class="radio" value="3">
 																					</td>
 																					<td>
-																						<input type="radio" name="quality" class="radio" value="4">
+																						<input type="radio" name="rate" class="radio" value="4">
 																					</td>
 																					<td>
-																						<input type="radio" name="quality" class="radio" value="5">
-																					</td>
-																				</tr>
-																				<tr>
-																					<td class="cell-label">Price</td>
-																					<td>
-																						<input type="radio" name="price" class="radio" value="1">
-																					</td>
-																					<td>
-																						<input type="radio" name="price" class="radio" value="2">
-																					</td>
-																					<td>
-																						<input type="radio" name="price" class="radio" value="3">
-																					</td>
-																					<td>
-																						<input type="radio" name="price" class="radio" value="4">
-																					</td>
-																					<td>
-																						<input type="radio" name="price" class="radio" value="5">
-																					</td>
-																				</tr>
-																				<tr>
-																					<td class="cell-label">Value</td>
-																					<td>
-																						<input type="radio" name="value" class="radio" value="1">
-																					</td>
-																					<td>
-																						<input type="radio" name="value" class="radio" value="2">
-																					</td>
-																					<td>
-																						<input type="radio" name="value" class="radio" value="3">
-																					</td>
-																					<td>
-																						<input type="radio" name="value" class="radio" value="4">
-																					</td>
-																					<td>
-																						<input type="radio" name="value" class="radio" value="5">
+																						<input type="radio" name="rate" class="radio" value="5">
 																					</td>
 																				</tr>
 																			</tbody>
