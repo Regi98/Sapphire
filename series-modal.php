@@ -1,7 +1,11 @@
 <?php include 'includes/connect.php';
 $hi = $_GET['id'];
 $season_number = $_GET['season'];
- ?>
+
+$query = "SELECT * FROM shopusers WHERE id=$id";
+$results = mysqli_query($con, $query);
+$num=mysqli_fetch_assoc($results);
+?>
 <!DOCTYPE html>
 <html>
   <head> 
