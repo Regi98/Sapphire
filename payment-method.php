@@ -122,11 +122,11 @@ if(strlen($_SESSION['login'])==0){   ?>
           </div><hr width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
-                     <div class="title"><strong class="d-block">Paying VIA credit card:</strong><span class="d-block">Insert details carefully.</span></div>
+                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
                                            <div class="row block-blue">
                         <div class="col-4">
                           <img src="images/premium.png" class="pull-left" width=40px>
-                          <div class="paragraph">&nbsp; Premium Account</div>
+                          <div class="paragraph">&nbsp; Movie </div>
                         </div>
                         <div class="col-8">
                           <div class="paragraph pull-right"> &nbsp; $ &nbsp;1.50</div>
