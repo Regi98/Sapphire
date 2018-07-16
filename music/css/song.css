@@ -1,0 +1,83 @@
+
+
+audio
+{
+-webkit-transition:all 0.2s linear;
+-moz-transition:all 0.2s linear;
+-o-transition:all 0.2s linear;
+transition:all 0.2s linear;
+-moz-box-shadow: 2px 2px 4px 0px rgba(0,0, 0, 0.4);
+-webkit-box-shadow:  2px 2px 4px 0px rgba(0,0, 0, 0.4);
+box-shadow: 2px 2px 4px 0px rgba(0,0, 0, 0.4);
+
+}
+
+audio:hover, audio:focus, audio:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.07);
+-moz-transform: scale(1.07);
+transform: scale(1.07);
+}
+
+.playerWrap {
+  margin: 7px 0 0 0;
+}
+
+#audioPanel {
+  width: 200px;
+  padding: 15px;  
+  background-color: transparent;
+  text-align: left;
+  ;
+}
+#player{
+  width: 250px;
+  height: 60px;
+  border: 2px solid white;
+  background-color: white;
+}
+
+#audioPanel ul {
+    /* max-width: 660px;  for  below IE7 use `width: 660px;` */
+    width: 250px;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+}
+
+#audioPanel li {
+  cursor:pointer;
+  color:white;
+  font-family: Century Gothic;
+  font-size:14px;
+  padding: 4px 16px;
+  margin: 3px;
+  text-align: left;
+}
+#audioPanel li:hover, .selected {
+  background-color:transparent;
+}
+#audioPanel li:active {
+  top:1px;
+}
+.btAdd{
+  padding: 5px 10px;
+  border:0;
+  border-radius: 25px;
+  background:#e7e7e7;
+  opacity: 0.8;
+  font-size: 14px;
+  color: black;
+  float: right;
+}
+#playlist{
+  text-align: left;
+}
+.track{
+   font-family: Century Gothic;
+   color: #e7e7e7;
+}
