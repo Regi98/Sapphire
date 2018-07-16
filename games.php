@@ -94,34 +94,36 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item active">Games           </li>
           </ul>
         </div>
+
 <div class="container-fluid">
 <h4 class="my-content">Games</h4>
         <div class="row text-center text-lg-left">
+ <!-- Page Content -->
+    <div class="container">
+
+      <div class="row text-center text-lg-left">
+
         <?php
             $dataid;
                     $data = mysqli_query($con,"SELECT * FROM games");
                         while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                                  <div class="card h-100">
-                                        <img class="card-img-top" src="../inflightapp/storage/app/public/games_cover_images/'. $row['cover_image'] .'">
-                                        <div class="card-body">
-                                        <center>
-                                        <a class="btn btn-default btn-sm" href="../inflightapp/storage/app/public/games_apks/'. $row['game_apk'] .'"">
-                                        <i class="fa fa-download fa-2x"></i></a>
-                                         </center>
-                                </div>
-                                </div>
-                                </div>'; 
+                            echo '<div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                              <a href="../inflightapp/storage/app/public/games_apks/'. $row['game_apk'] .'" download class="d-block mb-4 h-100">
+                              <img class="img-fluid img-thumbnail" src="../inflightapp/storage/app/public/games_cover_images/'. $row['cover_image'] .'" alt="">
+                              </a>
+        </div>'; 
                                 $dataid = $row['id'];
                 }
             ?>
+      </div>
 
-          
-       
+    </div>
+    <!-- /.container -->
+
       <!-- /.row -->
       <div class="container">
         <div class="content-section-heading">
-                <h4 class="mb-5">Embedded Games</h4>
+                <h4 class="my-content">Embedded Games</h4>
                 <div class="row text-center text-lg-left">
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                   <a href="tictactoe.php" class="btn btn-light buttons" role="button" tabindex="0" style="width: 100%; display: inline-block;">TIC-TAC-TOE</a>
@@ -135,11 +137,6 @@ if(strlen($_SESSION['login'])==0){   ?>
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                   <a href="connect.php" class="btn btn-light buttons" role="button" tabindex="0" style="width: 100%; display: inline-block;">CONNECT FOUR</a>
                 </div>
-                <div class="row text-center text-lg-left">
-                  <img src="img/smart.gif" width="50%" height="90%">
-                  <img src="img/mb.jpg" width="50%" height="90%">
-                
-                   </div>
       </div>
 
      

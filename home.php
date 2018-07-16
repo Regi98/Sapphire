@@ -54,7 +54,7 @@ if(strlen($_SESSION['login'])==0){   ?>
           </div> -->
           <div class="padding-0 col-6 col-md-4 col-lg-3" id="box1" >
             <img src="images/music.jpg" width="200px" alt="">
-            <div id="box2"><a class="clean-link" href="music/music.php"><i class="fa fa-5x fa-music box-icon"></i><p class="box-label">MUSIC</p></a></div>
+            <div id="box2"><a class="clean-link" href="music.php"><i class="fa fa-5x fa-music box-icon"></i><p class="box-label">MUSIC</p></a></div>
           </div>
           <div class="padding-0 col-6 col-md-4 col-lg-3" id="box1">
             <img src="images/movies.jpg"  width="200px" alt="">
@@ -70,7 +70,7 @@ if(strlen($_SESSION['login'])==0){   ?>
           </div>
           <div class="padding-0 col-6 col-md-4 col-lg-3" id="box1">
             <img src="images/games.jpg" width="200px" alt="">
-            <div id="box2"><a class="clean-link" href="music/games.php"><i class="fa fa-5x fa-gamepad box-icon"></i><p class="box-label">GAMES</p></a></div>
+            <div id="box2"><a class="clean-link" href="games.php"><i class="fa fa-5x fa-gamepad box-icon"></i><p class="box-label">GAMES</p></a></div>
           </div>
           <div class="padding-0 col-6 col-md-4 col-lg-3" id="box1">
             <img src="images/shop.jpg" width="200px" alt="">
