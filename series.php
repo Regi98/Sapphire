@@ -69,8 +69,8 @@ if(strlen($_SESSION['login'])==0){   ?>
         <ul class="list-unstyled">
                 <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
                 <li><a href="music/music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li class="active"><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
+                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
+                <li class="active"><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
                 <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="#">Page</a></li>
