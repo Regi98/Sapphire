@@ -56,6 +56,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
+<<<<<<< HEAD
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
@@ -69,8 +70,8 @@ if(strlen($_SESSION['login'])==0){   ?>
         <ul class="list-unstyled">
                 <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
                 <li><a href="music/music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li class="active"><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
+                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
+                <li class="active"><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
                 <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="#">Page</a></li>
@@ -88,6 +89,9 @@ if(strlen($_SESSION['login'])==0){   ?>
           <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
         </ul>
       </nav>
+=======
+      <?php include 'includes/sidebar.php'; ?>
+>>>>>>> 664005a3fc4aeca17cf4f9a66d1b49c7d58cfb2a
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->

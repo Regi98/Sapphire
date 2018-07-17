@@ -22,7 +22,7 @@
                   </ul>
                 </li>-->
                 <li><a href="shop/index.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
-                <li><a href="games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
+                <li class="<?= isset($_GET['action']) && $_GET['action'] == 'games' ? ' active' : '' ?>"><a href="games.php?action=games"> <i class="fa fa-gamepad"></i>Games</a></li>
                 <li class="<?= isset($_GET['action']) && $_GET['action'] == 'news' ? ' active' : '' ?>"><a href="news.php?action=news"> <i class="fa fa-file"></i>News</a></li>
 
         </ul><span class="heading">User</span>
