@@ -2,6 +2,7 @@
 $hi = $_GET['id'];
 $season_number = $_GET['season'];
 
+
 $query = "SELECT * FROM shopusers WHERE id=$hi";
 $results = mysqli_query($con, $query);
 $num=mysqli_fetch_assoc($results);
@@ -62,8 +63,8 @@ $num=mysqli_fetch_assoc($results);
         <ul class="list-unstyled">
                 <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
                 <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li class="active"><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
+                <li class="active"><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
+                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
                 <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="#">Page</a></li>
@@ -86,15 +87,31 @@ $num=mysqli_fetch_assoc($results);
         <!-- Page Header-->
         <!-- Breadcrumb-->
         <div class="container-fluid">
-          <ul class="breadcrumb">
+        <div class="row">
+          <ul class="col-6 col-sm-4 col-md-10 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
+          
+          <div class="col-6 col-sm-4 col-md-2 pull-right">
+            <div class="form-group">
+              <select id="maingenre" class="selectpicker form-control">
+              <?php
+              $data7 = mysqli_query($con,"SELECT * FROM genres");
+              while($row7 = mysqli_fetch_array($data7)) {  
+              echo '
+                <option value="'.$row7['name'].'">'.$row7['name'].'</option>';
+              }
+              ?>
+              </select>
+            </div>
+          </div>
+        </div>
         </div>
 <div class="container">
            <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id join genres on main_genre=genres.id where main_genre='1'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
