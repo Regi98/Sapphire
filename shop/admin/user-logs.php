@@ -67,7 +67,7 @@ while($row=mysqli_fetch_array($query))
 
 if($st==1)
 {
-	echo "Successfull";
+	echo "Successful";
 }
 else
 {

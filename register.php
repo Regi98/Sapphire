@@ -54,7 +54,7 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form class="text-left form-validate" method="post" action="register.php">
+                  <form class="text-left form-validate" method="post" >
                     <strong>
                         <?php include('errors.php'); ?>
                       </strong>

@@ -67,7 +67,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 									<thead>
 										<tr>
 											<th>#</th>
-											<th> Name</th>
+											<th>First Name</th>
+											<th>Last Name</th>
 											<th width="50">Email /Contact no</th>
 											<th>Product </th>
 											<th>Qty </th>
@@ -83,14 +84,15 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 <tbody>
 <?php 
 $status='in Process';
-$query=mysqli_query($con,"select shopusers.firstname as username,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus from orders join shopusers on  orders.userId=shopusers.id join products on products.id=orders.productId where orders.orderStatus='$status' or orders.orderStatus is null");
+$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus from orders join shopusers on  orders.userId=shopusers.id join products on products.id=orders.productId where orders.orderStatus='$status' or orders.orderStatus is null");
 $cnt=1;
 while($row=mysqli_fetch_assoc($query))
 {
 ?>										
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['username']);?></td>
+											<td><?php echo htmlentities($row['firstname']);?></td>
+											<td><?php echo htmlentities($row['lastname']);?></td>
 											<td><?php echo htmlentities($row['useremail']);?></td>
 											<td><?php echo htmlentities($row['productname']);?></td>
 											<td><?php echo htmlentities($row['quantity']);?></td>
