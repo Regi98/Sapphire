@@ -56,7 +56,6 @@ if(strlen($_SESSION['login'])==0){   ?>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-<<<<<<< HEAD
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
@@ -89,9 +88,6 @@ if(strlen($_SESSION['login'])==0){   ?>
           <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
         </ul>
       </nav>
-=======
-      <?php include 'includes/sidebar.php'; ?>
->>>>>>> 664005a3fc4aeca17cf4f9a66d1b49c7d58cfb2a
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
