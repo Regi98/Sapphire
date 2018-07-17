@@ -56,6 +56,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
+<<<<<<< HEAD
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
@@ -88,6 +89,9 @@ if(strlen($_SESSION['login'])==0){   ?>
           <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
         </ul>
       </nav>
+=======
+      <?php include 'includes/sidebar.php'; ?>
+>>>>>>> 664005a3fc4aeca17cf4f9a66d1b49c7d58cfb2a
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -103,7 +107,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -119,7 +123,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -135,7 +139,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='3'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -151,7 +155,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='4'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -167,7 +171,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='5'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -183,7 +187,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='6'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -199,7 +203,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='7'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -215,7 +219,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="regular text-center">
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id");
+                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
