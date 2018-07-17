@@ -7,6 +7,9 @@ body {}
 .no-padding {
   padding: 0px !important;
 }
+#maingenre{
+  margin-top: 1.5em;
+}
 #box1{
 	position:relative;
 	opacity: 1;
