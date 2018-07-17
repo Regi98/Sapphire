@@ -102,7 +102,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                                 $dataid = $row['series_id'];
                       }
                     }               
-            ?> </div>
+            ?> </div><br>
            <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
@@ -124,7 +124,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
            <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='3'");
@@ -146,7 +146,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
   <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='4'");
@@ -168,7 +168,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
          <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='5'");
@@ -190,7 +190,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
          <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='6'");
@@ -212,7 +212,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
         <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='7'");
@@ -234,7 +234,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
          <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
@@ -257,7 +257,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       }
                     }
                         
-            ?> </div>
+            ?> </div><br>
     </div>
         <footer class="footer text-center">
 
