@@ -99,134 +99,183 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <div class="container-fluid">
-      <h4 class="my-content">Action TV Shows</h4>
-      <div class="regular text-center">
-         <?php
+      <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Action TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-      <h4 class="my-content">Adventure TV Shows</h4>
-      <div class="regular text-center">
-         <?php
+                      }
+                        
+            ?> </div>
+           <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Adventure TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-      <h4 class="my-content">Comedy TV Shows</h4>
-      <div class="regular text-center">
-         <?php
+                      }
+                        
+            ?> </div>
+           <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='3'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='3'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Comedy TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-      <h4 class="my-content">Drama TV Shows</h4>
-      <div class="regular text-center">
-         <?php
+                      }
+                        
+            ?> </div>
+  <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='4'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='4'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Drama TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-      <h4 class="my-content">Horror TV Shows</h4>
-      <div class="regular text-center">
+                      }
+                        
+            ?> </div>
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='5'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='5'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Horror TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-      <h4 class="my-content">Romantic TV Shows</h4>
-      <div class="regular text-center">
+                      }
+                        
+            ?> </div>
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='6'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='6'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Romantic TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-       <h4 class="my-content">Sci-Fi & Fantasy TV Shows</h4>
-      <div class="regular text-center">
-         <?php
+                      }
+                        
+            ?> </div>
+        <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='7'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='7'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Sci-Fi & Fantasy TV Shows</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
                 }
-            ?>
-      
-      </div><br>
-      <h4 class="my-content">Kids' TV</h4>
-      <div class="regular text-center">
+                      }
+                        
+            ?> </div>
          <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Kids TV</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+
+                            echo '
+                           
+                            <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
                 
-                }}
-            ?>
-      
-      </div>
+                }
+                      }
+                    }
+                        
+            ?> </div>
     </div>
         <footer class="footer text-center">
 
