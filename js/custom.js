@@ -67,6 +67,7 @@ function goDoSomethingMusic(identifier) {
   window.location.href = "music-modal.php?id=" + dataid;
 
 }
+
 $('#season-number').on('change', function(){
   var season_number = $(this).val();
   var series_id = getUrlParameter('id');
@@ -92,7 +93,17 @@ $(document).ready(function(){
         }
     }
 };
+$('#maingenre').on('change', function () {
+  var main_genre = $(this).val();
+  var genre_id = getUrlParameter('id');
+  console.log(main_genre + genre_id);
 
+  window.location.href = "series-genre.php?genre=" + main_genre;
+});
+$(document).ready(function () {
+  var genre = getUrlParameter('genre');
+  $('#maingenre').val(genre)
+});
 function introLoader(element,delay) {
   this.open = function(callback) {
     setTimeout(function() {

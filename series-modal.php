@@ -96,12 +96,16 @@ $num=mysqli_fetch_assoc($results);
           <div class="col-6 col-sm-4 col-md-2 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">
-              <?php
-              $data7 = mysqli_query($con,"SELECT * FROM genres");
-              while($row7 = mysqli_fetch_array($data7)) {  
+              <?php 
               echo '
-                <option value="'.$row7['name'].'">'.$row7['name'].'</option>';
-              }
+                <option value="1">Action</option>
+                <option value="2">Kids</option>
+                <option value="3">Comedy</option>
+                <option value="4">Drama</option>
+                <option value="5">Horror</option>
+                <option value="6">Romance</option>
+                <option value="7">Sci-Fi &amp; Fantasy</option>
+                <option value="8">Adventure</option>'
               ?>
               </select>
             </div>
@@ -111,7 +115,7 @@ $num=mysqli_fetch_assoc($results);
 <div class="container">
            <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id join genres on main_genre=genres.id where main_genre='1'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
@@ -131,7 +135,7 @@ $num=mysqli_fetch_assoc($results);
             ?> </div><br>
            <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
@@ -245,7 +249,7 @@ $num=mysqli_fetch_assoc($results);
             ?> </div><br>
          <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
