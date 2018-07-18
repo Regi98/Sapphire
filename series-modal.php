@@ -98,6 +98,7 @@ $num=mysqli_fetch_assoc($results);
               <select id="maingenre" class="selectpicker form-control">
               <?php 
               echo '
+                <option value="" disabled selected>Select Category</option>
                 <option value="1">Action</option>
                 <option value="2">Kids</option>
                 <option value="3">Comedy</option>
