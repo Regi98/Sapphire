@@ -66,12 +66,12 @@ if(strlen($_SESSION['login'])==0){   ?>
         <div class="container-fluid">
          <div class="container-fluid">
         <div class="row">
-          <ul class="col-6 col-sm-4 col-md-10 breadcrumb">
+          <ul class="col-5 col-sm-4 col-md-9 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
           
-          <div class="col-6 col-sm-4 col-md-2 pull-right">
+          <div class="col-7 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">
               <?php 
@@ -122,17 +122,15 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <div class="row text-center text-lg-left">';
+                            <div class="row text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
                             echo '
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-4">
-                            <div class="snip1205" style="margin-top:20px;">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-3" style="padding:5px;">
+                            <div class="snip1205" style="height:90%;">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                             </div></div>';
-                                $dataid = $row['series_id'];
-                
+                                $dataid = $row['series_id'];     
                 }
                       }
                     }

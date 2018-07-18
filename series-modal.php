@@ -88,12 +88,12 @@ $num=mysqli_fetch_assoc($results);
         <!-- Breadcrumb-->
         <div class="container-fluid">
         <div class="row">
-          <ul class="col-6 col-sm-4 col-md-10 breadcrumb">
+          <ul class="col-5 col-sm-4 col-md-9 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
           
-          <div class="col-6 col-sm-4 col-md-2 pull-right">
+          <div class="col-7 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">
               <?php 
