@@ -6,10 +6,14 @@ if(strlen($_SESSION['login'])==0){   ?>
                 document.location="index.php";
               </script>
 <?php } else{ 
+     
       $id= $_SESSION['id'];
       $query = "SELECT * FROM shopusers WHERE id=$id";
       $results = mysqli_query($con, $query);
       $num=mysqli_fetch_assoc($results);
+
+      $scode=$_POST['scratchcode'];
+      $spin=$_POST['scratchpin'];     
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +66,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                <div class="title">
                   <h6>Welcome Aboard,<h6>
-            <h1 class="h5"><?php echo htmlentities($_SESSION['name']);}?></h1>
+            <h1 class="h5"><?php echo htmlentities($_SESSION['name']);?></h1>
                </div>
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -90,27 +94,36 @@ if(strlen($_SESSION['login'])==0){   ?>
          </nav>
          <!-- Sidebar Navigation end-->
   <div class="page-content">
-    <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
-      <br><br>
-                      <h4>Not enough balance? Load now!</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada, quam turpis posuere neque, a dignissim eros ligula sit amet dui.</p>      <br><br>
-        <div class="row  ">
-            <div class=" col-12 col-md-6">
-                  <button class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up">
-                    <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
-                  Top up my E-wallet
-                </button>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Scratch Card            </li>
+          </ul>
+        </div>
+        <section class="no-padding-top">
+          <div class="container-fluid">
+            <div class="row">
+              
             </div>
-            <div class="col-12 col-md-6">
-                  <button class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
-                  <img src="images/token.png" width="50px"> &nbsp;&nbsp;
-                Load Sapphire Tokens</button>
-            </div>
-    </div>
+            <div class="row">
+
+              <!-- Basic Form-->
+              <div class="col-lg-12">
+                <div class="block">
+                <div class="col-12">
+                  </div>
+                  <div class="title"><strong class="d-block">Confirm Transaction:</strong><span class="d-block"></span><br>
+                    <h4>Code : <?php echo $scode; ?></h4>
+                    <h4>Pin : <?php echo $spin; ?></h4>
+                    <input value="Topup" class="btn btn-primary topup-button">
+                  </div>
+                  <br>
+
+                </div>
+              </div>
    </div>
-   <audio id="mysoundclip" preload="auto">
-              <source src="music.mp3"> </source>
-          </audio>
+
       <!-- JavaScript files-->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -119,18 +132,87 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
       <script src="vendor/jquery/jquery-confirm.js"></script>
       <script src="js/front.js"></script>
+      <script src="js/cleave.min.js"></script>
       <script src="vendor/slick/slick.min.js"></script>
       <script src="js/custom.js"></script>
 
       <script type="text/javascript">
-        $(".skeri_button").on("click", function(){
+/*        $(".skeri_button").on("click", function(){
             $("#skeri").removeClass("hide");
 
             var audio = $("#mysoundclip")[0];
             audio.play();
 
 
-        });
-      </script>
+        }); */
+        //ON TOPUP BUTTON
+        $('.topup-button').click(function() {
+
+            $.confirm({
+                <?php
+                $data = mysqli_query($con,"SELECT * FROM scratch_cards WHERE code = '$scode'");
+                $numResults = mysqli_num_rows($data);
+                $rowcard=mysqli_fetch_assoc($data);
+                //variables
+                $time = time();
+                $current_date = date("Y-m-d",$time);
+                $expiration = $rowcard['card_expiration'];
+                $status = $rowcard['status'];
+            ?>  
+                title: 'Use scratch card?',
+                    content: 'go gog ogaogas',
+                    theme: 'supervan',
+                    buttons: {
+                    confirm: function () {
+                        alert(<?php echo $numResults; ?>);
+                        <?php
+                        if ($numResults == 1) {
+                            if ($status != 'A') { ?>
+                              $.alert({
+                                title: 'Invalid transaction!',
+                                content: 'Card has already been used.',
+                              });
+                        <?php
+                            }
+                             if ($current_date >  $expiration) { ?>
+                              $.alert({
+                                title: 'Invalid transaction!',
+                                content: 'Card has expired.',
+                              });
+                        <?php
+                            }  else {
+                                $current_ewallet = $num['ewallet'];
+                                $amount = $rowcard['amount'];
+                                $updated_ewallet = $current_ewallet + $amount;
+                                // $delsql = "DELETE * FROM scratch_cards WHERE code = $code and pin = $pin";
+                        ?>
+                                
+                                alert("completo");
+                                alert("<?php echo  $expiration; ?>");
+                                alert("<?php echo  $current_date; ?>");
+                        <?php
+                            }
+                        } else { ?>
+                            $.alert({
+                                title: 'Invalid transaction!',
+                                content: 'Wrong code',
+                            });
+                            <?php
+                        }
+                        ?>
+
+
+
+                  },
+                  cancel: function () {
+                      $.alert('Awwwww. Why :(');
+                  }
+              }
+          });
+
+                });
+                <?php } ?>
+        </script>
+
    </body>
 </html>
