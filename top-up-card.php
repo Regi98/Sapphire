@@ -177,9 +177,33 @@ $('.topup-button').click(function() {
       type: "POST",
       url: "transaction-card.php",
       data: {code:code, pin:pin},
-      dataType: "text",
+      dataType: "JSON",
       success: function(data) {
-        
+        if(data==1) {
+          $.alert({
+            title: 'Invalid transaction!',
+            content: 'Card has already been used.',
+          });
+        } else if(data=2) {
+          $.alert({
+            title: 'Invalid transaction!',
+            content: 'Card has been expired.',
+          });
+        } else if(data=3) {
+          $.confirm({
+              title: 'Topup Success!',
+              content: 'Your balance will be <strong> ' + balance + ' </strong> after the transaction.',
+              theme: 'supervan',
+              buttons: {
+                  confirm: function () {
+                    window.location.href = "home.php";
+                  },
+                  cancel: function () {
+                      $.alert('Okay. Good things take time!');
+                  }
+              }
+          });
+        }
       },
       error: function(err) {
         console.log('error'+err);
