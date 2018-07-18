@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include('includes/db.php');
+    include('shop/includes/db.php');
+    include('includes/config.php'); 
 
     $code=$_POST['code'];
     $pin=$_POST['pin']; 
@@ -12,11 +13,9 @@
     $stmt->bindparam(':code', $code);
     $stmt->bindparam(':pin', $pin);
 
-    $response;
-
     if($stmt->execute()) {
 
-        $results = mysqli_query($con, "SELECT * FROM scratch_cards WHERE code = :code and pin = :pin");
+        $results = mysqli_query($con, "SELECT * FROM scratch_cards WHERE code = '$code' and pin = $pin");
         $numResults = mysqli_num_rows($results);
         $rowcard = mysqli_fetch_assoc($results);
         //variables
@@ -28,21 +27,27 @@
     if ($numResults == 1) {
         if ($status != 'A') { 
             $response = 1;
+            echo json_encode($response);
         } else if ($current_date >  $expiration) { 
             $response = 2;
+            echo json_encode($response);
         } else {
             $response = 3; 
 
-            $current_ewallet = $num['ewallet'];
             $amount = $rowcard['amount'];
             $updated_ewallet = $current_ewallet + $amount;
-            // $delsql = "DELETE * FROM scratch_cards WHERE code = $code and pin = $pin";
+
+            $sql = "UPDATE shopusers SET ewallet=$updated_ewallet WHERE id=$id";
+            if(mysqli_query($con, $sql)){
+                echo json_encode($response);
+            } else {
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            }
         }
     } else {
-        $response = 4;
-
-    }
+        $response = 7;
         echo json_encode($response);
+    }
     }
     else {
         $error="Not Inserted,Some Probelm occur.";

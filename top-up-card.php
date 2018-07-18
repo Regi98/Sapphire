@@ -159,14 +159,14 @@ if(strlen($_SESSION['login'])==0){   ?>
             audio.play();
 
 
-        }); */
+        }); 
         var cleave = new Cleave('#card-code', {
             blocks: [5, 4],
             uppercase: true
         });
         var cleave = new Cleave('#card-pin', {
             numeral: true
-        });
+        });*/
 
 //ON TOPUP BUTTON
 $('.topup-button').click(function() {
@@ -177,32 +177,38 @@ $('.topup-button').click(function() {
       type: "POST",
       url: "transaction-card.php",
       data: {code:code, pin:pin},
-      dataType: "JSON",
+      dataType: "text",
       success: function(data) {
-        if(data==1) {
+        console.log('erwerwe'+data);
+        if(data=='1') {
           $.alert({
             title: 'Invalid transaction!',
             content: 'Card has already been used.',
           });
-        } else if(data=2) {
+        } else if(data=='2') {
           $.alert({
             title: 'Invalid transaction!',
             content: 'Card has been expired.',
           });
-        } else if(data=3) {
+        } else if(data=='3') {
           $.confirm({
-              title: 'Topup Success!',
-              content: 'Your balance will be <strong> ' + balance + ' </strong> after the transaction.',
+              title: 'Card Accepted!',
+              content: 'Procceed with transaction?',
               theme: 'supervan',
               buttons: {
                   confirm: function () {
-                    window.location.href = "home.php";
+                    $.alert('Wala na finish na.');
                   },
                   cancel: function () {
                       $.alert('Okay. Good things take time!');
                   }
               }
           });
+        } else {
+          $.alert({
+            title: 'Invalid transaction!',
+            content: 'There are no card exisiting with those details. Please try again.',
+          });      
         }
       },
       error: function(err) {
