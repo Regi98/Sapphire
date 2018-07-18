@@ -2,7 +2,7 @@
 	session_start();
 
 	// variable declaration
-	$fullname = "";
+	$firstname = "";
 	$lastname = "";
 	$email    = "";
 	$errors = array(); 
@@ -68,7 +68,7 @@
 				$_SESSION['tokens']=$num['tokens'];
 				$uip=$_SERVER['REMOTE_ADDR'];
 				$status=1;
-				$log=mysqli_query($con,"insert into userlog(userEmail,userip,status) values('".$_SESSION['login']."','$uip','$status')");
+				$log=mysqli_query($db,"insert into userlog(userEmail,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 				$host=$_SERVER['HTTP_HOST'];
 				$_SESSION['success'] = "You are now logged in";
 				$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');

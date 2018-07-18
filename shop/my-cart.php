@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 
 			}
 		}
-			echo "<script>alert('Your Cart has been Updated');</script>";
+			// echo "<script>alert('Your Cart has been Updated');</script>";
 		}
 	}
 // Code for Remove a Product from Cart
@@ -137,7 +137,7 @@ if(!empty($_SESSION['cart'])){
 					<th class="cart-qty item">Quantity</th>
 					<th class="cart-sub-total item">Price Per unit</th>
 					
-					<th class="cart-total last-item">Grandtotal</th>
+					<th class="cart-total last-item">Grand Total</th>
 				</tr>
 			</thead><!-- /thead -->
 			<tfoot>
@@ -185,7 +185,7 @@ if(!empty($_SESSION['cart'])){
 					<td class="romove-item"><input type="checkbox" name="remove_code[]" value="<?php echo htmlentities($row['id']);?>" /></td>
 					<td class="cart-image">
 						<a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($row['id']);?>">
-						    <img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['product_image_1'];?>" alt="" width="30%" height="30%">
+						    <img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['product_image_1'];?>" alt="" width="15%" height="15%">
 						</a>
 					</td>
 					<td class="cart-product-name-info">
@@ -200,7 +200,7 @@ $_SESSION['sid']=$pd;
 						
 					</td>
 					<td class="cart-product-quantity">
-				             <input type="number" class="form-control form-control-sm col-4" min="0" id="quantity" value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>" name="quantity[<?php echo $row['id']; ?>]">
+				             <input type="number" class="form-control form-control-sm col-5" min="1" id="quantity" value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>" name="quantity[<?php echo $row['id']; ?>]">
 		            </td>
 					<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php echo "$"." ".$row['product_price']; ?>.00</span></td>
 
@@ -211,7 +211,7 @@ $_SESSION['sid']=$pd;
 					$quantity = $_SESSION['cart'][$row['id']]['quantity'];
 					$grand_total = number_format($quantity*$productPrice);
 
-					echo "$"." ". $grand_total; ?>.00</span></td>
+					echo "$"."". $grand_total; ?>.00</span></td>
 				</tr>
 
 				<?php } }
@@ -247,7 +247,7 @@ $_SESSION['pid']=$pdtid;
 		</tbody><!-- /tbody -->
 	</table>
 	<?php } else {
-echo "Your shopping Cart is empty";
+		echo "<br><p class='text-center'>Your Shopping Cart is empty</p>";
 		}?>
 </div>			</div>
 		</div> 
@@ -303,21 +303,22 @@ echo "Your shopping Cart is empty";
 		   $('.show-theme-options').delay(2000).trigger('click');
 		});
 
-        $(function() {
-            $('.checked').click(function(e) {
-                e.preventDefault();
-                var dialog = $('<p>Are you sure you want to checkout?</p>').dialog({
-                    buttons: {
-                        "Yes": function() {alert('Your order has been made');},
-                        "No":  function() {alert('you chose no');},
-                        "Cancel":  function() {
-                            alert('you chose cancel');
-                            dialog.dialog('close');
-                        }
-                    }
-                });
-            });
-        });
+        $('input').keypress(function(e){ 
+			var regex = new RegExp("^[a-zA-Z0-9]+$");
+    		var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+		if (this.value.length == 0 && e.which == 48 ){
+			return false;
+		} else if(!regex.test(key)){
+			event.preventDefault();
+       		return false;
+		} else{
+
+		}
+		});
+		function blockSpecialChar(e) {
+            var k = e.keyCode;
+            return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8   || (k >= 48 && k <= 57));
+        }
         $('#proceed-checkout').on( "click", function() {
 
 
@@ -327,21 +328,21 @@ echo "Your shopping Cart is empty";
 			$value=array_combine($pdd,$quantity);
 			?>
 
+
 			var quantityArray = new Array();
 			$('input[name^="quantity"]').each(function() {
 					quantityArray.push($(this).val());
+			});
+
+			if (quantityArray.includes("")) {
+				$.alert({
+					type: 'red',
+					theme: 'material',
+					title: 'Error!',
+					content: 'Please input product quantity.',
 				});
-			// var quantity = $("#quantity").val();
-			// console.log(pdd);
-			// console.log(quantityArray);
-			// // var animals = ['Cow', 'Pig', 'Dog', 'Cat'];
-			// // var sounds = ['Moo', 'Oink', 'Woof', 'Miao'];
-			// var assoc = [];
-			// for(var i=0; i<animals.length; i++) {
-			// 	assoc[animals[i]] = sounds[i];
-			// }
-			// console.log(assoc);
-			$.confirm({
+			} else{
+				$.confirm({
 				type: 'orange',
 				theme: 'material',
 				title: 'Confirmation',
@@ -385,7 +386,7 @@ echo "Your shopping Cart is empty";
 					}
 				}
 			});
-
+			}
 		});
     </script>
 

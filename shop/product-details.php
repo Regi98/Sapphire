@@ -45,7 +45,7 @@ if(isset($_POST['submit']))
 	$name=$_POST['name'];
 	$summary=$_POST['summary'];
 	$review=$_POST['review'];
-	mysqli_query($con,"insert into productreviews(productId,rate,name,summary,review) values('$pid','$rate','$price','$value','$name','$summary','$review')");
+	mysqli_query($con,"insert into productreviews(productId,rate,name,summary,review) values('$pid','$rate','$name','$summary','$review')");
 	$host=$_SERVER['HTTP_HOST'];
 	$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 	$location = basename($_SERVER['REQUEST_URI']);
@@ -352,11 +352,9 @@ $num=mysqli_num_rows($rt);
 
 													<div class="col-6 col-sm-6">
 														<div class="price-box">
-															<span class="price">$
-																<?php echo htmlentities($row['product_price']);?>
+															<span class="price">$<?php echo htmlentities($row['product_price']);?>
 															</span>
-															<span class="price-strike">$
-																<?php echo htmlentities($row['product_price_before_discount']);?>
+															<span class="price-strike">$<?php echo htmlentities($row['product_price_before_discount']);?>
 															</span>
 														</div>
 													</div>
@@ -393,21 +391,7 @@ $num=mysqli_num_rows($rt);
 
 													<div class="col-2 col-sm-2">
 														<div class="cart-quantity">
-															<div class="quant-input">
-																<div class="arrows">
-																	<div class="arrow plus gradient">
-																		<span class="ir">
-																			<i class="icon fa fa-sort-asc"></i>
-																		</span>
-																	</div>
-																	<div class="arrow minus gradient">
-																		<span class="ir">
-																			<i class="icon fa fa-sort-desc"></i>
-																		</span>
-																	</div>
-																</div>
-																<input type="text" value="1">
-															</div>
+																<input type="number" class="form-control form-control-sm col-12" min="1" value="1">
 														</div>
 													</div>
 
@@ -457,50 +441,8 @@ $num=mysqli_num_rows($rt);
 
 												<div id="review" class="tab-pane">
 													<div class="product-tab">
-
-														<div class="product-reviews">
-															<h4 class="title">Customer Reviews</h4>
-															<hr>
-															<?php $qry=mysqli_query($con,"select * from productreviews where productId='$pid'");
-while($rvw=mysqli_fetch_array($qry))
-{
-?>
-
-															<div class="reviews" style="">
-																<div class="review">
-																		<?php
-																			for($x=1;$x<=5;$x++){
-																				if($x<=$rvw['rate']){
-																					echo '<img height="4%" width="4%" src="img/star.png">';
-																				} else {
-																					echo '<img height="4%" width="4%" src="img/no-star.png">';
-																				}
-																			}
-																		?>
-																		&nbsp;<?php echo htmlentities($rvw['summary']);?>
-																		<div class="text pull-right">
-																		<?php echo htmlentities($rvw['reviewDate']);
-																		
-																		?>
-																		</div>
-																		<br>
-																	<small>
-																			<span>
-																				by <?php echo htmlentities($rvw['name']);?>
-																			</span>
-																	</small><br><br>
-																	<div class="text">
-																		<?php echo htmlentities($rvw['review']);?></div>
-																</div>
-
-															</div><hr><br>
-															<?php } ?>
-															<!-- /.reviews -->
-														</div>
 														<!-- /.product-reviews -->
 														<form role="form" class="cnt-form" name="review" method="post">
-
-
 															<div class="product-add-review">
 																<h4 class="title">Write your own review</h4>
 																<div class="review-table">
@@ -591,6 +533,43 @@ while($rvw=mysqli_fetch_array($qry))
 
 														</div>
 														<!-- /.product-add-review -->
+														<div class="product-reviews">
+															<h4 class="title">Customer Reviews</h4>
+															<hr>
+															<?php $qry=mysqli_query($con,"select * from productreviews where productId='$pid' order by reviewDate desc");
+														while($rvw=mysqli_fetch_array($qry))
+														{
+														?>
+
+														<div class="reviews" style="">
+																<div class="review">
+																		<?php
+																			for($x=1;$x<=5;$x++){
+																				if($x<=$rvw['rate']){
+																					echo '<img height="4%" width="4%" src="img/star.png">';
+																				} else {
+																					echo '<img height="4%" width="4%" src="img/no-star.png">';
+																				}
+																			}
+																		?>
+																		&nbsp;<?php echo htmlentities($rvw['summary']);?>
+																		<div class="text pull-right">
+																		<?php echo htmlentities($rvw['reviewDate']);?>
+																		</div>
+																		<br>
+																	<small>
+																			<span>
+																				by <?php echo htmlentities($rvw['name']);?>
+																			</span>
+																	</small><br><br>
+																	<div class="text">
+																		<?php echo htmlentities($rvw['review']);?></div>
+																</div>
+
+															</div><hr><br>
+															<?php } ?>
+															<!-- /.reviews -->
+														</div>
 
 													</div>
 													<!-- /.product-tab -->
@@ -652,13 +631,8 @@ while($rw=mysqli_fetch_array($qry))
 														<div class="description"></div>
 
 														<div class="product-price">
-															<span class="price">
-																$
-																<?php echo htmlentities($rw['product_price']);?> </span>
-															<span class="price-before-discount">$
-																<?php echo htmlentities($rw['product_price_before_discount']);?>
-															</span>
-
+															<span class="price">$<?php echo htmlentities($rw['product_price']);?></span>
+															<span class="price-before-discount"><strike><small>$<?php echo htmlentities($rw['product_price_before_discount']);?></small></strike></span><span class="token_price pull-right"><img src="assets/images/payments/tokens.png" width="18" height="18"> <?php echo htmlentities($rw['product_price_token']);?></span>
 														</div>
 														<!-- /.product-price -->
 

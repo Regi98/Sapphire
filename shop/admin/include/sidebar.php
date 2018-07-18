@@ -55,12 +55,12 @@ $num1 = mysqli_num_rows($rt);
 								</ul>
 							</li>
 							
-							<li>
+							<!-- <li>
 								<a href="manage-users.php">
 									<i class="menu-icon icon-group"></i>
 									Manage users
 								</a>
-							</li>
+							</li> -->
 						</ul>
 
 						<ul class="widget widget-menu unstyled">
