@@ -82,7 +82,8 @@ img.stretchy {
     margin-right: auto;
 
     height: 100%;
-	}
+  }
+  
   @media screen and (min-width: 320px){
   .snip1205 {height:140px;}
   .snip1205 a {font-size: 11px !important;}
@@ -308,9 +309,10 @@ img.stretchy {
   }
   .snip1205:hover img,
   .snip1205.hover img {
-	opacity: 0.3;
+	opacity: 0.9;
 	-webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
+  filter: grayscale(100%);
+  transform: scale(1.2);
   }
   .snip1205:hover i,
   .snip1205.hover i {

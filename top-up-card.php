@@ -7,9 +7,9 @@ if(strlen($_SESSION['login'])==0){   ?>
               </script>
 <?php } else{ 
       $id= $_SESSION['id'];
-      $query = "SELECT * FROM shopusers WHERE id=$id";
-      $results = mysqli_query($con, $query);
-      $num=mysqli_fetch_assoc($results);
+      $queryy = "SELECT * FROM shopusers WHERE id=$id";
+      $resultss = mysqli_query($con, $queryy);
+      $num=mysqli_fetch_assoc($resultss);
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +62,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                <div class="title">
                   <h6>Welcome Aboard,<h6>
-            <h1 class="h5"><?php echo htmlentities($_SESSION['name']);}?></h1>
+            <h1 class="h5"><?php echo htmlentities($_SESSION['name']);?></h1>
                </div>
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -90,27 +90,55 @@ if(strlen($_SESSION['login'])==0){   ?>
          </nav>
          <!-- Sidebar Navigation end-->
   <div class="page-content">
-    <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
-      <br><br>
-                      <h4>Not enough balance? Load now!</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada, quam turpis posuere neque, a dignissim eros ligula sit amet dui.</p>      <br><br>
-        <div class="row  ">
-            <div class=" col-12 col-md-6">
-                  <button class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up">
-                    <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
-                  Top up my E-wallet
-                </button>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Scratch Card            </li>
+          </ul>
+        </div>
+        <section class="no-padding-top">
+          <div class="container-fluid">
+            <div class="row">
+              
             </div>
-            <div class="col-12 col-md-6">
-                  <button class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
-                  <img src="images/token.png" width="50px"> &nbsp;&nbsp;
-                Load Sapphire Tokens</button>
-            </div>
-    </div>
+            <div class="row">
+
+              <!-- Basic Form-->
+              <div class="col-lg-12">
+                <div class="block">
+                <div class="col-12">
+                  </div>
+                  <div class="title"><strong class="d-block">Enter Scratch card details:</strong><span class="d-block"></span><br>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada, quam turpis posuere neque, a dignissim eros ligula sit amet dui.</div>
+                  <br>
+                  <div class="block-body">
+                    
+                    <form>
+                    <div class="row">
+                      <div class="col-md-8">
+                      <div class="form-group">
+                        <label class="form-control-label">code</label>
+                        <input type="text" id="card-code" placeholder="EFFHY 1234" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">       
+                        <label class="form-control-label">pin</label>
+                        <input type="text" id="card-pin" placeholder="705" class="form-control" maxlength="3">
+                      </div>
+                      <div class="form-group float-right">       
+                        <input value="Topup" class="btn btn-primary topup-button">
+                      </div>
+                      </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
    </div>
-   <audio id="mysoundclip" preload="auto">
-              <source src="music.mp3"> </source>
-          </audio>
+
       <!-- JavaScript files-->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -119,18 +147,49 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
       <script src="vendor/jquery/jquery-confirm.js"></script>
       <script src="js/front.js"></script>
+      <script src="js/cleave.min.js"></script>
       <script src="vendor/slick/slick.min.js"></script>
       <script src="js/custom.js"></script>
 
       <script type="text/javascript">
-        $(".skeri_button").on("click", function(){
+/*        $(".skeri_button").on("click", function(){
             $("#skeri").removeClass("hide");
 
             var audio = $("#mysoundclip")[0];
             audio.play();
 
 
+        }); */
+        var cleave = new Cleave('#card-code', {
+            blocks: [5, 4],
+            uppercase: true
         });
-      </script>
+        var cleave = new Cleave('#card-pin', {
+            numeral: true
+        });
+
+//ON TOPUP BUTTON
+$('.topup-button').click(function() {
+  var code = $('#card-code').val();
+  var pin = $('#card-pin').val();
+
+    $.ajax({
+      type: "POST",
+      url: "transaction-card.php",
+      data: {code:code, pin:pin},
+      dataType: "text",
+      success: function(data) {
+        
+      },
+      error: function(err) {
+        console.log('error'+err);
+      }
+    });
+
+
+
+        });
+        </script><?php } ?>
+
    </body>
 </html>
