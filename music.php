@@ -43,7 +43,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-  <div class="preloader">
+<div class="preloader">
       <div class="loader">
           <div class="loader__figure"></div>
           <p class="loader__label">Sapphire</p>

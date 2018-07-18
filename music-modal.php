@@ -1,5 +1,18 @@
-<?php include 'includes/connect.php';
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php'); 
 $hi = $_GET['id'];
+if(strlen($_SESSION['login'])==0){   ?>
+              <script language="javascript">
+                document.location="index.php";
+              </script>
+
+<?php } else{
+      $id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
  ?>
 <!DOCTYPE html>
 <html>
@@ -227,3 +240,4 @@ echo '
     </script>
   </body>
 </html>
+<?php } ?>
