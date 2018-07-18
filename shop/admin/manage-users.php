@@ -59,7 +59,7 @@ if(isset($_GET['del']))
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Firstame</th>
+											<th>Firstname</th>
 											<th>Lastname</th>
 											<th>Email </th>
 											<th>Reg. Date </th>

@@ -88,20 +88,25 @@ $num=mysqli_fetch_assoc($results);
         <!-- Breadcrumb-->
         <div class="container-fluid">
         <div class="row">
-          <ul class="col-6 col-sm-4 col-md-10 breadcrumb">
+          <ul class="col-5 col-sm-4 col-md-9 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
           
-          <div class="col-6 col-sm-4 col-md-2 pull-right">
+          <div class="col-7 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">
-              <?php
-              $data7 = mysqli_query($con,"SELECT * FROM genres");
-              while($row7 = mysqli_fetch_array($data7)) {  
+              <?php 
               echo '
-                <option value="'.$row7['name'].'">'.$row7['name'].'</option>';
-              }
+                <option value="" disabled selected>Select Category</option>
+                <option value="1">Action</option>
+                <option value="2">Kids</option>
+                <option value="3">Comedy</option>
+                <option value="4">Drama</option>
+                <option value="5">Horror</option>
+                <option value="6">Romance</option>
+                <option value="7">Sci-Fi &amp; Fantasy</option>
+                <option value="8">Adventure</option>'
               ?>
               </select>
             </div>
@@ -111,16 +116,14 @@ $num=mysqli_fetch_assoc($results);
 <div class="container">
            <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id join genres on main_genre=genres.id where main_genre='1'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
                             <h4 class="my-content">Action TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
                             echo '
-                           
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
@@ -130,29 +133,26 @@ $num=mysqli_fetch_assoc($results);
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
            <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
                             <h4 class="my-content">Adventure TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
-                            echo '
-                           
-                            <div class="snip1205">
+                            echo '    
+                               <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
-                                $dataid = $row['series_id'];
-                
+                                $dataid = $row['series_id'];  
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
            <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='3'");
@@ -162,19 +162,16 @@ $num=mysqli_fetch_assoc($results);
                             <h4 class="my-content">Comedy TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
                             echo '
-                           
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
-                
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
   <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='4'");
@@ -184,19 +181,16 @@ $num=mysqli_fetch_assoc($results);
                             <h4 class="my-content">Drama TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
                             echo '
-                           
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
-                
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
          <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='5'");
@@ -206,19 +200,16 @@ $num=mysqli_fetch_assoc($results);
                             <h4 class="my-content">Horror TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
-                            echo '
-                           
+                            echo '   
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
-                
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
          <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='6'");
@@ -228,19 +219,16 @@ $num=mysqli_fetch_assoc($results);
                             <h4 class="my-content">Romantic TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
-                            echo '
-                           
+                            echo '      
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
                                 $dataid = $row['series_id'];
-                
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
         <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='7'");
@@ -250,41 +238,35 @@ $num=mysqli_fetch_assoc($results);
                             <h4 class="my-content">Sci-Fi & Fantasy TV Shows</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
-                            echo '
-                           
+                            echo '                         
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
-                                $dataid = $row['series_id'];
-                
+                                $dataid = $row['series_id'];               
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
          <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
                             <h4 class="my-content">Kids TV</h4>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
-
-                            echo '
-                           
+                            echo '                         
                             <div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/series_cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['series_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingSeries(this);"></i>
                                 </div>';
-                                $dataid = $row['series_id'];
-                
+                                $dataid = $row['series_id'];               
                 }
                       }
                         
-            ?> </div>
+            ?> </div><br>
 
 <?php
 $data2 = mysqli_query($con,"select * from series join series_cover_images on cover_image_id=series_cover_images.id left join genre_series on genre_series.series_id=series.id join genres on genres.id=genre_series.genre_id where series.id=$hi");
@@ -325,20 +307,13 @@ while($row6 = mysqli_fetch_array($data6)) {
   }
 $x = $x +1;
 }
-
 echo '
 </p><p>
 '.$row2['description'] .'
-
-
 </p>
 <p>
 <strong>Cast:</strong> '.$row2['cast'] .'<br>
-
-
-
 </p>
-
 </div>
 </div>
 <br>        

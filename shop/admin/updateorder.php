@@ -79,6 +79,7 @@ $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'")
    <?php } ?>
    <?php 
 $st='Delivered';
+$st1='Item Return';
    $rt = mysqli_query($con,"SELECT * FROM orders WHERE id='$oid'");
      while($num=mysqli_fetch_array($rt))
      {
@@ -88,8 +89,33 @@ $st='Delivered';
      { ?>
    <tr><td colspan="2"><b>
       Product Delivered </b></td>
-   <?php }else  {
-      ?>
+    <?php } else if($st1==$currrentSt){ ?>
+      <tr height="50">
+          <td class="fontkink1">Status: </td>
+          <td  class="fontkink"><span class="fontkink1" >
+            <select name="status" class="fontkink" required="required" >
+              <option disabled selected="true">Select Status</option>
+              <option value="Returned">Returned</option>
+            </select>
+            </span></td>
+        </tr>
+
+      <tr style=''>
+          <td class="fontkink1" >Remark:</td>
+          <td class="fontkink" align="justify" ><span class="fontkink">
+            <textarea cols="50" rows="7" name="remark" ></textarea>
+            </span></td>
+        </tr>
+        <tr>
+          <td class="fontkink1">&nbsp;</td>
+          <td  >&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="fontkink">       </td>
+          <td  class="fontkink"> <input type="submit" name="submit2"  value="update"   size="40" style="cursor: pointer;" /> &nbsp;&nbsp;   
+          <input name="Submit2" type="submit" class="txtbox4" value="Close this Window " onClick="return f2();" style="cursor: pointer;"  /></td>
+        </tr>
+    <?php } else  { ?>
    
     <tr height="50">
       <td class="fontkink1">Status: </td>
@@ -105,7 +131,7 @@ $st='Delivered';
      <tr style=''>
       <td class="fontkink1" >Remark:</td>
       <td class="fontkink" align="justify" ><span class="fontkink">
-        <textarea cols="50" rows="7" name="remark"  required="required" ></textarea>
+        <textarea cols="50" rows="7" name="remark" ></textarea>
         </span></td>
     </tr>
     <tr>

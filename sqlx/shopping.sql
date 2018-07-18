@@ -168,7 +168,8 @@ CREATE TABLE `shopusers` (
 
 INSERT INTO `shopusers` (`id`, `name`, `email`, `contactno`, `password`, `regDate`, `updationDate`) VALUES
 (4, 'Jessica', 'jessica@gmail.com', 9123456789, '6b9611669f31f2a9a2c9e80d185b127e', '2018-06-24 23:35:54', ''),
-(5, 'Regina Lopez', 'rlopez@gmail.com', 955821998, 'e10adc3949ba59abbe56e057f20f883e', '2018-07-05 00:36:03', '');
+(5, 'Regina Lopez', 'rlopez@gmail.com', 955821998, 'e10adc3949ba59abbe56e057f20f883e', '2018-07-05 00:36:03', ''),
+(4, 'Jessica', 'jessica@gmail.com', 9123456789, '6b9611669f31f2a9a2c9e80d185b127e', '2018-06-24 23:35:54', '');
 
 -- --------------------------------------------------------
 
