@@ -479,3 +479,78 @@ PAYMENT METHODS
   transform: translate(0,-8px);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24);
 }
+
+/* Scroll Button for Series and Music */
+.canvas {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  color: white;
+  transition: all .5s ease;
+  width: 100%;
+}
+
+.name {
+  background: grey;
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+
+.category {
+  line-height: .01;
+  color: #3a3a3a;
+  font-weight: bold;
+}
+
+.range {
+  line-height: .01;
+  color: white;
+  font-weight: bold;
+}
+
+.list p {
+  display: inline;
+  padding: none;
+}
+
+.list {
+  background: #151515;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  height: 210px;
+  align-items: middle;
+}
+
+.list a {
+  color: white;
+  font-family: fantasy;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Muli", sans-serif;
+}
+
+.list img {
+  vertical-align: middle;
+  transition: .5s ease;
+  filter: brightness(80%);
+}
+
+.list img:hover {
+  width: 110px;
+  box-shadow: 0 0 20px black;
+  filter: brightness(120%);
+}
+
+.list span {
+  background: url(title.ico);
+  width: 100px;
+  height: 100px;
+}
+
+.series-video {
+  margin-right: 2em;
+}
