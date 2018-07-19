@@ -200,3 +200,10 @@ $(document).ready(function(){
                 $(".wallet").hide();
     }).change();
 });
+$(document).ready(function(){
+  $(".scratchcard").hide();
+  $("#scratchcard").click(function(){
+              $(".scratchcard").show();
+
+  }).change();
+});

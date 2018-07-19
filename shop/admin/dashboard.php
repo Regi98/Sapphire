@@ -75,19 +75,19 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
           <br><br>
             <h2>Choose your champion!!!!!!!</h2><br><br>
               <div class="row ">
-                    <div class="col-sm">
-                        <a style="font-family: inherit; font-weight: 300 !important;" href="todays-orders.php" class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up">
+                    <div class="col-md-4">
+                        <a style="font-family: inherit; font-weight: 300 !important;" href="todays-orders.php" class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
                             <i class="fa fa-2x fa-tasks" aria-hidden="true"></i><br> &nbsp;&nbsp;
                         Today's Orders
                         </a>
                     </div>
-                    <div class="col-sm">
-                        <a style="font-family: inherit; font-weight: 300 !important;" href="pending-orders.php" class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
+                    <div class="col-md-4">
+                        <a style="font-family: inherit; font-weight: 300 !important;" href="pending-orders.php" class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
                         <i class="fa fa-2x fa-tasks" aria-hidden="true"></i><br> &nbsp;&nbsp;
                         Pending Orders</a>
                     </div>
-                    <div class="col-sm">
-                        <a style="font-family: inherit; font-weight: 300 !important;" href="pending-orders.php" class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
+                    <div class="col-md-4">
+                        <a style="font-family: inherit; font-weight: 300 !important;" href="pending-orders.php" class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
                         <i class="fa fa-2x fa-inbox" aria-hidden="true"></i><br> &nbsp;&nbsp;
                         Delivered Orders</a>
                     </div>
