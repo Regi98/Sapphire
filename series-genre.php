@@ -122,7 +122,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <div class="row text-center">';
+                            <div class="row text-center text-lg-left">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
                             <div class="col-lg-3 col-md-4 col-sm-6 col-3" style="padding:5px;">

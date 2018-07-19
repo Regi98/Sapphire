@@ -66,6 +66,7 @@ a {
 
 p {
   line-height: 1.7;
+  font-size: 12px;
 }
 
 button {
@@ -136,7 +137,6 @@ pre {
   padding: 20px 20px;
   margin-bottom: 0;
   color: #8a8d93;
-  margin-top: -3em;
 }
 
 .breadcrumb a {
@@ -238,7 +238,6 @@ pre {
   background: none;
   outline: none;
   border-radius: 0;
-  font-size: 11px;
 }
 
 .dropdown-toggle span.caret {
@@ -260,7 +259,7 @@ i[class*='icon-'] {
 
 .dropdown-menu a {
   padding: 10px 15px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: none;
 }
 
@@ -675,7 +674,7 @@ nav.navbar .dropdown .dropdown-menu.active {
 */
 nav#sidebar {
   width: 260px;
-  background: #E7E7E7;
+  background: #e7e7e7;
   color: #232323;
   /* shrinked navbar */
 }
@@ -1729,6 +1728,10 @@ form label {
   color: #8a8d93;
 }
 
+form label span{
+  color:red;
+}
+
 .checkbox-template,
 .radio-template {
   -webkit-transform: translateY(1px);
@@ -2088,6 +2091,7 @@ STYLE SWITCHER FOR DEMO
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
+  margin: -15px 15px 15px;
   -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2110,14 +2114,14 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary {
   color: color-yiq(#099CE5);
-  background-color: #071961;
+  background-color: #099CE5;
   border-color: #099CE5;
-  margin-left: 15px;
-  font-size: 13px;
 }
 
 .btn-primary:hover {
-  
+  color: color-yiq(#d44658);
+  background-color: #d44658;
+  border-color: #d13c4f;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2133,7 +2137,9 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-
+  color: color-yiq(#d13c4f);
+  background-color: #d13c4f;
+  border-color: #cf3145;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2709,13 +2715,12 @@ body {
 }
 
 a {
-  color: #232323;
+  color: #099CE5;
   text-decoration: none;
-  font-size: 15px;
 }
 
 a:focus, a:hover {
-  color: #0056b3;
+  color: #c52e41;
   text-decoration: underline;
 }
 
@@ -3251,12 +3256,6 @@ pre code {
 
 .card-body {
   padding: 1.25rem;
-  background-color: #03132d;
-  color: #fff;
-}
-
-.card-body a{
- color: #fff;
 }
 
 .card-title {
