@@ -314,8 +314,7 @@ echo '
 <strong>Cast:</strong> '.$row2['cast'] .'<br>
 </p>
 </div>
-</div>
-<br>        
+</div>       
 </div>';?>
 <div class="row">
   <div class="col-6 col-xs-4 col-md-4">
