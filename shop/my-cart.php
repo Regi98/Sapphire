@@ -353,6 +353,7 @@ $_SESSION['pid']=$pdtid;
 					action: function(){
 
 						$.confirm({
+							theme: 'material',
 							type: 'green',
 							title: 'Thank you!',
 							content: 'Redirecting you to payments page..',
@@ -381,7 +382,12 @@ $_SESSION['pid']=$pdtid;
 					No: {
 						text: 'No', // With spaces and symbols
 						action: function () {
-							$.alert('Order has been cancelled');
+							$.alert({
+								title: 'Warning',
+								content: 'Order has been cancelled.',
+								type: 'red',
+								theme: 'material'
+							});
 						}
 					}
 				}

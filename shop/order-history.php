@@ -79,88 +79,91 @@ unset($_SESSION['cart']);
 
 <body class="cnt-home">
 
-<?php include('includes/header.php');?>
-				<!-- ============================================== HEADER ============================================== -->
-				<header class="header-style-1">
-					<?php include('includes/top-header.php');?>
-					<?php include('includes/main-header.php');?>
-					<?php include('includes/menu-bar.php');?>
-				</header>
-				<!-- ============================================== HEADER : END ============================================== -->
-				
+	<?php include('includes/header.php');?>
+	<!-- ============================================== HEADER ============================================== -->
+	<header class="header-style-1">
+		<?php include('includes/top-header.php');?>
+		<?php include('includes/main-header.php');?>
+		<?php include('includes/menu-bar.php');?>
+	</header>
+	<!-- ============================================== HEADER : END ============================================== -->
 
-				<div class="body-content outer-top-xs">
-					<div class="container">
-						<div class="row" style="border: 1px solid black">
-							<!-- <div class="shopping-cart" >
+
+	<div class="body-content outer-top-xs">
+		<div class="container">
+			<div class="row" style="border: 1px solid black">
+				<!-- <div class="shopping-cart" >
 								<div class="col-md-12 col-sm-12 col-xs-12 shopping-cart-table " > -->
-									
 
-									<div class="table-responsive">
-										<form name="cart" method="post">
-	
-											<table class="table table-bordered table-hover table-condensed">
-												<thead class="cart-item product-summary thead-dark">
-													<tr>
-														<th class="cart-romove item">#</th>
-														<th class="cart-description item">Image</th>
-														<th  width="15%" class="cart-product-name item">Product Name</th>
 
-														<th class="cart-qty item">Quantity</th>
-														<th width="15%" class="cart-sub-total item">Price Per unit</th>
+				<div class="table-responsive">
+					<form name="cart" method="post">
 
-														<th class="cart-total item">Grandtotal</th>
-														<th class="cart-total item">Payment Method</th>
-														<th class="cart-description item">Order Date</th>
-														<th class="cart-description item">Status</th>
-														<th class="cart-description item">Action</th>
+						<table class="table table-bordered table-hover table-condensed">
+							<thead class="cart-item product-summary thead-dark">
+								<tr>
+									<th class="cart-romove item">#</th>
+									<th class="cart-description item">Image</th>
+									<th width="15%" class="cart-product-name item">Product Name</th>
 
-													</tr>
-												</thead>
-												<!-- /thead -->
+									<th class="cart-qty item">Quantity</th>
+									<th width="15%" class="cart-sub-total item">Price Per unit</th>
 
-												<tbody>
+									<th class="cart-total item">Grandtotal</th>
+									<th class="cart-total item">Payment Method</th>
+									<th class="cart-description item">Order Date</th>
+									<th class="cart-description item">Status</th>
+									<th class="cart-description item">Action</th>
 
-													<?php 
+								</tr>
+							</thead>
+							<!-- /thead -->
+
+							<tbody>
+
+								<?php 
 $query=mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as proid,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid,orders.orderStatus as oStatus from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."'");
 $cnt=1;
+$num=mysqli_num_rows($query);
+if($num>0){
 while($row=mysqli_fetch_array($query))
 {
 ?>
-													<tr>
-														<td>
-															<?php echo $cnt;?>
-														</td>
-														<td class="cart-image">
-															<a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($row['opid']);?>">
-																<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pname'];?>" width="40%" height="40%">
-															</a>
-														</td>
-														<td class="cart-product-name-info">
-															<h4 class='cart-product-description'>
-																<a href="product-details.php?pid=<?php echo $row['opid'];?>">
-																	<?php echo $row['pname'];?>
-																</a>
-															</h4>
+								<tr>
+									<td>
+										<?php echo $cnt;?>
+									</td>
+									<td class="cart-image">
+										<a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($row['opid']);?>">
+											<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pname'];?>"
+											    width="40%" height="40%">
+										</a>
+									</td>
+									<td class="cart-product-name-info">
+										<h4 class='cart-product-description'>
+											<a href="product-details.php?pid=<?php echo $row['opid'];?>">
+												<?php echo $row['pname'];?>
+											</a>
+										</h4>
 
 
-														</td>
-														<td class="cart-product-quantity">
-															<?php echo $qty=$row['qty']; ?>
-														</td>
-														<td class="cart-product-sub-total">
-															<?php 
+									</td>
+									<td class="cart-product-quantity">
+										<?php echo $qty=$row['qty']; ?>
+									</td>
+									<td class="cart-product-sub-total">
+										<?php 
 															$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['pprice']);
 															echo "$"." ". number_format($productPrice); ?> </td>
-														<td class="cart-product-grand-total">
-															<?php echo "$"." ". number_format($qty*$productPrice);?>
-														</td>
-														<td class="cart-product-sub-total">
-															<?php echo $row['paym']; ?> </td>
-														<td class="cart-product-sub-total">
-															<?php echo $row['odate']; ?> </td>
-														<td class="cart-product-sub-total">
-															<?php 
+									<td class="cart-product-grand-total">
+										<?php echo "$"." ". number_format($qty*$productPrice);?>
+									</td>
+									<td class="cart-product-sub-total">
+										<?php echo $row['paym']; ?> </td>
+									<td class="cart-product-sub-total">
+										<?php echo $row['odate']; ?> </td>
+									<td class="cart-product-sub-total">
+										<?php 
 																if($row['oStatus']==NULL){
 																	echo "<span class='badge badge-pill badge-primary'>Order Processing</span>";
 																} else if($row['oStatus']=='Cancelled'){
@@ -173,49 +176,61 @@ while($row=mysqli_fetch_array($query))
 																	echo "<span class='badge badge-pill badge-success'>".$row['oStatus']."</span>";
 																}
 															?>
-														</td>
-														<td class="cart-product-sub-total">
-															<?php 
+									</td>
+									<td class="cart-product-sub-total">
+										<?php 
 																if($row['oStatus']=='Delivered'){?>
-																		<a class="btn btn-sm btn-outline-success return-item text-success"  data-id="<?php echo htmlentities($row['orderid']);?>">Return Item</a><br><br>
-																		<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
-																<?php } else if($row['oStatus']=='Cancelled' || $row['oStatus']=='Item Return'){ ?>
-																	<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
-																<?php } else if($row['oStatus']=='Returned'){ ?>
-																	<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
-																<?php } else{ ?>
-																	<button type="button" class="btn btn-sm btn-outline-danger cancel-order" data-id="<?php echo htmlentities($row['orderid']);?>">Cancel</br>
-																<?php } ?>
-														</td>
+										<a class="btn btn-sm btn-outline-success return-item text-success" data-id="<?php echo htmlentities($row['orderid']);?>">Return Item</a>
+										<br>
+										<br>
+										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
+										<?php } else if($row['oStatus']=='Cancelled' || $row['oStatus']=='Item Return'){ ?>
+										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
+										<?php } else if($row['oStatus']=='Returned'){ ?>
+										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
+										<?php } else{ ?>
+										<button type="button" class="btn btn-sm btn-outline-danger cancel-order" data-id="<?php echo htmlentities($row['orderid']);?>">Cancel</br>
+											<?php } ?>
+									</td>
 
-													</tr>
-													<?php $cnt=$cnt+1;} ?>
+								</tr>
+								<?php $cnt=$cnt+1;} ?>
+								<?php } else {?>
+								<tr>
+									<td colspan="10" align="center">
+										<h4>No Result Found</h4>
+									</td>
+								</tr>
+								<?php } ?>
 
-												</tbody>
-												<!-- /tbody -->
-											</table>
-											<!-- /table -->
+							</tbody>
+							<!-- /tbody -->
+						</table>
+						<!-- /table -->
 
-									</div>
-								</div>
-
-							</div>
-							<!-- /.shopping-cart -->
-						</div>
-						<!-- /.row -->
-						</form>
-						<!-- ============================================== BRANDS CAROUSEL ============================================== -->
-						<!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
-					</div>
-					<!-- /.container -->
 				</div>
-				<!-- /.body-content --><br>		
+			</div>
 
 		</div>
+		<!-- /.shopping-cart -->
 	</div>
-	</section><br><br>
+	<!-- /.row -->
+	</form>
+	<!-- ============================================== BRANDS CAROUSEL ============================================== -->
+	<!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+	</div>
+	<!-- /.container -->
+	</div>
+	<!-- /.body-content -->
+	<br>
+
+	</div>
+	</div>
+	</section>
+	<br>
+	<br>
 	<?php include('includes/footer.php');?>
-	
+
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -262,15 +277,14 @@ while($row=mysqli_fetch_array($query))
 	<script src="distribution/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="../js/jquery-confirm.js"></script>
 	<script src="distribution/js/front.js"></script>
-	<script	type="text/javascript">
-
-		$('.return-item').on( "click", function() {
+	<script type="text/javascript">
+		$('.return-item').on("click", function () {
 			var order_id = $(this).data('id');
 			console.log(order_id);
-			
-				$.confirm({
-					title: 'Reason of Return',
-					content: '' +
+
+			$.confirm({
+				title: 'Reason of Return',
+				content: '' +
 					'<form action="" class="formName">' +
 					'<div class="form-group">' +
 					'<label>Select Reason:</label>' +
@@ -279,74 +293,78 @@ while($row=mysqli_fetch_array($query))
 					'<input type="text" placeholder="Enter here.." class="add-info form-control" required />' +
 					'</div>' +
 					'</form>',
-					buttons: {
-						formSubmit: {
-							text: 'Submit',
-							btnClass: 'btn-blue',
-							action: function () {
-								var reason = this.$content.find('.select-reason').val();
-								var add_info = this.$content.find('.add-info').val();
-								if(!reason){
-									$.alert('Please provide a reason');
-									return false;
-								} else {
-									$.confirm({
-										type: 'red',
-										theme: 'material',
-										title: 'Are you sure you want to return?',
-										content: '<strong>Reason:</strong> '+reason+'<br><strong>Additional Info:</strong> '+add_info,
-										buttons: {
-											Yes: {
+				buttons: {
+					formSubmit: {
+						text: 'Submit',
+						btnClass: 'btn-blue',
+						action: function () {
+							var reason = this.$content.find('.select-reason').val();
+							var add_info = this.$content.find('.add-info').val();
+							if (!reason) {
+								$.alert('Please provide a reason');
+								return false;
+							} else {
+								$.confirm({
+									type: 'red',
+									theme: 'material',
+									title: 'Are you sure you want to return?',
+									content: '<strong>Reason:</strong> ' + reason + '<br><strong>Additional Info:</strong> ' + add_info,
+									buttons: {
+										Yes: {
 											btnClass: 'btn-green',
-											action: function(){
+											action: function () {
 												$.ajax({
 													type: "POST",
 													url: "return-order.php",
-													data: {orderId:order_id, reason:reason, addInfo:add_info},
-													dataType: "text",
-													success: function(data) {
-													window.location.replace("order-history.php");
+													data: {
+														orderId: order_id,
+														reason: reason,
+														addInfo: add_info
 													},
-													error: function(err) {
-													console.log(err);
-													
+													dataType: "text",
+													success: function (data) {
+														window.location.replace("order-history.php");
+													},
+													error: function (err) {
+														console.log(err);
+
 													}
 												});
-											
+
 											}
 
-											},
-											No: {
-												text: 'No', // With spaces and symbols
-												action: function () {
-													$.alert('Item has not been returned');
-												}
+										},
+										No: {
+											text: 'No', // With spaces and symbols
+											action: function () {
+												$.alert('Item has not been returned');
 											}
 										}
-									});
-								
-								}
-							}
-						},
-						cancel: function () {
-							//close
-						},
-					},
-					onContentReady: function () {
-						// bind to events
-						var jc = this;
-						this.$content.find('form').on('submit', function (e) {
-							// if the user submits the form by pressing enter in the field.
-							e.preventDefault();
-							jc.$$formSubmit.trigger('click'); // reference the button and click it
-						});
-					}
-				});
+									}
+								});
 
+							}
+						}
+					},
+					cancel: function () {
+						//close
+					},
+				},
+				onContentReady: function () {
+					// bind to events
+					var jc = this;
+					this.$content.find('form').on('submit', function (e) {
+						// if the user submits the form by pressing enter in the field.
+						e.preventDefault();
+						jc.$$formSubmit.trigger('click'); // reference the button and click it
+					});
+				}
 			});
 
+		});
 
-		$('.cancel-order').on( "click", function() {
+
+		$('.cancel-order').on("click", function () {
 			var order_id = $(this).data('id');
 			console.log(order_id);
 			$.confirm({
@@ -356,33 +374,35 @@ while($row=mysqli_fetch_array($query))
 				content: 'Are you sure you want to cancel?',
 				buttons: {
 					Yes: {
-					btnClass: 'btn-red',
-					action: function(){
+						btnClass: 'btn-red',
+						action: function () {
 
-						$.confirm({
-							type: 'green',
-							title: 'Order Canceled!',
-							content: 'Redirecting you to orders history page..',
-							buttons: {
-								OK: function () {
-									$.ajax({
-									type: "POST",
-									url: "cancel-order.php",
-									data: {orderId:order_id},
-									dataType: "JSON",
-									success: function(data) {
-									window.location.replace("order-history.php");
-									},
-									error: function(err) {
-									console.log(err);
-									
+							$.confirm({
+								type: 'green',
+								title: 'Order Canceled!',
+								content: 'Redirecting you to orders history page..',
+								buttons: {
+									OK: function () {
+										$.ajax({
+											type: "POST",
+											url: "cancel-order.php",
+											data: {
+												orderId: order_id
+											},
+											dataType: "JSON",
+											success: function (data) {
+												window.location.replace("order-history.php");
+											},
+											error: function (err) {
+												console.log(err);
+
+											}
+										});
 									}
-								});
 								}
-							}
-						})
-					
-					}
+							})
+
+						}
 
 					},
 					No: {
@@ -393,9 +413,9 @@ while($row=mysqli_fetch_array($query))
 					}
 				}
 			});
-			});
+		});
 	</script>
-	
+
 </body>
 
 </html>
