@@ -521,7 +521,7 @@ PAYMENT METHODS
   overflow: auto;
   margin: 0;
   padding: 0;
-  height: 210px;
+  height: 160px;
   align-items: middle;
 }
 
@@ -550,4 +550,5 @@ PAYMENT METHODS
   width: 100px;
   height: 100px;
 }
+
 
