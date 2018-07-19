@@ -1,9 +1,8 @@
 <?php include 'includes/connect.php';
 $hi = $_GET['id'];
 $season_number = $_GET['season'];
-
-
-$query = "SELECT * FROM shopusers WHERE id=$hi";
+$id= $_SESSION['id'];
+$query = "SELECT * FROM shopusers WHERE id=$id";
 $results = mysqli_query($con, $query);
 $num=mysqli_fetch_assoc($results);
 ?>
@@ -289,7 +288,7 @@ echo '
 <div class="snip1205">
 <img src="../inflightapp/storage/app/public/series_cover_images/'.$row2['cover_image'].'" class="stretchy" height="100%" width="90%">
 <i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
-<a class="clean-link" href="#">'.$row2['title'] .'</a>
+<a class="clean-link series-title" href="#">'.$row2['title'] .'</a>
 </div><br>
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
@@ -346,11 +345,11 @@ echo '
 
           <a> &nbsp; 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>
-            <button style="margin-top:1px" class="btn btn-info btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play</button>
-
+            <button style="margin-top:1px; margin-left:3px;" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
+            <button style="margin-top:1px" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
             <hr color="grey">
-                <video class="video_player hide" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>"   id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
-                  ads = '{  
+            <video class="video_player hide" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
+            ads = '{  
         "servers": 
           [
             {
@@ -379,15 +378,8 @@ echo '
       </tr>
     </table>
 </div>
-
+</div>  
 </div>
-
- 
-   
-</div>
-
-
-
     </div>
 <footer class="footer text-center">
 
@@ -413,9 +405,7 @@ echo '
         window.location.href = "series.php";
       }
 
-
       $(".series-video").on("click", function() {
-
         var title = $(this).data('title');
         var element = document.getElementById(title);
         if (element.mozRequestFullScreen) {
@@ -426,6 +416,30 @@ echo '
         }
         document.getElementById(title).play();
       });
+
+      //ON PLAY BUTTON
+        $('.button-series-video').on("click", function(){
+        <?php 
+        $userid=$num['id'];
+        
+        $results = mysqli_query($con,"SELECT * FROM mvownership WHERE user_id = $userid AND movie_id = $hi");
+        $numResults = mysqli_num_rows($results);
+          if($numResults == 0) { ?>
+             var seriesid = getUrlParameter('id');
+             var seriestitle = $('.series-title').data('id');
+             window.location.href = "payment-method.php?id=" + seriesid + "&title=" + seriestitle;
+        <?php } else { ?>
+
+        var element = document.getElementById(title);
+          if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+          }
+          else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+          }
+          document.getElementById(title).play();
+          <?php } ?>
+          });
     </script>
   </body>
 </html>
