@@ -106,7 +106,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 
               <!-- Basic Form-->
               <div class="col-lg-12">
-                <div class="block">
+                <div class="block scratchcard">
                 <div class="col-12">
                   </div>
                   <div class="title"><strong class="d-block">Enter Scratch card details:</strong><span class="d-block"></span><br>
@@ -179,7 +179,7 @@ $('.topup-button').click(function() {
       data: {code:code, pin:pin},
       dataType: "text",
       success: function(data) {
-        console.log('erwerwe'+data);
+        console.log(data);
         if(data=='1') {
           $.alert({
             title: 'Invalid transaction!',
