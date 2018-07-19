@@ -170,8 +170,8 @@ echo '
           <audio id="myAudio">
             <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
             </audio>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()" data-title="title"'.$row3['title'].'"></button>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()" data-title="title"'.$row3['title'].'"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()"></button>
             <hr color="grey">
             </section>
         </td>
