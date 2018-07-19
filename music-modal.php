@@ -1,5 +1,18 @@
-<?php include 'includes/connect.php';
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php'); 
 $hi = $_GET['id'];
+if(strlen($_SESSION['login'])==0){   ?>
+              <script language="javascript">
+                document.location="index.php";
+              </script>
+
+<?php } else{
+      $id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
  ?>
 <!DOCTYPE html>
 <html>
@@ -155,45 +168,49 @@ $hi = $_GET['id'];
       </div>
 
 <?php
-$data = mysqli_query($con,"select * from albums
+$data2 = mysqli_query($con,"select * from albums
 join artists on artists.id=albums.artist_id
 left join musics on musics.album_id=albums.id
 join cover_images on albums.cover_image_id=cover_images.id
 where albums.id = $hi and musics.album_id= $hi");
-while($row2 = mysqli_fetch_array($data)) {  
+while($row2 = mysqli_fetch_array($data2)) {  
 echo '
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
 <div class="modal-dialog modal-lg">
 <!-- Modal content-->
 <div class="modal-content">
-
-<div class="modal-body">
-        <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-<div class="row">
-<div class="col-sm-4 col-md-4 text-center">
-
-<br>
-<div class="snip1205">
-<img src="../inflightapp/storage/app/public/cover_images/'. $row2['cover_image'] .'" class="stretchy">
-          <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row2['id'] .'"></i>
-
+ <div class="modal-body">
+                <i class="fa fa-times pull-right" data-dismiss="modal"></i>
+            <div class="row">
+                <div class="col-6 col-sm-4 col-md-4" style="margin:auto;"><br>
+                    <div class="snip1205">
+<img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
+<i class="fa fa-caret-right" onclick="goFullscreen();"></i>
 </div><br>
-<h5 id="album_name"><strong>'.$row2['album_name'] .'</strong></h5>
-<h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
 </div>
-    <div class="row">
-    <p class="col-12 col-sm-8 col-md-12">
-<div id="audioPanel">
-<b class="tracks">Tracks</b>
-  <ul id="playlist">
-    <li data-mp3="../inflightapp/storage/app/public/music_songs/'.$row2["music_song"].'" controlsList="nodownload">'.$row2["title"].'</li>
-  </ul>
-</div>
-</p>
-</div>'; } ?>
+                </div>
+            <div class="row">
+            <div class="col-12 col-sm-8 col-md-12" style="text-align: center;">
+                <h5 id="album_name"><strong>'.$row2['album_name'] .'</strong></h5>
+                <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
+            </div>
+        </div>
+<div class="row">
+<table class="canvas">
+      <tr>
+        <td class="list" valign="middle">
+          <section class="list">
+          <h6>'.$row2['title'].'&nbsp;-&nbsp;Genre:&nbsp;'.$row2['genre'].'</h6>
+
+          <a> &nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+            <button style="margin-top:1px" class="btn btn-info btn-sm pull-right series-video" data-title="'.$row2['music_song'].'">Play</button>
+            <hr color="grey">
+</td>
+</tr>
+</table>
+</div>';}?>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -227,3 +244,4 @@ echo '
     </script>
   </body>
 </html>
+<?php } ?>
