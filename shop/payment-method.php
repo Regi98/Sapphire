@@ -6,6 +6,7 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
+	unset($_SESSION['cart']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,10 +67,10 @@ else{
 </header>
 <br><br>
 <div class="container-fluid">
-    <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+    <!-- <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
       <li class="breadcrumb-item active">Payment Method</li>
-    </ul>
+    </ul> -->
 </div>
 
   <div class="container  h-100 justify-content-center align-items-center text-center">

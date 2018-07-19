@@ -64,77 +64,65 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <div class="container-fluid">
-<h4 class="my-content">New Albums Release</h4>
-      <div class="regular text-center">
-         <?php
+  <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
-                        while($row = mysqli_fetch_array($data)) { 
+                     $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">New Albums Releases</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
                                             <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
-                                $dataid = $row['id'];
-                
+                                $dataid = $row['id'];  
                 }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div><br>
-      <h4 class="my-content">Top Albums of the Month</h4>
-      <div class="regular text-center">
-         <?php
+                      }
+                        
+            ?> </div><br>
+     <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='1'");
-                        while($row = mysqli_fetch_array($data)) { 
+                     $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='1'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Top Albums of The Month</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
                                             <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
-                                $dataid = $row['id'];
-                
+                                $dataid = $row['id'];  
                 }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div><br>
-      <h4 class="my-content">Popular Albums</h4>
-      <div class="regular text-center">
-        <?php
+                      }
+                        
+            ?> </div><br>
+            </div>
+      <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='3'");
-                        while($row = mysqli_fetch_array($data)) { 
+                     $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='3'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Popular Albums</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
                                             <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
-                                $dataid = $row['id'];
-                
+                                $dataid = $row['id'];  
                 }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div>
+                      }
+                        
+            ?> </div><br>
     </div>
-       
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

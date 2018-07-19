@@ -41,7 +41,6 @@ if(strlen($_SESSION['login'])==0){   ?>
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/song.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -70,74 +69,69 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <div class="container">
-<h4 class="my-content">New Albums Releases</h4>
-      <div class="regular text-center">
-         <?php
-                  $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
-                                        <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
-                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
-                                </div>';
-                
-                }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div><br>
-      <h4 class="my-content">Top Albums of the Month</h4>
-      <div class="regular text-center">
-         <?php
+ <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='1'");
-                        while($row = mysqli_fetch_array($data)) { 
+                     $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">New Albums Releases</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
-
+                                            <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
-                                $dataid = $row['id'];
-                
+                                $dataid = $row['id'];  
                 }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div><br>
-      <h4 class="my-content">Popular Albums</h4>
-      <div class="regular text-center">
-        <?php
+                      }
+                        
+            ?> </div><br>
+     <?php
             $dataid;
-                    $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='3'");
-                        while($row = mysqli_fetch_array($data)) { 
+                     $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='1'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Top Albums of The Month</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
+                                            <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
-                                $dataid = $row['id'];
-                
+                                $dataid = $row['id'];  
                 }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div>
+                      }
+                        
+            ?> </div><br>
+     <?php
+            $dataid;
+                     $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='3'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '
+                            <h4 class="my-content">Popular Albums</h4>
+                             <div class="regular text-center">';
+                      while($row = mysqli_fetch_array($data)) { 
+                            echo '<div class="snip1205">
+                                        <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
+                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
+                                            <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
+                                </div>';
+                                $dataid = $row['id'];  
+                }
+                      }
+                        
+            ?> </div><br>
 
 <?php
-$data2 = mysqli_query($con,"select * from albums join artists on artists.id=albums.artist_id left join musics on musics.album_id=albums.id join cover_images on albums.cover_image_id=cover_images.id where albums.id = $hi and musics.album_id= $hi");
+$data2 = mysqli_query($con,"select * from albums
+join artists on artists.id=albums.artist_id
+join cover_images on albums.cover_image_id=cover_images.id
+where albums.id = $hi");
 while($row2 = mysqli_fetch_array($data2)) {  
 echo '
 <!-- Modal -->
@@ -160,20 +154,33 @@ echo '
                 <h5 id="album_name"><strong>'.$row2['album_name'] .'</strong></h5>
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
             </div>
-        </div>
-<div class="row">
-<table class="canvas">
+        </div><br>';}?>
+<?php
+$data3= mysqli_query($con,"select * from musics
+where musics.album_id = $hi");
+while($row3 = mysqli_fetch_array($data3)) {  
+echo '
+ <table class="canvas col-md-12">
       <tr>
         <td class="list" valign="middle">
           <section class="list">
-          <h6>'.$row2['title'].'&nbsp;-&nbsp;Genre:&nbsp;'.$row2['genre'].'</h6>
 
-
+          <a> &nbsp; 
+          '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
+          <audio id="myAudio">
+            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
+            </audio>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()" data-title="title"'.$row3['title'].'"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()" data-title="title"'.$row3['title'].'"></button>
             <hr color="grey">
-</td>
-</tr>
-</table>
-</div>';}?>
+            </section>
+        </td>
+      </tr>
+    </table>';}?>
+    </div>
+</div>
+    </div>
+    </div>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -181,11 +188,8 @@ echo '
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
-    <script src="js/vastvideoplugin.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/song.js"></script>
-    
         <script type="text/javascript">
       $(window).on('load',function(){
         $('#myModal').modal('show');
@@ -194,16 +198,14 @@ echo '
       function goBack(){
         window.location.href = "music.php";
       }
-      initAdsFor('player');
-      function goFullscreen(id) {
-        var element = document.getElementById(id);
-        if (element.mozRequestFullScreen) {
-          element.mozRequestFullScreen();
-        }
-        else if (element.webkitRequestFullScreen) {
-          element.webkitRequestFullScreen();
-        }
-        document.getElementById('player').play();
+      var x= document.getElementById("myAudio");
+
+      function playAudio() {
+      x.play();
+      }
+
+      function pauseAudio() {
+      x.pause();
       }
     </script>
   </body>
