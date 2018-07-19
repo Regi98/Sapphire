@@ -49,7 +49,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-  <div class="preloader">
+<div class="preloader">
       <div class="loader">
           <div class="loader__figure"></div>
           <p class="loader__label">Sapphire</p>
@@ -58,38 +58,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
-          <div class="title">
-            <h1 class="h5">Mikha Maun</h1>
-            <p>Economy Class</p>
-          </div>
-        </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
-                <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
-                <li class="active"><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
-                <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
-                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                  </ul>
-                </li>-->
-                <li><a href="shop.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
-                <li><a href="games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
-                <li><a href="news.php"> <i class="fa fa-file"></i>News</a></li>
-
-        </ul><span class="heading">User</span>
-        <ul class="list-unstyled">
-          <li> <a href="#"> <i class="fa fa-money"></i>Payments</a></li>
-          <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
-        </ul>
-      </nav>
+      <?php include 'includes/sidebar.php'; ?>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -168,11 +137,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       </div>
 
 <?php
-$data2 = mysqli_query($con,"select * from albums
-join artists on artists.id=albums.artist_id
-left join musics on musics.album_id=albums.id
-join cover_images on albums.cover_image_id=cover_images.id
-where albums.id = $hi and musics.album_id= $hi");
+$data2 = mysqli_query($con,"select * from albums join artists on artists.id=albums.artist_id left join musics on musics.album_id=albums.id join cover_images on albums.cover_image_id=cover_images.id where albums.id = $hi and musics.album_id= $hi");
 while($row2 = mysqli_fetch_array($data2)) {  
 echo '
 <!-- Modal -->
@@ -203,9 +168,7 @@ echo '
           <section class="list">
           <h6>'.$row2['title'].'&nbsp;-&nbsp;Genre:&nbsp;'.$row2['genre'].'</h6>
 
-          <a> &nbsp; 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
-            <button style="margin-top:1px" class="btn btn-info btn-sm pull-right series-video" data-title="'.$row2['music_song'].'">Play</button>
+
             <hr color="grey">
 </td>
 </tr>
@@ -222,6 +185,7 @@ echo '
     <script src="vendor/slick/slick.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/song.js"></script>
+    
         <script type="text/javascript">
       $(window).on('load',function(){
         $('#myModal').modal('show');
