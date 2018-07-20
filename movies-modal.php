@@ -177,14 +177,14 @@ echo '
 <i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-warning btn-sm col-md-12" id="inherit autoplay" onclick="goFullscreen('player'); return false">
+    <button class="btn btn-info btn-sm col-md-12" id="inherit autoplay" onclick="goFullscreen('player'); return false">
       <i class="fa fa-play-circle">
-      </i>&nbsp;Play with Ads
+      </i>&nbsp;STANDARD (With Ads)
     </button>
 <?php echo '
     <button class="btn btn-success btn-sm col-md-12 button-movie-id" id="inherit autoplay">
       <i class="fa fa-play-circle">
-      </i>&nbsp;Play without Ads
+      </i>&nbsp;PREMIUM (Without Ads)
     </button>
     
 </div>
@@ -207,7 +207,18 @@ echo '
 '.$row2['movie_description'] .'
 </p>
 <p>
-<strong>Cast:</strong> '.$row2['cast'] .'<br>
+<strong>Cast:</strong> '. $row2['cast'] .'<br><br>';
+?>
+<video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['trailer'].''; ?>" id="trailer" width="100%" controlsList="nodownload"></video>
+
+<button class="btn btn-default" id="inherit autoplay" onclick="goFullscreen('trailer'); return false">
+<i class="fa fa-play-circle">
+</i>&nbsp;View Trailer
+</button>
+
+<?php echo'
+
+
 </p>
 </div>
 </div>
@@ -276,7 +287,7 @@ while($row3 = mysqli_fetch_array($data3)) {
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
-        document.getElementById('player').play();
+        document.getElementById(id).play();
       }
       //ON PLAY BUTTON
         $('.button-movie-id').on("click", function(){

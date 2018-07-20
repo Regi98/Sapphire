@@ -121,9 +121,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             ?>
       </div>
     </div>
-        <footer class="footer text-center">
-<img src="images/logo.png" width="70%">
-        </footer>
+
       </div>
     </div>
     <!-- JavaScript files-->
