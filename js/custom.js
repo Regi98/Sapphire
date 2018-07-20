@@ -49,7 +49,7 @@ $(document).ready(function(){
   });
       
 
-  function goDoSomething(identifier){     
+function goDoSomething(identifier){     
          var dataid = $(identifier).data('id');
          
          window.location.href = "movies-modal.php?id=" + dataid;
@@ -75,10 +75,12 @@ $('#season-number').on('change', function(){
 
   window.location.href = "series-modal.php?id=" + series_id+"&season="+season_number;
 });
+
 $(document).ready(function(){
   var season = getUrlParameter('season');
   $('#season-number').val(season)
 });
+
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -93,6 +95,7 @@ $(document).ready(function(){
         }
     }
 };
+
 $('#maingenre').on('change', function () {
   var main_genre = $(this).val();
   var genre_id = getUrlParameter('id');
@@ -100,19 +103,21 @@ $('#maingenre').on('change', function () {
 
   window.location.href = "series-genre.php?genre=" + main_genre;
 });
+
 $(document).ready(function () {
   var genre = getUrlParameter('genre');
   $('#maingenre').val(genre)
 });
+
 function introLoader(element,delay) {
   this.open = function(callback) {
     setTimeout(function() {
       $(element).fadeIn(500, function() {
         if(callback !== undefined) callback();
       });
-    }, delay);
-    
+    }, delay);  
   };
+
   this.close = function(callback) {
     setTimeout(function() {
       $(element).fadeOut(500, function() {
@@ -121,6 +126,7 @@ function introLoader(element,delay) {
     }, delay);
   };
 }
+
 $('video#player').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
     var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
     var event = state ? 'FullscreenOn' : 'FullscreenOff';
@@ -128,6 +134,7 @@ $('video#player').bind('webkitfullscreenchange mozfullscreenchange fullscreencha
     // Now do something interesting
     document.getElementById('player').pause();
 });
+
 $(window).keypress(function(e) {
   var video = document.getElementById("player");
   if (e.which == 32) {
@@ -147,7 +154,6 @@ $("#box1").click(function(){
 
 
 //PRELOADER JS //
-
 $(window).on('load', function() {
   $(".preloader").fadeOut();
   });
@@ -200,6 +206,7 @@ $(document).ready(function(){
                 $(".wallet").hide();
     }).change();
 });
+
 $(document).ready(function(){
   $(".scratchcard").hide();
   $("#scratchcard").click(function(){
