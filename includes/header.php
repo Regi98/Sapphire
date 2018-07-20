@@ -9,8 +9,6 @@
             <button class="sidebar-toggle"><i class="fa fa-bars"></i></button>
           </div>
           <div class="right-menu list-inline no-margin-bottom">    
-            <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
-
             <!-- Megamenu-->
             <div class="list-inline-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Info <i class="fa fa-ellipsis-v"></i></a>
               <div class="dropdown-menu megamenu">

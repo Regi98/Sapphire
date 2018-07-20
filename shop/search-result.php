@@ -19,6 +19,10 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 		}
 	}
 }
+$id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
 // COde for Wishlist
 if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
 	if(strlen($_SESSION['login'])==0)

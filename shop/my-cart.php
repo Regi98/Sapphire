@@ -240,7 +240,7 @@ $_SESSION['pid']=$pdtid;
 				<tr>
 					<td>
 						
-						<a type="submit" id="proceed-checkout" style="color:white;" class="btn btn-primary">PROCEED TO CHEKOUT</a>	
+						<a type="submit" id="proceed-checkout" style="color:white;" class="btn btn-primary">PROCEED TO CHECKOUT</a>	
 					</td>
 				</tr>
 				

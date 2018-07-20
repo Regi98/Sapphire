@@ -2,7 +2,7 @@
 	<div class="footer__block block no-margin-bottom">
 		<div class="container-fluid text-center">
 			<p class="no-margin-bottom">2018 &copy; Sapphire DTX. Design by
-				<a href="https://bootstrapious.com">Dornier Technology, Inc.</a></p>
+				Dornier Technology, Inc.</p>
 		</div>
 	</div>
 </footer>

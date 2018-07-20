@@ -24,7 +24,10 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 		}
 	}
 }
-
+$id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
 
 ?>
 <!DOCTYPE html>

@@ -344,8 +344,8 @@ echo '
 
           <a class="col-4 col-md-7"> 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>
-            <button style="margin-top:1px; margin-left:3px;" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
-            <button style="margin-top:1px" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
+            <button style="margin-top:1px; margin-left:3px;" id="inherit autoplay" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
+            <button style="margin-top:1px" id="inherit autoplay" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
             <hr color="grey">
             <video class="video_player hide" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
             ads = '{  
@@ -400,6 +400,7 @@ echo '
         $('#myModal').modal('show');
       }
                   );
+                  
       function goBack(){
         window.location.href = "series.php";
       }

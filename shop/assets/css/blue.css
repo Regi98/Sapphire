@@ -244,6 +244,7 @@ a {
 }
 .single-product .product-tabs .nav.nav-tabs.nav-tab-cell li.active a {
   background: #071961;
+  width:185px;
 }
 .single-product .product-tabs .nav.nav-tabs.nav-tab-cell li.active a:after {
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #071961;

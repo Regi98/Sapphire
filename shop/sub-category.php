@@ -33,6 +33,10 @@ header('location:my-wishlist.php');
 
 }
 }
+$id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
 ?>
 <!DOCTYPE html>
 <html lang="en">
