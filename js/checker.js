@@ -378,7 +378,7 @@ $(function() {
     });
 
     $('.js-tile').change(function() {
-        game.padded(!$(this).prop('checked'));
+        game.padded($(this).prop('checked'));
     });
 
     $(document).on('click', '.js-play', function () {
