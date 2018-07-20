@@ -287,7 +287,6 @@ echo '
 <br>
 <div class="snip1205">
 <img src="../inflightapp/storage/app/public/series_cover_images/'.$row2['cover_image'].'" class="stretchy" height="100%" width="90%">
-<i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link episode-title" href="#">'.$row2['title'] .'</a>
 </div><br>
 </div>
