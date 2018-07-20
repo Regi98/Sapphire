@@ -40,8 +40,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/song.css">
+    <link rel="stylesheet" href="css/music.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -49,7 +48,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-  <div class="preloader">
+<div class="preloader">
       <div class="loader">
           <div class="loader__figure"></div>
           <p class="loader__label">Sapphire</p>
@@ -58,38 +57,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
-          <div class="title">
-            <h1 class="h5">Mikha Maun</h1>
-            <p>Economy Class</p>
-          </div>
-        </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
-                <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
-                <li class="active"><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
-                <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
-                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                  </ul>
-                </li>-->
-                <li><a href="shop.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
-                <li><a href="games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
-                <li><a href="news.php"> <i class="fa fa-file"></i>News</a></li>
-
-        </ul><span class="heading">User</span>
-        <ul class="list-unstyled">
-          <li> <a href="#"> <i class="fa fa-money"></i>Payments</a></li>
-          <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
-        </ul>
-      </nav>
+      <?php include 'includes/sidebar.php'; ?>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -97,7 +65,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-            <li class="breadcrumb-item active">Movies            </li>
+            <li class="breadcrumb-item active">Music           </li>
           </ul>
         </div>
 <div class="container">
@@ -185,6 +153,8 @@ echo '
             <div class="col-12 col-sm-8 col-md-12" style="text-align: center;">
                 <h5 id="album_name"><strong>'.$row2['album_name'] .'</strong></h5>
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
+                <p>'.$row2['release_date'] .'</p>
+                <p>'.$row2['description'] .'</p>
             </div>
         </div><br>';}?>
 <?php
@@ -196,9 +166,14 @@ echo '
       <tr>
         <td class="list" valign="middle">
           <section class="list">
+
           <a> &nbsp; 
           '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
-            <button style="margin-top:1px" class="btn btn-info btn-sm pull-right series-video" data-title="'.$row3['title'].'">Play</button>
+          <audio id="myAudio">
+            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
+            </audio>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()"></button>
             <hr color="grey">
             </section>
         </td>
@@ -215,10 +190,8 @@ echo '
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
-    <script src="js/vastvideoplugin.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/song.js"></script>
         <script type="text/javascript">
       $(window).on('load',function(){
         $('#myModal').modal('show');
@@ -227,16 +200,14 @@ echo '
       function goBack(){
         window.location.href = "music.php";
       }
-      initAdsFor('player');
-      function goFullscreen(id) {
-        var element = document.getElementById(id);
-        if (element.mozRequestFullScreen) {
-          element.mozRequestFullScreen();
-        }
-        else if (element.webkitRequestFullScreen) {
-          element.webkitRequestFullScreen();
-        }
-        document.getElementById('player').play();
+      var x= document.getElementById("myAudio");
+
+      function playAudio() {
+      x.play();
+      }
+
+      function pauseAudio() {
+      x.pause();
       }
     </script>
   </body>

@@ -92,11 +92,10 @@ if(strlen($_SESSION['login'])==0){   ?>
   <div class="page-content">
     <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
       <br><br>
-                      <h4>Not enough balance? Load now!</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada, quam turpis posuere neque, a dignissim eros ligula sit amet dui.</p>      <br><br>
+                      <h4>Not enough balance? Load now!</h4>    <br><br>
         <div class="row  ">
             <div class=" col-12 col-md-6">
-                  <button class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up">
+                  <button class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up" id="scratchcard">
                     <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
                   Top up my E-wallet
                 </button>
@@ -106,7 +105,39 @@ if(strlen($_SESSION['login'])==0){   ?>
                   <img src="images/token.png" width="50px"> &nbsp;&nbsp;
                 Load Sapphire Tokens</button>
             </div>
-    </div>
+      </div>
+      <hr width="90%">
+            <div class="block-gray scratchcard">
+                <div class="col-12">
+                  </div>
+                  <div class="title"><strong class="d-block">Enter Scratch card details:</strong><span class="d-block"></span><br>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada, quam turpis posuere neque, a dignissim eros ligula sit amet dui.</div>
+                  <br>
+                  <div class="block-body">
+                    
+                    <form>
+                    <div class="row">
+                      <div class="col-md-8">
+                      <div class="form-group">
+                        <label class="form-control-label">code</label>
+                        <input type="text" id="card-code" placeholder="EFFHY 1234" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">       
+                        <label class="form-control-label">pin</label>
+                        <input type="text" id="card-pin" placeholder="705" class="form-control" maxlength="3">
+                      </div>
+                      <div class="form-group float-right">       
+                        <input value="Topup" class="btn btn-primary topup-button">
+                      </div>
+                      </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+            </div>
    </div>
    <audio id="mysoundclip" preload="auto">
               <source src="music.mp3"> </source>
@@ -123,11 +154,56 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script src="js/custom.js"></script>
 
       <script type="text/javascript">
-        $(".skeri_button").on("click", function(){
-            $("#skeri").removeClass("hide");
 
-            var audio = $("#mysoundclip")[0];
-            audio.play();
+//ON TOPUP BUTTON
+$('.topup-button').click(function() {
+  var code = $('#card-code').val();
+  var pin = $('#card-pin').val();
+
+    $.ajax({
+      type: "POST",
+      url: "transaction-card.php",
+      data: {code:code, pin:pin},
+      dataType: "text",
+      success: function(data) {
+        console.log(data);
+        if(data=='1') {
+          $.alert({
+            title: 'Invalid transaction!',
+            content: 'Card has already been used.',
+          });
+        } else if(data=='2') {
+          $.alert({
+            title: 'Invalid transaction!',
+            content: 'Card has been expired.',
+          });
+        } else if(data=='3') {
+          $.confirm({
+              title: 'Card Accepted!',
+              content: 'Procceed with transaction?',
+              theme: 'supervan',
+              buttons: {
+                  confirm: function () {
+                    $.alert('Wala na finish na.');
+                    location.reload(true);
+                  },
+                  cancel: function () {
+                      $.alert('Okay. Good things take time!');
+                  }
+              }
+          });
+        } else {
+          $.alert({
+            title: 'Invalid transaction!',
+            content: 'There are no card exisiting with those details. Please try again.',
+          });      
+        }
+      },
+      error: function(err) {
+        console.log('error'+err);
+      }
+    });
+
 
 
         });

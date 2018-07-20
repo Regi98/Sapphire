@@ -35,7 +35,10 @@ echo "<script>alert('Billing Address has been updated');</script>";
 echo "<script>alert('Shipping Address has been updated');</script>";
 		}
 	}
-
+$id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
 
 
 ?>
