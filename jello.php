@@ -67,18 +67,18 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <div class='header'>
-  <h2>EYE AND MEMORY GAME</h2>
-  <p>Look at the pictures and flip the same series of squares shown to you at the start of the level.</p>
+  <h2>Visual Memory Game</h2>
+  <p>Look at the color and flip the same series of squares shown to you at the start of the level.</p>
 </div>
 <div class='js-wrapper wrapper'>
   <div class='info'>
     <div>
-      <input id="tile" type="checkbox" class="js-tile" checked><label class='margin-right' for="tile">Tile</label>
-      <input id="hotdog" type="checkbox" class="js-hotdog"><label for="hotdog">Hotdog</label>
     </div>
     <div>
-      <span class='margin-right'>LEVEL <span class='js-level'>4</span></span>
-      <span>BEST <span class='js-best'>4</span></span>
+    <center>
+      <span class='margin-right'>LEVEL <span class='js-level'>1</span></span>
+      <span>BEST <span class='js-best'>1</span></span>
+      </center>
     </div>
   </div>
   <div class="js-message message preserve-3d centered centered-faceup">TEXT</div>
