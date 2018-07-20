@@ -178,18 +178,12 @@ while($row=mysqli_fetch_array($query))
 															?>
 									</td>
 									<td class="cart-product-sub-total">
-										<?php 
-																if($row['oStatus']=='Delivered'){?>
-										<a class="btn btn-sm btn-outline-success return-item text-success" data-id="<?php echo htmlentities($row['orderid']);?>">Return Item</a>
-										<br>
-										<br>
+										<?php if($row['oStatus']=='Delivered'){?>
 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
-										<?php } else if($row['oStatus']=='Cancelled' || $row['oStatus']=='Item Return'){ ?>
-										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
 										<?php } else if($row['oStatus']=='Returned'){ ?>
 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
 										<?php } else{ ?>
-										<button type="button" class="btn btn-sm btn-outline-danger cancel-order" data-id="<?php echo htmlentities($row['orderid']);?>">Cancel</br>
+										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
 											<?php } ?>
 									</td>
 
@@ -277,7 +271,7 @@ while($row=mysqli_fetch_array($query))
 	<script src="distribution/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="../js/jquery-confirm.js"></script>
 	<script src="distribution/js/front.js"></script>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$('.return-item').on("click", function () {
 			var order_id = $(this).data('id');
 			console.log(order_id);
@@ -414,7 +408,7 @@ while($row=mysqli_fetch_array($query))
 				}
 			});
 		});
-	</script>
+	</script> -->
 
 </body>
 
