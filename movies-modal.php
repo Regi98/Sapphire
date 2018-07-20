@@ -269,7 +269,7 @@ while($row3 = mysqli_fetch_array($data3)) {
       function goBack(){
         window.location.href = "movies.php";
       }
-      initAdsFor(element);
+      
       function goFullscreen(id) {
         var element = document.getElementById('player');
         if (element.mozRequestFullScreen) {
@@ -279,6 +279,7 @@ while($row3 = mysqli_fetch_array($data3)) {
           element.webkitRequestFullScreen();
         }
         document.getElementById(element).play();
+        initAdsFor(element);
       }
 /*      function goFullscreen(id) {
         var element = document.getElementById(id);
@@ -310,7 +311,7 @@ while($row3 = mysqli_fetch_array($data3)) {
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
-        document.getElementById('player').play();
+        document.getElementById(element).play();
         <?php }} ?>
 
              
