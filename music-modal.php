@@ -40,7 +40,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/music.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -65,7 +65,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-            <li class="breadcrumb-item active">Movies            </li>
+            <li class="breadcrumb-item active">Music           </li>
           </ul>
         </div>
 <div class="container">
@@ -153,6 +153,8 @@ echo '
             <div class="col-12 col-sm-8 col-md-12" style="text-align: center;">
                 <h5 id="album_name"><strong>'.$row2['album_name'] .'</strong></h5>
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
+                <p>'.$row2['release_date'] .'</p>
+                <p>'.$row2['description'] .'</p>
             </div>
         </div><br>';}?>
 <?php
