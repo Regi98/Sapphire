@@ -177,7 +177,7 @@ echo '
 <i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-warning btn-sm col-md-12" onclick="goFullscreen('player'); return false;"id="inherit autoplay goFullscreen" >
+    <button class="btn btn-info btn-sm col-md-12" onclick="goFullscreen('player'); return false;"id="inherit autoplay goFullscreen" >
       <i class="fa fa-play-circle">
       </i>&nbsp;Play with Ads
     </button>
@@ -208,6 +208,10 @@ echo '
 </p>
 <p>
 <strong>Cast:</strong> '.$row2['cast'] .'<br>
+<button class="btn btn-default">
+<i class="fa fa-play-circle">
+</i>&nbsp;Watch Trailer
+</button>
 </p>
 </div>
 </div>
