@@ -342,7 +342,7 @@ while($row5 = mysqli_fetch_array($data5)) {
 echo '          
           <p>&nbsp 0'.$row5['episode_number'].'. 
 
-          <a> &nbsp; 
+          <a class="col-4 col-md-7"> 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>
             <button style="margin-top:1px; margin-left:3px;" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
             <button style="margin-top:1px" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
