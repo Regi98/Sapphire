@@ -177,7 +177,7 @@ echo '
 <i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-warning btn-sm col-md-12" id="inherit autoplay goFullscreen" >
+    <button class="btn btn-warning btn-sm col-md-12" onclick="goFullscreen('player'); return false;"id="inherit autoplay goFullscreen" >
       <i class="fa fa-play-circle">
       </i>&nbsp;Play with Ads
     </button>
@@ -265,18 +265,17 @@ while($row3 = mysqli_fetch_array($data3)) {
       function goBack(){
         window.location.href = "movies.php";
       }
-      
-        $('#goFullscreen').click(function() {
-          var element = $('video').attr('id');
-          if (element.mozRequestFullScreen) {
+      initAdsFor(element);
+      function goFullscreen(id) {
+        var element = document.getElementById('player');
+        if (element.mozRequestFullScreen) {
           element.mozRequestFullScreen();
         }
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
-        initAdsFor(element);
         document.getElementById(element).play();
-        });
+      }
 /*      function goFullscreen(id) {
         var element = document.getElementById(id);
         if (element.mozRequestFullScreen) {
