@@ -145,7 +145,6 @@ echo '
                 <div class="col-6 col-sm-4 col-md-4" style="margin:auto;"><br>
                     <div class="snip1205">
 <img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
-<i class="fa fa-caret-right" onclick="goFullscreen();"></i>
 </div><br>
 </div>
                 </div>
