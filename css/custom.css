@@ -490,27 +490,6 @@ PAYMENT METHODS
   width: 100%;
 }
 
-.name {
-  background: grey;
-  width: 400px;
-  height: 50px;
-  padding: 10px;
-  font-weight: bolder;
-  font-family: fantasy;
-}
-
-.category {
-  line-height: .01;
-  color: #3a3a3a;
-  font-weight: bold;
-}
-
-.range {
-  line-height: .01;
-  color: white;
-  font-weight: bold;
-}
-
 .list p {
   display: inline;
   padding: none;
@@ -532,19 +511,6 @@ PAYMENT METHODS
   font-size: 15px;
   font-family: "Muli", sans-serif;
 }
-
-.list img {
-  vertical-align: middle;
-  transition: .5s ease;
-  filter: brightness(80%);
-}
-
-.list img:hover {
-  width: 110px;
-  box-shadow: 0 0 20px black;
-  filter: brightness(120%);
-}
-
 .list span {
   background: url(title.ico);
   width: 100px;
