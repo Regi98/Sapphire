@@ -2,12 +2,18 @@
 session_start();
 error_reporting(0);
 include('includes/config.php'); 
+$hi = $_GET['id'];
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
               </script>
-<?php } else{ ?>  
-<?php include 'includes/connect.php'; ?>
+
+<?php } else{
+      $id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
+ ?>
 <!DOCTYPE html>
 <html>
   <head> 
@@ -43,7 +49,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-  <div class="preloader">
+ <div class="preloader">
       <div class="loader">
           <div class="loader__figure"></div>
           <p class="loader__label">Sapphire</p>
@@ -52,38 +58,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
-          <div class="title">
-            <h1 class="h5">Mikha Maun</h1>
-            <p>Economy Class</p>
-          </div>
-        </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
-                <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
-                <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
-                <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
-                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                  </ul>
-                </li>-->
-                <li><a href="shop/index.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
-                <li class="active"><a href="games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
-                <li><a href="news.php"> <i class="fa fa-file"></i>News</a></li>
-
-        </ul><span class="heading">User</span>
-        <ul class="list-unstyled">
-          <li> <a href="#"> <i class="fa fa-money"></i>Payments</a></li>
-          <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
-        </ul>
-      </nav>
+      <?php include 'includes/sidebar.php'; ?>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -91,7 +66,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-            <li class="breadcrumb-item active">Games           </li>
+            <li class="breadcrumb-item active">Connect Four        </li>
           </ul>
         </div>
 

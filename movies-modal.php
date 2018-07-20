@@ -177,7 +177,7 @@ echo '
 <i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-warning btn-sm col-md-12" id="inherit autoplay" onclick="goFullscreen('player'); return false">
+    <button class="btn btn-warning btn-sm col-md-12" id="inherit autoplay goFullscreen" >
       <i class="fa fa-play-circle">
       </i>&nbsp;Play with Ads
     </button>
@@ -244,9 +244,7 @@ while($row3 = mysqli_fetch_array($data3)) {
     
 
     </div>
-<footer class="footer text-center">
 
-        </footer>
       </div>
     </div>
     <!-- JavaScript files-->
@@ -267,8 +265,19 @@ while($row3 = mysqli_fetch_array($data3)) {
       function goBack(){
         window.location.href = "movies.php";
       }
-      initAdsFor('player');
-            function goFullscreen(id) {
+      
+        $('#goFullscreen').click(function() {
+          var element = $('video').attr('id');
+          if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        }
+        else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        }
+        initAdsFor(element);
+        document.getElementById(element).play();
+        });
+/*      function goFullscreen(id) {
         var element = document.getElementById(id);
         if (element.mozRequestFullScreen) {
           element.mozRequestFullScreen();
@@ -276,8 +285,8 @@ while($row3 = mysqli_fetch_array($data3)) {
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
-        document.getElementById('player').play();
-      }
+        document.getElementById(element).play();
+      } */
       //ON PLAY BUTTON
         $('.button-movie-id').on("click", function(){
         <?php 

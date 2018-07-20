@@ -121,9 +121,12 @@ if(strlen($_SESSION['login'])==0){   ?>
             ?>
       </div>
     </div>
-        <footer class="footer text-center">
+<<<<<<< HEAD
 
+=======
+        <footer class="footer text-center">
         </footer>
+>>>>>>> ba97aab65cd6692b14345e071d2fcf569a2c680e
       </div>
     </div>
     <!-- JavaScript files-->

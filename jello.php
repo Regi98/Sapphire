@@ -1,4 +1,19 @@
-<?php include 'includes/connect.php' ?>
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php'); 
+$hi = $_GET['id'];
+if(strlen($_SESSION['login'])==0){   ?>
+              <script language="javascript">
+                document.location="index.php";
+              </script>
+
+<?php } else{
+      $id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
+ ?>
 <!DOCTYPE html>
 <html>
   <head> 
@@ -31,35 +46,16 @@
     <link rel="stylesheet" href="css/music-css/snip.css">
   </head>
   <body>
+    <div class="preloader">
+      <div class="loader">
+          <div class="loader__figure"></div>
+          <p class="loader__label">Sapphire</p>
+      </div>
+  </div>
     <?php include 'includes/header.php'; ?>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
-          <div class="title">
-            <h1 class="h5">Mark Stephen</h1>
-            <p>Web Designer</p>
-          </div>
-        </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
-                <li><a href="index.php"> <i class="icon-home"></i>Home </a></li>
-                <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li><a href="#"> <i class="fa fa-bar-chart"></i>Movies </a></li>
-                <li><a href="#"> <i class="icon-padnote"></i>Series </a></li>
-                <li><a href="#"> <i class="icon-logout"></i>Shop</a></li>
-                <li class="active"><a href="#"> <i class="icon-logout"></i>Games</a></li>
-                <li><a href="#"> <i class="icon-logout"></i>News</a></li>
-
-        </ul><span class="heading">User</span>
-        <ul class="list-unstyled">
-          <li> <a href="#"> <i class="icon-settings"></i>Payments</a></li>
-          <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Profile</a></li>
-          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
-        </ul>
-      </nav>
+      <?php include 'includes/sidebar.php'; ?>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -67,22 +63,22 @@
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="games.php">Games</a></li>
-            <li class="breadcrumb-item active">EYE and MEMORY GAME          </li>
+            <li class="breadcrumb-item active">VISUAL MEMORY GAME    </li>
           </ul>
         </div>
 <div class='header'>
-  <h2>EYE AND MEMORY GAME</h2>
-  <p>Look at the pictures and flip the same series of squares shown to you at the start of the level.</p>
+  <h2>Visual Memory Game</h2>
+  <p>Look at the color and flip the same series of squares shown to you at the start of the level.</p>
 </div>
 <div class='js-wrapper wrapper'>
   <div class='info'>
     <div>
-      <input id="tile" type="checkbox" class="js-tile" checked><label class='margin-right' for="tile">Tile</label>
-      <input id="hotdog" type="checkbox" class="js-hotdog"><label for="hotdog">Hotdog</label>
     </div>
     <div>
-      <span class='margin-right'>LEVEL <span class='js-level'>4</span></span>
-      <span>BEST <span class='js-best'>4</span></span>
+    <center>
+      <span class='margin-right'>LEVEL <span class='js-level'>1</span></span>
+      <span>BEST <span class='js-best'>1</span></span>
+      </center>
     </div>
   </div>
   <div class="js-message message preserve-3d centered centered-faceup">TEXT</div>
@@ -117,3 +113,4 @@
     <script src="js/checker.js"></script>
   </body>
 </html>
+<?php } ?>
