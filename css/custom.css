@@ -550,5 +550,8 @@ PAYMENT METHODS
   width: 100px;
   height: 100px;
 }
-
+/*games css*/
+.gamesrow{
+  padding: 0;
+}
 
