@@ -81,10 +81,12 @@ if(strlen($_SESSION['login'])==0){   ?>
                         while($row = mysqli_fetch_array($data)) { 
                         echo '
                             <div class="col-4 col-md-3" style="padding: 0;">
-                              <a href="../inflightapp/storage/app/public/games_apks/'. $row['game_apk'] .'" download class="d-block mb-4 h-100">
-                              <img class="img-fluid img-thumbnail" src="../inflightapp/storage/app/public/games_cover_images/'. $row['cover_image'] .'" alt="">
-                              </a>
-
+                            <figure class="snip1205 black">
+                            <img src="../inflightapp/storage/app/public/games_cover_images/'. $row['cover_image'] .'" alt="">
+                            <i class="fa fa-gamepad"></i>
+                            <a href="../inflightapp/storage/app/public/games_apks/'. $row['game_apk'] .'" download class="d-block mb-4 h-100">
+                            </a>
+                          </figure>
         </div>'; 
                                 $dataid = $row['id'];
                 }
@@ -99,16 +101,24 @@ if(strlen($_SESSION['login'])==0){   ?>
         <h4 class="my-content">Embedded Games</h4>
                 <div class="row text-center text-lg-left">
                 <div class="col-4 col-md-3" style="padding: 0;">
+                  <div class="hovereffect">
                 <a href="tictactoe.php"><img class="img-fluid img-thumbnail" src="images/resources/tictactoe.jpg"></a>
                 </div>
+                </div>
                  <div class="col-4 col-md-3" style="padding: 0;">
+                   <div class="hovereffect">
                  <a href="puzzle.php"><img class="img-fluid img-thumbnail" src="images/resources/Mgame.jpg"></a>
                 </div>
+                </div>
                   <div class="col-4 col-md-3" style="padding: 0;">
+                    <div class="hovereffect">
                   <a href="jello.php"><img class="img-fluid img-thumbnail" src="images/resources/visual.jpg"></a>
                 </div>
+                </div>
                 <div class="col-4 col-md-3" style="padding: 0;">
+                  <div class="hovereffect">
                 <a href="connect.php"><img class="img-fluid img-thumbnail" src="images/resources/connect.jpg"></a>
+                </div>
                 </div>
       </div>
 <br>
@@ -122,6 +132,13 @@ if(strlen($_SESSION['login'])==0){   ?>
     <script src="js/front.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+      $(".hover").mouseleave(
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+  </script>
   </body>
 </html>
 

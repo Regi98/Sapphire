@@ -520,4 +520,32 @@ PAYMENT METHODS
 .gamesrow{
   padding: 0;
 }
+figure.snip1205 {
+  position: relative;
+  overflow: hidden;
+  width: 98%;
+  height: 91%;
+  text-align: center;
+}
+
+figure.snip1205 img {
+  max-width: 100%;
+}
+
+figure.snip1205 i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
+}
+
+figure.snip1205:hover img,
+figure.snip1205.hover img {
+  opacity: 0.3;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
 
