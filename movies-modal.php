@@ -279,7 +279,7 @@ while($row3 = mysqli_fetch_array($data3)) {
           element.webkitRequestFullScreen();
         }
         document.getElementById(element).play();
-        initAdsFor(element);
+        initAdsFor('player');
       }
 /*      function goFullscreen(id) {
         var element = document.getElementById(id);
