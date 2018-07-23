@@ -99,25 +99,26 @@ if(strlen($_SESSION['login'])==0){   ?>
       <!-- /.row -->
         <div class="container-fluid">
         <h8 class="my-content">Embedded Games</h8>
+        <br>
                 <div class="row text-center text-lg-left">
-                <div class="col-6 col-md-6" style="margin-bottom: 10px">
+                <div class="col-4 col-md-3" style="margin-bottom: 10px">
                   <div class="hovereffect">
-                <a href="tictactoe.php"><img class="img-fluid " src="images/resources/tictactoe.jpg"></a>
+                <a href="tictactoe.php"><img class="img-fluid img-thumbnail " src="images/resources/tictactoe.jpg"></a>
                 </div>
                 </div>
-                 <div class="col-6 col-md-6" style="margin-bottom: 10px">
+                 <div class="col-4 col-md-3" style="margin-bottom: 10px">
                    <div class="hovereffect">
-                 <a href="puzzle.php"><img class="img-fluid " src="images/resources/Mgame.jpg"></a>
+                 <a href="puzzle.php"><img class="img-fluid img-thumbnail " src="images/resources/Mgame.jpg"></a>
                 </div>
                 </div>
-                  <div class="col-6 col-md-6" style="margin-bottom: 0">
+                  <div class="col-4 col-md-3" style="margin-bottom: 0">
                     <div class="hovereffect">
-                  <a href="jello.php"><img class="img-fluid " src="images/resources/visual.jpg"></a>
+                  <a href="jello.php"><img class="img-fluid img-thumbnail" src="images/resources/visual.jpg"></a>
                 </div>
                 </div>
-                <div class="col-6 col-md-6" style="margin-bottom: 0">
+                <div class="col-4 col-md-3" style="margin-bottom: 0">
                   <div class="hovereffect">
-                <a href="connect.php"><img class="img-fluid " src="images/resources/connect.jpg"></a>
+                <a href="connect.php"><img class="img-fluid img-thumbnail " src="images/resources/connect.jpg"></a>
                 </div>
                 </div>
       </div>
