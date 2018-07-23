@@ -75,7 +75,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">New Albums Releases</h4>
+                            <h8 class="my-content">New Albums Releases</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -94,7 +94,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Top Albums of The Month</h4>
+                            <h8 class="my-content">Top Albums of The Month</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -113,7 +113,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Popular Albums</h4>
+                            <h8 class="my-content">Popular Albums</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
