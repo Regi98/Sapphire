@@ -108,8 +108,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       }
                         
             ?> </div><br>
-            </div>
-      <?php
+     <?php
             $dataid;
                      $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='3'");
                       $count = mysqli_num_rows($data);
