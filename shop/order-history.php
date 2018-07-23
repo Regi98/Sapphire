@@ -95,11 +95,10 @@ $id= $_SESSION['id'];
 
 	<div class="body-content outer-top-xs">
 		<div class="container">
-			<div class="row" style="border: 1px solid black">
+			<h3>My Transactions</h3><br>
+			<div class="row" >
 				<!-- <div class="shopping-cart" >
 								<div class="col-md-12 col-sm-12 col-xs-12 shopping-cart-table " > -->
-
-
 				<div class="table-responsive">
 					<form name="cart" method="post">
 
