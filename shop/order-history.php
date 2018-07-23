@@ -182,12 +182,14 @@ while($row=mysqli_fetch_array($query))
 									</td>
 									<td class="cart-product-sub-total">
 										<?php if($row['oStatus']=='Delivered'){?>
-										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
-										<?php } else if($row['oStatus']=='Returned'){ ?>
+ 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
+										<?php } else if($row['oStatus']=='Cancelled' || $row['oStatus']=='Item Return'){ ?>
 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
-										<?php } else{ ?>
-										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
-											<?php } ?>
+ 										<?php } else if($row['oStatus']=='Returned'){ ?>
+ 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
+ 										<?php } else{ ?>
+										<button type="button" class="btn btn-sm btn-outline-danger cancel-order" data-id="<?php echo htmlentities($row['orderid']);?>">Cancel</button>
+ 											<?php } ?>
 									</td>
 
 								</tr>
@@ -274,91 +276,91 @@ while($row=mysqli_fetch_array($query))
 	<script src="distribution/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="../js/jquery-confirm.js"></script>
 	<script src="distribution/js/front.js"></script>
-	<!-- <script type="text/javascript">
-		$('.return-item').on("click", function () {
-			var order_id = $(this).data('id');
-			console.log(order_id);
+	<script type="text/javascript">
+		// $('.return-item').on("click", function () {
+		// 	var order_id = $(this).data('id');
+		// 	console.log(order_id);
 
-			$.confirm({
-				title: 'Reason of Return',
-				content: '' +
-					'<form action="" class="formName">' +
-					'<div class="form-group">' +
-					'<label>Select Reason:</label>' +
-					'<select class="select-reason form-control" required><option disabled selected="true">Select a Reason</option><option>Change of Mind</option><option>Product Does Not Match</option><option>Product Did Not Meet My Expectation</option><option>Product No Longer Needed</option></select><br>' +
-					'<label>Additional Information (optional)</label>' +
-					'<input type="text" placeholder="Enter here.." class="add-info form-control" required />' +
-					'</div>' +
-					'</form>',
-				buttons: {
-					formSubmit: {
-						text: 'Submit',
-						btnClass: 'btn-blue',
-						action: function () {
-							var reason = this.$content.find('.select-reason').val();
-							var add_info = this.$content.find('.add-info').val();
-							if (!reason) {
-								$.alert('Please provide a reason');
-								return false;
-							} else {
-								$.confirm({
-									type: 'red',
-									theme: 'material',
-									title: 'Are you sure you want to return?',
-									content: '<strong>Reason:</strong> ' + reason + '<br><strong>Additional Info:</strong> ' + add_info,
-									buttons: {
-										Yes: {
-											btnClass: 'btn-green',
-											action: function () {
-												$.ajax({
-													type: "POST",
-													url: "return-order.php",
-													data: {
-														orderId: order_id,
-														reason: reason,
-														addInfo: add_info
-													},
-													dataType: "text",
-													success: function (data) {
-														window.location.replace("order-history.php");
-													},
-													error: function (err) {
-														console.log(err);
+		// 	$.confirm({
+		// 		title: 'Reason of Return',
+		// 		content: '' +
+		// 			'<form action="" class="formName">' +
+		// 			'<div class="form-group">' +
+		// 			'<label>Select Reason:</label>' +
+		// 			'<select class="select-reason form-control" required><option disabled selected="true">Select a Reason</option><option>Change of Mind</option><option>Product Does Not Match</option><option>Product Did Not Meet My Expectation</option><option>Product No Longer Needed</option></select><br>' +
+		// 			'<label>Additional Information (optional)</label>' +
+		// 			'<input type="text" placeholder="Enter here.." class="add-info form-control" required />' +
+		// 			'</div>' +
+		// 			'</form>',
+		// 		buttons: {
+		// 			formSubmit: {
+		// 				text: 'Submit',
+		// 				btnClass: 'btn-blue',
+		// 				action: function () {
+		// 					var reason = this.$content.find('.select-reason').val();
+		// 					var add_info = this.$content.find('.add-info').val();
+		// 					if (!reason) {
+		// 						$.alert('Please provide a reason');
+		// 						return false;
+		// 					} else {
+		// 						$.confirm({
+		// 							type: 'red',
+		// 							theme: 'material',
+		// 							title: 'Are you sure you want to return?',
+		// 							content: '<strong>Reason:</strong> ' + reason + '<br><strong>Additional Info:</strong> ' + add_info,
+		// 							buttons: {
+		// 								Yes: {
+		// 									btnClass: 'btn-green',
+		// 									action: function () {
+		// 										$.ajax({
+		// 											type: "POST",
+		// 											url: "return-order.php",
+		// 											data: {
+		// 												orderId: order_id,
+		// 												reason: reason,
+		// 												addInfo: add_info
+		// 											},
+		// 											dataType: "text",
+		// 											success: function (data) {
+		// 												window.location.replace("order-history.php");
+		// 											},
+		// 											error: function (err) {
+		// 												console.log(err);
 
-													}
-												});
+		// 											}
+		// 										});
 
-											}
+		// 									}
 
-										},
-										No: {
-											text: 'No', // With spaces and symbols
-											action: function () {
-												$.alert('Item has not been returned');
-											}
-										}
-									}
-								});
+		// 								},
+		// 								No: {
+		// 									text: 'No', // With spaces and symbols
+		// 									action: function () {
+		// 										$.alert('Item has not been returned');
+		// 									}
+		// 								}
+		// 							}
+		// 						});
 
-							}
-						}
-					},
-					cancel: function () {
-						//close
-					},
-				},
-				onContentReady: function () {
-					// bind to events
-					var jc = this;
-					this.$content.find('form').on('submit', function (e) {
-						// if the user submits the form by pressing enter in the field.
-						e.preventDefault();
-						jc.$$formSubmit.trigger('click'); // reference the button and click it
-					});
-				}
-			});
+		// 					}
+		// 				}
+		// 			},
+		// 			cancel: function () {
+		// 				//close
+		// 			},
+		// 		},
+		// 		onContentReady: function () {
+		// 			// bind to events
+		// 			var jc = this;
+		// 			this.$content.find('form').on('submit', function (e) {
+		// 				// if the user submits the form by pressing enter in the field.
+		// 				e.preventDefault();
+		// 				jc.$$formSubmit.trigger('click'); // reference the button and click it
+		// 			});
+		// 		}
+		// 	});
 
-		});
+		// });
 
 
 		$('.cancel-order').on("click", function () {
@@ -411,7 +413,7 @@ while($row=mysqli_fetch_array($query))
 				}
 			});
 		});
-	</script> -->
+	</script>
 
 </body>
 
