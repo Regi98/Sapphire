@@ -407,6 +407,7 @@ nav.navbar .sidebar-toggle {
 
 nav.navbar a {
   color: inherit;
+  font-size:13px;
 }
 
 nav.navbar .brand-text {
@@ -686,7 +687,7 @@ nav.navbar .dropdown .dropdown-menu.active {
     right: 0 !important;
   }
   nav.navbar a.nav-link {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
   nav.navbar a.nav-link .badge {
     width: 16px;
