@@ -87,12 +87,12 @@ $num=mysqli_fetch_assoc($results);
         <!-- Breadcrumb-->
         <div class="container-fluid">
         <div class="row">
-          <ul class="col-5 col-sm-4 col-md-9 breadcrumb">
+          <ul class="col-6 col-sm-4 col-md-9 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
           
-          <div class="col-7 col-sm-4 col-md-3 pull-right">
+          <div class="col-6 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">
               <?php 
@@ -119,7 +119,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Action TV Shows</h4>
+                            <h8 class="my-content">Action TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -139,7 +139,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Adventure TV Shows</h4>
+                            <h8 class="my-content">Adventure TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '    
@@ -158,7 +158,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Comedy TV Shows</h4>
+                            <h8 class="my-content">Comedy TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -177,7 +177,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Drama TV Shows</h4>
+                            <h8 class="my-content">Drama TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -196,7 +196,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Horror TV Shows</h4>
+                            <h8 class="my-content">Horror TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '   
@@ -215,7 +215,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Romantic TV Shows</h4>
+                            <h8 class="my-content">Romantic TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '      
@@ -234,7 +234,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Sci-Fi & Fantasy TV Shows</h4>
+                            <h8 class="my-content">Sci-Fi & Fantasy TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '                         
@@ -253,7 +253,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Kids TV</h4>
+                            <h8 class="my-content">Kids TV</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '                         
@@ -343,8 +343,8 @@ echo '
 
           <a class="col-4 col-md-7"> 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>
-            <button style="margin-top:1px; margin-left:3px;" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
-            <button style="margin-top:1px" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
+            <button style="margin-top:1px; margin-left:3px;" data-toggle="tooltip" title="Hello!" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
+            <button style="margin-top:1px" data-toggle="tooltip" title="Hello!" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
             <hr color="grey">
             <video class="video_player hide series" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
             ads = '{  
@@ -421,12 +421,12 @@ echo '
         <?php 
         $userid=$num['id'];
         
-        $results = mysqli_query($con,"SELECT * FROM epiownership WHERE user_id = $userid AND episode_id = $hi");
+        $results = mysqli_query($con,"SELECT * FROM epiownership WHERE user_id = $userid AND episode_id = $season_number");
         $numResults = mysqli_num_rows($results);
           if($numResults == 0) { ?>
-             var episodeid = getUrlParameter('id');
-             var episodetitle = $('.episode-title').data('id');
-             window.location.href = "paymentmethod.php?id=" + episodeid + "&title=" + episodetitle;
+             var episodeid = getUrlParameter('season');
+             var episodetitle = $('title').data('id');
+             window.location.href = "paymentmethod.php?season=" + episodeid + "&episode=" + episodetitle;
         <?php } else { ?>
 
         var element = document.getElementById(title);

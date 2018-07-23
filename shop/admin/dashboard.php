@@ -73,7 +73,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 		<div class="container text-secondary">
         <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
           <br><br>
-            <h2>Choose your champion!!!!!!!</h2><br><br>
+            <h2>Cabin Crew Dashboard</h2><br><br>
               <div class="row ">
                     <div class="col-md-4">
                         <a style="font-family: inherit; font-weight: 300 !important;" href="todays-orders.php" class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">

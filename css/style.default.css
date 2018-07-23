@@ -142,10 +142,12 @@ pre {
 .breadcrumb a {
   color: #099CE5;
   text-decoration: none !important;
+  margin-left: -30px;
 }
 
 .breadcrumb li.active {
-  color: #585a5f;
+  /*color: #585a5f;*/
+  color:#fff;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -199,13 +201,15 @@ pre {
 
 .page-content {
   position: relative;
-  background: #fff;
+  background-image: url("../images/plane3.png");
   min-height: 100vh;
   width: calc(100% - 260px);
   padding: 0;
-  color: #232323;
+  color: #fff;
 }
-
+h8{
+  margin-left:-10px;
+}
 .page-content-home {
   position: relative;
   background: #232323;

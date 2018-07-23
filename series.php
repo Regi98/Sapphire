@@ -64,12 +64,12 @@ if(strlen($_SESSION['login'])==0){   ?>
         <div class="container-fluid">
          <div class="container-fluid">
         <div class="row">
-          <ul class="col-5 col-sm-4 col-md-9 breadcrumb">
+          <ul class="col-6 col-sm-4 col-md-9 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
           
-          <div class="col-7 col-sm-4 col-md-3 pull-right">
+          <div class="col-6 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">
               <?php 
@@ -96,7 +96,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Action TV Shows</h4>
+                            <h8 class="my-content">Action TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '  
@@ -114,7 +114,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Adventure TV Shows</h4>
+                            <h8 class="my-content">Adventure TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
@@ -136,7 +136,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Comedy TV Shows</h4>
+                            <h8 class="my-content">Comedy TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
@@ -158,7 +158,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Drama TV Shows</h4>
+                            <h8 class="my-content">Drama TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
@@ -180,7 +180,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Horror TV Shows</h4>
+                            <h8 class="my-content">Horror TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
@@ -202,7 +202,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Romantic TV Shows</h4>
+                            <h8 class="my-content">Romantic TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
@@ -224,7 +224,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Sci-Fi & Fantasy TV Shows</h4>
+                            <h8 class="my-content">Sci-Fi & Fantasy TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
@@ -246,7 +246,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h4 class="my-content">Kids TV</h4>
+                            <h8 class="my-content">Kids TV</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
 
