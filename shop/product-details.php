@@ -312,12 +312,12 @@ $num=mysqli_num_rows($rt);
 													<div class="col-sm-9">
 														<div class="stock-box">
 																<?php
-																$availability = $row['product_availability'];
-																	if($availability == 'In Stock'){ ?>
-																		<span class="value text-success"><?php echo htmlentities($row['product_availability']);?></span>
+																$instock = $row['product_in_stock'];
+																	if($instock == 0){ ?>
+																		<span class="value text-danger">Out of Stock</span>
 																<?php
 																	} else { ?>
-																		<span class="value text-danger"><?php echo htmlentities($row['product_availability']);?></span>
+																		<span class="value text-success">In Stock</span>
 																<?php
 																	}
 																?>
@@ -339,7 +339,7 @@ $num=mysqli_num_rows($rt);
 													</div>
 													<div class="col-sm-9">
 														<div class="stock-box">
-															<span class="value">
+															<span class="label">
 																<?php echo htmlentities($row['product_company']);?>
 															</span>
 														</div>
@@ -394,7 +394,19 @@ $num=mysqli_num_rows($rt);
 
 													<div class="col-2 col-sm-2">
 														<div class="cart-quantity">
-																<input type="number" class="form-control form-control-sm col-12" min="1" value="1">
+																<?php
+																$instock = $row['product_in_stock'];
+																	if($instock == 0){ ?>
+																		<span class="value">Out of Stock</span>
+																<?php
+																	} else { ?>
+																		<select class="form-control">
+																			<option class="value" value="1" selected="true">1</option>
+																			<?php for($x=2; $x <= $instock; $x++){ ?>
+																				<option class="value" value="<?php echo $x; ?>"><?php echo $x; ?></option>
+																			<?php } ?>
+																		</select>
+																<?php } ?>
 														</div>
 													</div>
 
