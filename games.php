@@ -2,12 +2,18 @@
 session_start();
 error_reporting(0);
 include('includes/config.php'); 
+$hi = $_GET['id'];
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
               </script>
-<?php } else{ ?>  
-<?php include 'includes/connect.php'; ?>
+
+<?php } else{
+      $id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
+ ?>
 <!DOCTYPE html>
 <html>
   <head> 
@@ -43,7 +49,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-  <div class="preloader">
+   <div class="preloader">
       <div class="loader">
           <div class="loader__figure"></div>
           <p class="loader__label">Sapphire</p>
@@ -63,51 +69,49 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item active">Games           </li>
           </ul>
         </div>
-
-<div class="container-fluid">
-<h4 class="my-content">Games</h4>
-        <div class="row text-center text-lg-left">
- <!-- Page Content -->
-    <div class="container">
-
-      <div class="row text-center text-lg-left">
-
+<div class="container-fluid"> 
         <?php
             $dataid;
                     $data = mysqli_query($con,"SELECT * FROM games");
+                        $count = mysqli_num_rows($data);
+                        if ($count != 0) {
+                            echo '
+                            <h4 class="my-content">Games</h4>
+                            <div class="row text-center text-lg-left">';
                         while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        echo '
+                            <div class="col-4 col-md-3" style="padding: 0;">
                               <a href="../inflightapp/storage/app/public/games_apks/'. $row['game_apk'] .'" download class="d-block mb-4 h-100">
                               <img class="img-fluid img-thumbnail" src="../inflightapp/storage/app/public/games_cover_images/'. $row['cover_image'] .'" alt="">
                               </a>
+
         </div>'; 
                                 $dataid = $row['id'];
                 }
+              }
             ?>
       </div>
 
     </div>
-    <!-- /.container -->
-
+  
       <!-- /.row -->
-      <div class="container">
-        <div class="content-section-heading">
-                <h4 class="my-content">Embedded Games</h4>
+        <div class="container-fluid">
+        <h4 class="my-content">Embedded Games</h4>
                 <div class="row text-center text-lg-left">
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                  <a href="tictactoe.php" class="btn btn-light buttons" role="button" tabindex="0" style="width: 100%; display: inline-block;">TIC-TAC-TOE</a>
+                <div class="col-4 col-md-3" style="padding: 0;">
+                <a href="tictactoe.php"><img class="img-fluid img-thumbnail" src="images/resources/tictactoe.jpg"></a>
                 </div>
-                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                  <a href="puzzle.php" class="btn btn-light buttons" role="button" tabindex="0" style="width: 100%; display: inline-block;">PUZZLE</a>
+                 <div class="col-4 col-md-3" style="padding: 0;">
+                 <a href="puzzle.php"><img class="img-fluid img-thumbnail" src="images/resources/Mgame.jpg"></a>
                 </div>
-                  <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                  <a href="jello.php" class="btn btn-light buttons" role="button" tabindex="0" style="width: 100%; display: inline-block;">EYE AND MEMORY</a>
+                  <div class="col-4 col-md-3" style="padding: 0;">
+                  <a href="jello.php"><img class="img-fluid img-thumbnail" src="images/resources/visual.jpg"></a>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                  <a href="connect.php" class="btn btn-light buttons" role="button" tabindex="0" style="width: 100%; display: inline-block;">CONNECT FOUR</a>
+                <div class="col-4 col-md-3" style="padding: 0;">
+                <a href="connect.php"><img class="img-fluid img-thumbnail" src="images/resources/connect.jpg"></a>
                 </div>
       </div>
-
+<br>
      
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>

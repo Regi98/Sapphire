@@ -122,7 +122,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       </div>
     </div>
         <footer class="footer text-center">
-
         </footer>
       </div>
     </div>
