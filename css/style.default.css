@@ -142,6 +142,7 @@ pre {
 .breadcrumb a {
   color: #099CE5;
   text-decoration: none !important;
+  margin-left: -30px;
 }
 
 .breadcrumb li.active {
@@ -197,18 +198,18 @@ pre {
 .card-header h6 {
   margin-bottom: 0;
 }
-.title h6{
-  color: #000;
-}
+
 .page-content {
   position: relative;
   background-image: url("../images/plane3.png");
   min-height: 100vh;
   width: calc(100% - 260px);
   padding: 0;
-  color: #232323;
+  color: #fff;
 }
-
+h8{
+  margin-left:-10px;
+}
 .page-content-home {
   position: relative;
   background: #232323;
@@ -2796,7 +2797,6 @@ h5,
 h6,
 .h6 {
   font-size: 1rem;
-  color: #fff;
 }
 
 .lead {

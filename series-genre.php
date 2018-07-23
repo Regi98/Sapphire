@@ -94,28 +94,28 @@ if(strlen($_SESSION['login'])==0){   ?>
 <div class="container-fluid">
          <?php
         if ($main_genre == 1) {
-            echo'<h6 class="my-content">Action TV Shows</h6>';
+            echo'<h8 class="my-content">Action TV Shows</h8>';
         }
         elseif ($main_genre == 2) {
-            echo'<h6 class="my-content">Kids TV</h6>';
+            echo'<h8 class="my-content">Kids TV</h8>';
         }
         elseif ($main_genre == 3) {
-            echo'<h6 class="my-content">Comedy TV Shows</h6>';
+            echo'<h8 class="my-content">Comedy TV Shows</h8>';
         }
         elseif ($main_genre == 4) {
-            echo'<h6 class="my-content">Drama TV Shows</h6>';
+            echo'<h8 class="my-content">Drama TV Shows</h8>';
         }
         elseif ($main_genre == 5) {
-            echo'<h6 class="my-content">Horror TV Shows</h6>';
+            echo'<h8 class="my-content">Horror TV Shows</h8>';
         }
         elseif ($main_genre == 6) {
-            echo'<h6 class="my-content">Romantic TV Shows</h6>';
+            echo'<h8 class="my-content">Romantic TV Shows</h8>';
         }
         elseif ($main_genre == 7) {
-            echo'<h6 class="my-content">Sci-Fi &amp; Fantasy TV Shows</h6>';
+            echo'<h8 class="my-content">Sci-Fi &amp; Fantasy TV Shows</h8>';
         }
         elseif ($main_genre == 8) {
-            echo'<h6 class="my-content">Adventure TV Shows</h6>';
+            echo'<h8 class="my-content">Adventure TV Shows</h8>';
         }
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id join genres on main_genre=genres.id where main_genre=$main_genre");

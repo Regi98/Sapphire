@@ -119,7 +119,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Action TV Shows</h6>
+                            <h8 class="my-content">Action TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -139,7 +139,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Adventure TV Shows</h6>
+                            <h8 class="my-content">Adventure TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '    
@@ -158,7 +158,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Comedy TV Shows</h6>
+                            <h8 class="my-content">Comedy TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -177,7 +177,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Drama TV Shows</h6>
+                            <h8 class="my-content">Drama TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -196,7 +196,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Horror TV Shows</h6>
+                            <h8 class="my-content">Horror TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '   
@@ -215,7 +215,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Romantic TV Shows</h6>
+                            <h8 class="my-content">Romantic TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '      
@@ -234,7 +234,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Sci-Fi & Fantasy TV Shows</h6>
+                            <h8 class="my-content">Sci-Fi & Fantasy TV Shows</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '                         
@@ -253,7 +253,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h6 class="my-content">Kids TV</h6>
+                            <h8 class="my-content">Kids TV</h8>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '                         
