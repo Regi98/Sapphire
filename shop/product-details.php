@@ -158,32 +158,18 @@ while ($rw=mysqli_fetch_array($ret)) {
 				<div class="body-content outer-top-xs">
 					<div class='container'>
 						<div class='row single-product outer-bottom-sm '>
-							<div class='col-md-3 sidebar'>
+							<!-- <div class='col-md-3 sidebar'>
 								<div class="sidebar-module-container">
-
-
-									<!-- ==============================================CATEGORY============================================== -->
 									<div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
 										<?php include('includes/side-menu.php');?>
 									</div>
-									<!-- /.sidebar-widget -->
-
-									<!-- ============================================== CATEGORY : END ============================================== -->
-									<!-- ============================================== HOT DEALS ============================================== -->
 									<div class="sidebar-widget hot-deals wow fadeInUp">
 
 										<div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
-
-
-
-
 										</div>
-										<!-- /.sidebar-widget -->
 									</div>
-
-									<!-- ============================================== COLOR: END ============================================== -->
 								</div>
-							</div>
+							</div> -->
 							<!-- /.sidebar -->
 							<?php 
 $ret=mysqli_query($con,"select * from products where id='$pid'");
