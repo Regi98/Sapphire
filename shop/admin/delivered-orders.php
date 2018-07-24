@@ -17,12 +17,11 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Pending Orders</title>
+	<title>CABIN | Pending Orders</title>
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
-	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+	<link rel="stylesheet" href="fontawesome/css/all.min.css">
+	<link rel="stylesheet" <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<script language="javascript" type="text/javascript">
 var popUpWin=0;
 function popUpWindow(URLStr, left, top, width, height)
@@ -38,17 +37,17 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 </head>
 <body>
 <?php include('include/header.php');?>
+<?php include('include/sidebar.php');?>				
 
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
-<?php include('include/sidebar.php');?>				
 			<div class="span9">
 					<div class="content">
 
 	<div class="module">
 							<div class="module-head">
-								<h3>Pending Orders</h3>
+								<h4>Pending Orders</h4>
 							</div>
 							<div class="module-body table">
 	<?php if(isset($_GET['del']))
@@ -112,10 +111,9 @@ while($row=mysqli_fetch_array($query))
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
 
-	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+	<script src="scripts/jquery.min.js" type="text/javascript"></script>
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
 	<script src="scripts/datatables/jquery.dataTables.js"></script>
 	<script>
 		$(document).ready(function() {
