@@ -341,10 +341,12 @@ while($row5 = mysqli_fetch_array($data5)) {
 echo '          
           <p>&nbsp 0'.$row5['episode_number'].'. 
 
-          <a class="col-4 col-md-7"> 
+          <a class="col-7 col-md-9"> 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>
-            <button style="margin-top:1px; margin-left:3px;" data-toggle="tooltip" title="Hello!" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
-            <button style="margin-top:1px" data-toggle="tooltip" title="Hello!" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button>
+            <!-- <button style="margin-top:1px; margin-left:3px;" data-toggle="tooltip" title="Play with Ads" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
+            <button style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button> -->
+            <div style="margin-top:1px; margin-left:6px; margin-right:20px;" data-toggle="tooltip" title="Play with Ads" class="pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/ads.png" width="33px"></div>
+            <div style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/play.png" width="33px"></div>
             <hr color="grey">
             <video class="video_player hide series" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
             ads = '{  
