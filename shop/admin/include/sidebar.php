@@ -1,4 +1,4 @@
-<div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:70px">
+<div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:8.5%">
 	  <a href="dashboard.php" class="w3-bar-item w3-button"><i class="fas fa-th-large"></i><p  style="font-size: 0.6rem;">Dashboard</p></a>
       <a href="todays-orders.php" class="w3-bar-item w3-button"><i class="fas fa-sun"></i><p style="font-size: 0.6rem;">Today's Orders<h5><span style="font-size: 0.8rem;" class="badge badge-primary"><?php
 			$f1="00:00:00";
