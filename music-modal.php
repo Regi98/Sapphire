@@ -154,6 +154,7 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
+                <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspPlay in Shuffle</button>
             </div>
         </div><br>';}?>
 <?php
@@ -171,8 +172,9 @@ echo '
           <audio id="myAudio">
             <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
             </audio>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()"></button>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right music-song" onclick="pauseAudio()" data-title="'.$row3['title'].'"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-heart pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
             <hr color="grey">
             </section>
         </td>
@@ -208,7 +210,47 @@ echo '
       function pauseAudio() {
       x.pause();
       }
+      $(".music-song").on("click", function() {
+        var title = $(this).data('title');
+       document.getElementById(title).play();
+      });
     </script>
+    
+    <script>
+    $('button').click(function() {
+	shuffleElements( $('source') );
+});
+
+function shuffleElements($elements) {
+	var i, index1, index2, temp_val;
+
+	var count = $elements.length;
+	var $parent = $elements.parent();
+	var shuffled_array = [];
+
+
+	// populate array of indexes
+	for (i = 0; i < count; i++) {
+		shuffled_array.push(i);
+	}
+
+	// shuffle indexes
+	for (i = 0; i < count; i++) {
+		index1 = (Math.random() * count) | 0;
+		index2 = (Math.random() * count) | 0;
+
+		temp_val = shuffled_array[index1];
+		shuffled_array[index1] = shuffled_array[index2];
+		shuffled_array[index2] = temp_val;
+	}
+
+	// apply random order to elements
+	$elements.detach();
+	for (i = 0; i < count; i++) {
+		$parent.append( $elements.eq(shuffled_array[i]) );
+	}
+}
+</script>
   </body>
 </html>
 <?php } ?>
