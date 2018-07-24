@@ -73,7 +73,7 @@ if(strlen($_SESSION['login'])==0){   ?>
           
           <div class="col-6 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
-              <select id="maingenre" class="selectpicker form-control">
+              <select id="maingenre" class="selectpicker form-control" onchange="if (this.value) window.location.href=this.value">
               <?php 
               echo '
                 <option value="" disabled selected>Select Category</option>
@@ -84,7 +84,8 @@ if(strlen($_SESSION['login'])==0){   ?>
                 <option value="5">Horror</option>
                 <option value="6">Romance</option>
                 <option value="7">Sci-Fi &amp; Fantasy</option>
-                <option value="8">Adventure</option>'
+                <option value="8">Adventure</option>
+                <option value="series.php">All</option>'
               ?>
               </select>
             </div>
@@ -151,5 +152,13 @@ if(strlen($_SESSION['login'])==0){   ?>
     <script src="js/front.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
     <script src="js/custom.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        $( "#maingenre" ).change(function() {
+          var address = $(this).val();
+          window.location.replace(address);
+        });
+      });
+    </script>
   </body>
 </html>
