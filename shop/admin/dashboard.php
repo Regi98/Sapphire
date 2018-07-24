@@ -41,8 +41,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 <?php include('include/header.php');?>
 
 	<div class="wrapper">
-		<div class="container text-secondary">
-        <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
+		<div class="container-dashoard text-secondary">
+        <div class="container-dashoard col-centeredh-100 justify-content-center align-items-center text-center">
           <br><br>
             <h2>Cabin Crew Dashboard</h2><br><br>
               <div class="row ">
