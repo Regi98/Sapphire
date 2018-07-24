@@ -170,7 +170,7 @@ echo '
           <a> &nbsp; 
           '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
           <audio id="myAudio">
-            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
+            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].' id="'.$row3['title'].'"> 
             </audio>
              <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right music-song" onclick="pauseAudio()" data-title="'.$row3['title'].'"></button>
              <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
@@ -215,42 +215,6 @@ echo '
        document.getElementById(title).play();
       });
     </script>
-    
-    <script>
-    $('button').click(function() {
-	shuffleElements( $('source') );
-});
-
-function shuffleElements($elements) {
-	var i, index1, index2, temp_val;
-
-	var count = $elements.length;
-	var $parent = $elements.parent();
-	var shuffled_array = [];
-
-
-	// populate array of indexes
-	for (i = 0; i < count; i++) {
-		shuffled_array.push(i);
-	}
-
-	// shuffle indexes
-	for (i = 0; i < count; i++) {
-		index1 = (Math.random() * count) | 0;
-		index2 = (Math.random() * count) | 0;
-
-		temp_val = shuffled_array[index1];
-		shuffled_array[index1] = shuffled_array[index2];
-		shuffled_array[index2] = temp_val;
-	}
-
-	// apply random order to elements
-	$elements.detach();
-	for (i = 0; i < count; i++) {
-		$parent.append( $elements.eq(shuffled_array[i]) );
-	}
-}
-</script>
   </body>
 </html>
 <?php } ?>
