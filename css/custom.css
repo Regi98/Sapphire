@@ -1,5 +1,4 @@
 /* HOME.PHP */
-
 .padding-0 {
 	padding: 3px !important;
 }
@@ -8,9 +7,19 @@
 }
 #maingenre{
   margin-top: 1.5em;
+<<<<<<< HEAD
   font-size: 13.5px;
+=======
+  font-size: 15px;
+>>>>>>> b549840cfa175c914d034d699b445e13f5eab741
   margin-right: -15px;
 }
+@media only screen and (max-width: 768px) {
+  #maingenre {
+    font-size: 12px;
+  }
+}
+
 #box1{
 	position:relative;
 	opacity: 1;

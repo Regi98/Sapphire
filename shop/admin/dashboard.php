@@ -18,18 +18,12 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Admin | Pending Orders</title>
-	<!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="../../vendor/font-awesome/css/font-awesome.min.css">
-	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <!-- Custom Font Icons CSS-->
-      <link rel="stylesheet" href="../../css/font.css">
-      <link rel="stylesheet" type="text/css" href="css/spinners.css"/>
-      <!-- Google fonts - Muli-->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" href="css/theme.css" rel="stylesheet">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+	<link rel="stylesheet" <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
       <!-- Custom stylesheet - for your changes-->
-      <link rel="stylesheet" href="../../css/custom.css">
+  <link rel="stylesheet" href="../../css/custom.css">
 	<script language="javascript" type="text/javascript">
 var popUpWin=0;
 function popUpWindow(URLStr, left, top, width, height)
@@ -44,39 +38,16 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 </script>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">CABIN UI</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExample03">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-md-0">
-          <a class="nav-link" href="change-password.php">Change Password</a>
-        <a class="nav-link" href="logout.php">Logout</a>
-        </form>
-      </div>
-    </nav>
+<?php include('include/header.php');?>
 
 	<div class="wrapper">
-		<div class="container text-secondary">
-        <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
+		<div class="container-dashoard text-secondary">
+        <div class="container-dashoard col-centeredh-100 justify-content-center align-items-center text-center">
           <br><br>
             <h2>Cabin Crew Dashboard</h2><br><br>
               <div class="row ">
                     <div class="col-md-4">
-                        <a style="font-family: inherit; font-weight: 300 !important;" href="todays-orders.php" class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
+                        <a style="font-family: inherit; font-weight: 300 !important;" href="todays-orders.php" class="btn btn-outline-primary btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
                             <i class="fa fa-2x fa-tasks" aria-hidden="true"></i><br> &nbsp;&nbsp;
                         Today's Orders
                         </a>
@@ -87,9 +58,17 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                         Pending Orders</a>
                     </div>
                     <div class="col-md-4">
-                        <a style="font-family: inherit; font-weight: 300 !important;" href="pending-orders.php" class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
+                        <a style="font-family: inherit; font-weight: 300 !important;" href="pending-orders.php" class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
                         <i class="fa fa-2x fa-inbox" aria-hidden="true"></i><br> &nbsp;&nbsp;
                         Delivered Orders</a>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="col-md-12">
+                        <a style="font-family: inherit; font-weight: 300 !important;" href="todays-orders.php" class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton btn-top-up">
+                            <i class="fas fa-2x fa-boxes" aria-hidden="true"></i><br> &nbsp;&nbsp;
+                        Products in Stock
+                        </a>
                     </div>
                   </div>
               </div>

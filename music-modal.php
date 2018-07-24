@@ -154,7 +154,7 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
-                <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspPlay in Shuffle</button>
+                <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspListen in Shuffle</button>
             </div>
         </div><br>';}?>
 <?php

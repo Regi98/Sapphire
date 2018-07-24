@@ -1,32 +1,32 @@
-<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-					<i class="icon-reorder shaded"></i>
-				</a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.php">Sapphire DTX | CABIN</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-			  	<a class="brand" href="index.php">
-			  		Sapphire DTX | Admin
-			  	</a>
-
-				<div class="nav-collapse collapse navbar-inverse-collapse">
-					<ul class="nav pull-right">
-						<li><a href="#">
-							Admin
-						</a></li>
-						<li class="nav-user dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="images/adminuser.png" class="nav-avatar" />
-								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="change-password.php">Change Password</a></li>
-								<li class="divider"></li>
-								<li><a href="logout.php">Logout</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div><!-- /.nav-collapse -->
-			</div>
-		</div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown03">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+        <div class="pull-right">
+			<a class="btn btn-primary nav-link" href="change-password.php">Change Password</a>
+			<a class="btn btn-danger nav-link" href="logout.php">Logout</a>
+        </div>
+      </div>
+    </nav>
