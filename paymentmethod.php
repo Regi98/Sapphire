@@ -1,8 +1,7 @@
 <?php
 session_start();
 include('includes/config.php'); 
-$episodeid = $_GET['id'];
-$episodetitle = $_GET['title'];
+$episodeid = $_GET['episode'];
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
@@ -289,7 +288,6 @@ if(strlen($_SESSION['login'])==0){   ?>
     $("#confirm").click(function() {
       var ewallet = $('#ewallet').attr("data-id");
       var episodeid = "<?php echo $episodeid; ?>";
-      var episodetitle = "<?php echo $episodetitle; ?>";
       if(ewallet >= 2) {
       var balance = ewallet - 2.00;
           $.confirm({
@@ -301,7 +299,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     $.ajax({
                       type: "POST",
                       url: "epitransaction-wallet.php",
-                      data: {balance:balance, episodeid:episodeid, episodetitle:episodetitle},
+                      data: {balance:balance, episodeid:episodeid},
                       dataType: "text",
                       success: function(data) {
                       window.location.replace("series.php");
@@ -327,7 +325,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       $("#confirm-token").click(function() {
       var tokens = $('#tokens').attr("data-id");
       var episodeid = "<?php echo $episodeid; ?>";
-      var episodetitle = "<?php echo $episodetitle; ?>";
       if(tokens >= 1) {
       var balance = tokens - 1.00;
 
@@ -340,7 +337,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 $.ajax({
                   type: "POST",
                   url: "epitransaction.php",
-                  data: {balance:balance, episodeid:episodeid, episodetitle:episodetitle},
+                  data: {balance:balance, episodeid:episodeid},
                   dataType: "text",
                   success: function(data) {
                   $.confirm({

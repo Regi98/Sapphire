@@ -83,7 +83,7 @@ if(strlen($_SESSION['login'])==0){   ?>
           </div>
           <div class="padding-0 col-6 col-md-4 col-lg-3" id="box1">
             <img src="images/finances.jpg" width="200px" alt="">
-            <div id="box2"><a class="clean-link" href="#"><i class="fa fa-5x fa-credit-card box-icon"></i><p class="box-label">MY FINANCE</p></a></div>
+            <div id="box2"><a class="clean-link" href="myfinance.php"><i class="fa fa-5x fa-credit-card box-icon"></i><p class="box-label">MY FINANCE</p></a></div>
           </div>
           <div class="padding-0 col-6 col-md-4 col-lg-3" id="box1">
             <img src="images/social.jpg" width="200px" alt="">

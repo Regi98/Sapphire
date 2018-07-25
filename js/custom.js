@@ -214,3 +214,7 @@ $(document).ready(function(){
 
   }).change();
 });
+$('.box').click(function () {
+  $(this).toggleClass('selected');
+
+});
