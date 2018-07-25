@@ -154,6 +154,7 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
+                <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspListen in Shuffle</button>
             </div>
         </div><br>';}?>
 <?php
@@ -169,10 +170,11 @@ echo '
           <a> &nbsp; 
           '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
           <audio id="myAudio">
-            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
+            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].' id="'.$row3['title'].'"> 
             </audio>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()"></button>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right music-song" onclick="pauseAudio()" data-title="'.$row3['title'].'"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
+             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-heart pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
             <hr color="grey">
             </section>
         </td>
@@ -208,6 +210,10 @@ echo '
       function pauseAudio() {
       x.pause();
       }
+      $(".music-song").on("click", function() {
+        var title = $(this).data('title');
+       document.getElementById(title).play();
+      });
     </script>
   </body>
 </html>

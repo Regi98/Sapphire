@@ -101,25 +101,37 @@ if(strlen($_SESSION['login'])==0){   ?>
         <h8 class="my-content">Embedded Games</h8>
         <br>
                 <div class="row text-center text-lg-left">
-                <div class="col-4 col-md-3" style="margin-bottom: 10px">
-                  <div class="hovereffect">
-                <a href="tictactoe.php"><img class="img-fluid img-thumbnail " src="images/resources/tictactoe.jpg"></a>
+                 <div class="col-4 col-md-3" style="padding: 0;">
+                 <figure class="snip1205 black">
+                 <img src="images/resources/tictactoe.jpg">
+                 <i class="fa fa-gamepad"></i>
+                 <a href="tictactoe.php" class="d-block mb-4 h-100">
+                 </a>
+                </figure>
                 </div>
+                <div class="col-4 col-md-3" style="padding: 0;">
+                 <figure class="snip1205 black">
+                 <img src="images/resources/Mgame.jpg">
+                 <i class="fa fa-gamepad"></i>
+                 <a href="puzzle.php" class="d-block mb-4 h-100">
+                 </a>
+                </figure>
                 </div>
-                 <div class="col-4 col-md-3" style="margin-bottom: 10px">
-                   <div class="hovereffect">
-                 <a href="puzzle.php"><img class="img-fluid img-thumbnail " src="images/resources/Mgame.jpg"></a>
+                <div class="col-4 col-md-3" style="padding: 0;">
+                 <figure class="snip1205 black">
+                 <img src="images/resources/visual.jpg">
+                 <i class="fa fa-gamepad"></i>
+                 <a href="jello.php" class="d-block mb-4 h-100">
+                 </a>
+                </figure>
                 </div>
-                </div>
-                  <div class="col-4 col-md-3" style="margin-bottom: 0">
-                    <div class="hovereffect">
-                  <a href="jello.php"><img class="img-fluid img-thumbnail" src="images/resources/visual.jpg"></a>
-                </div>
-                </div>
-                <div class="col-4 col-md-3" style="margin-bottom: 0">
-                  <div class="hovereffect">
-                <a href="connect.php"><img class="img-fluid img-thumbnail " src="images/resources/connect.jpg"></a>
-                </div>
+                <div class="col-4 col-md-3" style="padding: 0;">
+                 <figure class="snip1205 black">
+                 <img src="images/resources/connect.jpg">
+                 <i class="fa fa-gamepad"></i>
+                 <a href="connect.php" class="d-block mb-4 h-100">
+                 </a>
+                </figure>
                 </div>
       </div>
 <br>
