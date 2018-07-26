@@ -10,7 +10,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 <?php include 'includes/connect.php';
 include('includes/config.php');
 if(isset($_POST['submit'])){
-		if(!empty($_SESSION['cart'])){
+	if(!empty($_SESSION['cart'])){
 		foreach($_POST['quantity'] as $key => $val){
 			if($val==0){
 				unset($_SESSION['cart'][$key]);
@@ -122,12 +122,12 @@ if(!empty($_SESSION['cart'])){
 		<div class="row inner-bottom-sm "  >
 			 <!-- <div class="shopping-cart"> -->
 			<div class="col-md-12 col-sm-12 shopping-cart-table" > 
-	<div class="table-responsive" style="border: 1px solid black">
+	<div style="border:">
 <form name="cart" method="post">	
 <?php
 if(!empty($_SESSION['cart'])){
 	?>
-<table class="table table-bordered table-hover table-condensed">
+<table class="table  table-hover table-condensed">
 			<thead class="thead-dark">
 				<tr>
 					<th class="cart-romove item">Remove</th>
@@ -137,14 +137,14 @@ if(!empty($_SESSION['cart'])){
 					<th class="cart-qty item">Quantity</th>
 					<th class="cart-sub-total item">Price Per unit</th>
 					
-					<th class="cart-total last-item">Grand Total</th>
+					<th class="cart-total last-item">Total Price</th>
 				</tr>
 			</thead><!-- /thead -->
 			<tfoot>
 				<tr>
 					<td colspan="7">
 						<div class="shopping-cart-btn">
-	
+	<hr><br>
 								<div class="row justify-content-center">
 									<div class="col-4">
 										<a href="index.php" class="btn btn-block text-uppercase btn-primary outer-left-xs">Continue Shopping</a>
@@ -176,7 +176,7 @@ if(!empty($_SESSION['cart'])){
 				$subtotal= $quantity*$productPrice;
 				$totalprice += $subtotal;
 				$_SESSION['qnty']=$totalqunty+=$quantity;
-
+				$_SESSION['tp']=$totalprice;
 				array_push($pdtid,$row['id']);
 //print_r($_SESSION['pid'])=$pdtid;exit;
 	?>
@@ -185,7 +185,7 @@ if(!empty($_SESSION['cart'])){
 					<td class="romove-item"><input type="checkbox" name="remove_code[]" value="<?php echo htmlentities($row['id']);?>" /></td>
 					<td class="cart-image">
 						<a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($row['id']);?>">
-						    <img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['product_image_1'];?>" alt="" width="15%" height="15%">
+						    <img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['product_image_1'];?>" alt="" width="60px" height="60px">
 						</a>
 					</td>
 					<td class="cart-product-name-info">
@@ -200,9 +200,23 @@ $_SESSION['sid']=$pd;
 						
 					</td>
 					<td class="cart-product-quantity">
-				             <input type="number" class="form-control form-control-sm col-5" min="1" id="quantity" value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>" name="quantity[<?php echo $row['id']; ?>]">
+				             <!-- <input type="number" class="form-control form-control-sm col-5" min="1" id="quantity" value="" name="quantity[<?php echo $row['id']; ?>]"> -->
+							<?php			
+								$instock = $row['product_in_stock'];
+									if($instock == 0){ ?>
+										<span class="value">Out of Stock</span>
+									<?php } else { ?>
+											<select name="quantity[<?php echo $row['id']; ?>]" class="form-control-sm border-secondary rounded">
+												<option class="value" value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>" selected><?php echo $_SESSION['cart'][$row['id']]['quantity']; ?></option>
+												<?php for($x=1; $x <= $instock; $x++){ ?>
+													<option class="value" value="<?php echo $x; ?>">
+												<?php echo $x; ?>
+													</option>
+												<?php } ?>
+											</select>
+							<?php } ?>
 		            </td>
-					<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php echo "$"." ".$row['product_price']; ?>.00</span></td>
+					<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php echo "$".$row['product_price']; ?>.00</span></td>
 
 
 					<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?php 
@@ -211,7 +225,7 @@ $_SESSION['sid']=$pd;
 					$quantity = $_SESSION['cart'][$row['id']]['quantity'];
 					$grand_total = number_format($quantity*$productPrice);
 
-					echo "$"."". $grand_total; ?>.00</span></td>
+					echo "$".$grand_total; ?>.00</span></td>
 				</tr>
 
 				<?php } }
@@ -230,8 +244,7 @@ $_SESSION['pid']=$pdtid;
 					
 					<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
 						Grand Total<span class="inner-left-md"><?php
-						$total_price = number_format($totalprice);
-						echo "$"." ". $_SESSION['tp']="$total_price". ".00"; ?></span>
+						echo "$". number_format($_SESSION['tp']). ".00"; ?></span>
 					</div>
 				</th>
 			</tr>
@@ -258,7 +271,7 @@ $_SESSION['pid']=$pdtid;
 </div>
 </div>
 </div>
-</section>
+</section><br><br><br>
 <?php include('includes/footer.php');?>
 
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
@@ -327,10 +340,12 @@ $_SESSION['pid']=$pdtid;
 			echo "var pddArray = ". $js_array . ";\n";
 			$value=array_combine($pdd,$quantity);
 			?>
-
+			// var php_var = <?php echo $js_array ; ?>;
+			// console.log(pddArray);
+			
 
 			var quantityArray = new Array();
-			$('input[name^="quantity"]').each(function() {
+			$('select[name^="quantity"]').each(function() {
 					quantityArray.push($(this).val());
 			});
 

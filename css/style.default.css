@@ -178,6 +178,11 @@ pre {
   background: #27BDC8;
   margin-bottom: 30px;
 }
+.block-transparent {
+  padding: 20px;
+  color: #fff;
+  margin-bottom: 30px;
+}
 .confirm-block {
   float:right;
   padding: 20px;

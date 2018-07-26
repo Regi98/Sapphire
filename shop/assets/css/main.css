@@ -267,7 +267,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 80px;
 }
 .outer-top-xs {
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 .outer-top-vs {
   margin-top: 40px;
@@ -303,6 +303,9 @@ img[src="assets/images/blank.gif"] {
   padding-bottom: 20px;
 }
 @media (max-width: 767px) {
+  .carousel-images {
+    display: none !important;
+  }
   .inner {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -1203,7 +1206,7 @@ a {
   min-width: 0;
   padding: 24px 22px;
   right: 0;
-  width: 192px;
+  /* width: 192px; */
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -3411,6 +3414,13 @@ a {
   padding: 0px;
   font-weight: normal;
 }
+.product-description{
+  font-family: "Quicksand";
+  font-size: 12px;
+  color: #666666;
+  padding: 0px;
+  margin-top: 4px;
+}
 .single-product .product-info .stock-container .stock-box .value {
   font-size: 14px;
   color: #ff7878;
@@ -4236,7 +4246,7 @@ a {
   }
 }
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 736px) and (max-width: 991px) {
   .top-bar .cnt-account ul > li {
     padding: 3px 2px;
   }

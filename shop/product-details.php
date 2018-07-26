@@ -224,27 +224,25 @@ while($row=mysqli_fetch_array($ret))
 									<!-- /.single-product-slider -->
 
 
-									<div class="single-product-gallery-thumbs gallery-thumbs">
+									<div class="single-product-gallery-thumbs gallery-thumbs carousel-images">
 
 										<div id="owl-single-product-thumbnails">
 											<div class="item">
 												<a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
-													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"
-													/>
+													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"/>
 												</a>
 											</div>
 
 											<div class="item">
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
-													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"
-													/>
+													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"/>
 												</a>
 											</div>
 											<div class="item">
 
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
-													    height="200" />
+ />
 												</a>
 											</div>
 
@@ -282,8 +280,7 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-8">
 												<div class="reviews">
-													<a href="#generalreview" class="lnk">(
-														<?php echo htmlentities($num);?> Reviews)</a>
+													<a href="#generalreview" class="lnk">(<?php echo htmlentities($num);?> Reviews)</a>
 												</div>
 											</div>
 										</div>
@@ -301,7 +298,7 @@ $num=mysqli_num_rows($rt);
 											<div class="col-sm-9">
 												<div class="price-box">
 													<span class="price-strike">$
-														<?php echo htmlentities($row['product_price_before_discount']);?>
+														<?php echo htmlentities($row['product_price_before_discount']);?>.00
 													</span>
 												</div>
 											</div>
@@ -315,8 +312,7 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-9">
 												<div class="price-box">
-													<span class="label price">$
-														<?php echo htmlentities($row['product_price']);?>
+													<span class="label price">$<?php echo htmlentities($row['product_price']);?>.00
 													</span>
 												</div>
 											</div>
@@ -330,17 +326,13 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-9">
 												<div class="price-box">
-													<span class="price-token">
-														<?php echo htmlentities($row['product_price_token']);?>
+													<span class="price-token"><?php echo htmlentities($row['product_price_token']);?>
 													</span>
 												</div>
 											</div>
 										</div>
 										<!-- /.row -->
 									</div>
-
-
-
 									<div class="stock-container info-container m-t-10">
 										<div class="row">
 											<div class="col-sm-3">
@@ -350,7 +342,7 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-9">
 												<div class="stock-box">
-													<span class="label">
+													<span class="product-description">
 														<?php echo htmlentities($row['product_description']);?>
 													</span>
 												</div>
@@ -548,7 +540,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 											</div>
 											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-35px;">
-												<canvas id="myChart" width="400" height="220"></canvas>
+												<canvas id="myChart" width="80%" height="35%"></canvas>
 											</div>
 										</div>
 										<hr>
@@ -710,9 +702,9 @@ $num=mysqli_num_rows($rt);
 														<?php
 																			for($x=1;$x<=5;$x++){
 																				if($x<=$rvw['rate']){
-																					echo '<img height="2%" width="2%" src="img/star.png">';
+																					echo '<img height="20px" width="20px" src="img/star.png">';
 																				} else {
-																					echo '<img height="2%" width="2%" src="img/no-star.png">';
+																					echo '<img height="20px" width="20px" src="img/no-star.png">';
 																				}
 																			}
 																		?>
