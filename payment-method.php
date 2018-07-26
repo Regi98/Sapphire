@@ -143,6 +143,19 @@ if(strlen($_SESSION['login'])==0){   ?>
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
+                    <div class="row padding-0">
+                      <div class="col-sm-12"><br>
+                          <div class="form-group row">
+                           <small class="help-block-none">Payment Type</small>
+                           <select id="selectme" class="form-control">
+                              <option value="" disabled selected>Select Payment</option>
+                              <option value="paypal">PayPal</option>
+                              <option value="visa">VISA</option>
+                              <option value="master">Mastercard</option>
+                           </select>
+                        </div>
+                      </div>
+                     </div>
                      <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">

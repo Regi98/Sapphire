@@ -133,6 +133,19 @@ $id= $_SESSION['id'];
                 <p><a class="btn btn-xs btn-outline-primary" href="#" role="button">Diff Cat</a></p>
               </div>
             </div>
+					</div>
+					 <div class="carousel-item">
+            <img class="d-block w-100" src="assets/images/sliders/3rd.jpg" alt="Post Picture">
+            <div class="container">
+              <div class="carousel-caption text-left">
+								<a href="#"><h1>Title of the post</h1></a>
+								<p class="text-truncate">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+								<p><a class="btn btn-xs btn-outline-primary" href="#" role="button">Diff Cat</a></p>
+              </div>
+            </div>
+					</div>
+					<div class="carousel-item">
+            <img class="d-block w-100" src="assets/images/sliders/4th.jpg" alt="Post Picture">
           </div>
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">

@@ -210,14 +210,9 @@ pre {
 }
 
 h8{
- margin-left:4px;
+ margin-left:-10px;
 }
 
-@media only screen and (max-width: 768px) {
-  h8 {
-    margin-left:-10px;
-  }
-}
 .page-content-home {
   position: relative;
   background: #232323;
@@ -696,7 +691,7 @@ nav.navbar .dropdown .dropdown-menu.active {
     right: 0 !important;
   }
   nav.navbar a.nav-link {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
   nav.navbar a.nav-link .badge {
     width: 16px;
