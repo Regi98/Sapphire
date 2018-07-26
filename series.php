@@ -61,14 +61,12 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="page-content">
         <!-- Page Header-->
         <!-- Breadcrumb-->
-        <div class="container-fluid">
          <div class="container-fluid">
         <div class="row">
           <ul class="col-6 col-sm-4 col-md-9 breadcrumb">
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Tv Series </li>
           </ul>
-          
           <div class="col-6 col-sm-4 col-md-3 pull-right">
             <div class="form-group">
               <select id="maingenre" class="selectpicker form-control">

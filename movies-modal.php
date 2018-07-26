@@ -174,7 +174,6 @@ echo '
 <br>
 <div class="snip1205">
 <img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
-<i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
     <button class="btn btn-info btn-sm col-md-12" onclick="goFullscreen('player'); return false;"id="inherit autoplay goFullscreen" >

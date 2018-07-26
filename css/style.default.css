@@ -208,8 +208,15 @@ pre {
   padding: 0;
   color: #fff;
 }
+
 h8{
-  margin-left:-10px;
+ margin-left:4px;
+}
+
+@media only screen and (max-width: 768px) {
+  h8 {
+    margin-left:-10px;
+  }
 }
 .page-content-home {
   position: relative;
@@ -372,7 +379,8 @@ i[class*='icon-'] {
 }
 .block-white .title strong:first-child {
   font-size: 1.25rem;
-  color: #4f4f4f;
+  /*color: #4f4f4f;*/
+  color:#fff;
 }
 
 .block .title span:first-child, .block-white .title span:first-child {

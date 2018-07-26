@@ -110,7 +110,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li>Buy Policy</li>
             <li>Terms and Policy</li>
         </ul>
-         <a class="btn btn-sm btn-outline-secondary button" href="top-up.php" role="button">
+         <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
             View Details
             <i class="fa fa-chevron-right"></i>
         </a>
@@ -126,9 +126,9 @@ if(strlen($_SESSION['login'])==0){   ?>
 
         <ul class="hidden">
             <li>Available Balance</li>&nbsp;&nbsp;&nbsp;&nbsp;(Sapphire Crystals)
-            <li>Selling and Buying in Crystals</li>
+            <li>Selling and Buying Currency</li>
         </ul>
-        <a class="btn btn-sm btn-outline-secondary button" href="top-up.php" role="button">
+        <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
             View Details
             <i class="fa fa-chevron-right"></i>
         </a>
