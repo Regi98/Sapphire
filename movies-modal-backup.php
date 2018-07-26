@@ -100,10 +100,12 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <div class="container">
-<h4 class="my-content">New Releases</h4>
-      <div class="regular text-center">
          <?php
                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '3'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '<h8 class="my-content">New Releases</h8>
+                             <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -111,20 +113,16 @@ if(strlen($_SESSION['login'])==0){   ?>
                                 </div>';
                 
                 }
+              }
             ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
       </div><br>
-      <h4 class="my-content">Top Movies</h4>
-      <div class="regular text-center">
          <?php
             $dataid;
                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '2'");
+                    $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '<h8 class="my-content">Top Movies</h8>
+                             <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -134,20 +132,16 @@ if(strlen($_SESSION['login'])==0){   ?>
                                 $dataid = $row['id'];
                 
                 }
+              }
             ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
       </div><br>
-      <h4 class="my-content">Featured</h4>
-      <div class="regular text-center">
          <?php
             $dataid;
                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '1'");
+                    $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '<h8 class="my-content">Featured</h8>
+                             <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -156,14 +150,8 @@ if(strlen($_SESSION['login'])==0){   ?>
                                 $dataid = $row['id'];
                 
                 }
+              }
             ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
       </div>
 
     <?php
@@ -186,10 +174,9 @@ echo '
 <br>
 <div class="snip1205">
 <img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
-<i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-warning btn-sm col-md-12" id="inherit autoplay" onclick="goFullscreen('player'); return false">
+    <button class="btn btn-info btn-sm col-md-12" onclick="goFullscreen('player'); return false;"id="inherit autoplay goFullscreen" >
       <i class="fa fa-play-circle">
       </i>&nbsp;Play with Ads
     </button>
@@ -202,18 +189,28 @@ echo '
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
 <h5><strong>'.$row2['title'] .'</strong></h5>
-<p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .'</p>
-<p>Action | Adventure | Fantasy</p><br>
-<p>
+<p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .'</p><p>';
+$data4 = mysqli_query($con,"select genres.name from movies join genre_movie on genre_movie.movie_id=movies.id join genres on genres.id=genre_movie.genre_id where movies.id=$hi");
+$count = mysqli_num_rows($data4);
+$x = 0;
+while($row4 = mysqli_fetch_array($data4)) {  
+  if($x==$count-1){
+    echo ''.$row4['name'] .'';
+  } else {
+    echo ''.$row4['name'] .' | ';
+  }
+$x = $x +1;
+}
+echo '
+</p><p>
 '.$row2['movie_description'] .'
-
-
-</p><br>
+</p>
 <p>
 <strong>Cast:</strong> '.$row2['cast'] .'<br>
-
-
-
+<button class="btn btn-default">
+<i class="fa fa-play-circle">
+</i>&nbsp;Watch Trailer
+</button>
 </p>
 </div>
 </div>
@@ -250,9 +247,7 @@ while($row3 = mysqli_fetch_array($data3)) {
     
 
     </div>
-<footer class="footer text-center">
 
-        </footer>
       </div>
     </div>
     <!-- JavaScript files-->
@@ -273,8 +268,19 @@ while($row3 = mysqli_fetch_array($data3)) {
       function goBack(){
         window.location.href = "movies.php";
       }
-      initAdsFor('player');
-            function goFullscreen(id) {
+      
+      function goFullscreen(id) {
+        var element = document.getElementById('player');
+        if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        }
+        else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        }
+        document.getElementById(element).play();
+        initAdsFor('player');
+      }
+/*      function goFullscreen(id) {
         var element = document.getElementById(id);
         if (element.mozRequestFullScreen) {
           element.mozRequestFullScreen();
@@ -282,8 +288,8 @@ while($row3 = mysqli_fetch_array($data3)) {
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
-        document.getElementById('player').play();
-      }
+        document.getElementById(element).play();
+      } */
       //ON PLAY BUTTON
         $('.button-movie-id').on("click", function(){
         <?php 
@@ -304,7 +310,7 @@ while($row3 = mysqli_fetch_array($data3)) {
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
-        document.getElementById('player').play();
+        document.getElementById(element).play();
         <?php }} ?>
 
              
