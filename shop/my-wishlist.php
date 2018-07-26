@@ -17,15 +17,16 @@ $query=mysqli_query($con,"delete from wishlist where id='$wid'");
 
 if(isset($_GET['action']) && $_GET['action']=="add"){
 	$id=intval($_GET['id']);
-	$query=mysqli_query($con,"delete from wishlist where productId='$id'");
 	if(isset($_SESSION['cart'][$id])){
 		$_SESSION['cart'][$id]['quantity']++;
+		$query=mysqli_query($con,"delete from wishlist where productId='$id'");
 	}else{
 		$sql_p="SELECT * FROM products WHERE id={$id}";
 		$query_p=mysqli_query($con,$sql_p);
 		if(mysqli_num_rows($query_p)!=0){
 			$row_p=mysqli_fetch_array($query_p);
-			$_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice']);	
+			$_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice']);
+			$query=mysqli_query($con,"delete from wishlist where productId='$id'");
 header('location:my-wishlist.php');
 }
 		else{
@@ -151,7 +152,7 @@ $num=mysqli_num_rows($ret);
 while ($row=mysqli_fetch_array($ret)) {
 
 ?>
-											<tr>
+											<tr class="bg-light">
 												<td>
 													<img src="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['pimage']);?>" alt="<?php echo htmlentities($row['pname']);?>"
 													    width="100" height="100">
