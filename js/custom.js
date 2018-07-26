@@ -146,6 +146,25 @@ $(window).keypress(function(e) {
   
 });
 
+$('video.series-video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function (e) {
+  var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+  var event = state ? 'FullscreenOn' : 'FullscreenOff';
+
+  // Now do something interesting
+  document.getElementById('title').pause();
+});
+
+$(window).keypress(function (e) {
+  var video = document.getElementById(".series-video");
+  if (e.which == 32) {
+    if (video.paused == true)
+      video.play();
+    else
+      video.pause();
+  }
+
+});
+
 $("#box1").click(function(){
      window.location=$(this).find(".clean-link").attr("href"); 
      return false;
@@ -213,4 +232,8 @@ $(document).ready(function(){
               $(".scratchcard").show();
 
   }).change();
+});
+$('.box').click(function () {
+  $(this).toggleClass('selected');
+
 });

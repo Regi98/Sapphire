@@ -119,7 +119,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 </div>
                 <p>Buy with our new Sapphire Tokens!</p>
               </div>
-          </div><hr width="90%">
+          </div><hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
                      <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
@@ -314,7 +314,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     });
                   },
                   cancel: function () {
-                      $.alert('Awwwww. Why :(');
+                      $.alert('You have cancelled your purchase!');
                   }
               }
           });
@@ -363,7 +363,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 });
               },
               cancel: function () {
-                  $.alert('Awwwww. Why :(');
+                  $.alert('You have cancelled your purchase!');
               }
           }
       });
