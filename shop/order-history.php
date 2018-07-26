@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 session_start();
 
 include('includes/config.php');
@@ -106,7 +107,7 @@ $id= $_SESSION['id'];
 							<thead class="cart-item product-summary thead-dark">
 								<tr>
 									<th class="cart-romove item">#</th>
-									<th class="cart-description item">Image</th>
+									<!-- <th class="cart-description item">Image</th> -->
 									<th width="15%" class="cart-product-name item">Product Name</th>
 
 									<th class="cart-qty item">Quantity</th>
@@ -136,12 +137,12 @@ while($row=mysqli_fetch_array($query))
 									<td>
 										<?php echo $cnt;?>
 									</td>
-									<td class="cart-image">
+									<!-- <td class="cart-image">
 										<a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($row['opid']);?>">
 											<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pname'];?>"
-											    width="40%" height="40%">
+											     width="60px" height="60px">
 										</a>
-									</td>
+									</td> -->
 									<td class="cart-product-name-info">
 										<h4 class='cart-product-description'>
 											<a href="product-details.php?pid=<?php echo $row['opid'];?>">
@@ -157,17 +158,26 @@ while($row=mysqli_fetch_array($query))
 									<td class="cart-product-sub-total">
 										<?php 
 															$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['pprice']);
-															echo "$"." ". number_format($productPrice); ?> </td>
+															echo "$". number_format($productPrice).".00"; ?> </td>
 									<td class="cart-product-grand-total">
-										<?php echo "$"." ". number_format($qty*$productPrice);?>
+										<?php echo "$". number_format($qty*$productPrice).".00";?>
 									</td>
 									<td class="cart-product-sub-total">
-										<?php echo $row['paym']; ?> </td>
+										<?php
+											if($row['paym']==NULL){
+												echo "<span class='badge badge-dark'>None</span>";
+											} else {
+												echo "<span class='badge badge-success'>".$row['paym']."</span>";
+											}
+										?>
+									</td>
 									<td class="cart-product-sub-total">
 										<?php echo $row['odate']; ?> </td>
 									<td class="cart-product-sub-total">
 										<?php 
-																if($row['oStatus']==NULL){
+																if($row['paym']==NULL){
+																	echo "<span class='badge badge-pill badge-primary'>Order Not Complete</span>";
+																} else if($row['paym']!=NULL){
 																	echo "<span class='badge badge-pill badge-primary'>Order Processing</span>";
 																} else if($row['oStatus']=='Cancelled'){
 																	echo "<span class='badge badge-pill badge-danger'>Order Cancelled</span>";
@@ -181,7 +191,9 @@ while($row=mysqli_fetch_array($query))
 															?>
 									</td>
 									<td class="cart-product-sub-total">
-										<?php if($row['oStatus']=='Delivered'){?>
+										<?php if($row['paym']==NULL){?>
+ 										<a class="btn btn-sm btn-outline-warning" href="payment-method.php?oid=<?php echo htmlentities($row['orderid']);?>">Complete Order</a>
+										<?php } else if($row['oStatus']=='Delivered'){?>
  										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
 										<?php } else if($row['oStatus']=='Cancelled' || $row['oStatus']=='Item Return'){ ?>
 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
