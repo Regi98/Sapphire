@@ -425,17 +425,17 @@ $num=mysqli_num_rows($rt);
 								<div class="quantity-container info-container">
 									<div class="row">
 										<input type="hidden" name="productId" value="<?php echo $row['id']; ?>" />
-										<div class="col-2 col-sm-2">
+										<div class="col-4 col-sm-4">
 											<h7 class="label">Qty:</h7>
 										</div>
 
-										<div class="col-5 col-sm-5">
+										<div class="col-7 col-sm-7">
 											<div class="cart-quantity">
 												<?php
 												
 																$instock = $row['product_in_stock'];
 																	if($instock == 0){ ?>
-													<span class="value">Out of Stock</span>
+													<span class="value">No available product.</span>
 													<?php
 																	} else { ?>
 														<select name="quantity" class="form-control form-control-sm border-secondary rounded">
