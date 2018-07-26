@@ -410,6 +410,4 @@ $('#transitionType li a').click(function () {
     return false;
 
 });
-
-
 })(jQuery);
