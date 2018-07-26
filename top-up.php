@@ -95,23 +95,23 @@ if(strlen($_SESSION['login'])==0){   ?>
                       <h4>Not enough balance? Load now!</h4>    <br><br>
         <div class="row  ">
             <div class=" col-12 col-md-6">
-                  <button class="btn btn-outline-success btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up" id="scratchcard">
+                  <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up" id="scratchcard">
                     <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
                   Top up my E-wallet
                 </button>
             </div>
             <div class="col-12 col-md-6">
-                  <button class="btn btn-outline-warning btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
+                  <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
                   <img src="images/token.png" width="50px"> &nbsp;&nbsp;
                 Load Sapphire Tokens</button>
             </div>
       </div>
       <hr width="90%">
-            <div class="block-gray scratchcard">
+            <div class="block-transparent scratchcard">
                 <div class="col-12">
                   </div>
                   <div class="title"><strong class="d-block">Enter Scratch card details:</strong><span class="d-block"></span><br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada, quam turpis posuere neque, a dignissim eros ligula sit amet dui.</div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada.</div>
                   <br>
                   <div class="block-body">
                     
