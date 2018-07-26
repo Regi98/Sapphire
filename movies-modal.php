@@ -189,7 +189,7 @@ echo '
 <i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-warning btn-sm col-md-12" id="inherit autoplay" onclick="goFullscreen('player'); return false">
+    <button class="btn btn-info btn-sm col-md-12 play-with-ads" id="inherit autoplay">
       <i class="fa fa-play-circle">
       </i>&nbsp;Play with Ads
     </button>
@@ -203,15 +203,32 @@ echo '
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
 <h5><strong>'.$row2['title'] .'</strong></h5>
 <p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .'</p>
-<p>Action | Adventure | Fantasy</p><br>
+<p>';
+
+$data6 = mysqli_query($con,"select genres.name from movies left join genre_movie on genre_movie.movie_id=movies.id join genres on genres.id=genre_movie.genre_id where movies.id=$hi");
+$count = mysqli_num_rows($data6);
+$x = 0;
+while($row6 = mysqli_fetch_array($data6)) {  
+  if($x==$count-1){
+    echo ''.$row6['name'] .'';
+  } else {
+    echo ''.$row6['name'] .' | ';
+  }
+$x = $x +1;
+}
+echo '
+</p><br>
 <p>
 '.$row2['movie_description'] .'
 
 
 </p><br>
 <p>
-<strong>Cast:</strong> '.$row2['cast'] .'<br>
-
+<strong>Cast:</strong> '.$row2['cast'] .'<br><br>
+<button class="btn btn-default">
+<i class="fa fa-play-circle">
+</i>&nbsp;Watch Trailer
+</button>
 
 
 </p>
@@ -222,7 +239,9 @@ echo '
 </div>
 </div>
 </div>'; ?>
-    <video class="video_player hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" <?php } ?> id="player" width="100%" controls controlsList="nodownload"
+    <video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" id="noads" width="100%" controls controlsList="nodownload"> 
+    </video>
+    <video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" <?php } ?> id="player" width="100%" controls controlsList="nodownload"
 
 ads = '{  
         "servers": 
@@ -273,17 +292,18 @@ while($row3 = mysqli_fetch_array($data3)) {
       function goBack(){
         window.location.href = "movies.php";
       }
-      initAdsFor('player');
-            function goFullscreen(id) {
-        var element = document.getElementById(id);
+      
+      $('.play-with-ads').on("click", function(){
+        var element = document.getElementById('player');
         if (element.mozRequestFullScreen) {
           element.mozRequestFullScreen();
         }
         else if (element.webkitRequestFullScreen) {
           element.webkitRequestFullScreen();
         }
+        initAdsFor('player');
         document.getElementById('player').play();
-      }
+      });
       //ON PLAY BUTTON
         $('.button-movie-id').on("click", function(){
         <?php 
@@ -297,15 +317,15 @@ while($row3 = mysqli_fetch_array($data3)) {
              window.location.href = "payment-method.php?id=" + movieid + "&title=" + movietitle;
         <?php } else { ?>
 
-        var element = document.getElementById('player');
-        if (element.mozRequestFullScreen) {
-          element.mozRequestFullScreen();
+        var data = document.getElementById('noads');
+        if (data.mozRequestFullScreen) {
+          data.mozRequestFullScreen();
         }
-        else if (element.webkitRequestFullScreen) {
-          element.webkitRequestFullScreen();
+        else if (data.webkitRequestFullScreen) {
+          data.webkitRequestFullScreen();
         }
-        document.getElementById('player').play();
-        <?php }} ?>
+        document.getElementById('noads').play();
+        <?php } }?>
 
              
          });
