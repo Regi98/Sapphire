@@ -457,7 +457,12 @@ $num=mysqli_num_rows($rt);
 								<!-- /.quantity-container -->
 								<div class="row">
 									<div class="col-12 col-sm-12">
-										<input type="submit" name="submitaddcart" value="ADD TO CART" class="btn btn-primary btn-sm">
+										<?php
+											if($instock != 0){?>
+												<input type="submit" name="submitaddcart" value="ADD TO CART" class="btn btn-primary btn-sm">
+										<?php } else {?>
+												
+										<?php } ?>
 										<!-- <a href="product-details.php?page=product&action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">
 											<i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a> -->
 									</div>
