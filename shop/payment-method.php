@@ -6,7 +6,7 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
-	unset($_SESSION['cart']);
+	// unset($_SESSION['cart']);
 $id= $_SESSION['id'];
       $query = "SELECT * FROM shopusers WHERE id=$id";
       $results = mysqli_query($con, $query);
