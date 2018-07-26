@@ -99,26 +99,69 @@ $id= $_SESSION['id'];
 </header>
 
 <!-- ============================================== HEADER : END ============================================== -->
-<div class="body-content outer-top-xs" id="top-banner-and-menu">
-	<div class="container">
-		<div class="furniture-container homepage-container">
-		<div class="row">
-	
-			<div class="col-xs-12 col-sm-12 col-md-3 sidebar">
-				<!-- ================================== TOP NAVIGATION ================================== -->
-	<?php include('includes/side-menu.php');?>
-<!-- ================================== TOP NAVIGATION : END ================================== -->
-			</div><!-- /.sidemenu-holder -->	
-			
-			
-		</div><!-- /.row -->
+
+
+    <div class="contmin col-md-12">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">	
+            <img class="d-block w-100" src="assets/images/sliders/1st.jpg" alt="Post Picture">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <a href="#"><h1>Title of the post</h1></a>
+                <p class="text-truncate">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-xs btn-outline-primary" href="#" role="button">Category</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="assets/images/sliders/2nd.jpg" alt="Post Picture">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <a href="#"><h1>Title of the post</h1></a>
+                <p class="text-truncate">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-xs btn-outline-primary" href="#" role="button">Another Category</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="assets/images/sliders/3rd.jpg" alt="Post Picture">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <a href="#"><h1>Title of the post</h1></a>
+                <p class="text-truncate">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-xs btn-outline-primary" href="#" role="button">Diff Cat</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
 
 		<!-- ============================================== SCROLL TABS ============================================== -->
 		<div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp">
 			<div class="more-info-tab clearfix">
 			   <h3 class="new-product-title pull-left">Featured Products</h3>
 			</div>
-
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+	<div class="container">
+		<div class="furniture-container homepage-container">
+		
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-3 sidebar">
+				<!-- ================================== TOP NAVIGATION ================================== -->
+	<?php include('includes/side-menu.php');?>
+<!-- ================================== TOP NAVIGATION : END ================================== -->
+			</div><!-- /.sidemenu-holder -->
+<div class="col-md-9">
 				<div class="search-result-container">
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane active " id="grid-container">
@@ -134,7 +177,7 @@ while ($row=mysqli_fetch_array($ret))
 ?>
 
 		    	
-		<div class="col-6 col-sm-6 col-md-3 wow fadeInUp">
+		<div class="col-6 col-sm-6 col-md-4 wow fadeInUp">
 			<!-- <div class="products">				
 			<div class="product">		
 			<div class="product-image">
@@ -164,6 +207,8 @@ while ($row=mysqli_fetch_array($ret))
 			</div><!-- /.home-owl-carousel -->
 					</div><!-- /.product-slider -->
 				</div>
+			</div>
+			</div>
 			</div>
 </div>
 			

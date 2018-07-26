@@ -187,8 +187,8 @@ while ($row=mysqli_fetch_array($ret))
 
 			<div class="product-price">	
 				<span class="price">
-					$ <?php echo htmlentities($row['product_price']);?>			</span>
-										     <span class="price-before-discount">$ <?php echo htmlentities($row['product_price_before_discount']);?></span>
+					$ <?php echo htmlentities($row['product_price']);?></span>
+										    <span class="price-before-discount"><strike><small>$<?php echo htmlentities($row['product_price_before_discount']);?></small></strike></span><span class="token_price pull-right"><img src="assets/images/payments/tokens.png" width="18" height="18"> <?php echo htmlentities($row['product_price_token']);?></span>		
 									
 			</div><!-- /.product-price -->
 			
