@@ -134,18 +134,35 @@ $('video#player').bind('webkitfullscreenchange mozfullscreenchange fullscreencha
     // Now do something interesting
     document.getElementById('player').pause();
 });
+$('video#noads').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+  var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+  var event = state ? 'FullscreenOn' : 'FullscreenOff';
 
-$(window).keypress(function(e) {
-  var video = document.getElementById("player");
-  if (e.which == 32) {
-    if (video.paused == true)
-      video.play();
-    else
-      video.pause();
-  }
-  
+  // Now do something interesting
+  document.getElementById('noads').pause();
 });
-
+$(window).keypress(function(e) {
+  var player = document.getElementById("player");
+  if (e.which == 32) {
+    if (player.paused == true) {
+      player.play();
+    }
+    else {
+      player.pause();
+    }
+  }
+});
+$(window).keypress(function(e) {
+  var noads = document.getElementById("noads");
+  if (e.which == 32) {
+    if (noads.paused == true) {
+      noads.play();
+    }
+    else {
+      noads.pause();
+    }
+  }
+});
 $('video.series-video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function (e) {
   var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
   var event = state ? 'FullscreenOn' : 'FullscreenOff';
