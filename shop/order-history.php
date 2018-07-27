@@ -111,9 +111,9 @@ $id= $_SESSION['id'];
 									<th width="15%" class="cart-product-name item">Product Name</th>
 
 									<th class="cart-qty item">Quantity</th>
-									<th width="15%" class="cart-sub-total item">Price Per unit</th>
+									<th width="15%" class="cart-sub-total item">Price</th>
 
-									<th class="cart-total item">Grandtotal</th>
+									<th class="cart-total item">Total</th>
 									<th class="cart-total item">Payment Method</th>
 									<th class="cart-description item">Order Date</th>
 									<th class="cart-description item">Status</th>
