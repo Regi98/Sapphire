@@ -177,7 +177,7 @@ while($row=mysqli_fetch_array($query))
 										<?php 
 																if($row['paym']==NULL){
 																	echo "<span class='badge badge-pill badge-primary'>Order Not Complete</span>";
-																} else if($row['paym']!=NULL){
+																} else if($row['paym']!=NULL && $row['oStatus'] == 'in Process' || $row['oStatus'] == NULL){
 																	echo "<span class='badge badge-pill badge-primary'>Order Processing</span>";
 																} else if($row['oStatus']=='Cancelled'){
 																	echo "<span class='badge badge-pill badge-danger'>Order Cancelled</span>";

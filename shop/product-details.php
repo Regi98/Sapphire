@@ -634,7 +634,7 @@ $num=mysqli_num_rows($rt);
 																			<input type="radio" name="rate" class="radio" value="4">
 																		</td>
 																		<td>
-																			<input type="radio" name="rate" class="radio" value="5">
+																			<input type="radio" name="rate" class="radio" value="5" required>
 																		</td>
 																	</tr>
 																</tbody>
