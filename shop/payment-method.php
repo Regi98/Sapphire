@@ -105,7 +105,7 @@ if(isset($_GET['oid'])){
             <div class="row justify-content-center align-items-center text-center">
               
               <div class="col-12 col-md-3 col-centered payment">
-                <input type="radio" id="paymethod" name="paymethod" value="E Wallet" checked="checked">E Wallet
+                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="E Wallet" checked="checked">E Wallet
                 <div class="payment-col" id="wallet">
                   <img src="../images/wallet.png">
                 </div>
@@ -119,7 +119,7 @@ if(isset($_GET['oid'])){
                 <p>We accept VISA and Mastercard.</p>
               </div>
               <div class="col-12 col-md-3">
-                <input type="radio" id="paymethod" name="paymethod" value="Sapphire Tokens">Sapphire Tokens
+                <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Tokens">Sapphire Tokens
                 <div class="payment-col" id="token">
                   <img src="../images/token.png">
 
@@ -128,6 +128,111 @@ if(isset($_GET['oid'])){
               </div>
           </div>
    	</div>
+	   <hr color="white" width="90%">
+            <div class="row justify-content-center align-items-center text-center">
+                  <div class="block-white col-md-9 credit">
+                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
+                     <div class="block-body">
+                      <div class="block-gray">
+                      <img src="../img/pay1.png" width=80px> &nbsp;
+                     <img src="../img/pay2.png" width=50px> &nbsp;
+                     <img src="../img/pay3.png" width=40px> &nbsp;
+                        <!--<div class="form-group"> <br>  
+                           <input type="submit" value="Signin" class="btn btn-primary">
+                           </div>-->
+
+                     <!-- DIV START 
+                     <form class="text-left form-validate" method="post">-->
+                    <div class="row padding-0">
+                      <div class="col-sm-12"><br>
+                          <div class="form-group row">
+                           <small class="help-block-none">Payment Type</small>
+                           <select id="selectme" class="form-control">
+                              <option value="" disabled selected>Select Payment</option>
+                              <option value="paypal">PayPal</option>
+                              <option value="visa">VISA</option>
+                              <option value="master">Mastercard</option>
+                           </select>
+                        </div>
+                      </div>
+                     </div>
+                     <div class="row padding-0">
+                      <div class="col-sm-12"><br>
+                        <div class="form-group row">
+                            <small class="help-block-none">Card Holder Name</small>
+                            <input type="text" class="form-control">
+                        </div>
+                      </div>
+                     </div>
+                        <div class="row padding-0">
+                           <div class="col-sm-6">
+                              <small class="help-block-none">Card Number</small>
+                              <input type="text" class="form-control" maxlength="16">
+                           </div>
+                           <div class="col-sm-6">
+                              <small class="help-block-none">Expiration date and security code</small>
+                              <div class="row">
+                              <div class="col-sm-4 padding-0">
+                                <select id='month' class="form-control">
+                                     <option value='' disabled="true">--</option>
+                                     <option value='1'>01</option>
+                                     <option value='2'>02</option>
+                                     <option value='3'>03</option>
+                                     <option value='4'>04</option>
+                                     <option value='5'>05</option>
+                                     <option value='6'>06</option>
+                                     <option value='7'>07</option>
+                                     <option value='8'>08</option>
+                                     <option value='9'>09</option>
+                                     <option value='10'>10</option>
+                                     <option value='11'>11</option>
+                                     <option value='12'>12</option>
+                                     </select> 
+                              </div>
+                              <div class="col-sm-4 padding-0">
+                                <select id='year' class="form-control">
+                                     <option value='' disabled="true">--</option>
+                                     <option value='18'>2018</option>
+                                     <option value='19'>2019</option>
+                                     <option value='20'>2020</option>
+                                     <option value='21'>2021</option>
+                                     <option value='22'>2022</option>
+                                     <option value='23'>2023</option>
+                                     <option value='24'>2024</option>
+                                     <option value='25'>2025</option>
+                                     <option value='26'>2026</option>
+                                     <option value='27'>2027</option>
+                                     <option value='28'>2028</option>
+                                     <option value='29'>2029</option>
+                                     <option value='30'>2030</option>
+                                     <option value='31'>2031</option>
+                                     <option value='32'>2032</option>
+                                     <option value='33'>2033</option>
+                                     <option value='34'>2034</option>
+                                     <option value='35'>2035</option>
+                                     <option value='36'>2036</option>
+                                     <option value='37'>2037</option>
+                                     <option value='38'>2038</option>
+                                     <option value='39'>2039</option>
+                                     <option value='40'>2040</option>
+                                     <option value='41'>2041</option>
+                                     <option value='42'>2042</option>
+                                     <option value='43'>2043</option>
+                                     </select> 
+                              </div>
+                              <div class="col-sm-4 padding-0">
+                                <input type="text" class="form-control" maxlength="3">
+                              </div>
+
+                            </div><br>
+                           </div>
+
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               
+          </div>
    	<br>
    	 <center>
 		<div class="col-md-4">
