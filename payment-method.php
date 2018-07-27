@@ -119,7 +119,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 </div>
                 <p>Buy with our new Sapphire Tokens!</p>
               </div>
-          </div><hr width="90%">
+          </div><hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
                      <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
@@ -143,6 +143,19 @@ if(strlen($_SESSION['login'])==0){   ?>
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
+                    <div class="row padding-0">
+                      <div class="col-sm-12"><br>
+                          <div class="form-group row">
+                           <small class="help-block-none">Payment Type</small>
+                           <select id="selectme" class="form-control">
+                              <option value="" disabled selected>Select Payment</option>
+                              <option value="paypal">PayPal</option>
+                              <option value="visa">VISA</option>
+                              <option value="master">Mastercard</option>
+                           </select>
+                        </div>
+                      </div>
+                     </div>
                      <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">
@@ -314,7 +327,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     });
                   },
                   cancel: function () {
-                      $.alert('Awwwww. Why :(');
+                      $.alert('You have cancelled your purchase!');
                   }
               }
           });
@@ -363,7 +376,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 });
               },
               cancel: function () {
-                  $.alert('Awwwww. Why :(');
+                  $.alert('You have cancelled your purchase!');
               }
           }
       });

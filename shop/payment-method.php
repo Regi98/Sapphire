@@ -6,12 +6,35 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
-	unset($_SESSION['cart']);
+	// unset($_SESSION['cart']);
 $id= $_SESSION['id'];
       $query = "SELECT * FROM shopusers WHERE id=$id";
       $results = mysqli_query($con, $query);
       $num=mysqli_fetch_assoc($results);
 ?>
+<?php
+if(isset($_GET['oid'])){
+	// $pdtid=array();
+	$orderId = $_GET['oid'];
+    $sql = "SELECT * FROM products WHERE id=$orderId";
+			$sql=substr($sql,0,-1) . ") ORDER BY id ASC";
+			$query = mysqli_query($con,$sql);
+			$totalprice=0;
+			$totalqunty=0;
+			if(!empty($query)){
+			while($row = mysqli_fetch_array($query)){
+				$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['product_price']);
+				$quantity = $_SESSION['cart'][$row['id']]['quantity'];
+				$subtotal= $quantity*$productPrice;
+				$totalprice += $subtotal;
+				$_SESSION['qnty']=$totalqunty+=$quantity;
+				$total_price = number_format($totalprice);
+				$_SESSION['tp']=$total_price;
+				// array_push($pdtid,$row['id']);
+			}
+		}
+}
+	?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>

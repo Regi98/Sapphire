@@ -13,6 +13,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
 body {
   position: relative;
+  background-image: url("../images/plane3.png");
 }
 
 section {
@@ -177,6 +178,11 @@ pre {
   background: #27BDC8;
   margin-bottom: 30px;
 }
+.block-transparent {
+  padding: 20px;
+  color: #fff;
+  margin-bottom: 30px;
+}
 .confirm-block {
   float:right;
   padding: 20px;
@@ -207,9 +213,11 @@ pre {
   padding: 0;
   color: #fff;
 }
+
 h8{
-  margin-left:-10px;
+ margin-left:-10px;
 }
+
 .page-content-home {
   position: relative;
   background: #232323;
@@ -371,7 +379,8 @@ i[class*='icon-'] {
 }
 .block-white .title strong:first-child {
   font-size: 1.25rem;
-  color: #4f4f4f;
+  /*color: #4f4f4f;*/
+  color:#fff;
 }
 
 .block .title span:first-child, .block-white .title span:first-child {
@@ -687,7 +696,7 @@ nav.navbar .dropdown .dropdown-menu.active {
     right: 0 !important;
   }
   nav.navbar a.nav-link {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
   nav.navbar a.nav-link .badge {
     width: 16px;

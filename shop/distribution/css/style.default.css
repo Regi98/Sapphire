@@ -136,9 +136,9 @@ pre {
 .breadcrumb {
   background: none;
   padding: 20px 20px;
-  margin-bottom: 0;
+  margin-bottom: -1em;
   color: #8a8d93;
-  margin-top: -3em;
+  margin-top: -2em;
 }
 
 .breadcrumb a {
@@ -2151,9 +2151,9 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary {
   color: color-yiq(#099CE5);
-  background-color: #071961;
+  background-color: #03132d;
   border-color: #099CE5;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   font-size: 13px;
 }
 

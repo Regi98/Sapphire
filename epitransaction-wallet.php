@@ -13,7 +13,6 @@ $t_in = 2.00;
 $t_out = 0;
 $balance=$_POST['balance'];
 $episodeid=$_POST['episodeid'];
-$episodetitle=$_POST['episodetitle'];
  
 $stmt = $DBcon->prepare("insert into ledger(idno, name, trantype, trancode, t_in, t_out, balance) values(:idno, :fullname, :trantype, :trancode, :t_in, :t_out, :balance)");
 
@@ -56,12 +55,11 @@ else {
   echo json_encode($error);
 }
 
-$stmt2 = $DBcon->prepare("insert into epiownership(user_id, user, episode_id, episode_title) values(:idno, :fullname, :episodeid, :episodetitle)");
+$stmt2 = $DBcon->prepare("insert into epiownership(user_id, user, episode_id) values(:idno, :fullname, :episodeid)");
 
 $stmt2->bindparam(':idno', $id);
 $stmt2->bindparam(':fullname', $fullname);
 $stmt2->bindparam(':episodeid', $episodeid);
-$stmt2->bindparam(':episodetitle', $episodetitle);
  
 
 

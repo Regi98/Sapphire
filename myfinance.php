@@ -39,6 +39,8 @@ if(strlen($_SESSION['login'])==0){   ?>
       <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
       <!-- Custom stylesheet - for your changes-->
       <link rel="stylesheet" href="css/custom.css">
+      <!-- Finance stylesheet - for your changes-->
+      <link rel="stylesheet" href="css/finance.css">
       <!-- Favicon-->
       <link rel="shortcut icon" href="img/favicon.ico">
       <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -68,7 +70,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
                <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
-               <li><a href="music/music.php"> <i class="fa fa-music"></i>Music </a></li>
+               <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
                <li class="active"><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
                <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
@@ -79,7 +81,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                   </ul>
                   </li>-->
                <li><a href="shop/index.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
-               <li><a href="music/games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
+               <li><a href="games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
                <li><a href="news.php"> <i class="fa fa-file"></i>News</a></li>
             </ul>
             <span class="heading">User</span>
@@ -92,56 +94,68 @@ if(strlen($_SESSION['login'])==0){   ?>
   <div class="page-content">
     <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
       <br><br>
-                      <h4>Not enough balance? Load now!</h4>    <br><br>
-        <div class="row  ">
-            <div class=" col-12 col-md-6">
-                  <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up" id="scratchcard">
-                    <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
-                  Top up my E-wallet
-                </button>
-            </div>
-            <div class="col-12 col-md-6">
-                  <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
-                  <img src="images/token.png" width="50px"> &nbsp;&nbsp;
-                Load Sapphire Tokens</button>
-            </div>
-      </div>
-      <hr width="90%">
-            <div class="block-transparent scratchcard">
-                <div class="col-12">
-                  </div>
-                  <div class="title"><strong class="d-block">Enter Scratch card details:</strong><span class="d-block"></span><br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis, sem elementum pulvinar malesuada.</div>
-                  <br>
-                  <div class="block-body">
-                    
-                    <form>
-                    <div class="row">
-                      <div class="col-md-8">
-                      <div class="form-group">
-                        <label class="form-control-label">code</label>
-                        <input type="text" id="card-code" placeholder="EFFHY 1234" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">       
-                        <label class="form-control-label">pin</label>
-                        <input type="text" id="card-pin" placeholder="705" class="form-control" maxlength="3">
-                      </div>
-                      <div class="form-group float-right">       
-                        <input value="Topup" class="btn btn-primary topup-button">
-                      </div>
-                      </div>
-                      </div>
+        <h4>MY FINANCE</h4>    <br><br>
+     
+               <div class="row">
+       <div class="col-md-4">
+    <div class="box first">
+        <span class="icon-cont">
+            <i class="fa fa-plane"></i>
+        </span>
 
-                    </form>
-                  </div>
-                </div>
+        <h3>My Travel Insurance</h3>
+
+        <ul class="hidden">
+            <li>Select Policy</li>
+            <li>Buy Policy</li>
+            <li>Terms and Policy</li>
+        </ul>
+         <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
+            View Details
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="box second">
+        <span class="icon-cont">
+            <i class="fa fa-gg"></i>
+        </span>
+
+        <h3>My Cryptocurrency</h3>
+
+        <ul class="hidden">
+            <li>Available Balance</li>&nbsp;&nbsp;&nbsp;&nbsp;(Sapphire Crystals)
+            <li>Selling and Buying Currency</li>
+        </ul>
+        <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
+            View Details
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="box third">
+        <span class="icon-cont">
+            <i class="fa fa-credit-card"></i>
+        </span>
+
+        <h3>My E-Load</h3>
+
+        <ul class="hidden">
+            <li>Top-Up Load</li>
+            <li>Available Balance</li>
+            <li>E-Load History</li>
+        </ul>
+        <a class="btn btn-sm btn-outline-secondary button" href="top-up.php" role="button">
+            View Details
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </div>
+</div>
+</div>
             </div>
    </div>
-   <audio id="mysoundclip" preload="auto">
-              <source src="music.mp3"> </source>
-          </audio>
       <!-- JavaScript files-->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -152,61 +166,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script src="js/front.js"></script>
       <script src="vendor/slick/slick.min.js"></script>
       <script src="js/custom.js"></script>
-
-      <script type="text/javascript">
-
-//ON TOPUP BUTTON
-$('.topup-button').click(function() {
-  var code = $('#card-code').val();
-  var pin = $('#card-pin').val();
-
-    $.ajax({
-      type: "POST",
-      url: "transaction-card.php",
-      data: {code:code, pin:pin},
-      dataType: "text",
-      success: function(data) {
-        console.log(data);
-        if(data=='1') {
-          $.alert({
-            title: 'Invalid transaction!',
-            content: 'Card has already been used.',
-          });
-        } else if(data=='2') {
-          $.alert({
-            title: 'Invalid transaction!',
-            content: 'Card has been expired.',
-          });
-        } else if(data=='3') {
-          $.confirm({
-              title: 'Card Accepted!',
-              content: 'Procceed with transaction?',
-              theme: 'supervan',
-              buttons: {
-                  confirm: function () {
-                    $.alert('Wala na finish na.');
-                    location.reload(true);
-                  },
-                  cancel: function () {
-                      $.alert('Okay. Good things take time!');
-                  }
-              }
-          });
-        } else {
-          $.alert({
-            title: 'Invalid transaction!',
-            content: 'There are no card exisiting with those details. Please try again.',
-          });      
-        }
-      },
-      error: function(err) {
-        console.log('error'+err);
-      }
-    });
-
-
-
-        });
       </script>
    </body>
 </html>

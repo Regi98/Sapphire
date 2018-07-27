@@ -1,8 +1,7 @@
 <?php
 session_start();
 include('includes/config.php'); 
-$episodeid = $_GET['id'];
-$episodetitle = $_GET['title'];
+$episodeid = $_GET['episode'];
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
@@ -119,7 +118,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 </div>
                 <p>Buy with our new Sapphire Tokens!</p>
               </div>
-          </div><hr width="90%">
+          </div><hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
                      <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
@@ -143,6 +142,19 @@ if(strlen($_SESSION['login'])==0){   ?>
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
+                    <div class="row padding-0">
+                      <div class="col-sm-12"><br>
+                          <div class="form-group row">
+                           <small class="help-block-none">Payment Type</small>
+                           <select id="selectme" class="form-control">
+                              <option value="" disabled selected>Select Payment</option>
+                              <option value="paypal">PayPal</option>
+                              <option value="visa">VISA</option>
+                              <option value="master">Mastercard</option>
+                           </select>
+                        </div>
+                      </div>
+                     </div>
                      <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">
@@ -289,7 +301,6 @@ if(strlen($_SESSION['login'])==0){   ?>
     $("#confirm").click(function() {
       var ewallet = $('#ewallet').attr("data-id");
       var episodeid = "<?php echo $episodeid; ?>";
-      var episodetitle = "<?php echo $episodetitle; ?>";
       if(ewallet >= 2) {
       var balance = ewallet - 2.00;
           $.confirm({
@@ -301,7 +312,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     $.ajax({
                       type: "POST",
                       url: "epitransaction-wallet.php",
-                      data: {balance:balance, episodeid:episodeid, episodetitle:episodetitle},
+                      data: {balance:balance, episodeid:episodeid},
                       dataType: "text",
                       success: function(data) {
                       window.location.replace("series.php");
@@ -314,7 +325,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     });
                   },
                   cancel: function () {
-                      $.alert('Awwwww. Why :(');
+                      $.alert('You have cancelled your purchase!');
                   }
               }
           });
@@ -327,7 +338,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       $("#confirm-token").click(function() {
       var tokens = $('#tokens').attr("data-id");
       var episodeid = "<?php echo $episodeid; ?>";
-      var episodetitle = "<?php echo $episodetitle; ?>";
       if(tokens >= 1) {
       var balance = tokens - 1.00;
 
@@ -340,7 +350,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 $.ajax({
                   type: "POST",
                   url: "epitransaction.php",
-                  data: {balance:balance, episodeid:episodeid, episodetitle:episodetitle},
+                  data: {balance:balance, episodeid:episodeid},
                   dataType: "text",
                   success: function(data) {
                   $.confirm({
@@ -363,7 +373,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 });
               },
               cancel: function () {
-                  $.alert('Awwwww. Why :(');
+                  $.alert('You have cancelled your purchase!');
               }
           }
       });

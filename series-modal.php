@@ -1,6 +1,7 @@
 <?php include 'includes/connect.php';
 $hi = $_GET['id'];
 $season_number = $_GET['season'];
+
 $id= $_SESSION['id'];
 $query = "SELECT * FROM shopusers WHERE id=$id";
 $results = mysqli_query($con, $query);
@@ -62,8 +63,8 @@ $num=mysqli_fetch_assoc($results);
         <ul class="list-unstyled">
                 <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
                 <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
-                <li class="active"><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
-                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
+                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
+                <li class="active"><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
                 <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="#">Page</a></li>
@@ -287,7 +288,7 @@ echo '
 <br>
 <div class="snip1205">
 <img src="../inflightapp/storage/app/public/series_cover_images/'.$row2['cover_image'].'" class="stretchy" height="100%" width="90%">
-<a class="clean-link episode-title" href="#">'.$row2['title'] .'</a>
+<a class="clean-link" href="#">'.$row2['title'] .'</a>
 </div><br>
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
@@ -346,7 +347,7 @@ echo '
             <!-- <button style="margin-top:1px; margin-left:3px;" data-toggle="tooltip" title="Play with Ads" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
             <button style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button> -->
             <div style="margin-top:1px; margin-left:6px; margin-right:20px;" data-toggle="tooltip" title="Play with Ads" class="pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/ads.png" width="33px"></div>
-            <div style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/playads.png" width="33px"></div>
+            <div style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="pull-right button-series-video episode-title" data-id="<?php echo ''.$row5['id'].'';?>"  data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/playads.png" width="33px"></div>
             <hr color="grey">
             <video class="video_player hide series" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
             ads = '{  
@@ -420,26 +421,36 @@ echo '
 
       //ON PLAY BUTTON
         $('.button-series-video').on("click", function(){
-        <?php 
-        $userid=$num['id'];
-        
-        $results = mysqli_query($con,"SELECT * FROM epiownership WHERE user_id = $userid AND episode_id = $season_number");
-        $numResults = mysqli_num_rows($results);
-          if($numResults == 0) { ?>
-             var episodeid = getUrlParameter('season');
-             var episodetitle = $('title').data('id');
-             window.location.href = "paymentmethod.php?season=" + episodeid + "&episode=" + episodetitle;
-        <?php } else { ?>
-
-        var element = document.getElementById(title);
-          if (element.mozRequestFullScreen) {
-            element.mozRequestFullScreen();
-          }
-          else if (element.webkitRequestFullScreen) {
-            element.webkitRequestFullScreen();
-          }
-          document.getElementById(title).play();
-          <?php } ?>
+          var title = $(this).data('title');
+          var episodeid = $(this).data('id');
+          var element = document.getElementById('title');
+           $.ajax({
+									type: "POST",
+									url: "check-series.php",
+									data: {episodeid:episodeid},
+									dataType: "JSON",
+									success: function(data) {
+                    console.log(data);
+                    
+                  
+                      if(data != "Episode bought"){
+                        window.location.href = "paymentmethod.php?id=" + episodeid;
+                      }
+                        else {
+                          if (element.mozRequestFullScreen) {
+                            element.mozRequestFullScreen();
+                          }
+                          else if (element.webkitRequestFullScreen) {
+                            element.webkitRequestFullScreen();
+                          }
+                          document.getElementById(title).play();
+                  }
+                },
+									error: function(err) {
+									console.log(err);
+									
+									}
+								});
           });
     </script>
   </body>

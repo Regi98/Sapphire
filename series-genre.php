@@ -63,7 +63,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       <div class="page-content">
         <!-- Page Header-->
         <!-- Breadcrumb-->
-        <div class="container-fluid">
          <div class="container-fluid">
         <div class="row">
           <ul class="col-6 col-sm-4 col-md-9 breadcrumb">
