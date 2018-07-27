@@ -99,8 +99,8 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item active">Movies            </li>
           </ul>
         </div>
-<div class="container">
-<h4 class="my-content">New Releases</h4>
+<div class="container-fluid">
+<h8 class="my-content">New Releases</h8>
       <div class="regular text-center">
          <?php
                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '3'");
@@ -120,7 +120,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             });
             </script> -->
       </div><br>
-      <h4 class="my-content">Top Movies</h4>
+      <h8 class="my-content">Top Movies</h8>
       <div class="regular text-center">
          <?php
             $dataid;
@@ -143,7 +143,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             });
             </script> -->
       </div><br>
-      <h4 class="my-content">Featured</h4>
+      <h8 class="my-content">Featured</h8>
       <div class="regular text-center">
          <?php
             $dataid;
