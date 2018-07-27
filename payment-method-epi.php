@@ -1,7 +1,8 @@
 <?php
 session_start();
 include('includes/config.php'); 
-$episodeid = $_GET['id'];
+$movieid = $_GET['id'];
+$movietitle = $_GET['title'];
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
@@ -300,7 +301,8 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script>
     $("#confirm").click(function() {
       var ewallet = $('#ewallet').attr("data-id");
-      var episodeid = "<?php echo $episodeid; ?>";
+      var movieid = "<?php echo $movieid; ?>";
+      var movietitle = "<?php echo $movietitle; ?>";
       if(ewallet >= 2) {
       var balance = ewallet - 2.00;
           $.confirm({
@@ -311,11 +313,11 @@ if(strlen($_SESSION['login'])==0){   ?>
                   confirm: function () {
                     $.ajax({
                       type: "POST",
-                      url: "epitransaction-wallet.php",
-                      data: {balance:balance, episodeid:episodeid},
+                      url: "transaction-wallet.php",
+                      data: {balance:balance, movieid:movieid, movietitle:movietitle},
                       dataType: "text",
                       success: function(data) {
-                      window.location.replace("series.php");
+                      window.location.replace("movies.php");
                       console.log('success');
                       },
                       error: function(err) {
@@ -337,7 +339,8 @@ if(strlen($_SESSION['login'])==0){   ?>
 
       $("#confirm-token").click(function() {
       var tokens = $('#tokens').attr("data-id");
-      var episodeid = "<?php echo $episodeid; ?>";
+      var movieid = "<?php echo $movieid; ?>";
+      var movietitle = "<?php echo $movietitle; ?>";
       if(tokens >= 1) {
       var balance = tokens - 1.00;
 
@@ -349,18 +352,18 @@ if(strlen($_SESSION['login'])==0){   ?>
               confirm: function () {
                 $.ajax({
                   type: "POST",
-                  url: "epitransaction.php",
-                  data: {balance:balance, episodeid:episodeid},
+                  url: "transaction.php",
+                  data: {balance:balance, movieid:movieid, movietitle:movietitle},
                   dataType: "text",
                   success: function(data) {
                   $.confirm({
                       title: '<strong>Success!</strong>',
-                      content: 'You have successfully purchased a episode. Redirecting you to series page.',
+                      content: 'You have successfully purchased a premium account. Redirecting you to movies page.',
                       theme: 'light',
                       type: 'green',
                       buttons: {
                           confirm: function () {
-                              window.location.replace("series.php");
+                              window.location.replace("movies.php");
                           }
                       }
                   });
