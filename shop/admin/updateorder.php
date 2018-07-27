@@ -73,11 +73,15 @@ $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'")
     <tr>
       <td colspan="2"><hr /></td>
     </tr>
+     <tr><td colspan="4">
+     <b>Order <?php echo $row['status'];?></b><br><br></td>
+    </tr>
 
    <?php } ?>
    <?php 
 $st='Delivered';
 $st1='Returned';
+$st2='Cancelled';
    $rt = mysqli_query($con,"SELECT * FROM orders WHERE id='$oid'");
      while($num=mysqli_fetch_array($rt))
      {
@@ -111,6 +115,7 @@ $st1='Returned';
       <input name="Submit2" type="submit" class="txtbox4" value="Close this Window " onClick="return f2();" style="cursor: pointer;"  /></td>
     </tr>
     <?php } else if($st1==$currrentSt){ ?>
+     <?php } else if($st2==$currrentSt){ ?>
     <?php } else  { ?>
    
     <tr height="50">
