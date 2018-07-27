@@ -174,7 +174,9 @@ echo '
             </audio>
              <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right music-song" onclick="pauseAudio()" data-title="'.$row3['title'].'"></button>
              <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-heart pull-right wishlist_button" onclick="></button>
+             <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Favorites" href="music-wishlist.php?mid='.$row3['id'].'&&action=favorites">
+										<i class="fa fa-heart"></i>
+									</a>
             <hr color="grey">
             </section>
         </td>
