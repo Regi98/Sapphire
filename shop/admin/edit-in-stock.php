@@ -10,7 +10,7 @@ $stmt->bindparam(':productId', $productId);
 $stmt->bindparam(':inStock', $inStock);
 if($stmt->execute())
 {
-  $res="Data Inserted Successfully:";
+  $res="Data Inserted Successfully";
   echo json_encode($res);
 
 }

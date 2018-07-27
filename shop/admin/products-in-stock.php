@@ -61,9 +61,7 @@ while($row=mysqli_fetch_array($query))
 									<td>
 										<?php echo htmlentities($cnt);?>
 									</td>
-									<td>
-										<?php echo htmlentities($row['id']);?>
-									</td>
+									<td><?php echo htmlentities($row['id']);?></td>
 									<td>
 										<?php echo htmlentities($row['product_name']);?>
 									</td>
@@ -116,7 +114,9 @@ while($row=mysqli_fetch_array($query))
 		});
 
 		$('.in-stock').on('click', function () {
-			var product_id = $(this).parent().siblings(":nth-child(2)").text();
+			var product_id = $(this).parent().siblings(":nth-child(2)").html();
+			console.log(product_id);
+			
 			var product_name = $(this).parent().siblings(":nth-child(3)").text();
 			$('table').find('.stock-number').removeClass('stock-number');
 			$(this).parent().siblings(":nth-child(4)").addClass('stock-number');
@@ -156,7 +156,7 @@ while($row=mysqli_fetch_array($query))
 														productId: product_id,
 														inStock: product_stock
 													},
-													dataType: "text",
+													dataType: "JSON",
 													success: function (data) {
 														$('.stock-number').html(product_stock).removeClass('stock-number');
 														// window.location.replace("products-in-stock.php");
