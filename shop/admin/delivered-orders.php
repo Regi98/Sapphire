@@ -46,7 +46,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 					<div class="module">
 						<div class="module-head">
-							<h4>Pending Orders</h4>
+							<h4>Delivered Orders</h4>
 						</div>
 						<div class="module-body table">
 							<?php if(isset($_GET['del']))
@@ -104,7 +104,9 @@ while($row=mysqli_fetch_array($query))
 											<?php echo htmlentities($row['quantity']);?>
 										</td>
 										<td>
-											<?php echo htmlentities($row['quantity']*$row['productprice']);?>
+											<?php $order_price = $row['quantity']*preg_replace('/[^A-Za-z0-9\-]/', '', $row['productprice']);
+												echo "$".number_format($order_price);
+											?>
 										</td>
 										<td>
 											<?php echo htmlentities($row['orderdate']);?>
