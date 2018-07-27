@@ -125,17 +125,16 @@ function resumePlayBackAfterSlotShow() {
 		videoTag.pause();
 		}
 }
-		
 function showSlot(slot) {
 	$(".skipBtn").show().addClass("disabled");
 	videoTag.src = slot.source;
 	videoTag.play();
-  var intervalAd = setInterval(function(){
+/*  var intervalAd = setInterval(function(){
     if($('#player').get(0).currentTime > 0.25){
       $(".skipBtn").removeClass("disabled");
       clearInterval(intervalAd);
     }
-  }, 100);
+  }, 100); */
 	videoTag.addEventListener('ended',resumePlayBackAfterSlotShow,false);
 }
 	

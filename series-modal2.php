@@ -429,7 +429,7 @@ echo '
 									type: "POST",
 									url: "check-series.php",
 									data: {episodeid:episodeid},
-									dataType: "JSON",
+									dataType: "text",
 									success: function(data) {
                     console.log(data);
                     
@@ -438,13 +438,7 @@ echo '
                         window.location.href = "paymentmethod.php?id=" + episodeid;
                       }
                         else {
-                          if (element.mozRequestFullScreen) {
-                            element.mozRequestFullScreen();
-                          }
-                          else if (element.webkitRequestFullScreen) {
-                            element.webkitRequestFullScreen();
-                          }
-                          document.getElementById(title).play();
+                          alert('Played without ads');
                   }
                 },
 									error: function(err) {
