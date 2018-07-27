@@ -110,25 +110,17 @@ $id= $_SESSION['id'];
 
 	<body class="cnt-home">
 		<!-- ============================================== HEADER : END ============================================== -->
-		<div class="breadcrumb">
-			<div class="container">
-				<div class="breadcrumb-inner">
-					<ul class="list-inline">
-						<li>
-							<a href="../home.php">Home</a>
-						</li>
-						<li class='active'>Checkout</li>
-					</ul>
-				</div>
-				<!-- /.breadcrumb-inner -->
-			</div>
-			<!-- /.container -->
-		</div>
 		<!-- /.breadcrumb -->
 
 		<div class="body-content outer-top-bd">
-			<div class="container">
+			<div class="container"><br>
 				<div class="checkout-box inner-bottom-sm">
+					<nav aria-label="breadcrumb pull-right">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page">My Account</li>
+						</ol>
+					</nav>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="panel-group checkout-steps" id="accordion">

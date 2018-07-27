@@ -1,5 +1,5 @@
 <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:8.5%">
-	  <a href="dashboard.php" class="w3-bar-item w3-button"><i class="fas fa-th-large"></i><p  style="font-size: 0.6rem;">Dashboard</p></a>
+	  <!-- <a href="dashboard.php" class="w3-bar-item w3-button"><i class="fas fa-th-large"></i><p  style="font-size: 0.6rem;">Dashboard</p></a> -->
       <a href="todays-orders.php" class="w3-bar-item w3-button"><i class="fas fa-sun"></i><p style="font-size: 0.6rem;">Today's Orders<h5><span style="font-size: 0.8rem;" class="badge badge-primary"><?php
 			$f1="00:00:00";
 			$from=date('Y-m-d')." ".$f1;
@@ -18,6 +18,12 @@
 		{?><?php echo htmlentities($num); ?>
 		<?php } ?> New</span></h5></p></a>
       <a href="delivered-orders.php" class="w3-bar-item w3-button"><i class="fas fa-inbox"></i><p  style="font-size: 0.6rem;">Delivered Orders<h5><span style="font-size: 0.8rem;" class="badge badge-success"><?php	
+		$status='Delivered';									 
+		$rt = mysqli_query($con,"SELECT * FROM Orders where orderStatus='$status'");
+		$num1 = mysqli_num_rows($rt);
+		{?><?php echo htmlentities($num1); ?>
+		<?php } ?> New</span></h5></p></a>
+		<a href="returned-cancelled-orders.php" class="w3-bar-item w3-button"><i class="fas fa-times-circle"></i><p  style="font-size: 0.6rem;">Returned and Cancelled Orders<h5><span style="font-size: 0.8rem;" class="badge badge-success"><?php	
 		$status='Delivered';									 
 		$rt = mysqli_query($con,"SELECT * FROM Orders where orderStatus='$status'");
 		$num1 = mysqli_num_rows($rt);
