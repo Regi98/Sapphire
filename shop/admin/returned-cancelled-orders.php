@@ -75,6 +75,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 										<th>Amount </th>
 										<th>Order Date</th>
 										<th class="cart-description item">Order Status</th>
+										<th>Posting Date</th>
 										<th>Action</th>
 
 
@@ -83,7 +84,9 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 								<tbody>
 									<?php 
-$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus from orders join shopusers on  orders.userId=shopusers.id join products on products.id=orders.productId where orders.orderStatus='Cancelled' or orders.orderStatus= 'Returned'");
+$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus, ordertrackhistory.postingDate as datePosted from orders join shopusers on  orders.userId=shopusers.id 
+join products on products.id=orders.productId
+join ordertrackhistory on ordertrackhistory.orderId=orders.id where orders.orderStatus='Cancelled' or orders.orderStatus= 'Returned'");
 $cnt=1;
 while($row=mysqli_fetch_assoc($query))
 {
@@ -124,6 +127,9 @@ while($row=mysqli_fetch_assoc($query))
 													echo '<span class="badge badge-pill badge-danger">Cancelled</span>';
 												}
 											?>
+										</td>
+										<td>
+											<?php echo htmlentities($row['datePosted']);?>
 										</td>
 										<td>
 											<a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank">
