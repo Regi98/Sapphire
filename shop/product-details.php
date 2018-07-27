@@ -435,7 +435,7 @@ $num=mysqli_num_rows($rt);
 												
 																$instock = $row['product_in_stock'];
 																	if($instock == 0){ ?>
-													<span class="value">No available product.</span>
+													<span class="value">0</span>
 													<?php
 																	} else { ?>
 														<select name="quantity" class="form-control form-control-sm border-secondary rounded">
@@ -634,7 +634,7 @@ $num=mysqli_num_rows($rt);
 																			<input type="radio" name="rate" class="radio" value="4">
 																		</td>
 																		<td>
-																			<input type="radio" name="rate" class="radio" value="5">
+																			<input type="radio" name="rate" class="radio" value="5" required>
 																		</td>
 																	</tr>
 																</tbody>

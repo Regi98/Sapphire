@@ -113,7 +113,7 @@ $num=mysqli_fetch_assoc($results);
           </div>
         </div>
         </div>
-<div class="container">
+<div class="container-fluid">
            <?php
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='1'");

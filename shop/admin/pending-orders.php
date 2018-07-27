@@ -109,13 +109,22 @@ while($row=mysqli_fetch_assoc($query))
 											<?php echo htmlentities($row['quantity']);?>
 										</td>
 										<td>
-											<?php echo htmlentities($row['quantity']*$row['productprice']);?>
+											<?php $order_price = $row['quantity']*preg_replace('/[^A-Za-z0-9\-]/', '', $row['productprice']);
+												echo "$".number_format($order_price);
+											?>
 										</td>
 										<td>
 											<?php echo htmlentities($row['orderdate']);?>
 										</td>
 										<td>
-											<?php echo htmlentities($row['orderStatus']);?>
+											<?php 
+											 	   $orderstatus = $row['orderStatus'];
+												if($orderstatus == NULL){
+													echo '<span class="badge badge-pill badge-warning">Pending order</span>';
+												} else {
+													echo '<span class="badge badge-pill badge-info">In Process</span>';
+												}
+											?>
 										</td>
 										<td>
 											<a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank">
