@@ -68,7 +68,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item active">Music           </li>
           </ul>
         </div>
-<div class="container">
+<div class="container-fluid">
  <?php
             $dataid;
                      $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
