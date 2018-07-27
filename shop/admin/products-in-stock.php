@@ -115,11 +115,14 @@ while($row=mysqli_fetch_array($query))
 
 		$('.in-stock').on('click', function () {
 			var product_id = $(this).parent().siblings(":nth-child(2)").html();
-			console.log(product_id);
 			
 			var product_name = $(this).parent().siblings(":nth-child(3)").text();
+
 			$('table').find('.stock-number').removeClass('stock-number');
 			$(this).parent().siblings(":nth-child(4)").addClass('stock-number');
+
+			$('table').find('.stock-status').removeClass('stock-status');
+			$(this).parent().siblings(":nth-child(5)").addClass('stock-status');
 
 
 			$.confirm({
@@ -159,6 +162,11 @@ while($row=mysqli_fetch_array($query))
 													dataType: "JSON",
 													success: function (data) {
 														$('.stock-number').html(product_stock).removeClass('stock-number');
+														if(product_stock == 0){
+															$('.stock-status').html("Out of Stock").removeClass('stock-status');
+														} else {
+															$('.stock-status').html("In Stock").removeClass('stock-status');
+														}
 														// window.location.replace("products-in-stock.php");
 													},
 													error: function (err) {
