@@ -532,12 +532,12 @@ $num=mysqli_num_rows($rt);
 												$whole = floor($one_decimal_place_average);
 													for($x=0;$x<=4;$x++){
 														if($x<$whole){
-															echo '<img  class="img-fluid" width="25px" height="25px" src="img/star.png">';
+															echo '<img  class="img-fluid" width="25px" height="25px" src="img/stars.png">';
 														} else {
 															if($whole !=$one_decimal_place_average  && $x == $whole){
-																echo '<img  class="img-fluid" width="25px" height="25px" src="img/half-star.png">';
+																echo '<img  class="img-fluid" width="25px" height="25px" src="img/half-stars.png">';
 															} else {
-																echo '<img  class="img-fluid" width="25px" height="25px" src="img/no-star.png">';
+																echo '<img  class="img-fluid" width="25px" height="25px" src="img/no-stars.png">';
 															}
 														}
 													}
@@ -1040,18 +1040,18 @@ while($rw=mysqli_fetch_array($qry))
 								label: '# of Ratings',
 								data: ratings,
 								backgroundColor: [
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)'
+									'rgba(0, 0, 255, 1)',
+									'rgba(0, 0, 255, 0.6)',
+									'#ff0000',
+									'rgba(255, 0, 0, 0.6)',
+									'rgba(255,255,0, 1)'
 								],
 								borderColor: [
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)'
+									'rgba(0, 0, 255, 1)',
+									'rgba(0, 0, 255, 0.6)',
+									'#ff0000',
+									'rgba(255, 0, 0, 0.6)',
+									'rgba(255,255,0, 1)'
 								],
 								borderWidth: 1
 							}]
