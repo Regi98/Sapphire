@@ -321,7 +321,7 @@ $num=mysqli_num_rows($rt);
 										<div class="row">
 											<div class="col-sm-3">
 												<div class="stock-box">
-													<span class="label">Token Price:</span>
+													<span class="label">Sapphires:</span>
 												</div>
 											</div>
 											<div class="col-sm-9">
