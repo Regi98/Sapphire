@@ -721,12 +721,12 @@ $num=mysqli_num_rows($rt);
 																<?php echo htmlentities($rvw['reviewDate']);?>
 															</div>
 															<br>
-															<small>
+															<h8>
 																<span>
 																	by
 																	<?php echo htmlentities($rvw['name']);?>
 																</span>
-															</small>
+															</h8>
 															<br>
 															<br>
 															<div class="text">
