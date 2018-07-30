@@ -119,12 +119,12 @@ if(isset($_GET['oid'])){
                 <p>We accept VISA and Mastercard.</p>
               </div>
               <div class="col-12 col-md-3">
-                <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Tokens">Sapphire Tokens
+                <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Crystals">Sapphire Crystals
                 <div class="payment-col" id="token">
                   <img src="../images/token.png">
 
                 </div>
-                <p>Buy with our new Sapphire Tokens!</p>
+                <p>Buy with our new Sapphire Crystals!</p>
               </div>
           </div>
    	</div>
