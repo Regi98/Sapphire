@@ -184,7 +184,7 @@ $('.topup-button').click(function() {
               theme: 'supervan',
               buttons: {
                   confirm: function () {
-                    $.alert('Wala na finish na.');
+                    $.alert('You have successfully topped up!');
                     location.reload(true);
                   },
                   cancel: function () {
