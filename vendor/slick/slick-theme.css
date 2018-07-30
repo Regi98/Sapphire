@@ -150,6 +150,9 @@
 
     cursor: pointer;
 }
+.slick-dots li button:before {
+    color: white !important;
+}
 .slick-dots li button
 {
     font-size: 0;

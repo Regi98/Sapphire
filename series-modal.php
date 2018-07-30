@@ -349,6 +349,7 @@ echo '
             <div style="margin-top:1px; margin-left:6px; margin-right:20px;" data-toggle="tooltip" title="Play with Ads" class="pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/ads.png" width="33px"></div>
             <div style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="pull-right button-series-video episode-title" data-id="<?php echo ''.$row5['id'].'';?>"  data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/playads.png" width="33px"></div>
             <hr color="grey">
+            <video class="hide" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['id'].'';?>" width="100%" controls controlsList="nodownload"></video>
             <video class="video_player hide series" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 
             ads = '{  
         "servers": 
@@ -419,7 +420,7 @@ echo '
         initAdsFor(title);
         document.getElementById(title).play();
       });
-
+        
       //ON PLAY BUTTON
         $('.button-series-video').on("click", function(){
           var title = $(this).data('title');
@@ -429,22 +430,22 @@ echo '
 									type: "POST",
 									url: "check-series.php",
 									data: {episodeid:episodeid},
-									dataType: "JSON",
+									dataType: "text",
 									success: function(data) {
-                    console.log(data);
                     
-                  
-                      if(data != "Episode bought"){
-                        window.location.href = "paymentmethod.php?id=" + episodeid;
+                      if(data == '1'){
+        var sb = document.getElementById(episodeid);
+        if (episodeid.mozRequestFullScreen) {
+          episodeid.mozRequestFullScreen();
+        }
+        else if (episodeid.webkitRequestFullScreen) {
+          episodeid.webkitRequestFullScreen();
+        }
+        document.getElementById(episodeid).play();
                       }
                         else {
-                          if (element.mozRequestFullScreen) {
-                            element.mozRequestFullScreen();
-                          }
-                          else if (element.webkitRequestFullScreen) {
-                            element.webkitRequestFullScreen();
-                          }
-                          document.getElementById(title).play();
+                           window.location.href = "paymentmethod.php?id=" + episodeid;
+                          
                   }
                 },
 									error: function(err) {

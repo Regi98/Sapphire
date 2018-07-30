@@ -134,9 +134,6 @@ $id= $_SESSION['id'];
               </div>
             </div>
 					</div>
-					<div class="carousel-item">
-            <img class="d-block w-100" src="assets/images/sliders/4th.jpg" alt="Post Picture">
-          </div>
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -198,7 +195,7 @@ while ($row=mysqli_fetch_array($ret))
 
 			<div class="product-price">	
 				<span class="price">$<?php echo htmlentities($row['product_price']);?></span>
-				<span class="price-before-discount"><strike><small>$<?php echo htmlentities($row['product_price_before_discount']);?></small></strike></span><span class="token_price pull-right"><img src="assets/images/payments/tokens.png" width="18" height="18"> <?php echo htmlentities($row['product_price_token']);?></span>		
+				<span class="price-before-discount"><strike><small>$<?php echo htmlentities($row['product_price_before_discount']);?></small></strike></span><span class="token_price pull-right"><img src="../images/gems.png" width="18" height="18"> <?php echo htmlentities($row['product_price_token']);?></span>		
 			</div><!-- /.product-price -->
 			
 		</div><!-- /.product-info -->

@@ -103,7 +103,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <i class="fa fa-plane"></i>
         </span>
 
-        <h3>My Travel Insurance</h3>
+        <h3>Travel Insurance</h3>
 
         <ul class="hidden">
             <li>Select Policy</li>
@@ -122,11 +122,12 @@ if(strlen($_SESSION['login'])==0){   ?>
             <i class="fa fa-gg"></i>
         </span>
 
-        <h3>My Cryptocurrency</h3>
+        <h3>Sapphire Crystals </h3>
 
         <ul class="hidden">
-            <li>Available Balance</li>&nbsp;&nbsp;&nbsp;&nbsp;(Sapphire Crystals)
-            <li>Selling and Buying Currency</li>
+            <li>Available Balance</li>
+            <li>Crypto Trading</li>
+            <br>
         </ul>
         <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
             View Details
