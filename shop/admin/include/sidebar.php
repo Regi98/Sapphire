@@ -26,7 +26,7 @@
 		{?><?php echo htmlentities($num1); ?>
 		<?php } ?> Orders</span></h5></p></a>
 
-		<a href="returned-cancelled-orders.php" class="w3-bar-item w3-button"><i class="fas fa-times-circle"></i><p  style="font-size: 0.6rem;">Returned and Cancelled Orders<h5><span style="font-size: 0.8rem;" class="badge badge-success"><?php	
+		<a href="returned-cancelled-orders.php" class="w3-bar-item w3-button"><i class="fas fa-times-circle"></i><p  style="font-size: 0.6rem;">Returned and Cancelled Orders<h5><span style="font-size: 0.8rem;" class="badge badge-danger"><?php	
 		$status1='Returned';	
 		$status2='Cancelled';									 
 		$rtt = mysqli_query($con,"SELECT * FROM ordertrackhistory");

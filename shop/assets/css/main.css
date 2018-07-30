@@ -371,7 +371,6 @@ img[src="assets/images/blank.gif"] {
   position: absolute;
   width: 20px;
   height: 20px;
-  top: -36px;
   right: 27px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -396,7 +395,6 @@ img[src="assets/images/blank.gif"] {
   position: absolute;
   width: 20px;
   height: 20px;
-  top: -36px;
   right: 0px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -3530,7 +3528,7 @@ a {
   color: #fff;
 }
 .single-product .product-tabs {
-  margin-top: -6em;
+  margin-top: -15em;
 }
 .single-product .product-tabs .nav.nav-tabs.nav-tab-cell > li {
   float: none !important;

@@ -185,7 +185,7 @@ while($row=mysqli_fetch_array($ret))
 							<div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
 								<div class="product-item-holder size-big single-product-gallery small-gallery">
 
-									<div id="owl-single-product">
+									<div id="owl-single-product" class="carousel-images">
 
 										<div class="single-product-gallery-item" id="slide1">
 											<a data-lightbox="image-1" data-title="<?php echo htmlentities($row['product_name']);?>" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>">
@@ -224,7 +224,7 @@ while($row=mysqli_fetch_array($ret))
 									<!-- /.single-product-slider -->
 
 
-									<div class="single-product-gallery-thumbs gallery-thumbs carousel-images">
+									<div class="single-product-gallery-thumbs gallery-thumbs">
 
 										<div id="owl-single-product-thumbnails">
 											<div class="item">
@@ -449,10 +449,17 @@ $num=mysqli_num_rows($rt);
 														<?php } ?>
 											</div>
 										</div>
-
-
 									</div>
 									<!-- /.row -->
+									<div class="row">
+										<div class="col-12 col-md-12" style="margin-top:1em;">
+											<h7 class="label">Ph Tax:</h7>
+										</div>
+										<div class="col-12 col-md-12" style="margin-top:1em;">
+											<h7 class="label">Service Charge:</h7>
+										</div>
+										
+									</div>
 								</div>
 								<!-- /.quantity-container -->
 								<div class="row">
@@ -539,7 +546,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 													<h6 class="text-secondary">
 														<?php echo htmlentities($num_reviews);?>&nbsp;
-														<i class="fas fa-1x fa-user"></i>
+														<i class="fa fa-1x fa-user"></i>
 													</h6>
 													<br>
 													<br>
@@ -721,12 +728,12 @@ $num=mysqli_num_rows($rt);
 																<?php echo htmlentities($rvw['reviewDate']);?>
 															</div>
 															<br>
-															<small>
+															<h8>
 																<span>
 																	by
 																	<?php echo htmlentities($rvw['name']);?>
 																</span>
-															</small>
+															</h8>
 															<br>
 															<br>
 															<div class="text">
@@ -763,9 +770,10 @@ $num=mysqli_num_rows($rt);
 				<?php $cid=$row['product_category_id'];
 			$subcid=$row['product_sub_category_id']; } ?>
 				<!-- ============================================== UPSELL PRODUCTS ============================================== -->
-				<section class="section featured-product wow fadeInUp">
+				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
 					<h3 class="section-title">Related Products </h3>
-					<div class="row outer-top-xs">
+					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
+				
 
 						<?php 
 $qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
@@ -774,8 +782,8 @@ while($rw=mysqli_fetch_array($qry))
 
 			?>
 
-
-						<div class="col-md-3 col-sm-2 wow fadeInUp">
+				<div class="item item-carousel">
+						<div class="col-md-12 col-12 wow fadeInUp">
 							<!-- <div class="products">
 												<div class="product">
 													<div class="product-image">
@@ -829,6 +837,7 @@ while($rw=mysqli_fetch_array($qry))
 							<!-- /.product -->
 
 						</div>
+</div>
 						<!-- /.item -->
 						<?php } ?>
 

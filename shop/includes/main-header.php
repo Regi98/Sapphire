@@ -49,7 +49,7 @@ var_dump($_SESSION);
 echo '</pre>';?> -->
 
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-3 top-search-holder" style="margin-top:7px;">
+				<div class="col-xs-12 col-sm-12 col-md-3 top-search-holder" style="margin-top:7px; margin-bottom: -15px;">
 					<div class="search-area">
 						<form name="search" method="post" action="search-result.php">
 							<div class="control-group">
