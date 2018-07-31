@@ -312,8 +312,10 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-9">
 												<div class="price-box">
-													<span class="label price">$<?php echo htmlentities($row['product_price']);?>.00
-													</span>
+													$<span class="label product-unit-price"><?php 
+													$prod_price = $row['product_price'];
+													echo htmlentities($prod_price);?>
+													</span>.00
 												</div>
 											</div>
 										</div>
@@ -438,7 +440,7 @@ $num=mysqli_num_rows($rt);
 													<span class="value">0</span>
 													<?php
 																	} else { ?>
-														<select name="quantity" class="form-control form-control-sm border-secondary rounded">
+														<select name="quantity" class="form-control form-control-sm border-secondary rounded qty-select">
 															<option class="value" value="1" selected>1</option>
 															<?php for($x=2; $x <= $instock; $x++){ ?>
 															<option class="value" value="<?php echo $x; ?>">
@@ -458,10 +460,25 @@ $num=mysqli_num_rows($rt);
 										<div class="col-12 col-md-12" style="margin-top:1em;">
 											<h7 class="label">Service Charge:</h7>
 										</div>
-										
 									</div>
 								</div>
 								<!-- /.quantity-container -->
+								<div class="quantity-container info-container">
+									<div class="row">
+										<div class="col-4 col-sm-4">
+											<h7 class="label">Total:</h7>
+										</div>
+
+										<div class="col-7 col-sm-7">
+											<div class="cart-quantity">
+													$<span class="value cart-total"><?php echo htmlentities($prod_price);?></span>.00
+											</div>
+										</div>
+
+
+									</div>
+									<!-- /.row -->
+								</div>
 								<div class="row">
 									<div class="col-12 col-sm-12">
 										<?php
@@ -551,7 +568,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 													<br>
 											</div>
-											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-35px;">
+											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-25px;">
 												<canvas id="myChart" width="80%" height="35%"></canvas>
 											</div>
 										</div>
@@ -776,7 +793,7 @@ $num=mysqli_num_rows($rt);
 				
 
 						<?php 
-$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
+$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid' and id != '$pid'");
 while($rw=mysqli_fetch_array($qry))
 {
 
@@ -789,11 +806,11 @@ while($rw=mysqli_fetch_array($qry))
 													<div class="product-image">
 														<div class="image"> -->
 							<div class="card">
-								<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>" class="card-img-top">
-									<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>"
-									    alt="" class="img-fluid" width="100%" height="100%">
-								</a>
-
+								<div class="containerview">
+								<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
+								<div class="overlay"></div>
+  								<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>"> VIEW PRODUCT </a></div>
+								</div>
 								<!-- </div>
 														 /.image 
 
@@ -823,7 +840,7 @@ while($rw=mysqli_fetch_array($qry))
 												</strike>
 											</span>
 											<span class="token_price pull-right">
-												<img src="assets/images/payments/tokens.png" width="18" height="18">
+												<img src="../images/gems.png" width="18" height="18">
 												<?php echo htmlentities($rw['product_price_token']);?>
 											</span>
 										</div>
@@ -847,13 +864,13 @@ while($rw=mysqli_fetch_array($qry))
 					<!-- /.home-owl-carousel -->
 				</section>
 				<!-- /.section -->
-				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
+				<section class="section featured-product wow fadeInUp" style="margin-top :-2em;">
 					<h3 class="section-title">Sponsored Items </h3>
 					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 				
 
 						<?php 
-$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
+$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid' and id != '$pid'");
 while($rw=mysqli_fetch_array($qry))
 {
 
@@ -866,11 +883,11 @@ while($rw=mysqli_fetch_array($qry))
 													<div class="product-image">
 														<div class="image"> -->
 							<div class="card">
-								<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>" class="card-img-top">
-									<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>"
-									    alt="" class="img-fluid" width="100%" height="100%">
-								</a>
-
+							<div class="containerview">
+							<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
+							<div class="overlay"></div>
+  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"> VIEW PRODUCT </a></div>
+							</div>
 								<!-- </div>
 														 /.image 
 
@@ -1065,7 +1082,22 @@ while($rw=mysqli_fetch_array($qry))
 								text: 'Product Ratings',
 								fontFamily: 'Century Gothic'
 							},
-							responsive: true
+							responsive: true,
+							scales: {
+							xAxes: [{
+										gridLines: {
+											color: "rgba(0, 0, 0, 0)",
+										},
+										ticks: {
+											display: false
+										}
+									}],
+							yAxes: [{
+										gridLines: {
+											color: "rgba(0, 0, 0, 0)",
+										},
+									}]
+							}
 						}
 					});
 
@@ -1075,6 +1107,15 @@ while($rw=mysqli_fetch_array($qry))
 
 				}
 			});
+		$( ".qty-select" ).change(function() {
+			var qty = $(this).val();
+			var price = $('.product-unit-price').html();
+			var pricee = price.replace(/,/g , "");
+			var finalprice = pricee*qty;
+			var pricewithcomma = finalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.cart-total').html(pricewithcomma);
+			
+		});
 		</script>
 		<!-- For demo purposes – can be removed on production : End -->
 		<!-- NAVBAR SCRIPTS -->

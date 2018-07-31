@@ -6,6 +6,7 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
+
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
@@ -17,11 +18,11 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>CABIN | Pending Orders</title>
+		<title>CABIN | Returned and Cancelled Orders</title>
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link type="text/css" href="css/theme.css" rel="stylesheet">
 		<link rel="stylesheet" href="fontawesome/css/all.min.css">
 		<link rel="stylesheet" <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-		<link type="text/css" href="css/theme.css" rel="stylesheet">
 		<script language="javascript" type="text/javascript">
 			var popUpWin = 0;
 
@@ -46,7 +47,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 					<div class="module">
 						<div class="module-head">
-							<h4>Today's Orders</h4>
+							<h4>Returned and Cancelled Orders</h4>
 						</div>
 						<div class="module-body table">
 							<?php if(isset($_GET['del']))
@@ -73,7 +74,8 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 										<th>Qty </th>
 										<th>Amount </th>
 										<th>Order Date</th>
-										<th>Order Status</th>
+										<th class="cart-description item">Reason</th>
+										<th>Date/Time Posted</th>
 										<th>Action</th>
 
 
@@ -82,13 +84,11 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 								<tbody>
 									<?php 
- $f1="00:00:00";
-$from=date('Y-m-d')." ".$f1;
-$t1="23:59:59";
-$to=date('Y-m-d')." ".$t1;
-$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus  from orders join shopusers on  orders.userId=shopusers.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to'");
+$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orderreturns.reason as returnreason, orderreturns.return_date as datePosted from orders join shopusers on  orders.userId=shopusers.id 
+join products on products.id=orders.productId
+join orderreturns on orderreturns.order_id=orders.id where orders.orderStatus='Item Return'");
 $cnt=1;
-while($row=mysqli_fetch_array($query))
+while($row=mysqli_fetch_assoc($query))
 {
 ?>
 									<tr>
@@ -119,32 +119,15 @@ while($row=mysqli_fetch_array($query))
 											<?php echo htmlentities($row['orderdate']);?>
 										</td>
 										<td>
-											<?php 
-											 	   $orderstatus = $row['orderStatus'];
-												if($orderstatus == NULL){
-													echo '<span class="badge badge-pill badge-warning">Order Pending</span>';
-												} elseif($orderstatus == 'Item Return') {
-													echo '<span class="badge badge-pill badge-warning">Item Return</span>';
-												} elseif($orderstatus == 'Cancelled') {
-													echo '<span class="badge badge-pill badge-danger">Cancelled</span>';
-												} elseif($orderstatus == 'Returned') {
-													echo '<span class="badge badge-pill badge-secondary">Item Returned</span>';
-												} elseif($orderstatus == 'Delivered') {
-													echo '<span class="badge badge-pill badge-success">Delivered</span>';
-												} else {
-													echo '<span class="badge badge-pill badge-info">In Process</span>';
-												}
-											?>
+											<?php echo htmlentities($row['returnreason']);?>
 										</td>
 										<td>
-											<?php 
-												if($row['orderStatus']=='Cancelled' || $row['orderStatus']=='Returned'){?>
-											<span class="badge badge-secondary">No Action Available</span>
-											<?php } else{ ?>
+											<?php echo htmlentities($row['datePosted']);?>
+										</td>
+										<td>
 											<a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank">
 												<i class="icon-edit"></i>
 											</a>
-											<?php } ?>
 										</td>
 									</tr>
 
@@ -162,6 +145,7 @@ while($row=mysqli_fetch_array($query))
 			<!--/.container-->
 		</div>
 		<!--/.wrapper-->
+
 		<script src="scripts/jquery.min.js" type="text/javascript"></script>
 		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
