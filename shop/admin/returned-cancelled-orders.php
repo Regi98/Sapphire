@@ -122,7 +122,7 @@ while($row=mysqli_fetch_assoc($query))
 											<?php 
 											 	   $orderstatus = $row['orderStatus'];
 												if($orderstatus == 'Returned'){
-													echo '<span class="badge badge-pill badge-secondary">Returned order</span>';
+													echo '<span class="badge badge-pill badge-secondary">Item Returned</span>';
 												} else {
 													echo '<span class="badge badge-pill badge-danger">Cancelled</span>';
 												}

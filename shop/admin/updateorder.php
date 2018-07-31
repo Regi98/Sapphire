@@ -15,7 +15,7 @@ $remark=$_POST['remark'];//space char
 $query=mysqli_query($con,"insert into ordertrackhistory(orderId,status,remark) values('$oid','$status','$remark')");
 $sql=mysqli_query($con,"update orders set orderStatus='$status' where id='$oid'");
 echo "<script>alert('Order updated sucessfully...');</script>";
-//}
+exit();
 }
 
  ?>
@@ -74,7 +74,7 @@ $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'")
       <td colspan="2"><hr /></td>
     </tr>
      <tr><td colspan="4">
-     <b>Order <?php echo $row['status'];?></b><br><br></td>
+     <b>Item <?php echo $row['status'];?></b><br><br></td>
     </tr>
 
    <?php } ?>
@@ -82,6 +82,7 @@ $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'")
 $st='Delivered';
 $st1='Returned';
 $st2='Cancelled';
+$st3='Item Return';
    $rt = mysqli_query($con,"SELECT * FROM orders WHERE id='$oid'");
      while($num=mysqli_fetch_array($rt))
      {
@@ -115,7 +116,33 @@ $st2='Cancelled';
       <input name="Submit2" type="submit" class="txtbox4" value="Close this Window " onClick="return f2();" style="cursor: pointer;"  /></td>
     </tr>
     <?php } else if($st1==$currrentSt){ ?>
-     <?php } else if($st2==$currrentSt){ ?>
+    <?php } else if($st2==$currrentSt){ ?>
+    <?php } else if($st3==$currrentSt){ ?>
+      <tr height="50">
+      <td class="fontkink1">Status: </td>
+      <td  class="fontkink"><span class="fontkink1" >
+        <select name="status" class="fontkink" required="required" >
+            <option value="">Select Status</option>
+            <option value="Returned">Returned</option>
+        </select>
+        </span></td>
+    </tr>
+
+     <tr style=''>
+      <td class="fontkink1" >Remark:</td>
+      <td class="fontkink" align="justify" ><span class="fontkink">
+        <textarea cols="50" rows="7" name="remark" ></textarea>
+        </span></td>
+    </tr>
+    <tr>
+      <td class="fontkink1">&nbsp;</td>
+      <td  >&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="fontkink">       </td>
+      <td  class="fontkink"> <input type="submit" name="submit2"  value="update"   size="40" style="cursor: pointer;" /> &nbsp;&nbsp;   
+      <input name="Submit2" type="submit" class="txtbox4" value="Close this Window " onClick="return f2();" style="cursor: pointer;"  /></td>
+    </tr>
     <?php } else  { ?>
    
     <tr height="50">
