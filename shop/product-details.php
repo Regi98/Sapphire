@@ -823,7 +823,7 @@ while($rw=mysqli_fetch_array($qry))
 												</strike>
 											</span>
 											<span class="token_price pull-right">
-												<img src="assets/images/payments/tokens.png" width="18" height="18">
+												<img src="../images/gems.png" width="18" height="18">
 												<?php echo htmlentities($rw['product_price_token']);?>
 											</span>
 										</div>
