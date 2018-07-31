@@ -568,7 +568,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 													<br>
 											</div>
-											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-35px;">
+											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-25px;">
 												<canvas id="myChart" width="80%" height="35%"></canvas>
 											</div>
 										</div>
@@ -1082,7 +1082,22 @@ while($rw=mysqli_fetch_array($qry))
 								text: 'Product Ratings',
 								fontFamily: 'Century Gothic'
 							},
-							responsive: true
+							responsive: true,
+							scales: {
+							xAxes: [{
+										gridLines: {
+											color: "rgba(0, 0, 0, 0)",
+										},
+										ticks: {
+											display: false
+										}
+									}],
+							yAxes: [{
+										gridLines: {
+											color: "rgba(0, 0, 0, 0)",
+										},
+									}]
+							}
 						}
 					});
 
