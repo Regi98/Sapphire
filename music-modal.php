@@ -223,7 +223,7 @@ echo '
 <tbody>
 <thead>
     <center>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class=" fa fa-music fa-sm"></i>
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class=" fa fa-music fa-sm"></i>
         </button>
     </center>
 </thead>
