@@ -187,7 +187,7 @@ while($row=mysqli_fetch_array($ret))
 
 									<div id="owl-single-product" class="carousel-images">
 
-										<div class="single-product-gallery-item" id="slide1">
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide1">
 											<a data-lightbox="image-1" data-title="<?php echo htmlentities($row['product_name']);?>" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"
 												    width="370" height="325" />
@@ -197,29 +197,30 @@ while($row=mysqli_fetch_array($ret))
 
 
 
-										<div class="single-product-gallery-item" id="slide1">
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide1">
 											<a data-lightbox="image-1" data-title="<?php echo htmlentities($row['product_name']);?>" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"
 												    width="370" height="325" />
 											</a>
 										</div>
 										<!-- /.single-product-gallery-item -->
-
-										<div class="single-product-gallery-item" id="slide2">
+										<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide2">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"
 												/>
 											</a>
 										</div>
+										<?php } ?>
 										<!-- /.single-product-gallery-item -->
-
-										<div class="single-product-gallery-item" id="slide3">
+										<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide3">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
 												/>
 											</a>
 										</div>
-
+										<?php } ?>
 									</div>
 									<!-- /.single-product-slider -->
 
@@ -227,24 +228,27 @@ while($row=mysqli_fetch_array($ret))
 									<div class="single-product-gallery-thumbs gallery-thumbs">
 
 										<div id="owl-single-product-thumbnails">
+											
 											<div class="item">
 												<a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"/>
 												</a>
 											</div>
-
+											<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
 											<div class="item">
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"/>
 												</a>
 											</div>
+											<?php } ?>
+											<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
 											<div class="item">
-
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
  />
 												</a>
 											</div>
+											<?php } ?>
 
 
 
@@ -453,23 +457,35 @@ $num=mysqli_num_rows($rt);
 										</div>
 									</div>
 									<!-- /.row -->
+									<?php if($instock != 0){ ?>
+									<br>
 									<div class="row">
-										<div class="col-12 col-md-12" style="margin-top:1em;">
+										<div class="col-8">
 											<h7 class="label">Ph Tax:</h7>
 										</div>
-										<div class="col-12 col-md-12" style="margin-top:1em;">
-											<h7 class="label">Service Charge:</h7>
+										<div class="col-4">
+											<h7 class="label">₱0.00</h7>
 										</div>
 									</div>
+									<div class="row">
+										<div class="col-8">
+											<h7 class="label">Service Charge:</h7>
+										</div>
+										<div class="col-4">
+											<h7 class="label">$0.00</h7>
+										</div>
+									</div>
+									<?php } ?>
 								</div>
 								<!-- /.quantity-container -->
+								<?php if($instock != 0){ ?>
 								<div class="quantity-container info-container">
 									<div class="row">
-										<div class="col-4 col-sm-4">
+										<div class="col-7">
 											<h7 class="label">Total:</h7>
 										</div>
 
-										<div class="col-7 col-sm-7">
+										<div class="col-5">
 											<div class="cart-quantity">
 													$<span class="value cart-total"><?php echo htmlentities($prod_price);?></span>.00
 											</div>
@@ -479,6 +495,7 @@ $num=mysqli_num_rows($rt);
 									</div>
 									<!-- /.row -->
 								</div>
+								<?php } ?>
 								<div class="row">
 									<div class="col-12 col-sm-12">
 										<?php
@@ -1127,7 +1144,10 @@ while($rw=mysqli_fetch_array($qry))
 		</script>
 		<script src="distribution/vendor/jquery-validation/jquery.validate.min.js"></script>
 		<script src="distribution/js/front.js"></script>
-
+		<script src="distribution/js/easyzoom.js"></script>
+		<script>
+		var $easyzoom = $('.easyzoom').easyZoom();
+		</script>
 
 	</body>
 
