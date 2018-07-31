@@ -26,6 +26,14 @@
 		{?><?php echo htmlentities($num1); ?>
 		<?php } ?> Orders</span></h5></p></a>
 
+
+		<a href="pending-returns.php" class="w3-bar-item w3-button"><i class="fas fa-undo"></i><p  style="font-size: 0.6rem;">Pending Returns<h5><span style="font-size: 0.8rem;" class="badge badge-warning"><?php	
+		$status1='Item Return';									 
+		$rt = mysqli_query($con,"SELECT * FROM Orders where orderStatus='$status1'");
+		$num1 = mysqli_num_rows($rt);
+		{?><?php echo htmlentities($num1); ?>
+		<?php } ?> Returns</span></h5></p></a>
+
 		<a href="returned-cancelled-orders.php" class="w3-bar-item w3-button"><i class="fas fa-times-circle"></i><p  style="font-size: 0.6rem;">Returned and Cancelled Orders<h5><span style="font-size: 0.8rem;" class="badge badge-danger"><?php	
 		$status1='Returned';	
 		$status2='Cancelled';									 

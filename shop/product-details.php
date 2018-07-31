@@ -312,8 +312,10 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-9">
 												<div class="price-box">
-													<span class="label price">$<?php echo htmlentities($row['product_price']);?>.00
-													</span>
+													$<span class="label product-unit-price"><?php 
+													$prod_price = $row['product_price'];
+													echo htmlentities($prod_price);?>
+													</span>.00
 												</div>
 											</div>
 										</div>
@@ -438,7 +440,7 @@ $num=mysqli_num_rows($rt);
 													<span class="value">0</span>
 													<?php
 																	} else { ?>
-														<select name="quantity" class="form-control form-control-sm border-secondary rounded">
+														<select name="quantity" class="form-control form-control-sm border-secondary rounded qty-select">
 															<option class="value" value="1" selected>1</option>
 															<?php for($x=2; $x <= $instock; $x++){ ?>
 															<option class="value" value="<?php echo $x; ?>">
@@ -458,10 +460,25 @@ $num=mysqli_num_rows($rt);
 										<div class="col-12 col-md-12" style="margin-top:1em;">
 											<h7 class="label">Service Charge:</h7>
 										</div>
-										
 									</div>
 								</div>
 								<!-- /.quantity-container -->
+								<div class="quantity-container info-container">
+									<div class="row">
+										<div class="col-4 col-sm-4">
+											<h7 class="label">Total:</h7>
+										</div>
+
+										<div class="col-7 col-sm-7">
+											<div class="cart-quantity">
+													$<span class="value cart-total"><?php echo htmlentities($prod_price);?></span>.00
+											</div>
+										</div>
+
+
+									</div>
+									<!-- /.row -->
+								</div>
 								<div class="row">
 									<div class="col-12 col-sm-12">
 										<?php
@@ -823,7 +840,7 @@ while($rw=mysqli_fetch_array($qry))
 												</strike>
 											</span>
 											<span class="token_price pull-right">
-												<img src="assets/images/payments/tokens.png" width="18" height="18">
+												<img src="../images/gems.png" width="18" height="18">
 												<?php echo htmlentities($rw['product_price_token']);?>
 											</span>
 										</div>
@@ -1075,6 +1092,15 @@ while($rw=mysqli_fetch_array($qry))
 
 				}
 			});
+		$( ".qty-select" ).change(function() {
+			var qty = $(this).val();
+			var price = $('.product-unit-price').html();
+			var pricee = price.replace(/,/g , "");
+			var finalprice = pricee*qty;
+			var pricewithcomma = finalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.cart-total').html(pricewithcomma);
+			
+		});
 		</script>
 		<!-- For demo purposes – can be removed on production : End -->
 		<!-- NAVBAR SCRIPTS -->
