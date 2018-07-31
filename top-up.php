@@ -95,7 +95,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       <h4>Not enough balance? Load now!</h4>    <br><br>
         <div class="row  ">
             <div class=" col-12 col-md-6">
-                  <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up" id="scratchcard">
+                  <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up active" id="scratchcard">
                     <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
                   Top up my E-wallet
                 </button>
@@ -103,7 +103,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <div class="col-12 col-md-6">
                   <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
                   <img src="images/token.png" width="50px"> &nbsp;&nbsp;
-                Load Sapphire Tokens</button>
+                Load Sapphire Crystals</button>
             </div>
       </div>
       <hr width="90%">
