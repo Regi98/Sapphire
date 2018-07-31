@@ -204,22 +204,23 @@ while($row=mysqli_fetch_array($ret))
 											</a>
 										</div>
 										<!-- /.single-product-gallery-item -->
-
+										<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
 										<div class="single-product-gallery-item" id="slide2">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"
 												/>
 											</a>
 										</div>
+										<?php } ?>
 										<!-- /.single-product-gallery-item -->
-
+										<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
 										<div class="single-product-gallery-item" id="slide3">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
 												/>
 											</a>
 										</div>
-
+										<?php } ?>
 									</div>
 									<!-- /.single-product-slider -->
 
@@ -227,24 +228,27 @@ while($row=mysqli_fetch_array($ret))
 									<div class="single-product-gallery-thumbs gallery-thumbs">
 
 										<div id="owl-single-product-thumbnails">
+											
 											<div class="item">
 												<a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"/>
 												</a>
 											</div>
-
+											<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
 											<div class="item">
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"/>
 												</a>
 											</div>
+											<?php } ?>
+											<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
 											<div class="item">
-
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
  />
 												</a>
 											</div>
+											<?php } ?>
 
 
 
