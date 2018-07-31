@@ -285,7 +285,7 @@ $(document).ready(function(){
         });
     });
 });
-
+/*
 var myAudio = document.getElementById("myAudio");
 var isPlaying = false;
 
@@ -301,4 +301,4 @@ myAudio.onplaying = function () {
 };
 myAudio.onpause = function () {
   isPlaying = false;
-};
+}; */
