@@ -1682,7 +1682,7 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
   border: 1px solid #444951;
   background: transparent;
   border-radius: 0;
-  color: #979a9f;
+  color: #fff;
 }
 
 .form-control::-moz-placeholder {

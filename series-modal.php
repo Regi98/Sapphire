@@ -434,7 +434,7 @@ echo '
 									success: function(data) {
                     
                       if(data == '1'){
-        // var sb = document.getElementById(episodeid);
+        var sb = document.getElementById(episodeid);
         if (episodeid.mozRequestFullScreen) {
           episodeid.mozRequestFullScreen();
         }

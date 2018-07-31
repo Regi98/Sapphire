@@ -119,12 +119,12 @@ if(isset($_GET['oid'])){
                 <p>We accept VISA and Mastercard.</p>
               </div>
               <div class="col-12 col-md-3">
-                <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Tokens">Sapphire Tokens
+                <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Crystals">Sapphire Crystals
                 <div class="payment-col" id="token">
                   <img src="../images/token.png">
 
                 </div>
-                <p>Buy with our new Sapphire Tokens!</p>
+                <p>Buy with our new Sapphire Crystals!</p>
               </div>
           </div>
    	</div>
@@ -143,19 +143,6 @@ if(isset($_GET['oid'])){
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
-                    <div class="row padding-0">
-                      <div class="col-sm-12"><br>
-                          <div class="form-group row">
-                           <small class="help-block-none">Payment Type</small>
-                           <select id="selectme" class="form-control">
-                              <option value="" disabled selected>Select Payment</option>
-                              <option value="paypal">PayPal</option>
-                              <option value="visa">VISA</option>
-                              <option value="master">Mastercard</option>
-                           </select>
-                        </div>
-                      </div>
-                     </div>
                      <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">

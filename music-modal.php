@@ -3,6 +3,21 @@ session_start();
 error_reporting(0);
 include('includes/config.php'); 
 $hi = $_GET['id'];
+$mid = $_GET['mid'];
+
+if(isset($_GET['mid']) && $_GET['action']=="favorites" ){
+	if(strlen($_SESSION['login'])==0)
+    {   
+header('location:login.php');
+}
+else
+{
+mysqli_query($con,"insert into favorites(userId,musicId) values('".$_SESSION['id']."','$mid')");
+echo "<script>alert('Music added in Favorites');</script>";
+header('location:music.php');
+
+}
+}
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
@@ -68,6 +83,20 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item active">Music           </li>
           </ul>
         </div>
+<!--ALBUMS/TABS-->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Albums</a>
+    </li>
+  <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Playlist</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div id="home" class="container tab-pane active">
+    <br>
 <div class="container-fluid">
  <?php
             $dataid;
@@ -126,7 +155,9 @@ if(strlen($_SESSION['login'])==0){   ?>
                       }
                         
             ?> </div><br>
-
+                </div>
+  </div>
+<!--MODAL-->
 <?php
 $data2 = mysqli_query($con,"select * from albums
 join artists on artists.id=albums.artist_id
@@ -174,7 +205,7 @@ echo '
             </audio>
              <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right music-song" onclick="pauseAudio()" data-title="'.$row3['title'].'"></button>
              <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
-             <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Favorites" href="music-wishlist.php?mid='.$row3['id'].'&&action=favorites">
+             <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-heart"></i>
 									</a>
             <hr color="grey">
@@ -186,6 +217,80 @@ echo '
 </div>
     </div>
     </div>
+
+<!--PLAYLIST-->
+    <div id="menu1" class="container tab-pane fade"><br>
+<div class="container-fluid">
+<div class="body-content outer-top-bd">
+			<div class="container">
+				<div class="my-wishlist-page inner-bottom-sm">
+					<div class="row">
+						<div class="col-md-12 my-wishlist">
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+                      <br>
+                                        <center>
+                                            <h4 style="font-family: Century Gothic">Playlist&nbsp;&nbsp;<i class="fa fa-music fa-sm"></i></h4>
+                                            </center>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+$data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
+$num=mysqli_num_rows($data);
+	if($num>0)
+	{
+while($row2 = mysqli_fetch_array($data)) {
+?>
+											<tr class="background">
+												<td><?php
+                                                    echo'<img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="70" height="80">';
+                                                    ?>
+												</td>
+                                                <td>
+													<div class="song_fave">
+                                                    <h8><?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?></h8>
+                                                    </div>
+												</td>
+												<td>
+													<div class="product-name">
+														<?php
+                                                    echo'<audio id="myAudio">
+                                                        <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
+                                                         </audio>'?>
+                                                            <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right" onclick="playAudio()"></button>
+                                                            <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right" onclick="pauseAudio()"></button>
+													</div>
+                                                </td>
+												<td class=" close-btn">
+													<a href="music-wishlist.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')"
+													    class="">
+														<i class="fa fa-times"></i>
+													</a>
+												</td>
+											</tr>
+											<?php } } else{ ?>
+											<tr>
+												<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
+
+											</tr>
+											<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.sigin-in-->
+			</div>
+		</div>
+		</section>
+</div>
+
+
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

@@ -185,7 +185,7 @@ while($row=mysqli_fetch_array($ret))
 							<div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
 								<div class="product-item-holder size-big single-product-gallery small-gallery">
 
-									<div id="owl-single-product">
+									<div id="owl-single-product" class="carousel-images">
 
 										<div class="single-product-gallery-item" id="slide1">
 											<a data-lightbox="image-1" data-title="<?php echo htmlentities($row['product_name']);?>" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>">
@@ -224,7 +224,7 @@ while($row=mysqli_fetch_array($ret))
 									<!-- /.single-product-slider -->
 
 
-									<div class="single-product-gallery-thumbs gallery-thumbs carousel-images">
+									<div class="single-product-gallery-thumbs gallery-thumbs">
 
 										<div id="owl-single-product-thumbnails">
 											<div class="item">
@@ -451,10 +451,17 @@ $num=mysqli_num_rows($rt);
 														<?php } ?>
 											</div>
 										</div>
-
-
 									</div>
 									<!-- /.row -->
+									<div class="row">
+										<div class="col-12 col-md-12" style="margin-top:1em;">
+											<h7 class="label">Ph Tax:</h7>
+										</div>
+										<div class="col-12 col-md-12" style="margin-top:1em;">
+											<h7 class="label">Service Charge:</h7>
+										</div>
+										
+									</div>
 								</div>
 								<!-- /.quantity-container -->
 								<div class="quantity-container info-container">
@@ -543,12 +550,12 @@ $num=mysqli_num_rows($rt);
 												$whole = floor($one_decimal_place_average);
 													for($x=0;$x<=4;$x++){
 														if($x<$whole){
-															echo '<img  class="img-fluid" width="25px" height="25px" src="img/star.png">';
+															echo '<img  class="img-fluid" width="25px" height="25px" src="img/stars.png">';
 														} else {
 															if($whole !=$one_decimal_place_average  && $x == $whole){
-																echo '<img  class="img-fluid" width="25px" height="25px" src="img/half-star.png">';
+																echo '<img  class="img-fluid" width="25px" height="25px" src="img/half-stars.png">';
 															} else {
-																echo '<img  class="img-fluid" width="25px" height="25px" src="img/no-star.png">';
+																echo '<img  class="img-fluid" width="25px" height="25px" src="img/no-stars.png">';
 															}
 														}
 													}
@@ -557,7 +564,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 													<h6 class="text-secondary">
 														<?php echo htmlentities($num_reviews);?>&nbsp;
-														<i class="fas fa-1x fa-user"></i>
+														<i class="fa fa-1x fa-user"></i>
 													</h6>
 													<br>
 													<br>
@@ -781,9 +788,10 @@ $num=mysqli_num_rows($rt);
 				<?php $cid=$row['product_category_id'];
 			$subcid=$row['product_sub_category_id']; } ?>
 				<!-- ============================================== UPSELL PRODUCTS ============================================== -->
-				<section class="section featured-product wow fadeInUp">
+				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
 					<h3 class="section-title">Related Products </h3>
-					<div class="row outer-top-xs">
+					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
+				
 
 						<?php 
 $qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
@@ -792,8 +800,85 @@ while($rw=mysqli_fetch_array($qry))
 
 			?>
 
+				<div class="item item-carousel">
+						<div class="col-md-12 col-12 wow fadeInUp">
+							<!-- <div class="products">
+												<div class="product">
+													<div class="product-image">
+														<div class="image"> -->
+							<div class="card">
+								<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>" class="card-img-top">
+									<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>"
+									    alt="" class="img-fluid" width="100%" height="100%">
+								</a>
 
-						<div class="col-md-3 col-sm-2 wow fadeInUp">
+								<!-- </div>
+														 /.image 
+
+
+													</div>
+												 /.product-image -->
+								<div class="card-body">
+
+									<div class="product-info text-left">
+										<h3 class="name">
+											<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>">
+												<?php echo htmlentities($rw['product_name']);?>
+											</a>
+										</h3>
+										<div class="rating rateit-small"></div>
+										<div class="description"></div>
+
+										<div class="product-price">
+											<span class="price">$
+												<?php echo htmlentities($rw['product_price']);?>
+											</span>
+											<span class="price-before-discount">
+												<strike>
+													<small>$
+														<?php echo htmlentities($rw['product_price_before_discount']);?>
+													</small>
+												</strike>
+											</span>
+											<span class="token_price pull-right">
+												<img src="../images/gems.png" width="18" height="18">
+												<?php echo htmlentities($rw['product_price_token']);?>
+											</span>
+										</div>
+										<!-- /.product-price -->
+
+									</div>
+									<!-- /.product-info -->
+								</div>
+								<!-- /.cart -->
+							</div>
+							<!-- /.product -->
+
+						</div>
+					</div>
+
+						<!-- /.item -->
+						<?php } ?>
+
+
+					</div>
+					<!-- /.home-owl-carousel -->
+				</section>
+				<!-- /.section -->
+				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
+					<h3 class="section-title">Sponsored Items </h3>
+					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
+				
+
+						<?php 
+$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
+while($rw=mysqli_fetch_array($qry))
+{
+
+			?>
+
+				<div class="item item-carousel">
+						<div class="col-md-12 col-12 wow fadeInUp">
 							<!-- <div class="products">
 												<div class="product">
 													<div class="product-image">
@@ -847,6 +932,8 @@ while($rw=mysqli_fetch_array($qry))
 							<!-- /.product -->
 
 						</div>
+					</div>
+
 						<!-- /.item -->
 						<?php } ?>
 
@@ -854,7 +941,6 @@ while($rw=mysqli_fetch_array($qry))
 					</div>
 					<!-- /.home-owl-carousel -->
 				</section>
-				<!-- /.section -->
 			</div>
 		</div>
 		</div>
@@ -972,18 +1058,18 @@ while($rw=mysqli_fetch_array($qry))
 								label: '# of Ratings',
 								data: ratings,
 								backgroundColor: [
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(54, 162, 235, 0.2)'
+									'rgba(0, 0, 255, 1)',
+									'rgba(0, 0, 255, 0.6)',
+									'#ff0000',
+									'rgba(255, 0, 0, 0.6)',
+									'rgba(255,255,0, 1)'
 								],
 								borderColor: [
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(54, 162, 235, 1)'
+									'rgba(0, 0, 255, 1)',
+									'rgba(0, 0, 255, 0.6)',
+									'#ff0000',
+									'rgba(255, 0, 0, 0.6)',
+									'rgba(255,255,0, 1)'
 								],
 								borderWidth: 1
 							}]

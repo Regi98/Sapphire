@@ -112,12 +112,12 @@ if(strlen($_SESSION['login'])==0){   ?>
                 <p>We accept VISA and Mastercard.</p>
               </div>
               <div class="col-12 col-md-3">
-                <h6>Sapphire Tokens </h6>
+                <h6>Sapphire Crystals </h6>
                 <div class="payment-col" id="token">
                   <img src="images/token.png">
 
                 </div>
-                <p>Buy with our new Sapphire Tokens!</p>
+                <p>Buy with our new Sapphire Crystals!</p>
               </div>
           </div><hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
@@ -143,19 +143,6 @@ if(strlen($_SESSION['login'])==0){   ?>
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
-                    <div class="row padding-0">
-                      <div class="col-sm-12"><br>
-                          <div class="form-group row">
-                           <small class="help-block-none">Payment Type</small>
-                           <select id="selectme" class="form-control">
-                              <option value="" disabled selected>Select Payment</option>
-                              <option value="paypal">PayPal</option>
-                              <option value="visa">VISA</option>
-                              <option value="master">Mastercard</option>
-                           </select>
-                        </div>
-                      </div>
-                     </div>
                      <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">
@@ -259,13 +246,13 @@ if(strlen($_SESSION['login'])==0){   ?>
                       </div>
                     </div>
                 <div class="block-white col-md-9 token">
-                    <div class="title"><strong class="d-block">Paying VIA Sapphire Token:</strong></div>
+                    <div class="title"><strong class="d-block">Paying VIA Sapphire Crystals:</strong></div>
                     <div class="block-body  text-center">
 
                       <div class="row block-gray">
                         <div class="col-4">
                           <img src="images/diamond.png" class="pull-left" width=40px>
-                          <div class="paragraph">Sapphire Tokens</div>
+                          <div class="paragraph">Sapphire Crystals</div>
                         </div>
                         <div class="col-8">
                           <div class="paragraph pull-right " data-id="<?php echo $num['tokens']; ?>" id="tokens"> <?php echo $num['tokens']; }?></div>
@@ -345,7 +332,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       var balance = tokens - 1.00;
 
       $.confirm({
-          title: 'Pay with Sapphire Tokens?',
+          title: 'Pay with Sapphire Crystals?',
           content: 'Your balance will be <strong> ' + balance + ' </strong> after the transaction.',
           theme: 'supervan',
           buttons: {
