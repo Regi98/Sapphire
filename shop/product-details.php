@@ -460,7 +460,6 @@ $num=mysqli_num_rows($rt);
 										<div class="col-12 col-md-12" style="margin-top:1em;">
 											<h7 class="label">Service Charge:</h7>
 										</div>
-										
 									</div>
 								</div>
 								<!-- /.quantity-container -->
