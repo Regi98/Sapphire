@@ -457,23 +457,35 @@ $num=mysqli_num_rows($rt);
 										</div>
 									</div>
 									<!-- /.row -->
+									<?php if($instock != 0){ ?>
+									<br>
 									<div class="row">
-										<div class="col-12 col-md-12" style="margin-top:1em;">
+										<div class="col-8 col-md-8">
 											<h7 class="label">Ph Tax:</h7>
 										</div>
-										<div class="col-12 col-md-12" style="margin-top:1em;">
-											<h7 class="label">Service Charge:</h7>
+										<div class="col-4 col-md-4">
+											<h7 class="label">$0.00</h7>
 										</div>
 									</div>
+									<div class="row">
+										<div class="col-8 col-md-8">
+											<h7 class="label">Service Charge:</h7>
+										</div>
+										<div class="col-4 col-md-4">
+											<h7 class="label">$0.00</h7>
+										</div>
+									</div>
+									<?php } ?>
 								</div>
 								<!-- /.quantity-container -->
+								<?php if($instock != 0){ ?>
 								<div class="quantity-container info-container">
 									<div class="row">
-										<div class="col-4 col-sm-4">
+										<div class="col-7 col-sm-7">
 											<h7 class="label">Total:</h7>
 										</div>
 
-										<div class="col-7 col-sm-7">
+										<div class="col-5 col-sm-5">
 											<div class="cart-quantity">
 													$<span class="value cart-total"><?php echo htmlentities($prod_price);?></span>.00
 											</div>
@@ -483,6 +495,7 @@ $num=mysqli_num_rows($rt);
 									</div>
 									<!-- /.row -->
 								</div>
+								<?php } ?>
 								<div class="row">
 									<div class="col-12 col-sm-12">
 										<?php
