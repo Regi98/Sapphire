@@ -464,7 +464,7 @@ $num=mysqli_num_rows($rt);
 											<h7 class="label">Ph Tax:</h7>
 										</div>
 										<div class="col-4 col-md-4">
-											<h7 class="label">$0.00</h7>
+											<h7 class="label">₱0.00</h7>
 										</div>
 									</div>
 									<div class="row">
