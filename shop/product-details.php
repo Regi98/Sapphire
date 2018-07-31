@@ -793,7 +793,7 @@ $num=mysqli_num_rows($rt);
 				
 
 						<?php 
-$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
+$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid' and id != '$pid'");
 while($rw=mysqli_fetch_array($qry))
 {
 
@@ -870,7 +870,7 @@ while($rw=mysqli_fetch_array($qry))
 				
 
 						<?php 
-$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid'");
+$qry=mysqli_query($con,"select * from products where product_sub_category_id='$subcid' and product_category_id='$cid' and id != '$pid'");
 while($rw=mysqli_fetch_array($qry))
 {
 
