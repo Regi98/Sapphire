@@ -4,6 +4,7 @@ error_reporting(0);
 include('includes/config.php'); 
 $hi = $_GET['id'];
 $mid = $_GET['mid'];
+
 if(isset($_GET['mid']) && $_GET['action']=="favorites" ){
 	if(strlen($_SESSION['login'])==0)
     {   
@@ -108,7 +109,7 @@ while($row2 = mysqli_fetch_array($data)) {
 ?>
 											<tr class="background">
 												<td><?php
-                                                    echo'<img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="80" height="80">';
+                                                    echo'<img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="70" height="80">';
                                                     ?>
 												</td>
                                                 <td>
@@ -127,7 +128,7 @@ while($row2 = mysqli_fetch_array($data)) {
 													</div>
                                                 </td>
 												<td class=" close-btn">
-													<a href="music-wishlist.php?del=<?php echo htmlentities($row['mid']);?>" onClick="return confirm('Are you sure you want to delete?')"
+													<a href="music-wishlist.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')"
 													    class="">
 														<i class="fa fa-times"></i>
 													</a>

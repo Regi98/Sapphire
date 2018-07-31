@@ -14,6 +14,7 @@
 
 body {
   position: relative;
+  
 }
 
 section {
@@ -178,6 +179,7 @@ pre {
 
 .page-content {
   position: relative;
+  /*background-image:url("../../assets/images/plane3.png");*/
   background: #fff;
   min-height: 100vh;
   width: calc(100% - 260px);

@@ -78,7 +78,11 @@
               <a rel="nofollow" href="#" data-toggle="tooltip" title="E-Wallet"><span>&nbsp;</span><span class="pull-right"><img src="img/dollar.png" width="15px"> &nbsp; $<?php echo $num['ewallet']; ?></span></a>
             </div>
             <div class="list-inline-item logout">
+<<<<<<< HEAD
               <a rel="nofollow" href="#" data-toggle="tooltip" title="Sapphire Token"> <span>&nbsp;</span><span class="pull-right"><img src="images/gems.png" width="15px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span></a>
+=======
+              <a rel="nofollow" href="#" data-toggle="tooltip" title="Sapphire Crystals"> <span>&nbsp;</span><span class="pull-right"><img src="images/diamond.png" width="15px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span></a>
+>>>>>>> 827a3128eb9b5dfa2c5c8b2d10be6b1c70119986
             </div>
              &nbsp;
             <!-- Log out               -->
