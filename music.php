@@ -203,6 +203,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 </thead>
 
 <br>
+<h6>Summary of your Playlist</h6>
 <?php
 $data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
 $num=mysqli_num_rows($data);
@@ -210,11 +211,12 @@ $num=mysqli_num_rows($data);
 	{
 while($row2 = mysqli_fetch_array($data)) {
 ?>
+            
 			<tr class="background">
 
 			<td>
             <?php echo'
-            <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="70" height="80">';
+             <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
             ?>
             </td>
             
@@ -265,7 +267,6 @@ while($row2 = mysqli_fetch_array($data)) {
       </div>
       <div class="modal-body">
       <!--start of playlist modal-->
-      <div id="menu1" class="container tab-pane fade"><br>
 	  <table class="table">
       <tbody>
 			<?php
@@ -275,11 +276,10 @@ while($row2 = mysqli_fetch_array($data)) {
 	        {
             while($row2 = mysqli_fetch_array($data)) {
             ?>
-                
                 <tr class="background">
 				<td>
                     <?php echo'
-                    <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="70" height="80">';
+                     <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
                     ?>
                 </td>
                 
@@ -298,12 +298,6 @@ while($row2 = mysqli_fetch_array($data)) {
                     <a href="#" class="btn btn-success btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
 					</div>
                 </td>
-                                                
-                <td class=" close-btn">
-					<a href="music-wishlist.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
-					<i class="fa fa-times"></i>
-					</a>
-				</td>
                                             
                 </tr>
                 <?php } } else{ ?>
@@ -314,12 +308,12 @@ while($row2 = mysqli_fetch_array($data)) {
 				<?php } ?>
 				</tbody>
 				</table>
-				</div>
                 <!--end of playlist modal-->
       </div>
     </div>
   </div>
 </div>
+
 
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
