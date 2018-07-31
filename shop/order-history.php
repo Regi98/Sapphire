@@ -127,6 +127,7 @@ $id= $_SESSION['id'];
 
 								<?php 
 $query=mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as proid,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid,orders.orderStatus as oStatus from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."'");
+$totalprice=0;
 $cnt=1;
 $num=mysqli_num_rows($query);
 if($num>0){
@@ -160,7 +161,14 @@ while($row=mysqli_fetch_array($query))
 															$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['pprice']);
 															echo "$". number_format($productPrice).".00"; ?> </td>
 									<td class="cart-product-grand-total">
-										<?php echo "$". number_format($qty*$productPrice).".00";?>
+										<?php 
+											$subtotal = $qty*$productPrice;
+											echo "$". number_format($subtotal).".00";
+											if($row['oStatus']=='Delivered'){
+												$totalprice += $subtotal;
+												$_SESSION['grandtotal']=$totalprice;
+											}
+										?>
 									</td>
 									<td class="cart-product-sub-total">
 										<?php
@@ -185,6 +193,8 @@ while($row=mysqli_fetch_array($query))
 																	echo "<span class='badge badge-pill badge-info'>In  Process</span>";
 																} else if($row['oStatus']=='Returned'){
 																echo "<span class='badge badge-pill badge-secondary'> Returned</span>";
+																} else if($row['oStatus']=='Item Return'){
+																echo "<span class='badge badge-pill badge-warning' title='Waiting for cabin confirmation'> Item Return</span>";
 																} else{
 																	echo "<span class='badge badge-pill badge-success'>".$row['oStatus']."</span>";
 																}
@@ -194,7 +204,8 @@ while($row=mysqli_fetch_array($query))
 										<?php if($row['paym']==NULL){?>
  										<a class="btn btn-sm btn-outline-warning" href="payment-method.php?oid=<?php echo htmlentities($row['orderid']);?>">Complete Order</a>
 										<?php } else if($row['oStatus']=='Delivered'){?>
- 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a>
+										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Write a Review</a><br><br>
+										<button type="button" class="btn btn-sm btn-outline-warning return-item" data-id="<?php echo htmlentities($row['orderid']);?>">Return Item</button>
 										<?php } else if($row['oStatus']=='Cancelled' || $row['oStatus']=='Item Return'){ ?>
 										<a class="btn btn-sm btn-outline-primary" href="product-details.php?pid=<?php echo htmlentities($row['proid']);?>">Go to Product</a>
  										<?php } else if($row['oStatus']=='Returned'){ ?>
@@ -218,8 +229,16 @@ while($row=mysqli_fetch_array($query))
 							<!-- /tbody -->
 						</table>
 						<!-- /table -->
-
 				</div>
+				<br>
+					<div class="col-12 cart-shopping-total mt-3 pull-right">
+						<div class="card bg-light mb-3" style="max-width: 18rem; margin-right: 0px;">
+							<div class="card-header"><h5>Grand Total</h5><span>Delivered Items</span></div>
+								<div class="card-body">
+									<h4 class="card-text text-right"><?php echo "$". number_format($_SESSION['grandtotal']).".00";?></h4>
+								</div>
+						</div>
+					</div>
 			</div>
 
 		</div>
@@ -289,95 +308,94 @@ while($row=mysqli_fetch_array($query))
 	<script src="../js/jquery-confirm.js"></script>
 	<script src="distribution/js/front.js"></script>
 	<script type="text/javascript">
-		// $('.return-item').on("click", function () {
-		// 	var order_id = $(this).data('id');
-		// 	console.log(order_id);
+		$('.return-item').on("click", function () {
+			var order_id = $(this).data('id');
+			console.log(order_id);
 
-		// 	$.confirm({
-		// 		title: 'Reason of Return',
-		// 		content: '' +
-		// 			'<form action="" class="formName">' +
-		// 			'<div class="form-group">' +
-		// 			'<label>Select Reason:</label>' +
-		// 			'<select class="select-reason form-control" required><option disabled selected="true">Select a Reason</option><option>Change of Mind</option><option>Product Does Not Match</option><option>Product Did Not Meet My Expectation</option><option>Product No Longer Needed</option></select><br>' +
-		// 			'<label>Additional Information (optional)</label>' +
-		// 			'<input type="text" placeholder="Enter here.." class="add-info form-control" required />' +
-		// 			'</div>' +
-		// 			'</form>',
-		// 		buttons: {
-		// 			formSubmit: {
-		// 				text: 'Submit',
-		// 				btnClass: 'btn-blue',
-		// 				action: function () {
-		// 					var reason = this.$content.find('.select-reason').val();
-		// 					var add_info = this.$content.find('.add-info').val();
-		// 					if (!reason) {
-		// 						$.alert('Please provide a reason');
-		// 						return false;
-		// 					} else {
-		// 						$.confirm({
-		// 							type: 'red',
-		// 							theme: 'material',
-		// 							title: 'Are you sure you want to return?',
-		// 							content: '<strong>Reason:</strong> ' + reason + '<br><strong>Additional Info:</strong> ' + add_info,
-		// 							buttons: {
-		// 								Yes: {
-		// 									btnClass: 'btn-green',
-		// 									action: function () {
-		// 										$.ajax({
-		// 											type: "POST",
-		// 											url: "return-order.php",
-		// 											data: {
-		// 												orderId: order_id,
-		// 												reason: reason,
-		// 												addInfo: add_info
-		// 											},
-		// 											dataType: "text",
-		// 											success: function (data) {
-		// 												window.location.replace("order-history.php");
-		// 											},
-		// 											error: function (err) {
-		// 												console.log(err);
+			$.confirm({
+				title: 'Reason of Return',
+				content: '' +
+					'<form action="" class="formName">' +
+					'<div class="form-group">' +
+					'<label>Select Reason:</label>' +
+					'<select class="select-reason form-control" required><option disabled selected="true">Select a Reason</option><option>Change of Mind</option><option>Product Does Not Match</option><option>Product Did Not Meet My Expectation</option><option>Product No Longer Needed</option></select><br>' +
+					'<label>Additional Information (optional)</label>' +
+					'<input type="text" placeholder="Enter here.." class="add-info form-control" required />' +
+					'</div>' +
+					'</form>',
+				buttons: {
+					formSubmit: {
+						text: 'Submit',
+						btnClass: 'btn-blue',
+						action: function () {
+							var reason = this.$content.find('.select-reason').val();
+							var add_info = this.$content.find('.add-info').val();
+							if (!reason) {
+								$.alert('Please provide a reason');
+								return false;
+							} else {
+								$.confirm({
+									type: 'red',
+									theme: 'material',
+									title: 'Are you sure you want to return?',
+									content: '<strong>Reason:</strong> ' + reason + '<br><strong>Additional Info:</strong> ' + add_info,
+									buttons: {
+										Yes: {
+											btnClass: 'btn-green',
+											action: function () {
+												$.ajax({
+													type: "POST",
+													url: "return-order.php",
+													data: {
+														orderId: order_id,
+														reason: reason,
+														addInfo: add_info
+													},
+													dataType: "text",
+													success: function (data) {
+														window.location.replace("order-history.php");
+													},
+													error: function (err) {
+														console.log(err);
 
-		// 											}
-		// 										});
+													}
+												});
 
-		// 									}
+											}
 
-		// 								},
-		// 								No: {
-		// 									text: 'No', // With spaces and symbols
-		// 									action: function () {
-		// 										$.alert('Item has not been returned');
-		// 									}
-		// 								}
-		// 							}
-		// 						});
+										},
+										No: {
+											text: 'No', // With spaces and symbols
+											action: function () {
+												$.alert('Item has not been returned');
+											}
+										}
+									}
+								});
 
-		// 					}
-		// 				}
-		// 			},
-		// 			cancel: function () {
-		// 				//close
-		// 			},
-		// 		},
-		// 		onContentReady: function () {
-		// 			// bind to events
-		// 			var jc = this;
-		// 			this.$content.find('form').on('submit', function (e) {
-		// 				// if the user submits the form by pressing enter in the field.
-		// 				e.preventDefault();
-		// 				jc.$$formSubmit.trigger('click'); // reference the button and click it
-		// 			});
-		// 		}
-		// 	});
+							}
+						}
+					},
+					cancel: function () {
+						//close
+					},
+				},
+				onContentReady: function () {
+					// bind to events
+					var jc = this;
+					this.$content.find('form').on('submit', function (e) {
+						// if the user submits the form by pressing enter in the field.
+						e.preventDefault();
+						jc.$$formSubmit.trigger('click'); // reference the button and click it
+					});
+				}
+			});
 
-		// });
+		});
 
 
 		$('.cancel-order').on("click", function () {
 			var order_id = $(this).data('id');
-			console.log(order_id);
 			$.confirm({
 				type: 'red',
 				theme: 'material',
