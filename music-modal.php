@@ -185,7 +185,7 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
-                <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspListen in Shuffle</button>
+                <button style="margin-top:1px;" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspListen in Shuffle</button>
             </div>
         </div><br>';}?>
 <?php
@@ -203,9 +203,8 @@ echo '
           <audio id="myAudio">
             <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
             </audio>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-pause pull-right music-song" onclick="pauseAudio()" data-title="'.$row3['title'].'"></button>
-             <button style="margin-top:1px" class="btn btn-dark btn-sm fa fa-play pull-right music-song" onclick="playAudio()" data-title="'.$row3['title'].'"></button>
-             <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+            <a href="#" class="btn btn-outline-secondary btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
+             <a class="btn btn-outline-danger btn-sm pull-left" style="margin-top:1px" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-heart"></i>
 									</a>
             <hr color="grey">
@@ -307,15 +306,6 @@ while($row2 = mysqli_fetch_array($data)) {
                   );
       function goBack(){
         window.location.href = "music.php";
-      }
-      var x= document.getElementById("myAudio");
-
-      function playAudio() {
-      x.play();
-      }
-
-      function pauseAudio() {
-      x.pause();
       }
       $(".music-song").on("click", function() {
         var title = $(this).data('title');

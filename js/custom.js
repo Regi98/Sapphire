@@ -254,3 +254,51 @@ $('.box').click(function () {
   $(this).toggleClass('selected');
 
 });
+
+$(document).ready(function(){
+
+    $(".pushme").click(function () {
+       $(this).text("");
+    });
+    
+    $(".pushme-with-color").click(function () {
+       $(this).text("");
+       $(this).addClass("btn btn-outline-secondary");
+       $(this).removeClass("btn btn-outline-secondary");
+    });
+    
+    $(".with-color").click(function () {    
+       if ($(this).hasClass("btn btn-outline-secondary"))
+       {
+            $(this).addClass("btn btn-outline-secondary");
+            $(this).removeClass("btn btn-outline-secondary");
+       }
+       else{
+            $(this).addClass("btn btn-outline-secondary");
+            $(this).removeClass("btn btn-outline-secondary");
+       }
+    });
+
+    $(".pushme2").click(function(){
+        $(this).text(function(i, v){
+           return v === 'PLAY' ? 'STOP' : 'PLAY'
+        });
+    });
+});
+
+var myAudio = document.getElementById("myAudio");
+var isPlaying = false;
+
+function togglePlay() {
+  if (isPlaying) {
+    myAudio.pause()
+  } else {
+    myAudio.play();
+  }
+};
+myAudio.onplaying = function () {
+  isPlaying = true;
+};
+myAudio.onpause = function () {
+  isPlaying = false;
+};
