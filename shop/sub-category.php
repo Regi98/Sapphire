@@ -161,8 +161,12 @@ while ($row=mysqli_fetch_array($ret))
 				<div class="product">		
 				<div class="product-image">
 				<div class="image"> -->
-				<div class="card">
-				<a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>" class="card-img-top"><img  src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>" alt="" class="img-fluid"></a>
+			<div class="card">
+				<div class="containerview">
+				<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
+				<div class="overlay"></div>
+  				<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"> VIEW PRODUCT </a></div>
+				</div>
 			<!-- </div> --><!-- /.image -->			                      		   
 		<!-- </div> --><!-- /.product-image -->
 			
