@@ -203,7 +203,7 @@ echo '
           <audio id="myAudio">
             <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
             </audio>
-            <a href="#" class="btn btn-outline-secondary btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
+            <a href="#" class="btn btn-success btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
              <a class="btn btn-outline-danger btn-sm pull-left" style="margin-top:1px" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-heart"></i>
 									</a>
