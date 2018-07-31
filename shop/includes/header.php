@@ -187,10 +187,10 @@
             <!-- Megamenu end     -->
           <!-- Laad Balance          -->
           <div class="list-inline-item logout">
-              <a rel="nofollow" href="#"><span>&nbsp;</span><span class="pull-right"><img src="../img/dollar.png" width="15px"> &nbsp; $<?php echo $num['ewallet']; ?></span></a>
+              <a rel="nofollow" href="#" data-toggle="tooltip" title="E-Wallet"><span>&nbsp;</span><span class="pull-right"><img src="../img/dollar.png" width="15px"> &nbsp; $<?php echo $num['ewallet']; ?></span></a>
             </div>
             <div class="list-inline-item logout">
-              <a rel="nofollow" href="#"> <span>&nbsp;</span><span class="pull-right"><img src="../images/diamond.png" width="20px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span></a>
+              <a rel="nofollow" href="#" data-toggle="tooltip" title="Sapphire Crystals"> <span>&nbsp;</span><span class="pull-right"><img src="../images/diamond.png" width="20px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span></a>
             </div>
              &nbsp;
             <!-- Log out               -->

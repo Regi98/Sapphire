@@ -381,6 +381,7 @@ nav.navbar .sidebar-toggle {
 
 nav.navbar a {
   color: inherit;
+  font-size: 13px;
 }
 
 nav.navbar .brand-text {
@@ -661,7 +662,7 @@ nav.navbar .dropdown .dropdown-menu.active {
     right: 0 !important;
   }
   nav.navbar a.nav-link {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
   nav.navbar a.nav-link .badge {
     width: 16px;
@@ -3385,7 +3386,11 @@ pre code {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-
+.cart-shopping-total .card-body {
+  padding: 1rem;
+  background-color: #fff;
+  color: #03132d;
+}
 .card-body {
   padding: 1.25rem;
   background-color: #03132d;

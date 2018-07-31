@@ -233,9 +233,9 @@ while($row=mysqli_fetch_array($query))
 				<br>
 					<div class="col-12 cart-shopping-total mt-3 pull-right">
 						<div class="card bg-light mb-3" style="max-width: 18rem; margin-right: 0px;">
-							<div class="card-header"><h5>Grand Total</h5><span>Delivered Items</span></div>
+							<div class="card-header"><h6>Grand Total</h6><span>Delivered Items</span></div>
 								<div class="card-body">
-									<h4 class="card-text text-right"><?php echo "$". number_format($_SESSION['grandtotal']).".00";?></h4>
+									<h6 class="card-text text-right"><?php echo "$". number_format($_SESSION['grandtotal']).".00";?></h6>
 								</div>
 						</div>
 					</div>
