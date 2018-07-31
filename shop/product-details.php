@@ -789,11 +789,11 @@ while($rw=mysqli_fetch_array($qry))
 													<div class="product-image">
 														<div class="image"> -->
 							<div class="card">
-								<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>" class="card-img-top">
-									<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>"
-									    alt="" class="img-fluid" width="100%" height="100%">
-								</a>
-
+								<div class="containerview">
+								<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
+								<div class="overlay"></div>
+  								<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>"> VIEW PRODUCT </a></div>
+								</div>
 								<!-- </div>
 														 /.image 
 
@@ -847,7 +847,7 @@ while($rw=mysqli_fetch_array($qry))
 					<!-- /.home-owl-carousel -->
 				</section>
 				<!-- /.section -->
-				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
+				<section class="section featured-product wow fadeInUp" style="margin-top :-2em;">
 					<h3 class="section-title">Sponsored Items </h3>
 					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 				
@@ -866,11 +866,11 @@ while($rw=mysqli_fetch_array($qry))
 													<div class="product-image">
 														<div class="image"> -->
 							<div class="card">
-								<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>" class="card-img-top">
-									<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>"
-									    alt="" class="img-fluid" width="100%" height="100%">
-								</a>
-
+							<div class="containerview">
+							<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
+							<div class="overlay"></div>
+  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"> VIEW PRODUCT </a></div>
+							</div>
 								<!-- </div>
 														 /.image 
 
