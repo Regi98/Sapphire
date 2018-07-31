@@ -193,139 +193,127 @@ if(strlen($_SESSION['login'])==0){   ?>
 
 <!--playlist tabs-->
 <div id="menu1" class="container tab-pane fade"><br>
+<table class="table">
+<tbody>
+<thead>
+    <center>
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class=" fa fa-music fa-sm"></i>
+        </button>
+    </center>
+</thead>
 
- <!--<div class="sq-boxed">
-    <div class="sq-player clearfix">
-        <div class="sq-ms-player">
-            <div class="image-thumb album-art-is-responsive">
-                <img src="assets/data/cover1.png">
-            </div>
-            <div class="sq-music-details">
-                <div class="artist"> </div>
-                <p> @oziri emeka </p>
-            </div>
-            <p class="sq-song-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu velit dolor. Nulla facilisi. Donec at viverra tortor. Vestibulum quis quam ut nibh mattis viverra sit amet id orci. Nunc… </p>
-
-            <div class="controls">
-                <div class="col-md-12  col-xs-12">
-                    <div class="tracker"></div>
-                </div>
-
-                <div class="the-volume-ctr"><i class="fa fa-volume-up"></i>
-                    <div class="volume"></div>
-                </div>
-                <button class="volume-button"> <i class="fa fa-volume-up"></i></button>
-                <button class="rew"> <i class="fa fa-backward"></i></button>
-                <button class="play"> <i class="fa fa-play"></i></button>
-                <button class="pause"> <i class="fa fa-pause"></i></button>
-                <button class="fwd"> <i class="fa fa-forward"></i></button>
-                <a class="download" href="#"><button> <i class="fa fa-download"></i></button></a>
-
-            </div>
-
-        </div>
-        <div class="play-list clearfix">
-            <button class="playlist-title"><i class="fa fa-play"></i> Ozir emeka : syco album</button>
-            <ul class="playlist col-md-12">
-                <li audiourl="assets/data/01.mp3" cover="assets/data/cover1.png" artist="Say yo love by wizkid">dera</li>
-                <li audiourl="assets/data/02.mp3" cover="assets/data/cover2.jpg" artist="Wizkid ">Ma lo- wizkid ft tiwa savage</li>
-                <li audiourl="assets/data/03.mp3" cover="assets/data/cover3.jpg" artist="druk - by oziri">druk - by oziri</li>
-                <li audiourl="assets/data/04.mp3" cover="assets/data/cover4.jpg" artist="Bad by wizkid">Bad by wizkid </li>
-                <li audiourl="assets/data/05.mp3" cover="assets/data/cover5.jpg" artist="Yemi Alade - Mr. Stamina">Yemi Alade - Mr. Stamina </li>
-                <li audiourl="assets/data/06.mp3" cover="assets/data/cover6.jpg" artist="Yemi Alade - Bum Bum">Yemi Alade - Bum Bum</li>
-                <li audiourl="assets/data/07.mp3" cover="assets/data/cover7.jpg" artist="Ronaldo- Ronaldo">Ronaldo- Ronaldo </li>
-
-
-            </ul>
-        </div>
-    </div>
-    </div>-->
-<div class="container-fluid">
-  <div class="sq-boxed">
-    <div class="sq-player clearfix">
-        <div class="sq-ms-player">
-            <div class="image-thumb album-art-is-responsive">
-                <img src="assets/data/cover1.png">
-            </div>
-            <div class="sq-music-details">
-                <div class="artist"> </div>
-                <p></p>
-            </div>
-            <p class="sq-song-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu velit dolor. Nulla facilisi. Donec at viverra tortor. Vestibulum quis quam ut nibh mattis viverra sit amet id orci. Nunc… </p>
-
-            <div class="controls">
-                <div class="col-md-12  col-xs-12">
-                    <div class="tracker"></div>
-                </div>
-
-                <div class="the-volume-ctr"><i class="fa fa-volume-up"></i>
-                    <div class="volume"></div>
-                </div>
-                <button class="volume-button"> <i class="fa fa-volume-up"></i></button>
-                <button class="rew"> <i class="fa fa-backward"></i></button>
-                <button class="play"> <i class="fa fa-play"></i></button>
-                <button class="pause"> <i class="fa fa-pause"></i></button>
-                <button class="fwd"> <i class="fa fa-forward"></i></button>
-                <br>
-                
-<div class="body-content outer-top-bd">
-			<div class="container">
-				<div class="my-wishlist-page inner-bottom-sm">
-					<div class="row">
-						<div class="col-md-12 my-wishlist">
-							<div class="table-responsive">
-								<table class="table">
-									<tbody>
-								<?php
-                $data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
+<br>
+<h6>Summary of your Playlist</h6>
+<?php
+$data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
 $num=mysqli_num_rows($data);
 	if($num>0)
 	{
 while($row2 = mysqli_fetch_array($data)) {
 ?>
-											<tr class="background">
-												<td>
-                          <?php
-                               echo'<img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="70" height="80">';
-                          ?>
-												</td>
-                        <td>
-													<div class="song_fave">
-                            <h8><?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?></h8>
-                                                    </div>
-												</td>
-												<td>
-														<?php
-                                                    echo'
-                                                    <audio id="myAudio">
-                                                        <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
-                                                         </audio>'?>
-                                                </td>
-												<td class=" close-btn">
-													<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')"
-													    class="">
-														<i class="fa fa-times"></i>
-													</a>
-												</td>
-											</tr>
-											<?php } } else{ ?>
-											<tr>
-												<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
+            
+			<tr class="background">
 
-											</tr>
-											<?php } ?>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<!-- /.row -->
-				</div>
-				<!-- /.sigin-in-->
+			<td>
+            <?php echo'
+             <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
+            ?>
+            </td>
+            
+            <td>
+			<div class="song_fave">
+            <h8>
+            <?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?>
+            </h8>
+            </div>
+			</td>
+                                                
+            <td>
+			<?php echo'
+            <audio id="myAudio">
+                <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
+            </audio>'?>
+            </td>
+
+			<td class=" close-btn">
+			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
+			<i class="fa fa-times"></i>
+			</a>
+            </td>
+            
+			</tr>
+            <?php } } else{ ?>
+                
+			<tr>
+			<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
+            </tr>
+            <?php } ?>
+            
+			</tbody>
+			</table>
 			</div>
-		</div>
-		</section>
+</section>
 </div>
+
+<!--MODAL for PLAYLIST-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">YOUR PLAYLIST</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <!--start of playlist modal-->
+	  <table class="table">
+      <tbody>
+			<?php
+            $data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
+            $num=mysqli_num_rows($data);
+	        if($num>0)
+	        {
+            while($row2 = mysqli_fetch_array($data)) {
+            ?>
+                <tr class="background">
+				<td>
+                    <?php echo'
+                     <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
+                    ?>
+                </td>
+                
+                <td>
+					<div class="song_fave">
+                    <h8><?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?></h8>
+                    </div>
+				</td>
+                                                
+                <td>
+					<div class="product-name">
+                    <?php echo'
+                    <audio id="myAudio">
+                    <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
+                    </audio>'?>
+                    <a href="#" class="btn btn-success btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
+					</div>
+                </td>
+                                            
+                </tr>
+                <?php } } else{ ?>
+                    
+				<tr>
+				<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
+                </tr>
+				<?php } ?>
+				</tbody>
+				</table>
+                <!--end of playlist modal-->
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
