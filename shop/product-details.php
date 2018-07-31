@@ -187,7 +187,7 @@ while($row=mysqli_fetch_array($ret))
 
 									<div id="owl-single-product" class="carousel-images">
 
-										<div class="single-product-gallery-item" id="slide1">
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide1">
 											<a data-lightbox="image-1" data-title="<?php echo htmlentities($row['product_name']);?>" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"
 												    width="370" height="325" />
@@ -197,7 +197,7 @@ while($row=mysqli_fetch_array($ret))
 
 
 
-										<div class="single-product-gallery-item" id="slide1">
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide1">
 											<a data-lightbox="image-1" data-title="<?php echo htmlentities($row['product_name']);?>" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"
 												    width="370" height="325" />
@@ -205,7 +205,7 @@ while($row=mysqli_fetch_array($ret))
 										</div>
 										<!-- /.single-product-gallery-item -->
 										<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
-										<div class="single-product-gallery-item" id="slide2">
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide2">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"
 												/>
@@ -214,7 +214,7 @@ while($row=mysqli_fetch_array($ret))
 										<?php } ?>
 										<!-- /.single-product-gallery-item -->
 										<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
-										<div class="single-product-gallery-item" id="slide3">
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide3">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
 												/>
@@ -1131,7 +1131,10 @@ while($rw=mysqli_fetch_array($qry))
 		</script>
 		<script src="distribution/vendor/jquery-validation/jquery.validate.min.js"></script>
 		<script src="distribution/js/front.js"></script>
-
+		<script src="distribution/js/easyzoom.js"></script>
+		<script>
+		var $easyzoom = $('.easyzoom').easyZoom();
+		</script>
 
 	</body>
 

@@ -266,6 +266,8 @@ if(strlen($_SESSION['login'])==0){   ?>
                 <button class="play"> <i class="fa fa-play"></i></button>
                 <button class="pause"> <i class="fa fa-pause"></i></button>
                 <button class="fwd"> <i class="fa fa-forward"></i></button>
+                <br>
+                
 <div class="body-content outer-top-bd">
 			<div class="container">
 				<div class="my-wishlist-page inner-bottom-sm">

@@ -9,8 +9,8 @@
 		    <div class="panel-body">
 				<ul class="nav nav-checkout-progress list-unstyled">
 					<li><a href="my-account.php">Manage My Account</a></li>
-					<li><a href="transaction-history.php">My Transaction History</a></li>
 					<li><a href="order-history.php">My Order History</a></li>
+					<li><a href="returns-cancellations.php">My Returns and Cancellations</a></li>
 					<li><a href="my-wishlist.php">My Wishlist</a></li>
 					<li><a href="pending-orders.php">My Payment Pending Order</a></li>
 				</ul>		
