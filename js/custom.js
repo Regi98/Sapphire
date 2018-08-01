@@ -254,7 +254,7 @@ $('.box').click(function () {
   $(this).toggleClass('selected');
 
 });
-
+/*AUDIO FOR MUSIC*/
 $(document).ready(function(){
 
     $(".pushme").click(function () {
@@ -285,7 +285,7 @@ $(document).ready(function(){
         });
     });
 });
-/*
+/*AUDIO FOR MUSIC*/
 var myAudio = document.getElementById("myAudio");
 var isPlaying = false;
 
@@ -301,4 +301,4 @@ myAudio.onplaying = function () {
 };
 myAudio.onpause = function () {
   isPlaying = false;
-}; */
+}; 

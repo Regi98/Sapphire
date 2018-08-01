@@ -15,7 +15,7 @@ else
 $mpid=intval($_GET['del']);
 if(isset($_GET['del']))
 {
-$query=mysqli_query($con,"delete from favorites where id='$fid'");
+$query=mysqli_query($con,"delete from favorites where id='$mpid'");
 }
 
 

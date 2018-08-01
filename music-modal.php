@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php'); 
+include('includes/config.php');
 $hi = $_GET['id'];
 $mid = $_GET['mid'];
 
@@ -349,8 +349,7 @@ while($row2 = mysqli_fetch_array($data)) {
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
-    <script src="js/custom.js"></script>
-        <script type="text/javascript">
+<script type="text/javascript">
       $(window).on('load',function(){
         $('#myModal').modal('show');
       }
