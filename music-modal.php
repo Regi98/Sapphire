@@ -185,7 +185,8 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
-                <button style="margin-top:1px;" class="btn btn-dark btn-sm fa fa-random pull-center" onclick="">&nbspListen in Shuffle</button>
+                <button type="button" class="btn btn-outline-success pull-center" style="font-family:Century Gothic; font-size:14px" onclick="">Listen in Shuffle&nbsp;&nbsp;<i class="fa fa-random"></i>
+                </button>
             </div>
         </div><br>';}?>
 <?php
@@ -223,7 +224,7 @@ echo '
 <tbody>
 <thead>
     <center>
-        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class=" fa fa-music fa-sm"></i>
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class="fa fa-headphones fa-md"></i>
         </button>
     </center>
 </thead>
