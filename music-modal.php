@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/config.php'); 
 $hi = $_GET['id'];
 $mid = $_GET['mid'];
 
@@ -185,8 +185,6 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
-                <button type="button" class="btn btn-outline-success pull-center" style="font-family:Century Gothic; font-size:14px" onclick="">Listen in Shuffle&nbsp;&nbsp;<i class="fa fa-random"></i>
-                </button>
             </div>
         </div><br>';}?>
 <?php
@@ -341,6 +339,7 @@ while($row2 = mysqli_fetch_array($data)) {
   </div>
 </div>
 
+
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -349,7 +348,8 @@ while($row2 = mysqli_fetch_array($data)) {
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
-<script type="text/javascript">
+    <script src="js/custom.js"></script>
+        <script type="text/javascript">
       $(window).on('load',function(){
         $('#myModal').modal('show');
       }
