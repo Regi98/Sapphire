@@ -89,6 +89,20 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item"><a href="home.php">Home</a></li>
             <li class="breadcrumb-item active">Music            </li>
 </ul>
+</div>
+<!--ALBUMS/TABS-->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Albums</a>
+    </li>
+  <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Playlist</a>
+    </li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div id="home" class="container tab-pane active">
+    <br>
 <div class="container-fluid">
   <?php
             $dataid;
@@ -149,6 +163,129 @@ if(strlen($_SESSION['login'])==0){   ?>
             ?> </div><br>
     </div>
   </div>
+  <!--playlist tabs-->
+<div id="menu1" class="container-fluid tab-pane fade"><br>
+<table class="table">
+<tbody>
+<thead>
+    <center>
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class="fa fa-headphones fa-md"></i>
+        </button>
+    </center>
+</thead>
+
+<br>
+<h6>Summary of your Playlist</h6>
+<?php
+$data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
+$num=mysqli_num_rows($data);
+	if($num>0)
+	{
+while($row2 = mysqli_fetch_array($data)) {
+?>
+            
+			<tr class="background">
+
+			<td>
+            <?php echo'
+             <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
+            ?>
+            </td>
+            
+            <td>
+			<div class="song_fave">
+            <h8>
+            <?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?>
+            </h8>
+            </div>
+			</td>
+                                                
+            <td>
+			<?php echo'
+            <audio id="myAudio">
+                <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
+            </audio>'?>
+            </td>
+
+			<td class=" close-btn">
+			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
+			<i class="fa fa-times"></i>
+			</a>
+            </td>
+            
+			</tr>
+            <?php } } else{ ?>
+                
+			<tr>
+			<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
+            </tr>
+            <?php } ?>
+            
+			</tbody>
+			</table>
+			</div>
+</section>
+</div>
+
+<!--MODAL for PLAYLIST-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">YOUR PLAYLIST</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <!--start of playlist modal-->
+	  <table class="table">
+      <tbody>
+			<?php
+            $data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
+            $num=mysqli_num_rows($data);
+	        if($num>0)
+	        {
+            while($row2 = mysqli_fetch_array($data)) {
+            ?>
+                <tr class="background">
+				<td>
+                    <?php echo'
+                     <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
+                    ?>
+                </td>
+                
+                <td>
+					<div class="song_fave">
+                    <h8><?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?></h8>
+                    </div>
+				</td>
+                                                
+                <td>
+					<div class="product-name">
+                    <?php echo'
+                    <audio id="myAudio">
+                    <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
+                    </audio>'?>
+                    <a href="#" class="btn btn-success btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
+					</div>
+                </td>
+                                            
+                </tr>
+                <?php } } else{ ?>
+                    
+				<tr>
+				<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
+                </tr>
+				<?php } ?>
+				</tbody>
+				</table>
+                <!--end of playlist modal-->
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
