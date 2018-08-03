@@ -487,7 +487,7 @@ $num=mysqli_num_rows($rt);
 											<h7 class="label">Service Charge:</h7>
 										</div>
 										<div class="col-5">
-											<h7 class="label service-charge">&nbsp;$0.00</h7>
+											<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
 										</div>
 									</div><hr>
 									<div class="quantity-container info-container">
