@@ -302,7 +302,7 @@ $num=mysqli_num_rows($rt);
 											<div class="col-sm-9">
 												<div class="price-box">
 													<span class="price-strike">$
-														<?php echo htmlentities($row['product_price_before_discount']);?>.00
+														<?php echo htmlentities($row['product_price_before_discount']);?>
 													</span>
 												</div>
 											</div>
@@ -319,7 +319,7 @@ $num=mysqli_num_rows($rt);
 													$<span class="label product-unit-price"><?php 
 													$prod_price = $row['product_price'];
 													echo htmlentities($prod_price);?>
-													</span>.00
+													</span>
 												</div>
 											</div>
 										</div>
@@ -466,7 +466,7 @@ $num=mysqli_num_rows($rt);
 
 											<div class="col-6">
 												<div class="cart-quantity">
-														$<span class="value cart-total sub-total"><?php echo htmlentities($prod_price);?></span>.00
+														$<span class="value cart-total sub-total"><?php echo htmlentities($prod_price);?></span>
 												</div>
 											</div>
 
@@ -498,7 +498,7 @@ $num=mysqli_num_rows($rt);
 
 											<div class="col-6">
 												<div class="cart-quantity">
-														$<span class="value cart-total total"><?php echo htmlentities($prod_price);?></span>.00
+														$<span class="value cart-total total"><?php echo htmlentities($prod_price);?></span>
 												</div>
 											</div>
 
@@ -1160,15 +1160,18 @@ while($rw=mysqli_fetch_array($qry))
 			var pricee = price.replace(/,/g , "");
 			//SUBTOTAL
 			var finalprice = pricee*qty;
-			var subtotalwcomma = finalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			var finalpriceFixed = finalprice.toFixed(2);
+			var subtotalwcomma = finalpriceFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			$('.cart-total.sub-total').html(subtotalwcomma);
 			//TAX
 			var tax = finalprice * taxvalue;
-			var taxwcomma = tax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.label.ph-tax').html(taxwcomma+'.00');
+			var taxFixed = tax.toFixed(2);
+			var taxwcomma = taxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.label.ph-tax').html(taxwcomma);
 			//TOTAL
 			var totalwtax = finalprice + tax;
-			var totalwtaxcomma = totalwtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			var totalwtaxFixed = totalwtax.toFixed(2);
+			var totalwtaxcomma = totalwtaxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			$('.cart-total.total').html(totalwtaxcomma);
 			
 		});
