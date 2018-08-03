@@ -458,44 +458,57 @@ $num=mysqli_num_rows($rt);
 									</div>
 									<!-- /.row -->
 									<?php if($instock != 0){ ?>
-									<br>
+									<div class="quantity-container info-container">
+										<div class="row">
+											<div class="col-6">
+												<h7 class="label">Sub Total:</h7>
+											</div>
+
+											<div class="col-6">
+												<div class="cart-quantity">
+														$<span class="value cart-total sub-total"><?php echo htmlentities($prod_price);?></span>.00
+												</div>
+											</div>
+
+
+										</div>
+										<!-- /.row -->
+									</div>
 									<div class="row">
-										<div class="col-8">
+										<div class="col-7">
 											<h7 class="label">Ph Tax:</h7>
 										</div>
-										<div class="col-4">
-											<h7 class="label">₱0.00</h7>
+										<div class="col-5">
+											<h7 class="label ph-tax">₱0.00</h7>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-8">
 											<h7 class="label">Service Charge:</h7>
 										</div>
-										<div class="col-4">
-											<h7 class="label">$0.00</h7>
+										<div class="col-4 pull-right">
+											<h7 class="label service-charge">&nbsp;$0.00</h7>
 										</div>
+									</div><hr>
+									<div class="quantity-container info-container">
+										<div class="row">
+											<div class="col-6">
+												<h7 class="label">Total:</h7>
+											</div>
+
+											<div class="col-6">
+												<div class="cart-quantity">
+														$<span class="value cart-total total"><?php echo htmlentities($prod_price);?></span>.00
+												</div>
+											</div>
+
+
+										</div>
+										<!-- /.row -->
 									</div>
 									<?php } ?>
 								</div>
 								<!-- /.quantity-container -->
-								<?php if($instock != 0){ ?>
-								<div class="quantity-container info-container">
-									<div class="row">
-										<div class="col-7">
-											<h7 class="label">Total:</h7>
-										</div>
-
-										<div class="col-5">
-											<div class="cart-quantity">
-													$<span class="value cart-total"><?php echo htmlentities($prod_price);?></span>.00
-											</div>
-										</div>
-
-
-									</div>
-									<!-- /.row -->
-								</div>
-								<?php } ?>
 								<div class="row">
 									<div class="col-12 col-sm-12">
 										<?php
@@ -1124,13 +1137,39 @@ while($rw=mysqli_fetch_array($qry))
 
 				}
 			});
+		//DEFAUT 1 QUANTITY!
+			//TAX PERCENTAGE
+			var taxvalue = 0.12;
+		var priceOne = $('.product-unit-price').html();
+		var priceeOne = parseInt(priceOne.replace(/,/g , ""));
+		//TAX
+		var taxOneQty = priceeOne * taxvalue;
+		var taxOneQtywComma = taxOneQty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$( ".label.ph-tax" ).html("$"+taxOneQtywComma+".00");
+		//TOTAL
+		var totalOnewtax = priceeOne + taxOneQty;
+		var totalOnewtaxcomma = totalOnewtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$('.cart-total.total').html(totalOnewtaxcomma);
+
+		console.log(totalOnewtax);
+
 		$( ".qty-select" ).change(function() {
+
 			var qty = $(this).val();
 			var price = $('.product-unit-price').html();
 			var pricee = price.replace(/,/g , "");
+			//SUBTOTAL
 			var finalprice = pricee*qty;
-			var pricewithcomma = finalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.cart-total').html(pricewithcomma);
+			var subtotalwcomma = finalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.cart-total.sub-total').html(subtotalwcomma);
+			//TAX
+			var tax = finalprice * taxvalue;
+			var taxwcomma = tax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.label.ph-tax').html(taxwcomma+'.00');
+			//TOTAL
+			var totalwtax = finalprice + tax;
+			var totalwtaxcomma = totalwtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.cart-total.total').html(totalwtaxcomma);
 			
 		});
 		</script>
