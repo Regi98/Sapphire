@@ -1145,7 +1145,7 @@ while($rw=mysqli_fetch_array($qry))
 		//TAX
 		var taxOneQty = priceeOne * taxvalue;
 		var taxOneQtywComma = taxOneQty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		$( ".label.ph-tax" ).html("$"+taxOneQtywComma+".00");
+		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
 		//TOTAL
 		var totalOnewtax = priceeOne + taxOneQty;
 		var totalOnewtaxcomma = totalOnewtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1165,7 +1165,7 @@ while($rw=mysqli_fetch_array($qry))
 			//TAX
 			var tax = finalprice * taxvalue;
 			var taxwcomma = tax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.label.ph-tax').html(taxwcomma+'.00');
+			$('.label.ph-tax').html(taxwcomma);
 			//TOTAL
 			var totalwtax = finalprice + tax;
 			var totalwtaxcomma = totalwtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
