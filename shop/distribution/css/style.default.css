@@ -262,7 +262,7 @@ i[class*='icon-'] {
 }
 
 .dropdown-menu a {
-  padding: 10px 15px;
+  padding: 10px 5px;
   font-size: 0.8rem;
   text-transform: none;
 }
