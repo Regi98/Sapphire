@@ -479,7 +479,7 @@ $num=mysqli_num_rows($rt);
 											<h7 class="label">Ph Tax:</h7>
 										</div>
 										<div class="col-5">
-											<h7 class="label ph-tax">₱0.00</h7>
+											<h7 class="label ph-tax">$0.00</h7>
 										</div>
 									</div>
 									<div class="row">
@@ -487,7 +487,7 @@ $num=mysqli_num_rows($rt);
 											<h7 class="label">Service Charge:</h7>
 										</div>
 										<div class="col-5">
-											<h7 class="label service-charge">&nbsp;₱0.00</h7>
+											<h7 class="label service-charge">&nbsp;$0.00</h7>
 										</div>
 									</div><hr>
 									<div class="quantity-container info-container">
@@ -1146,7 +1146,7 @@ while($rw=mysqli_fetch_array($qry))
 		var taxOneQty = priceeOne * taxvalue;
 		var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
 		var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		$( ".label.ph-tax" ).html("₱"+taxOneQtywComma);
+		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
 		//TOTAL
 		var totalOnewtax = priceeOne + taxOneQty;
 		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
