@@ -100,40 +100,21 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <div class="container-fluid">
-<h8 class="my-content">New Releases</h8>
-      <div class="regular text-center">
          <?php
-                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '3'");
-                        while($row = mysqli_fetch_array($data)) { 
-                            echo '<div class="snip1205">
-                                        <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
-                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomething(this);"></i>
-                                </div>';
-                
-                }
-            ?>
-         <!-- <script type="text/javascript">
-            $(document).ready(function(){
-                $('').on('click', '', function(){
-            
-                });
-            });
-            </script> -->
-      </div><br>
-      <h8 class="my-content">Top Movies</h8>
-      <div class="regular text-center">
-         <?php
-            $dataid;
-                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '2'");
+                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '3'");
+                      $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '<h8 class="my-content">New Releases</h8>
+                             <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
                                             <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomething(this);"></i>
 
                                 </div>';
-                                $dataid = $row['id'];
                 
-                }
+                        }
+                    }
             ?>
          <!-- <script type="text/javascript">
             $(document).ready(function(){
@@ -143,11 +124,13 @@ if(strlen($_SESSION['login'])==0){   ?>
             });
             </script> -->
       </div><br>
-      <h8 class="my-content">Featured</h8>
-      <div class="regular text-center">
          <?php
-            $dataid;
-                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '1'");
+             $dataid;
+                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '2'");
+                    $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '<h8 class="my-content">Top Movies</h8>
+                             <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
@@ -156,6 +139,31 @@ if(strlen($_SESSION['login'])==0){   ?>
                                 $dataid = $row['id'];
                 
                 }
+            }
+            ?>
+         <!-- <script type="text/javascript">
+            $(document).ready(function(){
+                $('').on('click', '', function(){
+            
+                });
+            });
+            </script> -->
+      </div><br>
+         <?php
+             $dataid;
+                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '1'");
+                    $count = mysqli_num_rows($data);
+                      if ($count != 0) {
+                       echo '<h8 class="my-content">Featured</h8>
+                             <div class="regular text-center">';
+                        while($row = mysqli_fetch_array($data)) { 
+                            echo '<div class="snip1205">
+                                        <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
+                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomething(this);"></i>
+                                </div>';
+                                $dataid = $row['id'];
+                }
+            }
             ?>
          <!-- <script type="text/javascript">
             $(document).ready(function(){
