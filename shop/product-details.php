@@ -466,7 +466,7 @@ $num=mysqli_num_rows($rt);
 
 											<div class="col-6">
 												<div class="cart-quantity">
-														$&nbsp;<span class="value cart-total sub-total"><?php echo htmlentities($prod_price);?>.00</span>
+														&nbsp;$<span class="value cart-total sub-total"><?php echo htmlentities($prod_price);?>.00</span>
 												</div>
 											</div>
 
