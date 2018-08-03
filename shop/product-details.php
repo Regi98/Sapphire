@@ -1167,7 +1167,7 @@ while($rw=mysqli_fetch_array($qry))
 			var tax = finalprice * taxvalue;
 			var taxFixed = tax.toFixed(2);
 			var taxwcomma = taxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.label.ph-tax').html("₱"+taxwcomma);
+			$('.label.ph-tax').html("$"+taxwcomma);
 			//TOTAL
 			var totalwtax = finalprice + tax;
 			var totalwtaxFixed = totalwtax.toFixed(2);
