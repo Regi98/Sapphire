@@ -10,9 +10,9 @@
           </div>
           <div class="right-menu list-inline no-margin-bottom">    
             <!-- Megamenu-->
-            <div class="list-inline-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Info <i class="fa fa-ellipsis-v"></i></a>
+            <div class="list-inline-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Coins <i class="fa fa-ellipsis-v"></i></a>
               <div class="dropdown-menu megamenu">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Elements Heading</strong>
                     <ul class="list-unstyled mb-3">
                       <li><a href="#">Lorem ipsum dolor</a></li>
@@ -61,14 +61,23 @@
                       <li><a href="#">Maiores alias</a></li>
                     </ul>
                   </div>
-                </div>
-                <div class="row megamenu-buttons text-center">
-                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-1"><i class="fa fa-clock-o"></i><strong>Demo 1</strong></a></div>
-                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-2"><i class="fa fa-clock-o"></i><strong>Demo 2</strong></a></div>
-                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-3"><i class="fa fa-clock-o"></i><strong>Demo 3</strong></a></div>
-                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-4"><i class="fa fa-clock-o"></i><strong>Demo 4</strong></a></div>
-                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link bg-danger"><i class="fa fa-clock-o"></i><strong>Demo 5</strong></a></div>
-                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link bg-info"><i class="fa fa-clock-o"></i><strong>Demo 6</strong></a></div>
+                </div> -->
+                <div class="row megamenu-buttons">
+                  <div class="col-lg-3 col-md-4">
+                    <a href="#" class="d-block megamenu-button-link bg-info">
+                      <img src="images/gems.png" width="20px">&nbsp;&nbsp;&nbsp;<span>SPH/USD</span>
+                      <strong>10,000</strong>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-warning">
+                  <img src="images/bitcoin.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BTC/USD</span>
+                      <strong>7,348.20</strong></a></div>
+                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-success">
+                  <img src="images/bitcoincash.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BCH/USD</span>
+                      <strong>710.27</strong></a></div>
+                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-danger">
+                  <img src="images/ethereum.png" width="15px">&nbsp;&nbsp;&nbsp;<span>ETH/USD</span>
+                      <strong>400.55</strong></a></div>
                 </div>
               </div>
             </div>
