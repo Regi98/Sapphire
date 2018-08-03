@@ -217,7 +217,7 @@ echo '
     </div>
 
 <!--playlist tabs-->
-<div id="menu1" class="container tab-pane fade"><br>
+<div id="menu1" class="container-fluid tab-pane fade"><br>
 <table class="table">
 <tbody>
 <thead>
