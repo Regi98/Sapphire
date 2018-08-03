@@ -483,11 +483,11 @@ $num=mysqli_num_rows($rt);
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-8">
+										<div class="col-7">
 											<h7 class="label">Service Charge:</h7>
 										</div>
-										<div class="col-4 pull-right">
-											<h7 class="label service-charge">&nbsp;$0.00</h7>
+										<div class="col-5">
+											<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
 										</div>
 									</div><hr>
 									<div class="quantity-container info-container">
@@ -1144,14 +1144,14 @@ while($rw=mysqli_fetch_array($qry))
 		var priceeOne = parseInt(priceOne.replace(/,/g , ""));
 		//TAX
 		var taxOneQty = priceeOne * taxvalue;
-		var taxOneQtywComma = taxOneQty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
+		var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
 		//TOTAL
 		var totalOnewtax = priceeOne + taxOneQty;
-		var totalOnewtaxcomma = totalOnewtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
+		var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		$('.cart-total.total').html(totalOnewtaxcomma);
-
-		console.log(totalOnewtax);
 
 		$( ".qty-select" ).change(function() {
 
@@ -1165,7 +1165,7 @@ while($rw=mysqli_fetch_array($qry))
 			//TAX
 			var tax = finalprice * taxvalue;
 			var taxwcomma = tax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.label.ph-tax').html(taxwcomma);
+			$('.label.ph-tax').html(taxwcomma+'.00');
 			//TOTAL
 			var totalwtax = finalprice + tax;
 			var totalwtaxcomma = totalwtax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
