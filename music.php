@@ -98,6 +98,9 @@ if(strlen($_SESSION['login'])==0){   ?>
   <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu1">Playlist</a>
     </li>
+    <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">Tracks</a>
+  </li>
 </ul>
 <!-- Tab panes -->
 <div class="tab-content">
@@ -281,6 +284,22 @@ while($row2 = mysqli_fetch_array($data)) {
 				</tbody>
 				</table>
                 <!--end of playlist modal-->
+
+                  <!--playlist tabs-->
+<div id="menu2" class="container-fluid tab-pane fade"><br>
+<table class="table">
+<tbody>
+<thead>
+    <center>
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">asdfgh<i class="fa fa-headphones fa-md"></i>
+        </button>
+    </center>
+</thead>
+
+<br>
+<h6>TRACKS</h6>
+
+
       </div>
     </div>
   </div>
