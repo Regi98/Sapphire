@@ -1123,6 +1123,9 @@ while($rw=mysqli_fetch_array($qry))
 										}
 									}],
 							yAxes: [{
+										ticks: {
+											beginAtZero: true
+										},
 										gridLines: {
 											color: "rgba(0, 0, 0, 0)",
 										},
