@@ -255,35 +255,17 @@ $('.box').click(function () {
 
 });
 /*AUDIO FOR MUSIC*/
-$(document).ready(function(){
+$(".play").click(function () {
+  var audio = $(this).closest('.play-wrap').find('.music')[0];
 
-    $(".pushme").click(function () {
-       $(this).text("");
-    });
-    
-    $(".pushme-with-color").click(function () {
-       $(this).text("");
-       $(this).addClass("btn btn-outline-secondary");
-       $(this).removeClass("btn btn-outline-secondary");
-    });
-    
-    $(".with-color").click(function () {    
-       if ($(this).hasClass("btn btn-outline-secondary"))
-       {
-            $(this).addClass("btn btn-outline-secondary");
-            $(this).removeClass("btn btn-outline-secondary");
-       }
-       else{
-            $(this).addClass("btn btn-outline-secondary");
-            $(this).removeClass("btn btn-outline-secondary");
-       }
-    });
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+    audio.currentTime = 0
+  }
 
-    $(".pushme2").click(function(){
-        $(this).text(function(i, v){
-           return v === 'PLAY' ? 'STOP' : 'PLAY'
-        });
-    });
+  $(this).toggleClass('fa-play fa-pause');
 });
 /*AUDIO FOR MUSIC*/
 var myAudio = document.getElementById("myAudio");
