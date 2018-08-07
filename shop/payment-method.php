@@ -131,7 +131,7 @@ if(isset($_GET['oid'])){
                 </div>
 				<p>Buy with our new Sapphire Crystals!</p>
 				<div class="list-inline-item logout">
-            	<span class="pull-right"><img src="../images/gems.png" width="30px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span>
+            	<span class="pull-right"><img src="../images/crystal.png" width="30px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span>
            		</div>
               </div>
           </div>
