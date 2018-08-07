@@ -293,8 +293,8 @@ echo '
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
 <h5><strong>'.$row2['title'] .'</strong></h5>
-<p>'.$row2['release_date'] .'</p><p>';
-
+<p>'.$row2['release_date'] .'</p><p>
+<p>'.$row2['content_rating'] .'</p><p>';
 $data6 = mysqli_query($con,"select genres.name from series join series_cover_images on cover_image_id=series_cover_images.id left join genre_series on genre_series.series_id=series.id join genres on genres.id=genre_series.genre_id where series.id=$hi");
 $count = mysqli_num_rows($data6);
 $x = 0;
