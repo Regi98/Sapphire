@@ -39,8 +39,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
       <!-- Custom stylesheet - for your changes-->
       <link rel="stylesheet" href="css/custom.css">
-      <!-- Finance stylesheet - for your changes-->
-      <link rel="stylesheet" href="css/finance.css">
       <!-- Favicon-->
       <link rel="shortcut icon" href="img/favicon.ico">
       <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -48,7 +46,6 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    </head>
    <body>
-    <img id="skeri" src="pic.jpg" height="100%" width="100%" class="hide">
       <div class="preloader">
          <div class="loader">
             <div class="loader__figure"></div>
@@ -64,13 +61,13 @@ if(strlen($_SESSION['login'])==0){   ?>
                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                <div class="title">
                   <h6>Welcome Aboard,<h6>
-            <h1 class="h5"><?php echo htmlentities($_SESSION['name']);}?></h1>
+            <h1 class="h5"><?php echo htmlentities($_SESSION['name']); ?></h1>
                </div>
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
                <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
-               <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
+               <li><a href="music/music.php"> <i class="fa fa-music"></i>Music </a></li>
                <li><a href="movies.php"> <i class="fa fa-play-circle"></i>Movies </a></li>
                <li class="active"><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
                <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
@@ -81,7 +78,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                   </ul>
                   </li>-->
                <li><a href="shop/index.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
-               <li><a href="games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
+               <li><a href="music/games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
                <li><a href="news.php"> <i class="fa fa-file"></i>News</a></li>
             </ul>
             <span class="heading">User</span>
@@ -91,91 +88,35 @@ if(strlen($_SESSION['login'])==0){   ?>
             </ul>
          </nav>
          <!-- Sidebar Navigation end-->
-  <div class="page-content">
-    <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
-      <br><br>
-        <h4>MY FINANCE</h4>
-        
-              <div class="megamenu">
-                <div class="row megamenu-buttons">
-                  <div class="col-lg-3 col-md-4">
-                    <a href="#" class="d-block megamenu-button-link bg-info">
-                      <img src="images/gems.png" width="20px">&nbsp;&nbsp;&nbsp;<span>SPH/USD</span>
-                      <strong>10,000</strong>
-                    </a>
-                  </div>
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-warning">
-                  <img src="images/bitcoin.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BTC/USD</span>
-                      <strong>7,348.20</strong></a></div>
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-success">
-                  <img src="images/bitcoincash.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BCH/USD</span>
-                      <strong>710.27</strong></a></div>
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-danger">
-                  <img src="images/ethereum.png" width="15px">&nbsp;&nbsp;&nbsp;<span>ETH/USD</span>
-                      <strong>400.55</strong></a></div>
-                </div>
-              </div>
-
-               <div class="row">
-       <div class="col-md-4">
-    <div class="box first">
-        <span class="icon-cont">
-            <i class="fa fa-plane"></i>
-        </span>
-
-        <h3>Travel Insurance</h3>
-
-        <ul class="hidden">
-            <li>Select Policy</li>
-            <li>Buy Policy</li>
-            <li>Terms and Policy</li>
-        </ul>
-         <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
-            View Details
-            <i class="fa fa-chevron-right"></i>
-        </a>
+         <div class="page-content">
+            <!-- Page Header-->
+          <div class="container  h-100 justify-content-center">
+             <br><br>
+            <h4>Bayad center</h4> <br><br>
+            <div class='card-wrapper'></div><br>
+<!-- CSS is included via this JavaScript file -->
+<script src="js/card.js"></script>
+<form>
+    <div class="col-md-6 ">
+        <small class="help-block-none">Card Number</small>
+        <input type="text" class="form-control" name="number">
     </div>
-</div>
-<div class="col-md-4">
-    <div class="box second">
-        <span class="icon-cont">
-            <i class="fa fa-gg"></i>
-        </span>
-
-        <h3>Sapphire Crystals </h3>
-
-        <ul class="hidden">
-            <li>Available Balance</li>
-            <li>Crypto Trading</li>
-            <br>
-        </ul>
-        <a class="btn btn-sm btn-outline-secondary button" href="#" role="button">
-            View Details
-            <i class="fa fa-chevron-right"></i>
-        </a>
+    <div class="col-md-6">
+        <small class="help-block-none">Card Holder</small>
+        <input type="text" class="form-control" name="name"/>
     </div>
-</div>
-<div class="col-md-4">
-    <div class="box third">
-        <span class="icon-cont">
-            <i class="fa fa-credit-card"></i>
-        </span>
-
-        <h3>My E-Load</h3>
-
-        <ul class="hidden">
-            <li>Top-Up Load</li>
-            <li>Available Balance</li>
-            <li>E-Load History</li>
-        </ul>
-        <a class="btn btn-sm btn-outline-secondary button" href="top-up.php" role="button">
-            View Details
-            <i class="fa fa-chevron-right"></i>
-        </a>
+    <div class="col-md-6">
+        <small class="help-block-none">Expiry</small>
+        <input type="text" class="form-control" name="expiry"/>
     </div>
-</div>
-</div>
-            </div>
+    <div class="col-md-6">
+        <small class="help-block-none">CVC</small>
+        <input type="text" class="form-control" name="cvc"/>
+    </div>
+</form>
+          </div>
+
+        </div>
    </div>
       <!-- JavaScript files-->
       <script src="vendor/jquery/jquery.min.js"></script>
@@ -185,8 +126,23 @@ if(strlen($_SESSION['login'])==0){   ?>
       <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
       <script src="vendor/jquery/jquery-confirm.js"></script>
       <script src="js/front.js"></script>
+      
       <script src="vendor/slick/slick.min.js"></script>
       <script src="js/custom.js"></script>
-      </script>
+      <script>
+
+var card = new Card({
+    form: 'form',
+    container: '.card-wrapper',
+
+    placeholders: {
+        number: '**** **** **** ****',
+        name: 'Arya Stark',
+        expiry: '**/****',
+        cvc: '***'
+    }
+});
+</script>
    </body>
 </html>
+<?php } ?>
