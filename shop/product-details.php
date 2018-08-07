@@ -1095,16 +1095,15 @@ while($rw=mysqli_fetch_array($qry))
 											color: "rgba(0, 0, 0, 0)",
 										},
 										ticks: {
-											display: false
+											display: false,
+											beginAtZero: true,
+											stepSize: 1,
+											min: 0,
+											autoSkip: false
 										}
 									}],
 							yAxes: [{
 										display: true,
-										ticks: {
-											beginAtZero: true,
-											max: 100,
-											min: 0
-										},
 										gridLines: {
 											color: "rgba(0, 0, 0, 0)",
 										},
@@ -1113,10 +1112,10 @@ while($rw=mysqli_fetch_array($qry))
 						}
 
 						var data = {
-							labels: ["  5  ", "  4  ", "  3  ", "  2  ", "  1  "],
+							labels: ["★★★★★", "★★★★", "★★★", "★★", "★"],
 							datasets: [{
 								label: '# of Ratings',
-								data: ratings,
+								data: [1,1,3,2,1],
 								backgroundColor: [
 									'rgba(0, 0, 255, 1)',
 									'rgba(0, 0, 255, 0.6)',
