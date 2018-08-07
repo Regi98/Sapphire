@@ -100,7 +100,7 @@ if(isset($_GET['oid'])){
     </ul> -->
 </div>
 
-  <div class="container  h-100 justify-content-center align-items-center text-center">
+  <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-60px">
             <h4>How would you like to pay?</h4> <br><br>
             <div class="row justify-content-center align-items-center text-center">
               
@@ -131,7 +131,7 @@ if(isset($_GET['oid'])){
 	   <hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
-                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
+                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">WE ACCEPT</span></div>
                      <div class="block-body">
                       <div class="block-gray">
                       <img src="../img/pay1.png" width=80px> &nbsp;
@@ -143,78 +143,6 @@ if(isset($_GET['oid'])){
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
-                     <div class="row padding-0">
-                      <div class="col-sm-12"><br>
-                        <div class="form-group row">
-                            <small class="help-block-none">Card Holder Name</small>
-                            <input type="text" class="form-control">
-                        </div>
-                      </div>
-                     </div>
-                        <div class="row padding-0">
-                           <div class="col-sm-6">
-                              <small class="help-block-none">Card Number</small>
-                              <input type="text" class="form-control" maxlength="16">
-                           </div>
-                           <div class="col-sm-6">
-                              <small class="help-block-none">Expiration date and security code</small>
-                              <div class="row">
-                              <div class="col-sm-4 padding-0">
-                                <select id='month' class="form-control">
-                                     <option value='' disabled="true">--</option>
-                                     <option value='1'>01</option>
-                                     <option value='2'>02</option>
-                                     <option value='3'>03</option>
-                                     <option value='4'>04</option>
-                                     <option value='5'>05</option>
-                                     <option value='6'>06</option>
-                                     <option value='7'>07</option>
-                                     <option value='8'>08</option>
-                                     <option value='9'>09</option>
-                                     <option value='10'>10</option>
-                                     <option value='11'>11</option>
-                                     <option value='12'>12</option>
-                                     </select> 
-                              </div>
-                              <div class="col-sm-4 padding-0">
-                                <select id='year' class="form-control">
-                                     <option value='' disabled="true">--</option>
-                                     <option value='18'>2018</option>
-                                     <option value='19'>2019</option>
-                                     <option value='20'>2020</option>
-                                     <option value='21'>2021</option>
-                                     <option value='22'>2022</option>
-                                     <option value='23'>2023</option>
-                                     <option value='24'>2024</option>
-                                     <option value='25'>2025</option>
-                                     <option value='26'>2026</option>
-                                     <option value='27'>2027</option>
-                                     <option value='28'>2028</option>
-                                     <option value='29'>2029</option>
-                                     <option value='30'>2030</option>
-                                     <option value='31'>2031</option>
-                                     <option value='32'>2032</option>
-                                     <option value='33'>2033</option>
-                                     <option value='34'>2034</option>
-                                     <option value='35'>2035</option>
-                                     <option value='36'>2036</option>
-                                     <option value='37'>2037</option>
-                                     <option value='38'>2038</option>
-                                     <option value='39'>2039</option>
-                                     <option value='40'>2040</option>
-                                     <option value='41'>2041</option>
-                                     <option value='42'>2042</option>
-                                     <option value='43'>2043</option>
-                                     </select> 
-                              </div>
-                              <div class="col-sm-4 padding-0">
-                                <input type="text" class="form-control" maxlength="3">
-                              </div>
-
-                            </div><br>
-                           </div>
-
-                        </div>
                       </div>
                   </div>
                </div>
@@ -226,65 +154,7 @@ if(isset($_GET['oid'])){
 		<input id="submit-payment" value="Next" name="submit" class="btn btn-block btn-primary">
 		</div>
 	</center><br><br>
-<!-- 
-<div class="body-content outer-top-bd">
-	<div class="container">
-		<div class="checkout-box faq-page inner-bottom-sm">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>Choose Payment Method</h2>
-					<div class="panel-group checkout-steps" id="accordion">
 
-<div class="panel panel-default checkout-step-01">
-
-	
-		<div class="panel-heading">
-    	<h4 class="unicase-checkout-title">
-	        <a data-toggle="collapse" class="" >
-	         Select your Payment Method
-	        </a>
-	     </h4>
-    </div>
-
-
-	<div>
-
-
-	    <div class="panel-body">
-	    <form name="payment" method="post">
-		<div class="jumbotron">
-		<div class="row">
-		<div class="col-md-4">
-		<center>
-		<input type="radio" id="paymethod" name="paymethod" value="Cash" checked="checked" style="width:20px; height:20px;" ><img src="assets/images/payments/cash.png" width="100" height="100"><p>Cash</p> <br></div>
-		</center>	
-		<div class="col-md-4">
-		<center>
-		 <input type="radio" id="paymethod" name="paymethod" value="Credit card" style="width:20px; height:20px;"> <img src="assets/images/payments/credit-cards.png" width="100" height="100"><p >Credit card</p> </div>
-		</center>	
-		<div class="col-md-4">
-		<center>
-		 <input type="radio" id="paymethod" name="paymethod" value="Load Wallet" style="width:20px; height:20px;"><img src="assets/images/payments/money-card.png" width="100" height="100"><p>Load Wallet</p><br><br /><br /></div></center></div> 
-		 <center>
-		<div class="col-md-4">
-		<input id="submit-payment" value="Next" name="submit" class="btn btn-block btn-primary">
-		</div>
-		</center>
-		</div>
-	    </form>		
-		</div>
-
-
-	</div>
-</div>
-
-					  
-					  	
-					</div>
-				</div>
-			</div>
-		</div>>	</div>
-</div> -->
 <?php include('includes/footer.php');?>
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 	
