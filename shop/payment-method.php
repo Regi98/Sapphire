@@ -101,7 +101,7 @@ if(isset($_GET['oid'])){
 </div>
 
   <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-60px">
-            <h4>How would you like to pay?</h4> <br><br>
+            <h4>How would you like to pay?</h4>
             <div class="row justify-content-center align-items-center text-center">
               
               <div class="col-12 col-md-3 col-centered payment">
@@ -109,45 +109,35 @@ if(isset($_GET['oid'])){
                 <div class="payment-col" id="wallet">
                   <img src="../images/wallet.png">
                 </div>
-                <p>You can top up your wallets with scratch cards!</p>
+				<p>You can top up your wallets with scratch cards!</p>
+				 <div class="list-inline-item logout">
+             	 <span class="pull-right"><img src="../img/dollar.png" width="20px"> &nbsp; $<?php echo $num['ewallet']; ?></span>
+           		 </div>
               </div>
               <div class="col-12 col-md-3 payment">
-                <input type="radio" id="paymethod" name="paymethod" value="Credit Card">Credit Card
+                <input type="radio" id="paymethod" name="paymethod" value="Credit Card">Credit/Debit Card
                 <div class="payment-col" id="credit">
-                  <img src="../images/card.png">
+                  <img src="../images/card.png" >
                 </div>
-                <p>We accept VISA and Mastercard.</p>
+                <p>We Accept These Cards</p><br>
+					<img src="../img/pay1.png" width=80px> &nbsp;
+                    <img src="../img/pay2.png" width=50px> &nbsp;
+                    <img src="../img/pay3.png" width=40px> &nbsp;
               </div>
               <div class="col-12 col-md-3">
                 <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Crystals">Sapphire Crystals
                 <div class="payment-col" id="token">
                   <img src="../images/token.png">
-
                 </div>
-                <p>Buy with our new Sapphire Crystals!</p>
+				<p>Buy with our new Sapphire Crystals!</p>
+				<div class="list-inline-item logout">
+            	<span class="pull-right"><img src="../images/gems.png" width="30px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span>
+           		</div>
               </div>
           </div>
    	</div>
-	   <hr color="white" width="90%">
-            <div class="row justify-content-center align-items-center text-center">
-                  <div class="block-white col-md-9 credit">
-                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">WE ACCEPT</span></div>
-                     <div class="block-body">
-                      <div class="block-gray">
-                      <img src="../img/pay1.png" width=80px> &nbsp;
-                     <img src="../img/pay2.png" width=50px> &nbsp;
-                     <img src="../img/pay3.png" width=40px> &nbsp;
-                        <!--<div class="form-group"> <br>  
-                           <input type="submit" value="Signin" class="btn btn-primary">
-                           </div>-->
-
-                     <!-- DIV START 
-                     <form class="text-left form-validate" method="post">-->
-                      </div>
-                  </div>
-               </div>
-               
-          </div>
+	  
+           
    	<br>
    	 <center>
 		<div class="col-md-4">
