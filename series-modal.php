@@ -25,6 +25,7 @@ $num=mysqli_fetch_assoc($results);
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/spinners.css"/>
+    <link rel="stylesheet" href="vendor/jquery/jquery-confirm.css">
 
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="css/font.css">
@@ -293,8 +294,8 @@ echo '
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
 <h5><strong>'.$row2['title'] .'</strong></h5>
-<p>'.$row2['release_date'] .'</p><p>';
-
+<p>'.$row2['release_date'] .'</p><p>
+<p>'.$row2['content_rating'] .'</p><p>';
 $data6 = mysqli_query($con,"select genres.name from series join series_cover_images on cover_image_id=series_cover_images.id left join genre_series on genre_series.series_id=series.id join genres on genres.id=genre_series.genre_id where series.id=$hi");
 $count = mysqli_num_rows($data6);
 $x = 0;
@@ -393,6 +394,7 @@ echo '
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/jquery/jquery-confirm.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
     <script src="js/vastvideoplugin.js"></script>
@@ -442,7 +444,22 @@ echo '
         document.getElementById(pelement).play();
                       }
                         else {
-                           window.location.href = "paymentmethod.php?id=" + episodeid;
+                          var episodetitle = $('.series-video').data('title');
+            $.confirm({
+              title: 'Purchase episode?',
+              content: 'You are about to buy ' + episodetitle + '.' ,
+              theme: 'supervan',
+              buttons: {
+                  confirm: function () {
+                    $.alert('Proceeding to payments page..');
+                    window.location.href = "paymentmethod.php?id=" + episodeid;
+                  },
+                  cancel: function () {
+                      $.alert('Okay. Good things take time!');
+                  }
+              }
+          });
+                           
                           
                   }
                 },

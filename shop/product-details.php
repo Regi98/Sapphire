@@ -461,7 +461,7 @@ $num=mysqli_num_rows($rt);
 									<div class="quantity-container info-container">
 										<div class="row">
 											<div class="col-6">
-												<h7 class="label">Sub Total:</h7>
+												<h7 class="label">Total:</h7>
 											</div>
 
 											<div class="col-6">
@@ -474,7 +474,7 @@ $num=mysqli_num_rows($rt);
 										</div>
 										<!-- /.row -->
 									</div>
-									<div class="row">
+									<!-- <div class="row">
 										<div class="col-7">
 											<h7 class="label">Ph Tax:</h7>
 										</div>
@@ -489,8 +489,8 @@ $num=mysqli_num_rows($rt);
 										<div class="col-5">
 											<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
 										</div>
-									</div><hr>
-									<div class="quantity-container info-container">
+									</div><hr> -->
+									<!-- <div class="quantity-container info-container">
 										<div class="row">
 											<div class="col-6">
 												<h7 class="label">Total:</h7>
@@ -504,8 +504,8 @@ $num=mysqli_num_rows($rt);
 
 
 										</div>
-										<!-- /.row -->
-									</div>
+										
+									</div> -->
 									<?php } ?>
 								</div>
 								<!-- /.quantity-container -->
@@ -599,7 +599,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 											</div>
 											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-25px;">
-												<canvas id="myChart" width="80%" height="35%"></canvas>
+												<canvas id="myChart" width="100%" height="35%"></canvas>
 											</div>
 										</div>
 										<hr>
@@ -1078,11 +1078,41 @@ while($rw=mysqli_fetch_array($qry))
 					console.log(ratings);
 
 
-					var ctx = document.getElementById("myChart").getContext('2d');
-					var myChart = new Chart(ctx, {
-						type: 'horizontalBar',
-						data: {
-							labels: ["5", "4", "3", "2", "1"],
+
+						 var options = {
+							legend: {
+								display: false
+							},
+							title: {
+								display: false,
+								text: 'Product Ratings',
+								fontFamily: 'Century Gothic'
+							},
+							responsive: true,
+							scales: {
+							xAxes: [{
+										gridLines: {
+											color: "rgba(0, 0, 0, 0)",
+										},
+										ticks: {
+											display: false,
+											beginAtZero: true,
+											stepSize: 1,
+											min: 0,
+											autoSkip: false
+										}
+									}],
+							yAxes: [{
+										display: true,
+										gridLines: {
+											color: "rgba(0, 0, 0, 0)",
+										},
+									}]
+							},
+						}
+
+						var data = {
+							labels: ["★★★★★", "★★★★", "★★★", "★★", "★"],
 							datasets: [{
 								label: '# of Ratings',
 								data: ratings,
@@ -1102,37 +1132,17 @@ while($rw=mysqli_fetch_array($qry))
 								],
 								borderWidth: 1
 							}]
-						},
-						options: {
-							legend: {
-								display: false
-							},
-							title: {
-								display: false,
-								text: 'Product Ratings',
-								fontFamily: 'Century Gothic'
-							},
-							responsive: true,
-							scales: {
-							xAxes: [{
-										gridLines: {
-											color: "rgba(0, 0, 0, 0)",
-										},
-										ticks: {
-											display: false
-										}
-									}],
-							yAxes: [{
-										ticks: {
-											beginAtZero: true
-										},
-										gridLines: {
-											color: "rgba(0, 0, 0, 0)",
-										},
-									}]
-							}
 						}
-					});
+
+						var ctx = document.getElementById("myChart");
+
+						var chartInstance = new Chart(ctx, {
+							type: 'horizontalBar',
+							data: data,
+							options:options
+						});
+
+
 
 				},
 				error: function (err) {
@@ -1140,44 +1150,44 @@ while($rw=mysqli_fetch_array($qry))
 
 				}
 			});
-		//DEFAUT 1 QUANTITY!
-			//TAX PERCENTAGE
-			var taxvalue = 0.12;
-		var priceOne = $('.product-unit-price').html();
-		var priceeOne = parseInt(priceOne.replace(/,/g , ""));
-		//TAX
-		var taxOneQty = priceeOne * taxvalue;
-		var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
-		var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
-		//TOTAL
-		var totalOnewtax = priceeOne + taxOneQty;
-		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
-		var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		$('.cart-total.total').html(totalOnewtaxcomma);
+		// //DEFAUT 1 QUANTITY!
+		// 	//TAX PERCENTAGE
+		// 	var taxvalue = 0.12;
+		// var priceOne = $('.product-unit-price').html();
+		// var priceeOne = parseInt(priceOne.replace(/,/g , ""));
+		// //TAX
+		// var taxOneQty = priceeOne * taxvalue;
+		// var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
+		// var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		// $( ".label.ph-tax" ).html("$"+taxOneQtywComma);
+		// //TOTAL
+		// var totalOnewtax = priceeOne + taxOneQty;
+		// var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
+		// var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		// $('.cart-total.total').html(totalOnewtaxcomma);
 
-		$( ".qty-select" ).change(function() {
+		// $( ".qty-select" ).change(function() {
 
-			var qty = $(this).val();
-			var price = $('.product-unit-price').html();
-			var pricee = price.replace(/,/g , "");
-			//SUBTOTAL
-			var finalprice = pricee*qty;
-			var finalpriceFixed = finalprice.toFixed(2);
-			var subtotalwcomma = finalpriceFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.cart-total.sub-total').html(subtotalwcomma);
-			//TAX
-			var tax = finalprice * taxvalue;
-			var taxFixed = tax.toFixed(2);
-			var taxwcomma = taxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.label.ph-tax').html("$"+taxwcomma);
-			//TOTAL
-			var totalwtax = finalprice + tax;
-			var totalwtaxFixed = totalwtax.toFixed(2);
-			var totalwtaxcomma = totalwtaxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			$('.cart-total.total').html(totalwtaxcomma);
+		// 	var qty = $(this).val();
+		// 	var price = $('.product-unit-price').html();
+		// 	var pricee = price.replace(/,/g , "");
+		// 	//SUBTOTAL
+		// 	var finalprice = pricee*qty;
+		// 	var finalpriceFixed = finalprice.toFixed(2);
+		// 	var subtotalwcomma = finalpriceFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		// 	$('.cart-total.sub-total').html(subtotalwcomma);
+		// 	//TAX
+		// 	var tax = finalprice * taxvalue;
+		// 	var taxFixed = tax.toFixed(2);
+		// 	var taxwcomma = taxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		// 	$('.label.ph-tax').html("$"+taxwcomma);
+		// 	//TOTAL
+		// 	var totalwtax = finalprice + tax;
+		// 	var totalwtaxFixed = totalwtax.toFixed(2);
+		// 	var totalwtaxcomma = totalwtaxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		// 	$('.cart-total.total').html(totalwtaxcomma);
 			
-		});
+		// });
 		</script>
 		<!-- For demo purposes – can be removed on production : End -->
 		<!-- NAVBAR SCRIPTS -->

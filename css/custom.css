@@ -555,3 +555,16 @@ figure.snip1205.hover img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
+<<<<<<< HEAD
+=======
+.song_fave{
+color: white;
+}
+.background{
+  background-color:transparent;
+}
+.nowplaying {
+  padding: 15px;
+  border: 1px solid;
+}
+>>>>>>> 4b09d6141452a028df6cb00381eeedbef9099ba1

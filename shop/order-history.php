@@ -318,7 +318,7 @@ while($row=mysqli_fetch_array($query))
 					'<form action="" class="formName">' +
 					'<div class="form-group">' +
 					'<label>Select Reason:</label>' +
-					'<select class="select-reason form-control" required><option disabled selected="true">Select a Reason</option><option>Change of Mind</option><option>Product Does Not Match</option><option>Product Did Not Meet My Expectation</option><option>Product No Longer Needed</option><option>Others..</option></select><br>' +
+					'<select class="select-reason form-control" required><option disabled selected="true">Select a Reason</option><option>Change of Mind</option><option>Quality Issues</option><option>Product Does Not Match My Order</option><option>Product Did Not Meet My Expectation</option><option>Others..</option></select><br>' +
 					'<label>Additional Information (optional)</label>' +
 					'<input type="text" placeholder="Enter here.." class="add-info form-control" required />' +
 					'</div>' +
