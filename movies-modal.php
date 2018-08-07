@@ -102,7 +102,7 @@ if(strlen($_SESSION['login'])==0){   ?>
         </div>
 <div class="container-fluid">
          <?php
-                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '3'");
+                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category_id = '3'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '<h8 class="my-content">New Releases</h8>
@@ -127,7 +127,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       </div><br>
          <?php
              $dataid;
-                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '2'");
+                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category_id = '2'");
                     $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '<h8 class="my-content">Top Movies</h8>
@@ -152,7 +152,7 @@ if(strlen($_SESSION['login'])==0){   ?>
       </div><br>
          <?php
              $dataid;
-                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category = '1'");
+                    $data = mysqli_query($con,"SELECT * FROM movies WHERE category_id = '1'");
                     $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '<h8 class="my-content">Featured</h8>
@@ -195,7 +195,6 @@ echo '
 <br>
 <div class="snip1205">
 <img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
-<i class="fa fa-caret-right" id="autoplay" onclick="goFullscreen();"></i>
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
     <button class="btn btn-info btn-sm col-md-12 play-with-ads" id="inherit autoplay">
@@ -210,7 +209,10 @@ echo '
     
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
-<h5><strong>'.$row2['title'] .'</strong></h5>
+  <button class="btn btn-success btn-sm col-md-4 pull-right" id="inherit autoplay">
+      <strong>E-Wallet Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">'.$row2['ewallet_price'] .'
+    </button>
+<h5><strong>'.$row2['title'] .'</strong></h5> 
 <p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .'</p>
 <p>';
 
@@ -226,15 +228,13 @@ while($row6 = mysqli_fetch_array($data6)) {
 $x = $x +1;
 }
 echo '
-</p><br>
-<p>
-'.$row2['movie_description'] .'
-
-
-</p><br>
+</p>
+<p>'.$row2['content_rating'] .'</p>
+<p>'.$row2['movie_description'] .'</p>
+<p><strong>Director:</strong> '.$row2['director'] .'</p>
 <p>
 <strong>Cast:</strong> '.$row2['cast'] .'<br><br>
-<button class="btn btn-default">
+<button class="btn btn-sm btn-default">
 <i class="fa fa-play-circle">
 </i>&nbsp;Watch Trailer
 </button>

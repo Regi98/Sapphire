@@ -175,11 +175,6 @@ if(strlen($_SESSION['login'])==0){   ?>
     </div>
 </div>
 </div>
-
-<div class="graph">
-<h4>Graphs</h4>
-
-</div>
             </div>
    </div>
       <!-- JavaScript files-->

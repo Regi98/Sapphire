@@ -461,7 +461,7 @@ $num=mysqli_num_rows($rt);
 									<div class="quantity-container info-container">
 										<div class="row">
 											<div class="col-6">
-												<h7 class="label">Sub Total:</h7>
+												<h7 class="label">Total:</h7>
 											</div>
 
 											<div class="col-6">
@@ -474,7 +474,7 @@ $num=mysqli_num_rows($rt);
 										</div>
 										<!-- /.row -->
 									</div>
-									<div class="row">
+									<!-- <div class="row">
 										<div class="col-7">
 											<h7 class="label">Ph Tax:</h7>
 										</div>
@@ -489,8 +489,8 @@ $num=mysqli_num_rows($rt);
 										<div class="col-5">
 											<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
 										</div>
-									</div><hr>
-									<div class="quantity-container info-container">
+									</div><hr> -->
+									<!-- <div class="quantity-container info-container">
 										<div class="row">
 											<div class="col-6">
 												<h7 class="label">Total:</h7>
@@ -504,8 +504,8 @@ $num=mysqli_num_rows($rt);
 
 
 										</div>
-										<!-- /.row -->
-									</div>
+										
+									</div> -->
 									<?php } ?>
 								</div>
 								<!-- /.quantity-container -->
