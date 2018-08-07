@@ -84,24 +84,23 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <!--ALBUMS/TABS-->
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">Albums</a>
-    </li>
-  <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">Tracks</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">Playlist</a>
-    </li>
+  <ul class="nav nav-tabs" role="tablist">
+	<li class="nav-item">
+		<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">ALBUMS</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">TRACKS</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">PLAYLIST</a>
+	</li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div id="home" class="container tab-pane active">
-    <br>
+  <div class="tab-pane active" id="tabs-1" role="tabpanel"><br>
 <div class="container-fluid">
- <?php
+  <?php
             $dataid;
                      $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
                       $count = mysqli_num_rows($data);
@@ -158,8 +157,9 @@ if(strlen($_SESSION['login'])==0){   ?>
                       }
                         
             ?> </div><br>
-                </div>
+    </div>
   </div>
+
 <!--MODAL-->
 <?php
 $data2 = mysqli_query($con,"select * from albums
@@ -218,9 +218,15 @@ echo '
 </div>
     </div>
     </div>
-<!--<a href="#" class="btn btn-success btn-sm music pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'"><i class="play button fa fa-play"></i></a>-->
 <!--playlist tabs-->
-<div id="menu1" class="container-fluid tab-pane fade"><br>
+<div class="tab-pane" id="tabs-2" role="tabpanel"><br>
+<div class="container-fluid">
+		<p>Second Panel</p>
+	</div>
+    </div>
+<!--tracks tabs-->
+<div class="tab-pane" id="tabs-3" role="tabpanel"><br>
+<div class="container-fluid">
 <table class="table">
 <tbody>
 <thead>
@@ -336,12 +342,7 @@ while($row2 = mysqli_fetch_array($data)) {
 				<?php } ?>
 				</tbody>
 				</table>
-                <!--end of playlist modal-->
-                 <!--tracks playlist tabs-->
-<div id="menu2" class="container-fluid tab-pane fade"><br>
-      </div>
-    </div>
-  </div>
+</div>
 </div>
 
 
