@@ -101,7 +101,7 @@ if(isset($_GET['oid'])){
 </div>
 
   <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-60px">
-            <h4>How would you like to pay?</h4>
+            <h4>How would you like to pay?</h4><br><br>
             <div class="row justify-content-center align-items-center text-center">
               
               <div class="col-12 col-md-3 col-centered payment">
@@ -127,11 +127,11 @@ if(isset($_GET['oid'])){
               <div class="col-12 col-md-3">
                 <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Crystals">Sapphire Crystals
                 <div class="payment-col" id="token">
-                  <img src="../images/token.png">
+                  <img src="../images/crystal.png">
                 </div>
 				<p>Buy with our new Sapphire Crystals!</p>
 				<div class="list-inline-item logout">
-            	<span class="pull-right"><img src="../images/crystal.png" width="30px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span>
+            	<span class="pull-right"><img src="../images/gems.png" width="30px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span>
            		</div>
               </div>
           </div>
