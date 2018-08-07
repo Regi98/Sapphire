@@ -176,7 +176,10 @@ pre {
 .card-header h6 {
   margin-bottom: 0;
 }
-
+input[type=checkbox],
+input[type=radio] {
+  margin-left:25px;
+}
 .page-content {
   position: relative;
   /*background-image:url("../../assets/images/plane3.png");*/
