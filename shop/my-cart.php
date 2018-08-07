@@ -351,7 +351,7 @@ $_SESSION['pid']=$pdtid;
 		var totalOnewtax = priceeOne + taxOneQty;
 		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
 		var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		$('.grand-total').html(totalOnewtaxcomma);
+		$('.grand-total').html("$"+totalOnewtaxcomma);
 
         $('input').keypress(function(e){ 
 			var regex = new RegExp("^[a-zA-Z0-9]+$");
