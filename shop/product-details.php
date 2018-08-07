@@ -599,7 +599,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 											</div>
 											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-25px;">
-												<canvas id="myChart" width="80%" height="35%"></canvas>
+												<canvas id="myChart" width="95%" height="35%"></canvas>
 											</div>
 										</div>
 										<hr>
@@ -1078,32 +1078,8 @@ while($rw=mysqli_fetch_array($qry))
 					console.log(ratings);
 
 
-					var ctx = document.getElementById("myChart").getContext('2d');
-					var myChart = new Chart(ctx, {
-						type: 'horizontalBar',
-						data: {
-							labels: ["5", "4", "3", "2", "1"],
-							datasets: [{
-								label: '# of Ratings',
-								data: ratings,
-								backgroundColor: [
-									'rgba(0, 0, 255, 1)',
-									'rgba(0, 0, 255, 0.6)',
-									'#ff0000',
-									'rgba(255, 0, 0, 0.6)',
-									'rgba(255,255,0, 1)'
-								],
-								borderColor: [
-									'rgba(0, 0, 255, 1)',
-									'rgba(0, 0, 255, 0.6)',
-									'#ff0000',
-									'rgba(255, 0, 0, 0.6)',
-									'rgba(255,255,0, 1)'
-								],
-								borderWidth: 1
-							}]
-						},
-						options: {
+
+						 var options = {
 							legend: {
 								display: false
 							},
@@ -1123,16 +1099,51 @@ while($rw=mysqli_fetch_array($qry))
 										}
 									}],
 							yAxes: [{
+										display: true,
 										ticks: {
-											beginAtZero: true
+											beginAtZero: true,
+											max: 100,
+											min: 0
 										},
 										gridLines: {
 											color: "rgba(0, 0, 0, 0)",
 										},
 									}]
-							}
+							},
 						}
-					});
+
+						var data = {
+							labels: ["  5  ", "  4  ", "  3  ", "  2  ", "  1  "],
+							datasets: [{
+								label: '# of Ratings',
+								data: ratings,
+								backgroundColor: [
+									'rgba(0, 0, 255, 1)',
+									'rgba(0, 0, 255, 0.6)',
+									'#ff0000',
+									'rgba(255, 0, 0, 0.6)',
+									'rgba(255,255,0, 1)'
+								],
+								borderColor: [
+									'rgba(0, 0, 255, 1)',
+									'rgba(0, 0, 255, 0.6)',
+									'#ff0000',
+									'rgba(255, 0, 0, 0.6)',
+									'rgba(255,255,0, 1)'
+								],
+								borderWidth: 1
+							}]
+						}
+
+						var ctx = document.getElementById("myChart");
+
+						var chartInstance = new Chart(ctx, {
+							type: 'horizontalBar',
+							data: data,
+							options:options
+						});
+
+
 
 				},
 				error: function (err) {
