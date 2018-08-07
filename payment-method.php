@@ -122,7 +122,7 @@ if(strlen($_SESSION['login'])==0){   ?>
           </div><hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
-                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
+                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong></div>
                                            <div class="row block-blue">
                         <div class="col-4">
                           <img src="images/premium.png" class="pull-left" width=40px>
@@ -134,6 +134,9 @@ if(strlen($_SESSION['login'])==0){   ?>
                       </div>
                      <div class="block-body">
                       <div class="block-gray">
+
+                    We accept these cards
+
                       <img src="img/pay1.png" width=80px> &nbsp;
                      <img src="img/pay2.png" width=50px> &nbsp;
                      <img src="img/pay3.png" width=40px> &nbsp;
@@ -143,7 +146,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
-                     <div class="row padding-0">
+                     <!-- <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">
                             <small class="help-block-none">Card Holder Name</small>
@@ -212,10 +215,11 @@ if(strlen($_SESSION['login'])==0){   ?>
                               </div>
 
                             </div><br>
-                            <button class="btn btn-info pull-right" id="confirm-credit">Confirm</button>
+                            
                            </div>
 
-                        </div>
+                        </div> -->
+                        <button class="btn btn-info pull-right" id="confirm-credit">Confirm</button>
                       </div>
                   </div>
                </div>
