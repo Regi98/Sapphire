@@ -32,6 +32,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/spinners.css"/>
+    <link rel="stylesheet" href="vendor/jquery/jquery-confirm.css">
 
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="css/font.css">
@@ -288,6 +289,7 @@ while($row3 = mysqli_fetch_array($data3)) {
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+      <script src="vendor/jquery/jquery-confirm.js"></script>
     <script src="js/front.js"></script>
     <script src="js/vastvideoplugin.js"></script>
     <script src="vendor/slick/slick.min.js"></script>
@@ -322,7 +324,21 @@ while($row3 = mysqli_fetch_array($data3)) {
           if($numResults == 0) { ?>
              var movieid = getUrlParameter('id');
              var movietitle = $('.movie-title').data('id');
-             window.location.href = "payment-method.php?id=" + movieid + "&title=" + movietitle;
+             $.confirm({
+              title: 'Purchase movie?',
+              content: 'You are about to buy ' + movietitle + '.' ,
+              theme: 'supervan',
+              buttons: {
+                  confirm: function () {
+                    $.alert('Proceeding to payments page..');
+                    window.location.href = "payment-method.php?id=" + movieid + "&title=" + movietitle;
+                  },
+                  cancel: function () {
+                      $.alert('Okay. Good things take time!');
+                  }
+              }
+          });
+             
         <?php } else { ?>
 
         var data = document.getElementById('noads');
