@@ -114,7 +114,7 @@ if(strlen($_SESSION['login'])==0){   ?>
               <div class="col-12 col-md-3">
                 <h6>Sapphire Crystals </h6>
                 <div class="payment-col" id="token">
-                  <img src="images/token.png">
+                  <img src="images/gems.png" width="60px">
 
                 </div>
                 <p>Buy with our new Sapphire Crystals!</p>

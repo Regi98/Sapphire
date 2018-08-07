@@ -25,6 +25,7 @@ $num=mysqli_fetch_assoc($results);
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/spinners.css"/>
+    <link rel="stylesheet" href="vendor/jquery/jquery-confirm.css">
 
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="css/font.css">
@@ -393,6 +394,7 @@ echo '
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/jquery/jquery-confirm.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
     <script src="js/vastvideoplugin.js"></script>
@@ -442,7 +444,22 @@ echo '
         document.getElementById(pelement).play();
                       }
                         else {
-                           window.location.href = "paymentmethod.php?id=" + episodeid;
+                          var episodetitle = $('.series-video').data('title');
+            $.confirm({
+              title: 'Purchase episode?',
+              content: 'You are about to buy ' + episodetitle + '.' ,
+              theme: 'supervan',
+              buttons: {
+                  confirm: function () {
+                    $.alert('Proceeding to payments page..');
+                    window.location.href = "paymentmethod.php?id=" + episodeid;
+                  },
+                  cancel: function () {
+                      $.alert('Okay. Good things take time!');
+                  }
+              }
+          });
+                           
                           
                   }
                 },
