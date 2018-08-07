@@ -247,6 +247,10 @@ h8{
   min-height: 70px;
 }
 
+.graph{
+  text-align: left;
+  padding: 20px;
+}
 .dropdown-menu {
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
@@ -351,6 +355,8 @@ i[class*='icon-'] {
   padding: 20px !important;
   text-decoration: none;
   font-weight: 300;
+  color: white;
+  text-align: left;
 }
 
 .megamenu .megamenu-buttons .megamenu-button-link.dashbg-1:hover {

@@ -199,13 +199,13 @@ echo '
 
           <a> &nbsp; 
           '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
-          <audio id="myAudio">
-            <source src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"> 
-            </audio>
-            <a href="#" class="btn btn-success btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
-             <a class="btn btn-outline-danger btn-sm pull-left" style="margin-top:1px" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
-										<i class="fa fa-heart"></i>
-									</a>
+        <div class="play-wrap">
+        <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
+        <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-top:-24px;"></i>
+            
+             <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-24px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+										<i class="fa fa-plus"></i>
+									</a></div>
             <hr color="grey">
             </section>
         </td>
@@ -215,7 +215,7 @@ echo '
 </div>
     </div>
     </div>
-
+<!--<a href="#" class="btn btn-success btn-sm music pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'"><i class="play button fa fa-play"></i></a>-->
 <!--playlist tabs-->
 <div id="menu1" class="container-fluid tab-pane fade"><br>
 <table class="table">
