@@ -599,7 +599,7 @@ $num=mysqli_num_rows($rt);
 													<br>
 											</div>
 											<div class="col-sm-1 col-md-5 text-center" style="margin-top:-25px;">
-												<canvas id="myChart" width="95%" height="35%"></canvas>
+												<canvas id="myChart" width="100%" height="35%"></canvas>
 											</div>
 										</div>
 										<hr>
@@ -1115,7 +1115,7 @@ while($rw=mysqli_fetch_array($qry))
 							labels: ["★★★★★", "★★★★", "★★★", "★★", "★"],
 							datasets: [{
 								label: '# of Ratings',
-								data: [1,1,3,2,1],
+								data: ratings,
 								backgroundColor: [
 									'rgba(0, 0, 255, 1)',
 									'rgba(0, 0, 255, 0.6)',
