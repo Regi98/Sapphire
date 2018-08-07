@@ -131,10 +131,10 @@ $id= $_SESSION['id'];
 if(!empty($_SESSION['cart'])){
 	?>
 <table class="table  table-hover table-condensed">
-			<thead class="thead-dark">
+			<thead class="thead-dark text-center">
 				<tr>
 					<th class="cart-romove item">Remove</th>
-					<th class="cart-description item">Image</th>
+					<!-- <th class="cart-description item">Image</th> -->
 					<th class="cart-product-id item">ID</th>
 					<th class="cart-product-name item">Product Name</th>
 					<th class="cart-qty item">Quantity</th>
@@ -162,7 +162,7 @@ if(!empty($_SESSION['cart'])){
 					</td>
 				</tr>
 			</tfoot>
-			<tbody>
+			<tbody class="text-center">
  <?php
  $pdtid=array();
     $sql = "SELECT * FROM products WHERE id IN(";
@@ -186,12 +186,12 @@ if(!empty($_SESSION['cart'])){
 	?>
 
 				<tr>
-					<td class="romove-item"><input type="checkbox" name="remove_code[]" value="<?php echo htmlentities($row['id']);?>" /></td>
-					<td class="cart-image">
+					<td class="romove-item text-center"><input type="checkbox" name="remove_code[]" value="<?php echo htmlentities($row['id']);?>" /></td>
+					<!-- <td class="cart-image">
 						<a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($row['id']);?>">
 						    <img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['product_image_1'];?>" alt="" width="60px" height="60px">
 						</a>
-					</td>
+					</td> -->
 						<td class="cart-product-id">
 						<h4 class='cart-product-description'><a href="product-details.php?pid=<?php echo htmlentities($pd=$row['id']);?>" ><?php echo $row['id'];
 						$_SESSION['sid']=$pd;
@@ -275,10 +275,9 @@ $_SESSION['pid']=$pdtid;
 			<div class="col-5">
 				<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
 			</div>
-		</div><hr><hr>
+		</div><hr>
 			<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
-						Grand Total:<span class="inner-left-md"><?php
-						echo "$". number_format($_SESSION['tp']). ".00"; ?></span>
+						Grand Total:<span class="inner-left-md grand-total"></span>
 					</div>
 				</th>
 			</tr>
@@ -338,17 +337,21 @@ $_SESSION['pid']=$pdtid;
 	<script src="assets/js/scripts.js"></script>
 
 	<script type="text/javascript">
-		$(document).ready(function(){ 
-			$(".changecolor").switchstylesheet( { seperator:"color"} );
-			$('.show-theme-options').click(function(){
-				$(this).parent().toggleClass('open');
-				return false;
-			});
-		});
-
-		$(window).bind("load", function() {
-		   $('.show-theme-options').delay(2000).trigger('click');
-		});
+		//DEFAUT 1 QUANTITY!
+			//TAX PERCENTAGE
+		var taxvalue = 0.12;
+		var priceOne = "<?php echo $_SESSION['tp']; ?>"
+		var priceeOne = parseInt(priceOne.replace(/,/g , ""));
+		//TAX
+		var taxOneQty = priceeOne * taxvalue;
+		var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
+		var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
+		//TOTAL
+		var totalOnewtax = priceeOne + taxOneQty;
+		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
+		var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$('.grand-total').html(totalOnewtaxcomma);
 
         $('input').keypress(function(e){ 
 			var regex = new RegExp("^[a-zA-Z0-9]+$");
