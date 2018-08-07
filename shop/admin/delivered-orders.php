@@ -66,7 +66,8 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 								<thead>
 									<tr>
 										<th>#</th>
-										<th> Name</th>
+										<th>Full Name</th>
+										<th>Seat #</th>
 										<th width="50">Email /Contact no</th>
 										<th>Product </th>
 										<th>Qty </th>
@@ -94,7 +95,10 @@ while($row=mysqli_fetch_array($query))
 											<?php echo htmlentities($row['firstname']); htmlentities($row['lastname']);?>
 										</td>
 										<td>
-											<?php echo htmlentities($row['useremail']);?>/
+											14D
+										</td>
+										<td>
+											<?php echo htmlentities($row['useremail']);?>
 											<?php echo htmlentities($row['usercontact']);?>
 										</td>
 										<td>
