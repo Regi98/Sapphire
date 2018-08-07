@@ -68,7 +68,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 										<th>#</th>
 										<th>Full Name</th>
 										<th>Seat #</th>
-										<th width="50">Email /Contact no</th>
+										<th width="50">Product ID</th>
 										<th>Product </th>
 										<th>Qty </th>
 										<th>Amount </th>
@@ -86,7 +86,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 $from=date('Y-m-d')." ".$f1;
 $t1="23:59:59";
 $to=date('Y-m-d')." ".$t1;
-$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,shopusers.email as useremail,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus  from orders join shopusers on  orders.userId=shopusers.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to'");
+$query=mysqli_query($con,"select shopusers.firstname as firstname,shopusers.lastname as lastname,products.id as prodId,products.product_name as productname,orders.quantity as quantity,orders.orderDate as orderdate,products.product_price as productprice,orders.id as id,orders.orderStatus as orderStatus  from orders join shopusers on  orders.userId=shopusers.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to'");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
@@ -102,7 +102,7 @@ while($row=mysqli_fetch_array($query))
 											14D
 										</td>
 										<td>
-											<?php echo htmlentities($row['useremail']);?>
+											<?php echo htmlentities($row['prodId']);?>
 										</td>
 										<td>
 											<?php echo htmlentities($row['productname']);?>
