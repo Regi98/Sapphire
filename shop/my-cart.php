@@ -35,7 +35,10 @@ if(!empty($_SESSION['cart'])){
 	}
 }
 // code for insert product in order table
-
+$id= $_SESSION['id'];
+      $query = "SELECT * FROM shopusers WHERE id=$id";
+      $results = mysqli_query($con, $query);
+      $num=mysqli_fetch_assoc($results);
 
 ?>
 
@@ -121,7 +124,7 @@ if(!empty($_SESSION['cart'])){
 	<div class="container">
 		<div class="row inner-bottom-sm "  >
 			 <!-- <div class="shopping-cart"> -->
-			<div class="col-md-12 col-sm-12 shopping-cart-table" > 
+			<div class="col-md-12 col-sm-12 shopping-cart-table" style="overflow-x:auto;"> 
 	<div style="border:">
 <form name="cart" method="post">	
 <?php
@@ -132,17 +135,18 @@ if(!empty($_SESSION['cart'])){
 				<tr>
 					<th class="cart-romove item">Remove</th>
 					<th class="cart-description item">Image</th>
+					<th class="cart-product-id item">ID</th>
 					<th class="cart-product-name item">Product Name</th>
-			
 					<th class="cart-qty item">Quantity</th>
 					<th class="cart-sub-total item">Price Per unit</th>
-					
 					<th class="cart-total last-item">Total Price</th>
+					<th class="cart-csub-total item">Crystal Price</th>
+					<th class="cart-ctotal last-item">Total Price</th>
 				</tr>
 			</thead><!-- /thead -->
 			<tfoot>
 				<tr>
-					<td colspan="7">
+					<td colspan="12">
 						<div class="shopping-cart-btn">
 	<hr><br>
 								<div class="row justify-content-center">
@@ -188,17 +192,17 @@ if(!empty($_SESSION['cart'])){
 						    <img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['product_image_1'];?>" alt="" width="60px" height="60px">
 						</a>
 					</td>
+						<td class="cart-product-id">
+						<h4 class='cart-product-description'><a href="product-details.php?pid=<?php echo htmlentities($pd=$row['id']);?>" ><?php echo $row['id'];
+						$_SESSION['sid']=$pd;
+						 ?></a></h4>
+					</td>
 					<td class="cart-product-name-info">
 						<h4 class='cart-product-description'><a href="product-details.php?pid=<?php echo htmlentities($pd=$row['id']);?>" ><?php echo $row['product_name'];
-
-$_SESSION['sid']=$pd;
+						$_SESSION['sid']=$pd;
 						 ?></a></h4>
-						<div class="row">
-							
-							
-						</div><!-- /.row -->
-						
 					</td>
+				
 					<td class="cart-product-quantity">
 				             <!-- <input type="number" class="form-control form-control-sm col-5" min="1" id="quantity" value="" name="quantity[<?php echo $row['id']; ?>]"> -->
 							<?php			
@@ -226,6 +230,16 @@ $_SESSION['sid']=$pd;
 					$grand_total = number_format($quantity*$productPrice);
 
 					echo "$".$grand_total; ?>.00</span></td>
+
+					<td class="cart-product-csub-total"><span class="cart-sub-total-price"><img src="../images/gems.png" width="20px"><?php echo "".$row['product_price_token']; ?></span></td>
+
+					<td class="cart-product-cgrand-total"><span class="cart-grand-total-price"><img src="../images/gems.png" width="20px"><?php 
+
+					$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['product_price_token']);
+					$quantity = $_SESSION['cart'][$row['id']]['quantity'];
+					$grand_total = number_format($quantity*$productPrice);
+
+					echo "".$grand_total; ?></span></td>
 				</tr>
 
 				<?php } }
@@ -236,14 +250,34 @@ $_SESSION['pid']=$pdtid;
 		</table><!-- /table -->
 			</div>			
 <br>
+
 <div class="col-4 cart-shopping-total mt-3 text-right pull-right">
 	<table class="table">
 		<thead>
 			<tr>
 				<th>
-					
 					<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
-						Grand Total<span class="inner-left-md"><?php
+						Sub Total:<span class="inner-left-md"><?php
+						echo "$". number_format($_SESSION['tp']). ".00"; ?></span>
+					</div><br>
+					<div class="row">
+			<div class="col-7">
+				<h7 class="label">Ph Tax:</h7>
+			</div>
+			<div class="col-5">
+				<h7 class="label ph-tax">$0.00</h7>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-7">
+					<h7 class="label">Service Charge:</h7>
+			</div>
+			<div class="col-5">
+				<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
+			</div>
+		</div><hr><hr>
+			<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
+						Grand Total:<span class="inner-left-md"><?php
 						echo "$". number_format($_SESSION['tp']). ".00"; ?></span>
 					</div>
 				</th>
@@ -258,7 +292,7 @@ $_SESSION['pid']=$pdtid;
 				</tr>
 				
 		</tbody><!-- /tbody -->
-	</table>
+	</table></div>
 	<?php } else {
 		echo "<br><p class='text-center'>Your Shopping Cart is empty</p>";
 		}?>
