@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/config.php'); 
 $hi = $_GET['id'];
 $mid = $_GET['mid'];
 
@@ -12,6 +12,32 @@ header('location:login.php');
 }
 else
 {
+$mpid=intval($_GET['del']);
+if(isset($_GET['del']))
+{
+$query=mysqli_query($con,"delete from favorites where id='$fid'");
+}
+
+
+if(isset($_GET['action']) && $_GET['action']=="add"){
+	$id=intval($_GET['id']);
+	if(isset($_SESSION['cart'][$id])){
+		$_SESSION['cart'][$id]['quantity']++;
+		$query=mysqli_query($con,"delete from favorites where musicId='$id'");
+	}else{
+		$sql_p="SELECT * FROM musics WHERE id={$id}";
+		$query_p=mysqli_query($con,$sql_p);
+		if(mysqli_num_rows($query_p)!=0){
+			$row_p=mysqli_fetch_array($query_p);
+			$_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice']);
+			$query=mysqli_query($con,"delete from favorites where musicId='$id'");
+header('location:music.php');
+}
+		else{
+			$message="Music ID is invalid";
+		}
+	}
+}
 mysqli_query($con,"insert into favorites(userId,musicId) values('".$_SESSION['id']."','$mid')");
 echo "<script>alert('Music added in Favorites');</script>";
 header('location:music.php');
@@ -90,22 +116,21 @@ if(strlen($_SESSION['login'])==0){   ?>
             <li class="breadcrumb-item active">Music            </li>
 </ul>
 </div>
-<!--ALBUMS/TABS-->
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">Albums</a>
-    </li>
-  <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">Playlist</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#menu2">Tracks</a>
-  </li>
-</ul>
-<!-- Tab panes -->
+
+	<ul class="nav nav-tabs" role="tablist">
+	<li class="nav-item">
+		<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">ALBUMS</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">TRACKS</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">PLAYLIST</a>
+	</li>
+</ul><!-- Tab panes -->
+
 <div class="tab-content">
-  <div id="home" class="container tab-pane active">
-    <br>
+  <div class="tab-pane active" id="tabs-1" role="tabpanel"><br>
 <div class="container-fluid">
   <?php
             $dataid;
@@ -166,8 +191,17 @@ if(strlen($_SESSION['login'])==0){   ?>
             ?> </div><br>
     </div>
   </div>
-  <!--playlist tabs-->
-<div id="menu1" class="container-fluid tab-pane fade"><br>
+
+<!--playlist tabs-->
+<div class="tab-pane" id="tabs-2" role="tabpanel"><br>
+<div class="container-fluid">
+		<p>Second Panel</p>
+	</div>
+    </div>
+
+<!--tracks tabs-->
+<div class="tab-pane" id="tabs-3" role="tabpanel"><br>
+<div class="container-fluid">
 <table class="table">
 <tbody>
 <thead>
@@ -283,26 +317,7 @@ while($row2 = mysqli_fetch_array($data)) {
 				<?php } ?>
 				</tbody>
 				</table>
-                <!--end of playlist modal-->
-
-                  <!--playlist tabs-->
-<div id="menu2" class="container-fluid tab-pane fade"><br>
-<table class="table">
-<tbody>
-<thead>
-    <center>
-        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">asdfgh<i class="fa fa-headphones fa-md"></i>
-        </button>
-    </center>
-</thead>
-
-<br>
-<h6>TRACKS</h6>
-
-
-      </div>
-    </div>
-  </div>
+</div>
 </div>
 
     <!-- JavaScript files-->

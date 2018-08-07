@@ -549,4 +549,19 @@ PAYMENT METHODS
   width: 100px;
   height: 100px;
 }
+ #playlist {
+   list-style: none;
+ }
 
+ #playlist li a {
+   color: white;
+   text-decoration: none;
+ }
+
+ #playlist .current-song a {
+   color: #099ce5;
+   text-decoration: underline;
+ }
+ audio {
+   width: 100%;
+ }
