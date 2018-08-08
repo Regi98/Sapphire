@@ -85,21 +85,23 @@ if(strlen($_SESSION['login'])==0){   ?>
           </ul>
         </div>
 <!--ALBUMS/TABS-->
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">Albums</a>
-    </li>
-  <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">Playlist</a>
-    </li>
+  <ul class="nav nav-tabs" role="tablist">
+	<li class="nav-item">
+		<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">ALBUMS</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">TRACKS</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">PLAYLIST</a>
+	</li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div id="home" class="container tab-pane active">
-    <br>
+  <div class="tab-pane active" id="tabs-1" role="tabpanel"><br>
 <div class="container-fluid">
- <?php
+  <?php
             $dataid;
                      $data = mysqli_query($con,"select *,albums.id as album_id from albums join cover_images on cover_image_id=cover_images.id and albums.id and albums.category='2'");
                       $count = mysqli_num_rows($data);
@@ -156,8 +158,9 @@ if(strlen($_SESSION['login'])==0){   ?>
                       }
                         
             ?> </div><br>
-                </div>
+    </div>
   </div>
+
 <!--MODAL-->
 <?php
 $data2 = mysqli_query($con,"select * from albums
@@ -186,8 +189,13 @@ echo '
                 <h6 id="artist_name">Album by '.$row2['artist_name'] .'</h6>
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
-            </div>
-        </div><br>';}?>
+            <center>
+            <audio src="" controls controlsList="nodownload" id="audioPlayer">
+        Sorry, your browser doesnt support html5!
+    </audio>
+    </center>
+    </div>
+            </div><br>';}?>
 <?php
 $data3= mysqli_query($con,"select * from musics
 where musics.album_id = $hi");
@@ -201,6 +209,7 @@ echo '
       <tr>
         <td class="list" valign="middle">
           <section class="list">
+<<<<<<< HEAD
 
           <a> &nbsp; 
           '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
@@ -210,9 +219,14 @@ echo '
         <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-top:-24px;"></i>
             
              <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-24px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+=======
+          <ul id="playlist">
+        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].'</li>
+    </ul>
+             <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+>>>>>>> 3abc3a0d0c866f5a901da45e3c6ee4da965541e4
 										<i class="fa fa-plus"></i>
 									</a></div>
-            <hr color="grey">
             </section>
         </td>
       </tr>
@@ -221,9 +235,15 @@ echo '
 </div>
     </div>
     </div>
-<!--<a href="#" class="btn btn-success btn-sm music pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'"><i class="play button fa fa-play"></i></a>-->
 <!--playlist tabs-->
-<div id="menu1" class="container-fluid tab-pane fade"><br>
+<div class="tab-pane" id="tabs-2" role="tabpanel"><br>
+<div class="container-fluid">
+		<p>Second Panel</p>
+	</div>
+    </div>
+<!--tracks tabs-->
+<div class="tab-pane" id="tabs-3" role="tabpanel"><br>
+<div class="container-fluid">
 <table class="table">
 <tbody>
 <thead>
@@ -339,10 +359,7 @@ while($row2 = mysqli_fetch_array($data)) {
 				<?php } ?>
 				</tbody>
 				</table>
-                <!--end of playlist modal-->
-      </div>
-    </div>
-  </div>
+</div>
 </div>
 
 
@@ -370,6 +387,10 @@ while($row2 = mysqli_fetch_array($data)) {
 
 h
 
+    </script>
+    <script>
+        // loads the audio player
+        audioPlayer();
     </script>
   </body>
 </html>
