@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php'); 
+require('includes/mp3file.class.php');
 $hi = $_GET['id'];
 $mid = $_GET['mid'];
 
@@ -199,15 +200,31 @@ echo '
 $data3= mysqli_query($con,"select * from musics
 where musics.album_id = $hi");
 while($row3 = mysqli_fetch_array($data3)) {  
+    $music = $row3['music_song'];
+    $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
+    $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
+    $song = MP3File::formatTime($duration2);
 echo '
  <table class="canvas col-md-12">
       <tr>
         <td class="list" valign="middle">
           <section class="list">
+<<<<<<< HEAD
+
+          <a> &nbsp; 
+          '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
+          | <span class="song-duration">'.$song.'</span>
+        <div class="play-wrap">
+        <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
+        <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-top:-24px;"></i>
+            
+             <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-24px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+=======
           <ul id="playlist">
         <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].'</li>
     </ul>
              <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+>>>>>>> 3abc3a0d0c866f5a901da45e3c6ee4da965541e4
 										<i class="fa fa-plus"></i>
 									</a></div>
             </section>
@@ -367,6 +384,9 @@ while($row2 = mysqli_fetch_array($data)) {
         var title = $(this).data('title');
        document.getElementById(title).play();
       });
+
+h
+
     </script>
     <script>
         // loads the audio player
