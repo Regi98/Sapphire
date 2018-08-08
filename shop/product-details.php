@@ -1150,44 +1150,44 @@ while($rw=mysqli_fetch_array($qry))
 
 				}
 			});
-		// //DEFAUT 1 QUANTITY!
-		// 	//TAX PERCENTAGE
-		// 	var taxvalue = 0.12;
-		// var priceOne = $('.product-unit-price').html();
-		// var priceeOne = parseInt(priceOne.replace(/,/g , ""));
-		// //TAX
-		// var taxOneQty = priceeOne * taxvalue;
-		// var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
-		// var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		// $( ".label.ph-tax" ).html("$"+taxOneQtywComma);
-		// //TOTAL
-		// var totalOnewtax = priceeOne + taxOneQty;
-		// var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
-		// var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		// $('.cart-total.total').html(totalOnewtaxcomma);
+		//DEFAUT 1 QUANTITY!
+			//TAX PERCENTAGE
+			var taxvalue = 0.12;
+		var priceOne = $('.product-unit-price').html();
+		var priceeOne = parseInt(priceOne.replace(/,/g , ""));
+		//TAX
+		var taxOneQty = priceeOne * taxvalue;
+		var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
+		var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
+		//TOTAL
+		var totalOnewtax = priceeOne + taxOneQty;
+		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
+		var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$('.cart-total.total').html(totalOnewtaxcomma);
 
-		// $( ".qty-select" ).change(function() {
+		$( ".qty-select" ).change(function() {
 
-		// 	var qty = $(this).val();
-		// 	var price = $('.product-unit-price').html();
-		// 	var pricee = price.replace(/,/g , "");
-		// 	//SUBTOTAL
-		// 	var finalprice = pricee*qty;
-		// 	var finalpriceFixed = finalprice.toFixed(2);
-		// 	var subtotalwcomma = finalpriceFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		// 	$('.cart-total.sub-total').html(subtotalwcomma);
-		// 	//TAX
-		// 	var tax = finalprice * taxvalue;
-		// 	var taxFixed = tax.toFixed(2);
-		// 	var taxwcomma = taxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		// 	$('.label.ph-tax').html("$"+taxwcomma);
-		// 	//TOTAL
-		// 	var totalwtax = finalprice + tax;
-		// 	var totalwtaxFixed = totalwtax.toFixed(2);
-		// 	var totalwtaxcomma = totalwtaxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		// 	$('.cart-total.total').html(totalwtaxcomma);
+			var qty = $(this).val();
+			var price = $('.product-unit-price').html();
+			var pricee = price.replace(/,/g , "");
+			//SUBTOTAL
+			var finalprice = pricee*qty;
+			var finalpriceFixed = finalprice.toFixed(2);
+			var subtotalwcomma = finalpriceFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('.cart-total.sub-total').html(subtotalwcomma);
+			// //TAX
+			// var tax = finalprice * taxvalue;
+			// var taxFixed = tax.toFixed(2);
+			// var taxwcomma = taxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			// $('.label.ph-tax').html("$"+taxwcomma);
+			// //TOTAL
+			// var totalwtax = finalprice + tax;
+			// var totalwtaxFixed = totalwtax.toFixed(2);
+			// var totalwtaxcomma = totalwtaxFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			// $('.cart-total.total').html(totalwtaxcomma);
 			
-		// });
+		});
 		</script>
 		<!-- For demo purposes – can be removed on production : End -->
 		<!-- NAVBAR SCRIPTS -->
