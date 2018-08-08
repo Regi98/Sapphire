@@ -251,7 +251,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 
                       <div class="row block-gray">
                         <div class="col-4">
-                          <img src="images/diamond.png" class="pull-left" width=40px>
+                          <img src="images/crystal.png" class="pull-left" width=40px>
                           <div class="paragraph">Sapphire Crystals</div>
                         </div>
                         <div class="col-8">

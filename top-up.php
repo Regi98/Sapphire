@@ -96,13 +96,13 @@ if(strlen($_SESSION['login'])==0){   ?>
         <div class="row  ">
             <div class=" col-12 col-md-6">
                   <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up active" id="scratchcard">
-                    <img src="images/bcash.png" width="50px"> &nbsp;&nbsp;
-                  Top up my E-wallet
+                    <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
+                  Top up my E-Wallet
                 </button>
             </div>
             <div class="col-12 col-md-6">
                   <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg float-lg-left mybutton btn-top-up">
-                  <img src="images/token.png" width="50px"> &nbsp;&nbsp;
+                  <img src="images/crystal.png" width="50px"> &nbsp;&nbsp;
                 Load Sapphire Crystals</button>
             </div>
       </div>
