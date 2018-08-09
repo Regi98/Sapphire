@@ -236,7 +236,7 @@ echo '
         <td class="list" valign="middle">
           <section class="list">
           <ul id="playlist">
-        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].' 
+        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].' |
         <div class="song-duration">'.$song.'</div>
         </li>
     </ul>
@@ -253,67 +253,40 @@ echo '
     </div>
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
-<div class="container-fluid" style="overflow-x:auto;">
-<table class="table">
-<tbody>
-<h6>All Songs</h6>
-<?php
-$data3 = mysqli_query($con,"select * from musics");
-	if($num>0)
-	{
-while($row3 = mysqli_fetch_array($data3)) {
-$num=mysqli_num_rows($data3);
- $music = $row3['music_song'];
- $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
- $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
- $song = MP3File::formatTime($duration2);
-echo'
+<div class="container-fluid">
+<h6>ALL SONGS</h6>
+<p><?php
+$data3= mysqli_query($con,"select * from musics");
+while($row3 = mysqli_fetch_array($data3)) {  
+    $music = $row3['music_song'];
+    $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
+    $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
+    $song = MP3File::formatTime($duration2);
+echo '
+        
+          <table class="table">
 			<tr class="background">
             <td>
-            '.$row3['title'].'
-			</td>
+            '.$row3['title'].' | '.$song.'</p>
+            </td>                             
             <td>
-            <div class="song-duration">'.$song.'</div> 
-			</td>
-            <td>
-            '.$row3['artist_name'].'
-            </td>
-            <td>
-            '.$row3['album_name'].'
-            </td>
-            <td>
-            '.$row3['genre'].'
-			</td>
-            <td>
-			</td>                             
-            <td>'
-            ?>
-			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play"></i>
+            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play" style="margin-bottom:-20px;"></i>
             <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-plus"></i>
 									</a>
-            </div>'?>
-            </td>
-			</tr>
-            <?php } } else{ ?>
-                
-			<tr>
-			<td style="font-size: 18px; font-weight:bold ">No Songs Uploaded</td>
-            </tr>
-            <?php } ?>
-            
-			</tbody>
-			</table>
-			</div>
             </div>
+            </td>
+            <?php }?>
+            <?php }?>
+            </table>' ;}?></p>
 
-
+	</div>
+    </div>
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
-<div class="container-fluid" style="overflow-x:auto;">
+<div class="container-fluid">
 <table class="table">
 <tbody>
 <h6>My Own Playlist</h6>
@@ -355,7 +328,7 @@ echo'
             </div>'?>
             </td>
 			<td class=" close-btn">
-            <a href="music.php?del=<?php echo ''.$row4['id'].''; ?>" onClick="return confirm('Are you sure you want to delete?')" class="">
+			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
 			<i class="fa fa-times"></i>
 			</a>
             </td>
@@ -399,16 +372,6 @@ echo'
         // loads the audio player
         audioPlayer();
     </script>
-    <script>
-    function getmusicsIn(key, value)
-{
-    var query= "SELECT * FROM musics where " + key + "=\"" + value + "\"ORDER BY title ;" ; 
-    musicsDB.transaction(function (tx) {
-        //tx.executeSql(query,[],showSongsIn,onError);
-        tx.executeSql(query,[],showmusics,onError);
-        }); 
-}
-</script>
   </body>
 </html>
 
