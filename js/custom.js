@@ -278,3 +278,15 @@ function audioPlayer() {
     $("#audioPlayer")[0].play();
   });
 }
+$(".play").click(function () {
+  var audio = $(this).closest('.play-wrap').find('.music')[0];
+
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+    audio.currentTime = 0
+  }
+
+  $(this).toggleClass('fa-play fa-pause');
+});

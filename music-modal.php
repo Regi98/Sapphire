@@ -218,13 +218,31 @@ echo '
 </div>
     </div>
     </div>
-<!--playlist tabs-->
+<!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid">
-		<p>Second Panel</p>
+<p><?php
+$data3= mysqli_query($con,"select * from musics");
+while($row3 = mysqli_fetch_array($data3)) {  
+echo '
+          <table class="table">
+			<tr class="background">
+            <td>
+            <h8>'.$row3['title'].'</h8>
+			</td>                                   
+            <td>
+            <div class="play-wrap">
+        <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
+        <p>'.$row3['title'].'</p>
+        <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-bottom:-26px;"></i>
+        </div>
+            </td>
+            <?php } } else{ ?>
+            <?php } ?>
+            </table>'?></p>
 	</div>
     </div>
-<!--tracks tabs-->
+<!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid">
 <table class="table">
@@ -374,4 +392,5 @@ while($row2 = mysqli_fetch_array($data)) {
     </script>
   </body>
 </html>
+<?php } ?>
 <?php } ?>
