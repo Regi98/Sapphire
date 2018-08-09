@@ -141,6 +141,13 @@ $('video#noads').bind('webkitfullscreenchange mozfullscreenchange fullscreenchan
   // Now do something interesting
   document.getElementById('noads').pause();
 });
+$('video#trailer').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+  var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+  var event = state ? 'FullscreenOn' : 'FullscreenOff';
+
+  // Now do something interesting
+  document.getElementById('trailer').pause();
+});
 $(window).keypress(function(e) {
   var player = document.getElementById("player");
   if (e.which == 32) {

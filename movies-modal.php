@@ -213,7 +213,7 @@ echo '
       <strong>E-Wallet Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">'.$row2['ewallet_price'] .'
     </button>
 <h5><strong>'.$row2['title'] .'</strong></h5> 
-<p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .'</p>
+<p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .' mins</p>
 <p>';
 
 $data6 = mysqli_query($con,"select genres.name from movies left join genre_movie on genre_movie.movie_id=movies.id join genres on genres.id=genre_movie.genre_id where movies.id=$hi");
@@ -234,7 +234,7 @@ echo '
 <p><strong>Director:</strong> '.$row2['director'] .'</p>
 <p>
 <strong>Cast:</strong> '.$row2['cast'] .'<br><br>
-<button class="btn btn-sm btn-default">
+<button class="btn btn-sm btn-default watch-trailer">
 <i class="fa fa-play-circle">
 </i>&nbsp;Watch Trailer
 </button>
@@ -248,6 +248,8 @@ echo '
 </div>
 </div>
 </div>'; ?>
+    <video class="hide" src="../inflightapp/storage/app/public/trailer_videos/<?php echo ''.$row2['trailer_video'].''; ?>" id="trailer" width="100%" controls controlsList="nodownload"> 
+    </video>
     <video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" id="noads" width="100%" controls controlsList="nodownload"> 
     </video>
     <video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" <?php } ?> id="player" width="100%" controls controlsList="nodownload"
@@ -313,6 +315,16 @@ while($row3 = mysqli_fetch_array($data3)) {
         }
         initAdsFor('player');
         document.getElementById('player').play();
+      });
+      $('.watch-trailer').on("click", function(){
+        var trailer = document.getElementById('trailer');
+        if (trailer.mozRequestFullScreen) {
+          trailer.mozRequestFullScreen();
+        }
+        else if (trailer.webkitRequestFullScreen) {
+          trailer.webkitRequestFullScreen();
+        }
+        document.getElementById('trailer').play();
       });
       //ON PLAY BUTTON
         $('.button-movie-id').on("click", function(){

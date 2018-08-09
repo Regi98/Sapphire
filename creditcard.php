@@ -97,23 +97,27 @@ if(strlen($_SESSION['login'])==0){   ?>
 <!-- CSS is included via this JavaScript file -->
 <script src="js/card.js"></script>
 <form>
-    <div class="col-md-6 ">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">Card Number</small>
         <input type="text" class="form-control" name="number">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">Card Holder</small>
         <input type="text" class="form-control" name="name"/>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">Expiry</small>
         <input type="text" class="form-control" name="expiry"/>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">CVC</small>
         <input type="text" class="form-control" name="cvc"/>
     </div>
+    
 </form>
+<div class="col-md-6 mx-auto"><br>
+        <button class="btn btn-success pull-right" id="credits-submit"><i class="fa fa-check"></i> Pay Now</button>
+    </div>
           </div>
 
         </div>
@@ -137,10 +141,27 @@ var card = new Card({
 
     placeholders: {
         number: '**** **** **** ****',
-        name: 'Arya Stark',
+        name: 'Jon Snow',
         expiry: '**/****',
         cvc: '***'
     }
+});
+
+$("#credits-submit").click(function() {
+    $.confirm({
+          title: 'Confirmation',
+          content: 'Proceed with payment?',
+          theme: 'supervan',
+          buttons: {
+              confirm: function () {
+                $.alert('Payment success! Redirecting you to home page.');
+                window.location.replace("home.php");
+              },
+              cancel: function () {
+                  $.alert('You have cancelled your purchase!');
+              }
+          }
+      });
 });
 </script>
    </body>
