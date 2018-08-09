@@ -207,16 +207,19 @@ echo'
             </td>
             <td>
             '.$row3['genre'].'
-			</td>                             
-            <td>'
+			</td>'
             ?>
-			<?php echo'
+            <?php echo'
+            <td>
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
             <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
+            </td>
+            <td>
             <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
 										<i class="fa fa-plus"></i>
-									</a>
+                                    </a>
+            </td>
             </div>'?>
             </td>
 			</tr>
@@ -282,12 +285,8 @@ echo'
             <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
-			<td class=" close-btn text-center ">
-			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
-			<i class="fa fa-times"></i>
-			</a>
 			<td class=" close-btn">
-			<?php echo'<a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
+			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
 			</a>'?>
             </td>
             
