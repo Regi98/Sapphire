@@ -97,19 +97,19 @@ if(strlen($_SESSION['login'])==0){   ?>
 <!-- CSS is included via this JavaScript file -->
 <script src="js/card.js"></script>
 <form>
-    <div class="col-md-6 ">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">Card Number</small>
         <input type="text" class="form-control" name="number">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">Card Holder</small>
         <input type="text" class="form-control" name="name"/>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">Expiry</small>
         <input type="text" class="form-control" name="expiry"/>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <small class="help-block-none">CVC</small>
         <input type="text" class="form-control" name="cvc"/>
     </div>
@@ -137,7 +137,7 @@ var card = new Card({
 
     placeholders: {
         number: '**** **** **** ****',
-        name: 'Arya Stark',
+        name: 'Jon Snow',
         expiry: '**/****',
         cvc: '***'
     }

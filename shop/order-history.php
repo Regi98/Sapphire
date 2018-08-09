@@ -103,7 +103,7 @@ $id= $_SESSION['id'];
 				<div class="table-responsive">
 					<form name="cart" method="post">
 
-						<table class="table table-bordered table-hover table-condensed">
+						<table class="table table-bordered table-hover table-condensed table-striped">
 							<thead class="cart-item product-summary thead-dark">
 								<tr>
 									<th class="cart-romove item">#</th>
