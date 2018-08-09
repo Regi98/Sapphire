@@ -234,7 +234,7 @@ echo '
 <p><strong>Director:</strong> '.$row2['director'] .'</p>
 <p>
 <strong>Cast:</strong> '.$row2['cast'] .'<br><br>
-<button class="btn btn-sm btn-default">
+<button class="btn btn-sm btn-default watch-trailer">
 <i class="fa fa-play-circle">
 </i>&nbsp;Watch Trailer
 </button>
@@ -248,6 +248,8 @@ echo '
 </div>
 </div>
 </div>'; ?>
+    <video class="hide" src="../inflightapp/storage/app/public/trailer_videos/<?php echo ''.$row2['trailer_video'].''; ?>" id="trailer" width="100%" controls controlsList="nodownload"> 
+    </video>
     <video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" id="noads" width="100%" controls controlsList="nodownload"> 
     </video>
     <video class="hide" src="../inflightapp/storage/app/public/movie_videos/<?php echo ''.$row2['movie_video'].''; ?>" <?php } ?> id="player" width="100%" controls controlsList="nodownload"
@@ -313,6 +315,16 @@ while($row3 = mysqli_fetch_array($data3)) {
         }
         initAdsFor('player');
         document.getElementById('player').play();
+      });
+      $('.watch-trailer').on("click", function(){
+        var trailer = document.getElementById('trailer');
+        if (trailer.mozRequestFullScreen) {
+          trailer.mozRequestFullScreen();
+        }
+        else if (trailer.webkitRequestFullScreen) {
+          trailer.webkitRequestFullScreen();
+        }
+        document.getElementById('trailer').play();
       });
       //ON PLAY BUTTON
         $('.button-movie-id').on("click", function(){
