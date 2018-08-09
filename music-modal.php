@@ -251,25 +251,47 @@ $num=mysqli_num_rows($data3);
  $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
  $song = MP3File::formatTime($duration2);
 echo'
-			<tr class="background">
+            <tr class="background">
             <td>
-            '.$row3['title'].' | '.$song.'</p>
-            </td>                             
+            '.$row3['title'].'
+			</td>
+            <td>
+            <div class="song-duration">'.$song.'</div> 
+			</td>
+            <td>
+            '.$row3['artist_name'].'
+            </td>
+            <td>
+            '.$row3['album_name'].'
+            </td>
+            <td>
+            '.$row3['genre'].'
+			</td>'
+            ?>
+            <?php echo'
             <td>
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play"></i>
-            <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
-										<i class="fa fa-plus"></i>
-									</a>
-            </div>
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </td>
-            <?php }?>
-            <?php }?>
-            </table>' ;}?></p>
-
-	</div>
-    </div>
+            <td>
+            <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
+										<i class="fa fa-plus"></i>
+                                    </a>
+            </td>
+            </div>'?>
+            </td>
+			</tr>
+            <?php } } else{ ?>
+			<tr>
+			<td style="font-size: 18px; font-weight:bold ">No Songs Uploaded</td>
+            </tr>
+            <?php } ?>
+            
+			</tbody>
+			</table>
+			</div>
+            </div>
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid" style="overflow-x:auto;">
@@ -320,10 +342,9 @@ echo'
             <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
-			<td class=" close-btn text-center ">
-			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
-			<i class="fa fa-times"></i>
-			</a>
+			<td class=" close-btn">
+			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
+			</a>'?>
             </td>
             
 			</tr>
@@ -369,5 +390,4 @@ echo'
 </html>
 
 
-<?php } ?>
 <?php } ?>
