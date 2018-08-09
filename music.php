@@ -162,39 +162,66 @@ if(strlen($_SESSION['login'])==0){   ?>
   </div>
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
-<div class="container-fluid">
-<h6>ALL SONGS</h6>
-<p><?php
-$data3= mysqli_query($con,"select * from musics");
-while($row3 = mysqli_fetch_array($data3)) {  
-    $music = $row3['music_song'];
-    $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
-    $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
-    $song = MP3File::formatTime($duration2);
-echo '
-        
-          <table class="table">
+<div class="container-fluid" style="overflow-x:auto;">
+<table class="table">
+<tbody>
+<h6>All Songs</h6>
+<?php
+$data3 = mysqli_query($con,"select * from musics");
+	if($num>0)
+	{
+while($row3 = mysqli_fetch_array($data3)) {
+$num=mysqli_num_rows($data3);
+ $music = $row3['music_song'];
+ $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
+ $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
+ $song = MP3File::formatTime($duration2);
+echo'
 			<tr class="background">
             <td>
-            <p class="song-duration">'.$row3['title'].' | '.$song.'</p>
-			</td>                                   
+            '.$row3['title'].'
+			</td>
             <td>
+            <div class="song-duration">'.$song.'</div> 
+			</td>
+            <td>
+            '.$row3['artist_name'].'
+            </td>
+            <td>
+            '.$row3['album_name'].'
+            </td>
+            <td>
+            '.$row3['genre'].'
+			</td>
+            <td>
+			</td>                             
+            <td>'
+            ?>
+			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play" style="margin-bottom:-20px;"></i>
+            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play"></i>
             <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-plus"></i>
 									</a>
-            </div>
+            </div>'?>
             </td>
+			</tr>
             <?php } } else{ ?>
+                
+			<tr>
+			<td style="font-size: 18px; font-weight:bold ">No Songs Uploaded</td>
+            </tr>
             <?php } ?>
-            </table>' ;}?></p>
-	</div>
-    </div>
+            
+			</tbody>
+			</table>
+			</div>
+            </div>
+
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
-<div class="container-fluid">
+<div class="container-fluid" style="overflow-x:auto;">
 <table class="table">
 <tbody>
 <h6>My Own Playlist</h6>
