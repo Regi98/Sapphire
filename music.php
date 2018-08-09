@@ -19,6 +19,13 @@ header('location:music.php');
 
 }
 }
+
+// Code forProduct deletion from  wishlist	
+$mpid=intval($_GET['del']);
+if(isset($_GET['del']))
+{
+$query=mysqli_query($con,"delete from favorites where musicId='$mpid'");
+}
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
@@ -280,16 +287,6 @@ echo'
         // loads the audio player
         audioPlayer();
     </script>
-    <script>
-    function getmusicsIn(key, value)
-{
-    var query= "SELECT * FROM musics where " + key + "=\"" + value + "\"ORDER BY title ;" ; 
-    musicsDB.transaction(function (tx) {
-        //tx.executeSql(query,[],showSongsIn,onError);
-        tx.executeSql(query,[],showmusics,onError);
-        }); 
-}
-</script>
   </body>
 </html>
 

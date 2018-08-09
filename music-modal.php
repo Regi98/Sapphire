@@ -19,6 +19,32 @@ header('location:music.php');
 
 }
 }
+// Code forProduct deletion from  wishlist	
+$mpid=intval($_GET['del']);
+if(isset($_GET['del']))
+{
+$query=mysqli_query($con,"delete from wishlist where id='$mpid'");
+}
+
+
+if(isset($_GET['action']) && $_GET['action']=="add"){
+	$id=intval($_GET['id']);
+	if(isset($_SESSION['cart'][$id])){
+		$_SESSION['cart'][$id]['quantity']++;
+		$query=mysqli_query($con,"delete from favorites where musicId='$id'");
+	}else{
+		$sql_p="SELECT * FROM products WHERE id={$id}";
+		$query_p=mysqli_query($con,$sql_p);
+		if(mysqli_num_rows($query_p)!=0){
+			$row_p=mysqli_fetch_array($query_p);
+			$query=mysqli_query($con,"delete from favorites where musicId='$id'");
+header('location:music.php');
+}
+		else{
+			$message="Product ID is invalid";
+		}
+	}
+}
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
                 document.location="index.php";
@@ -252,8 +278,8 @@ echo '
 									</a>
             </div>
             </td>
-            <?php } } else{ ?>
-            <?php } ?>
+            <?php }?>
+            <?php }?>
             </table>' ;}?></p>
 
 	</div>
@@ -302,13 +328,13 @@ echo'
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
+            <a href="music.php?del=<?php echo ''.$row4['id'].''; ?>" onClick="return confirm('Are you sure you want to delete?')" class="">
 			<i class="fa fa-times"></i>
 			</a>
             </td>
             
 			</tr>
-            <?php } } else{ ?>
+            <?php } ?>
                 
 			<tr>
 			<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
