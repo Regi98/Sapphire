@@ -197,7 +197,7 @@ echo '
     </div>
             </div><br>';}?>
 <?php
-$data3= mysqli_query($con,"select * from musics");
+$data3= mysqli_query($con,"select * from musics where musics.album.id=$hi");
 while($row3 = mysqli_fetch_array($data3)) {  
     $music = $row3['music_song'];
     $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
@@ -228,7 +228,7 @@ echo '
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid">
 <p><?php
-$data3= mysqli_query($con,"select * from musics where musics.album.id=$hi");
+$data3= mysqli_query($con,"select * from musics");
 while($row3 = mysqli_fetch_array($data3)) {  
     $music = $row3['music_song'];
     $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
