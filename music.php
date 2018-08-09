@@ -22,9 +22,8 @@ header('location:music.php');
 
 // Code forProduct deletion from  wishlist	
 $mpid=intval($_GET['del']);
-if(isset($_GET['del']))
-{
-$query=mysqli_query($con,"delete from favorites where musicId='$mpid'");
+if(isset($_GET['del']) && $_GET['action']=="del" ){
+$query=mysqli_query($con,"delete from favorites where id='$mpid'");
 }
 if(strlen($_SESSION['login'])==0){   ?>
               <script language="javascript">
@@ -179,7 +178,7 @@ $data3 = mysqli_query($con,"select musics.music_song as song, musics.title as ti
 	{
 while($row3 = mysqli_fetch_array($data3)) {
 $num=mysqli_num_rows($data3);
- $music = $row3['music_song'];
+ $music = $row3['song'];
  $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
  $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
  $song = MP3File::formatTime($duration2);
@@ -233,7 +232,7 @@ echo'
 <tbody>
 <h6>My Own Playlist</h6>
 <?php
-$data4 = mysqli_query($con,"select albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
+$data4 = mysqli_query($con,"select favorites.id as favorites_id, albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
 	if($num>0)
 	{
 while($row4 = mysqli_fetch_array($data4)) {
@@ -270,9 +269,8 @@ echo'
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
-			<i class="fa fa-times"></i>
-			</a>
+			<?php echo'<a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
+			</a>'?>
             </td>
             
 			</tr>
