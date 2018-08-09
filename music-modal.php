@@ -197,8 +197,7 @@ echo '
     </div>
             </div><br>';}?>
 <?php
-$data3= mysqli_query($con,"select * from musics
-where musics.album_id = $hi");
+$data3= mysqli_query($con,"select * from musics");
 while($row3 = mysqli_fetch_array($data3)) {  
     $music = $row3['music_song'];
     $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
@@ -210,7 +209,9 @@ echo '
         <td class="list" valign="middle">
           <section class="list">
           <ul id="playlist">
-        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].'</li>
+        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].' |
+        <div class="song-duration">'.$song.'</div>
+        </li>
     </ul>
              <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-plus"></i>
@@ -227,20 +228,23 @@ echo '
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid">
 <p><?php
-$data3= mysqli_query($con,"select * from musics");
+$data3= mysqli_query($con,"select * from musics where musics.album.id=$hi");
 while($row3 = mysqli_fetch_array($data3)) {  
+    $music = $row3['music_song'];
+    $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
+    $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
+    $song = MP3File::formatTime($duration2);
 echo '
           <table class="table">
 			<tr class="background">
             <td>
-            <h8>'.$row3['title'].'</h8>
+            <p class="song-duration">'.$row3['title'].' | '.$song.'</p></h8>
 			</td>                                   
             <td>
             <div class="play-wrap">
-        <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
-        <p>'.$row3['title'].'</p>
-        <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-bottom:-26px;"></i>
-        </div>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
+            <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-bottom:-26px;"></i>
+            </div>
             </td>
             <?php } } else{ ?>
             <?php } ?>
