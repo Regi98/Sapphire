@@ -228,6 +228,7 @@ echo '
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid">
+<h6>ALL SONGS</h6>
 <p><?php
 $data3= mysqli_query($con,"select * from musics");
 while($row3 = mysqli_fetch_array($data3)) {  
@@ -236,20 +237,24 @@ while($row3 = mysqli_fetch_array($data3)) {
     $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
     $song = MP3File::formatTime($duration2);
 echo '
+        
           <table class="table">
 			<tr class="background">
             <td>
-            <p class="song-duration">'.$row3['title'].' | '.$song.'</p></h8>
-			</td>                                   
+            '.$row3['title'].' | '.$song.'</p>
+            </td>                             
             <td>
             <div class="play-wrap">
-            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
-            <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-bottom:-26px;"></i>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music" ></audio>
+            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play" style="margin-bottom:-20px;"></i>
+            <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+										<i class="fa fa-plus"></i>
+									</a>
             </div>
             </td>
             <?php } } else{ ?>
             <?php } ?>
-            </table>'?></p>
+            </table>' ;}?></p>
 	</div>
     </div>
 <!--playlist tabs-->
@@ -257,46 +262,44 @@ echo '
 <div class="container-fluid">
 <table class="table">
 <tbody>
-<thead>
-    <center>
-        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">Listen to Your Playlist!&nbsp;&nbsp;<i class="fa fa-headphones fa-md"></i>
-        </button>
-    </center>
-</thead>
-
-<br>
-<h6>Summary of your Playlist</h6>
+<h6>My Own Playlist</h6>
 <?php
-$data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
-$num=mysqli_num_rows($data);
+$data4 = mysqli_query($con,"select albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
 	if($num>0)
 	{
-while($row2 = mysqli_fetch_array($data)) {
-?>
-            
+while($row4 = mysqli_fetch_array($data4)) {
+$num=mysqli_num_rows($data4);
+$music = $row4['msong'];
+$mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
+$duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
+$song = MP3File::formatTime($duration2);
+echo'
 			<tr class="background">
-
-			<td>
-            <?php echo'
-             <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
-            ?>
-            </td>
-            
             <td>
-			<div class="song_fave">
-            <h8>
-            <?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?>
-            </h8>
-            </div>
+            '.$row4['mtitle'].'
 			</td>
-                                                
             <td>
-			<?php echo'
-            <audio id="myAudio">
-                <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
-            </audio>'?>
+            <div class="song-duration">'.$song.'</div> 
+			</td>
+            <td>
+            '.$row4['aname'].'
             </td>
-
+            <td>
+            '.$row4['alname'].'
+            </td>
+            <td>
+            '.$row4['mgenre'].'
+			</td>
+            <td>
+			</td>                             
+            <td>'
+            ?>
+			<?php echo'
+            <div class="play-wrap">
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" ></audio>
+            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play" style="margin-bottom:-20px;"></i>
+            </div>'?>
+            </td>
 			<td class=" close-btn">
 			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
 			<i class="fa fa-times"></i>
@@ -316,64 +319,6 @@ while($row2 = mysqli_fetch_array($data)) {
 			</div>
 </section>
 </div>
-
-<!--MODAL for PLAYLIST-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">YOUR PLAYLIST</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <!--start of playlist modal-->
-	  <table class="table">
-      <tbody>
-			<?php
-            $data = mysqli_query($con,"select cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id join favorites on musics.id=favorites.musicId where favorites.userId='".$_SESSION['id']."'");
-            $num=mysqli_num_rows($data);
-	        if($num>0)
-	        {
-            while($row2 = mysqli_fetch_array($data)) {
-            ?>
-                <tr class="background">
-				<td>
-                    <?php echo'
-                     <img src="../inflightapp/storage/app/public/cover_images/'.$row2['mc_image'].'" width="60" height="75">';
-                    ?>
-                </td>
-                
-                <td>
-					<div class="song_fave">
-                    <h8><?php echo htmlentities($row2['mtitle']);?>&nbsp; - <?php echo htmlentities($row2['mgenre']);?></h8>
-                    </div>
-				</td>
-                                                
-                <td>
-					<div class="product-name">
-                    <?php echo'
-                    <audio id="myAudio">
-                    <source src="../inflightapp/storage/app/public/music_songs/'.$row2['music_song'].'"> 
-                    </audio>'?>
-                    <a href="#" class="btn btn-success btn-sm pushme2 with-color pull-right" style="margin-top:1px" role="button" aria-pressed="true" onClick="togglePlay()" data-title="'.$row3['title'].'">PLAY</a>
-					</div>
-                </td>
-                                            
-                </tr>
-                <?php } } else{ ?>
-                    
-				<tr>
-				<td style="font-size: 18px; font-weight:bold ">Your Playlist is Empty</td>
-                </tr>
-				<?php } ?>
-				</tbody>
-				</table>
-</div>
-</div>
-
-
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -395,15 +340,23 @@ while($row2 = mysqli_fetch_array($data)) {
         var title = $(this).data('title');
        document.getElementById(title).play();
       });
-
-h
-
     </script>
     <script>
         // loads the audio player
         audioPlayer();
     </script>
+    <script>
+    function getmusicsIn(key, value)
+{
+    var query= "SELECT * FROM musics where " + key + "=\"" + value + "\"ORDER BY title ;" ; 
+    musicsDB.transaction(function (tx) {
+        //tx.executeSql(query,[],showSongsIn,onError);
+        tx.executeSql(query,[],showmusics,onError);
+        }); 
+}
+</script>
   </body>
 </html>
-<?php } ?>
+
+
 <?php } ?>
