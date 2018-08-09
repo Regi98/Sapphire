@@ -174,7 +174,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 <tbody>
 <h6>All Songs</h6>
 <?php
-$data3 = mysqli_query($con,"select * from musics");
+$data3 = mysqli_query($con,"select musics.music_song as song, musics.title as title, albums.album_name as album_name, artists.artist_name as artist_name, musics.id as music_id, musics.genre as genre from musics join albums on album_id=albums.id join artists on albums.artist_id=artists.id");
 	if($num>0)
 	{
 while($row3 = mysqli_fetch_array($data3)) {
@@ -206,9 +206,9 @@ echo'
             ?>
 			<?php echo'
             <div class="play-wrap">
-            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music" ></audio>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
             <i class="btn btn-outline-info btn-sm pull-right fa fa-play play"></i>
-            <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+            <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
 										<i class="fa fa-plus"></i>
 									</a>
             </div>'?>
