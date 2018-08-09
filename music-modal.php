@@ -209,24 +209,12 @@ echo '
       <tr>
         <td class="list" valign="middle">
           <section class="list">
-<<<<<<< HEAD
-
-          <a> &nbsp; 
-          '.$row3['title'].'&nbsp - '.$row3['genre'].' </a> 
-          | <span class="song-duration">'.$song.'</span>
-        <div class="play-wrap">
-        <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
-        <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-top:-24px;"></i>
-            
-             <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-24px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
-=======
           <ul id="playlist">
         <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].' |
         <div class="song-duration">'.$song.'</div>
         </li>
     </ul>
              <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
->>>>>>> 3abc3a0d0c866f5a901da45e3c6ee4da965541e4
 										<i class="fa fa-plus"></i>
 									</a></div>
             </section>
@@ -267,6 +255,7 @@ echo '
             <?php } } else{ ?>
             <?php } ?>
             </table>' ;}?></p>
+
 	</div>
     </div>
 <!--playlist tabs-->
@@ -357,16 +346,6 @@ echo'
         // loads the audio player
         audioPlayer();
     </script>
-    <script>
-    function getmusicsIn(key, value)
-{
-    var query= "SELECT * FROM musics where " + key + "=\"" + value + "\"ORDER BY title ;" ; 
-    musicsDB.transaction(function (tx) {
-        //tx.executeSql(query,[],showSongsIn,onError);
-        tx.executeSql(query,[],showmusics,onError);
-        }); 
-}
-</script>
   </body>
 </html>
 
