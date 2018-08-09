@@ -269,7 +269,7 @@ echo'
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<?php echo'<a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
+			<?php echo'<a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Remove" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
 			</a>'?>
             </td>
             
