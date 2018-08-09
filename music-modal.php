@@ -231,6 +231,15 @@ echo '
 <table class="table">
 <tbody>
 <h6>All Songs</h6>
+<tr>
+      <th>TITLE</th>
+      <th>DURATION</th>
+      <th>ARTIST</th>
+      <th>ALBUM</th>
+      <th>GENRE</th>
+      <th>STATUS</th>
+      <th>FAVORITE</th>
+</tr>
 <?php
 $data3 = mysqli_query($con,"select musics.music_song as song, musics.title as title, albums.album_name as album_name, artists.artist_name as artist_name, musics.id as music_id, musics.genre as genre from musics join albums on album_id=albums.id join artists on albums.artist_id=artists.id");
 	if($num>0)
@@ -242,31 +251,62 @@ $num=mysqli_num_rows($data3);
  $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
  $song = MP3File::formatTime($duration2);
 echo'
-			<tr class="background">
+            <tr class="background">
             <td>
-            '.$row3['title'].' | '.$song.'</p>
-            </td>                             
+            '.$row3['title'].'
+			</td>
+            <td>
+            <div class="song-duration">'.$song.'</div> 
+			</td>
+            <td>
+            '.$row3['artist_name'].'
+            </td>
+            <td>
+            '.$row3['album_name'].'
+            </td>
+            <td>
+            '.$row3['genre'].'
+			</td>'
+            ?>
+            <?php echo'
             <td>
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play"></i>
-            <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
-										<i class="fa fa-plus"></i>
-									</a>
-            </div>
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </td>
-            <?php }?>
-            <?php }?>
-            </table>' ;}?></p>
-
-	</div>
-    </div>
+            <td>
+            <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
+										<i class="fa fa-plus"></i>
+                                    </a>
+            </td>
+            </div>'?>
+            </td>
+			</tr>
+            <?php } } else{ ?>
+			<tr>
+			<td style="font-size: 18px; font-weight:bold ">No Songs Uploaded</td>
+            </tr>
+            <?php } ?>
+            
+			</tbody>
+			</table>
+			</div>
+            </div>
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
-<div class="container-fluid">
+<div class="container-fluid" style="overflow-x:auto;">
 <table class="table">
 <tbody>
 <h6>My Own Playlist</h6>
+<tr>
+      <th>TITLE</th>
+      <th>DURATION</th>
+      <th>ARTIST</th>
+      <th>ALBUM</th>
+      <th>GENRE</th>
+      <th>STATUS</th>
+      <th>DELETE</th>
+</tr>
 <?php
 $data4 = mysqli_query($con,"select albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
 	if($num>0)
@@ -283,7 +323,7 @@ echo'
             '.$row4['mtitle'].'
 			</td>
             <td>
-            <div class="song-duration">'.$song.'</div> 
+            <div class="song-duration">'.$song.'</div> <!--time-->
 			</td>
             <td>
             '.$row4['aname'].'
@@ -293,21 +333,18 @@ echo'
             </td>
             <td>
             '.$row4['mgenre'].'
-			</td>
-            <td>
-			</td>                             
+			</td>                            
             <td>'
             ?>
 			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play" style="margin-bottom:-20px;"></i>
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
-			<i class="fa fa-times"></i>
-			</a>
+			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
+			</a>'?>
             </td>
             
 			</tr>
@@ -353,5 +390,4 @@ echo'
 </html>
 
 
-<?php } ?>
 <?php } ?>
