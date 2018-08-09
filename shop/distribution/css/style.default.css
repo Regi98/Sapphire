@@ -1964,11 +1964,11 @@ input.input-material~label.is-invalid~label {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #282b2f;
+  background-color: #d3d3d3;
 }
 
 .table-striped tbody tr:nth-of-type(odd):hover {
-  background-color: #26292d;
+  background-color: #d3d3d3;
 }
 
 .table-bordered td,
