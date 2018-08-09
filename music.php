@@ -173,6 +173,15 @@ if(strlen($_SESSION['login'])==0){   ?>
 <table class="table">
 <tbody>
 <h6>All Songs</h6>
+<tr>
+      <th>TITLE</th>
+      <th>DURATION</th>
+      <th>ARTIST</th>
+      <th>ALBUM</th>
+      <th>GENRE</th>
+      <th>STATUS</th>
+      <th>FAVORITE</th>
+</tr>
 <?php
 $data3 = mysqli_query($con,"select musics.music_song as song, musics.title as title, albums.album_name as album_name, artists.artist_name as artist_name, musics.id as music_id, musics.genre as genre from musics join albums on album_id=albums.id join artists on albums.artist_id=artists.id");
 	if($num>0)
@@ -184,7 +193,7 @@ $num=mysqli_num_rows($data3);
  $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
  $song = MP3File::formatTime($duration2);
 echo'
-			<tr class="background">
+            <tr class="background">
             <td>
             '.$row3['title'].'
 			</td>
@@ -199,16 +208,14 @@ echo'
             </td>
             <td>
             '.$row3['genre'].'
-			</td>
-            <td>
 			</td>                             
             <td>'
             ?>
 			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play"></i>
-            <a class="btn btn-outline-info btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
+            <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
 										<i class="fa fa-plus"></i>
 									</a>
             </div>'?>
@@ -232,6 +239,15 @@ echo'
 <table class="table">
 <tbody>
 <h6>My Own Playlist</h6>
+<tr>
+      <th>TITLE</th>
+      <th>DURATION</th>
+      <th>ARTIST</th>
+      <th>ALBUM</th>
+      <th>GENRE</th>
+      <th>STATUS</th>
+      <th>DELETE</th>
+</tr>
 <?php
 $data4 = mysqli_query($con,"select albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
 	if($num>0)
@@ -258,18 +274,16 @@ echo'
             </td>
             <td>
             '.$row4['mgenre'].'
-			</td>
-            <td>
-			</td>                             
+			</td>                            
             <td>'
             ?>
 			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm pull-right fa fa-play play" style="margin-bottom:-20px;"></i>
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
-			<td class=" close-btn">
+			<td class=" close-btn text-center ">
 			<a href="music.php?del=<?php echo htmlentities($row['mpid']);?>" onClick="return confirm('Are you sure you want to delete?')" class="">
 			<i class="fa fa-times"></i>
 			</a>
