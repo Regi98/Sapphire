@@ -178,7 +178,7 @@ pre {
 }
 input[type=checkbox],
 input[type=radio] {
-  margin-left:25px;
+  margin-left:7px;
 }
 .page-content {
   position: relative;

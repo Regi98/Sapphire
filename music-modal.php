@@ -221,7 +221,9 @@ echo '
              <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-24px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 =======
           <ul id="playlist">
-        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].'</li>
+        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].' |
+        <div class="song-duration">'.$song.'</div>
+        </li>
     </ul>
              <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 >>>>>>> 3abc3a0d0c866f5a901da45e3c6ee4da965541e4
@@ -235,13 +237,34 @@ echo '
 </div>
     </div>
     </div>
-<!--playlist tabs-->
+<!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid">
-		<p>Second Panel</p>
+<p><?php
+$data3= mysqli_query($con,"select * from musics");
+while($row3 = mysqli_fetch_array($data3)) {  
+    $music = $row3['music_song'];
+    $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
+    $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
+    $song = MP3File::formatTime($duration2);
+echo '
+          <table class="table">
+			<tr class="background">
+            <td>
+            <p class="song-duration">'.$row3['title'].' | '.$song.'</p></h8>
+			</td>                                   
+            <td>
+            <div class="play-wrap">
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" class="music"></audio>
+            <i class="btn btn-outline-success btn-sm pull-right fa fa-play play" style="margin-bottom:-26px;"></i>
+            </div>
+            </td>
+            <?php } } else{ ?>
+            <?php } ?>
+            </table>'?></p>
 	</div>
     </div>
-<!--tracks tabs-->
+<!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid">
 <table class="table">
@@ -394,4 +417,5 @@ h
     </script>
   </body>
 </html>
+<?php } ?>
 <?php } ?>

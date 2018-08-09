@@ -141,6 +141,13 @@ $('video#noads').bind('webkitfullscreenchange mozfullscreenchange fullscreenchan
   // Now do something interesting
   document.getElementById('noads').pause();
 });
+$('video#trailer').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+  var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+  var event = state ? 'FullscreenOn' : 'FullscreenOff';
+
+  // Now do something interesting
+  document.getElementById('trailer').pause();
+});
 $(window).keypress(function(e) {
   var player = document.getElementById("player");
   if (e.which == 32) {
@@ -278,3 +285,15 @@ function audioPlayer() {
     $("#audioPlayer")[0].play();
   });
 }
+$(".play").click(function () {
+  var audio = $(this).closest('.play-wrap').find('.music')[0];
+
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+    audio.currentTime = 0
+  }
+
+  $(this).toggleClass('fa-play fa-pause');
+});
