@@ -251,7 +251,7 @@ echo'
       <th>DELETE</th>
 </tr>
 <?php
-$data4 = mysqli_query($con,"select favorites.id as favorites_id, albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
+$data4 = mysqli_query($con,"select musics.id as music_id,favorites.id as favorites_id, albums.album_name as alname, artists.artist_name as aname, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from musics left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."' ORDER BY favorites.id ASC");
 	if($num>0)
 	{
 while($row4 = mysqli_fetch_array($data4)) {
