@@ -94,7 +94,8 @@ while($row=mysqli_fetch_assoc($query))
 											<?php echo htmlentities($cnt);?>
 										</td>
 										<td>
-											<?php echo htmlentities($row['firstname']); htmlentities($row['lastname']);?>
+											<?php echo htmlentities($row['firstname']); ?>
+											<?php echo htmlentities($row['lastname']); ?>
 										</td>
 										<td>
 											14D
