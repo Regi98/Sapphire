@@ -197,23 +197,23 @@ echo '
 <img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-info btn-sm col-md-12 play-with-ads" id="inherit autoplay">
+    <button class="btn btn-secondary btn-sm col-md-12 play-with-ads" id="inherit autoplay">
       <i class="fa fa-play-circle">
       </i>&nbsp;Play with Ads
     </button>
 <?php echo '
-    <button class="btn btn-success btn-sm col-md-12 button-movie-id" id="inherit autoplay">
+    <button class="btn btn-dark btn-sm col-md-12 button-movie-id" id="inherit autoplay">
       <i class="fa fa-play-circle">
       </i>&nbsp;Play without Ads
     </button>
     
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
-  <button class="btn btn-success btn-sm col-md-4 pull-right" id="inherit autoplay">
-      <strong>E-Wallet Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">'.$row2['ewallet_price'] .'
+  <button class="btn btn-dark btn-sm col-md-4 pull-right" id="inherit autoplay">
+      <strong>Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">&nbsp; $'.$row2['ewallet_price'] .' <br> <strong>Sapphires:</strong>&nbsp;<img src="images/gems.png" width="15px" style="margin-top:-3px">&nbsp;'.$num['tokens'] .'
     </button>
 <h5><strong>'.$row2['title'] .'</strong></h5> 
-<p><span class="btn btn-sm btn-secondary">'.$row2['content_rating'] .'</span>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;'.$row2['running_time'].'mins &nbsp;&nbsp;| <i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['release_date'].'</p>
+<p><span class="btn btn-sm btn-dark">'.$row2['content_rating'] .'</span>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;'.$row2['running_time'].'mins &nbsp;&nbsp;| <i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['release_date'].'</p>
 <p>';
 
 $data6 = mysqli_query($con,"select genres.name from movies left join genre_movie on genre_movie.movie_id=movies.id join genres on genres.id=genre_movie.genre_id where movies.id=$hi");
@@ -231,7 +231,7 @@ echo '
 </p>
 <p>'.$row2['movie_description'] .'</p>
 <p><strong>Director:</strong> '.$row2['director'] .'</p>
-<p><strong>Cast:</strong> '.$row2['cast'] .'
+<p><strong>Cast:</strong> '.$row2['cast'] .'<br><br>
 <button class="btn btn-sm btn-default watch-trailer">
 <i class="fa fa-play-circle">
 </i>&nbsp;Watch Trailer
