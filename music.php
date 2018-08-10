@@ -168,11 +168,14 @@ if(strlen($_SESSION['login'])==0){   ?>
   </div>
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
-<div class="container-fluid" style="overflow-x:auto;">
+<div class="container-fluid trackscss" style="overflow-x:auto;">
 <table class="table">
 <tbody>
-<h5>All Songs</h5>
-<tr>
+<center>
+<h8>All Songs</h8>
+</center>
+<br>
+<tr class="musicheader">
       <th>TITLE</th>
       <th>DURATION</th>
       <th>ARTIST</th>
@@ -192,7 +195,7 @@ $num=mysqli_num_rows($data3);
  $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
  $song = MP3File::formatTime($duration2);
 echo'
-            <tr class="background">
+            <tr class="playlistcss">
             <td>
             '.$row3['title'].'
 			</td>
@@ -213,11 +216,11 @@ echo'
             <td>
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play fa-xs play"></i>
             </td>
             <td>
             <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
-										<i class="fa fa-plus"></i>
+										<i class="fa fa-plus fa-xs"></i>
                                     </a>
             </td>
             </div>'?>
@@ -237,11 +240,14 @@ echo'
 
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
-<div class="container-fluid" style="overflow-x:auto;">
+<div class="container-fluid trackscss" style="overflow-x:auto;">
 <table class="table">
 <tbody>
-<h5>My Own Playlist</h5>
-<tr>
+<center>
+<h8>My Own Playlist</h8>
+</center>
+<br>
+<tr class="musicheader">
       <th>TITLE</th>
       <th>DURATION</th>
       <th>ARTIST</th>
@@ -261,7 +267,7 @@ $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
 $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
 $song = MP3File::formatTime($duration2);
 echo'
-			<tr class="background">
+            <tr class="playlistcss">
             <td>
             '.$row4['mtitle'].'
 			</td>
@@ -282,11 +288,11 @@ echo'
 			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" ></audio>
-            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
+            <i class="btn btn-outline-info btn-sm text-center fa fa-play fa-xs play"></i>
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times"></i>
+			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times fa-xs"></i>
 			</a>'?>
             </td>
             
