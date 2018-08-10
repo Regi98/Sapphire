@@ -97,6 +97,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <div class=" col-12 col-md-6">
                   <button class="btn btn-outline-info btn-hover--transform-shadow btn--transition btn-lg mybutton float-lg-right btn-top-up active" id="scratchcard">
                     <img src="images/wallet.png" width="50px"> &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   Top up my E-Wallet
                 </button>
             </div>

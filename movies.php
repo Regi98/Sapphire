@@ -35,7 +35,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="css/font.css">
     <!-- Google fonts - Muli-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <link rel="stylesheet" href="css/myfont.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
