@@ -190,7 +190,7 @@ echo '
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
             <center>
-            <audio src="" controls controlsList="nodownload" id="audioPlayer">
+            <audio src="" controls controlsList="nodownload" autostart="0" autostart="false" preload ="none"  id="audioPlayer">
         Sorry, your browser doesnt support html5!
     </audio>
     </center>
@@ -271,7 +271,7 @@ echo'
             <?php echo'
             <td>
             <div class="play-wrap">
-            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" ></audio>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" autostart="0" autostart="false" preload ="none"  ></audio>
             <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </td>
             <td>
@@ -338,7 +338,7 @@ echo'
             ?>
 			<?php echo'
             <div class="play-wrap">
-            <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" ></audio>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" autostart="0" autostart="false" preload ="none" ></audio>
             <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
