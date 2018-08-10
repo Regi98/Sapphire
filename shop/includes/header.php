@@ -87,7 +87,7 @@
         </ul><span class="heading">User</span>
         <ul class="list-unstyled">
           <li> <a href="../myfinance.php"> <i class="fa fa-money"></i>Payments</a></li>
-          <li><a href="../my-account.php"><i class="icon fa fa-user"></i>My Account</a></li>
+          <li><a href="my-account.php"><i class="icon fa fa-user"></i>My Account</a></li>
         </ul>
       </nav>
       <!-- Sidebar Navigation end-->
