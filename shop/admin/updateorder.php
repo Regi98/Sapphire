@@ -8,13 +8,18 @@ header('location:index.php');
 }
 else{
 $oid=intval($_GET['oid']);
-if(isset($_POST['submit2'])){
+if(isset($_POST['submit2']) && ($_POST['submit2'] == "update")) {
 $status=$_POST['status'];
 $remark=$_POST['remark'];//space char
 
 $query=mysqli_query($con,"insert into ordertrackhistory(orderId,status,remark) values('$oid','$status','$remark')");
 $sql=mysqli_query($con,"update orders set orderStatus='$status' where id='$oid'");
-echo "<script>alert('Order updated sucessfully...');</script>";
+echo "<script>refreshAndClose();
+function refreshAndClose() {
+            window.opener.location.reload(true);
+            window.close();
+}
+</script>";
 }
 
  ?>
@@ -39,7 +44,7 @@ window.print();
 <body>
 
 <div style="margin-left:50px;">
- <form name="updateticket" id="updateticket" method="post"> 
+ <form  method="post" action=""> 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
     <tr height="50">
