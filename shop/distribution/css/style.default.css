@@ -1964,16 +1964,16 @@ input.input-material~label.is-invalid~label {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #d5d5d5!important;
+  background-color: #f2f2f2!important;
 }
 
 .table-striped tbody tr:nth-of-type(odd):hover {
-  background-color: #d5d5d5!important;
+  background-color: #f2f2f2!important;
 }
 
 .table-bordered td,
 .table-bordered th {
-  border-color: #343a40;
+  border-color: #f2f2f2 !important;
 }
 
 @media (max-width: 991px) {
