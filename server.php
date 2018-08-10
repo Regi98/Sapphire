@@ -9,7 +9,7 @@
 	$_SESSION['success'] = "";
 
 	// connect to database
-	$db = mysqli_connect('localhost', 'root', '', 'inflightapp');
+	$db = mysqli_connect('127.0.0.1', 'root', '', 'inflightapp');
 
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {

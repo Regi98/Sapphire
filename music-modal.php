@@ -210,7 +210,7 @@ echo '
         <td class="list" valign="middle">
           <section class="list">
           <ul id="playlist">
-        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].' |
+        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].'
         <div class="song-duration">'.$song.'</div>
         </li>
     </ul>
