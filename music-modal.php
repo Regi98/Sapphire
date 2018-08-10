@@ -190,7 +190,7 @@ echo '
                 <p>'.$row2['release_date'] .'</p>
                 <p>'.$row2['description'] .'</p>
             <center>
-            <audio src="" controls controlsList="nodownload" id="audioPlayer">
+            <audio controls controlsList="nodownload" id="audioPlayer" autoplay="false"  autostart="0">
         Sorry, your browser doesnt support html5!
     </audio>
     </center>
@@ -210,7 +210,7 @@ echo '
         <td class="list" valign="middle">
           <section class="list">
           <ul id="playlist">
-        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'"</a>'.$row3['title'].'
+        <li class="" style="margin-bottom:-30px;"><a href="../inflightapp/storage/app/public/music_songs/'.$row3['music_song'].'" </a>'.$row3['title'].'
         <div class="song-duration">'.$song.'</div>
         </li>
     </ul>
