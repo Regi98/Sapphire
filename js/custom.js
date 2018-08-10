@@ -264,6 +264,8 @@ $('.box').click(function () {
 /*AUDIO FOR MUSIC*/
 function audioPlayer() {
   var currentSong = 0;
+  currentSong.autoplay = 0;
+
   $("#audioPlayer")[0].src = $("#playlist li a")[0];
   $("#audioPlayer")[0].play();
   $("#playlist li a").click(function (e) {
