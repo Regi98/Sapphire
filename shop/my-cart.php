@@ -140,7 +140,7 @@ if(!empty($_SESSION['cart'])){
 					<th class="cart-qty item">Quantity</th>
 					<th class="cart-sub-total item">Price Per unit</th>
 					<th class="cart-total last-item">Total Price</th>
-					<th class="cart-csub-total item">Crystal Price</th>
+					<th class="cart-csub-total item">Sapphires</th>
 					<th class="cart-ctotal last-item">Total Price</th>
 				</tr>
 			</thead><!-- /thead -->
@@ -261,19 +261,19 @@ $_SESSION['pid']=$pdtid;
 						echo "$". number_format($_SESSION['tp']). ".00"; ?></span>
 					</div><br>
 					<div class="row">
-			<div class="col-7">
-				<h7 class="label">Ph Tax:</h7>
+			<div class="col-9">
+				<h7 class="label">Ph Tax:&emsp;&emsp;</h7>
 			</div>
-			<div class="col-5">
+			<div class="col-3">
 				<h7 class="label ph-tax">$0.00</h7>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-7">
-					<h7 class="label">Service Charge:</h7>
+			<div class="col-9">
+					<h7 class="label">Service Charge:&emsp;&emsp;</h7>
 			</div>
-			<div class="col-5">
-				<h7 class="label service-charge">&nbsp;&nbsp;$0.00</h7>
+			<div class="col-3 ">
+				<h7 class="label service-charge">$0.00</h7>
 			</div>
 		</div><hr>
 			<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
