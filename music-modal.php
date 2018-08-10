@@ -230,7 +230,7 @@ echo '
 <div class="container-fluid" style="overflow-x:auto;">
 <table class="table">
 <tbody>
-<h6>All Songs</h6>
+<h5>All Songs</h5>
 <tr>
       <th>TITLE</th>
       <th>DURATION</th>
@@ -297,7 +297,7 @@ echo'
 <div class="container-fluid" style="overflow-x:auto;">
 <table class="table">
 <tbody>
-<h6>My Own Playlist</h6>
+<h5>My Own Playlist</h5>
 <tr>
       <th>TITLE</th>
       <th>DURATION</th>
