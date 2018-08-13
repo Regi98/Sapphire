@@ -99,7 +99,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="tabs-1" role="tabpanel"><br>
+  <div class="tab-pane active" id="tabs-1" role="tabpanel" ><br>
 <div class="container-fluid">
   <?php
             $dataid;
@@ -175,7 +175,7 @@ echo '
 <!-- Modal content-->
 <div class="modal-content">
  <div class="modal-body">
-                <i class="fa fa-times pull-right" data-dismiss="modal"></i>
+                <i class="fa fa-times pull-right" data-dismiss="modal" target="_blank"></i>
             <div class="row">
                 <div class="col-6 col-sm-4 col-md-4" style="margin:auto;"><br>
                     <div class="snip1205">
@@ -226,7 +226,7 @@ echo '
     </div>
     </div>
 <!--tracks tabs-->
-<div class="tab-pane" id="tabs-2" role="tabpanel"><br>
+<div class="tab-pane" id="tabs-2" role="tabpanel" ><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
 <table class="table">
 <tbody>
