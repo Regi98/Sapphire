@@ -77,13 +77,13 @@ if(strlen($_SESSION['login'])==0){   ?>
               echo '
                 <option value="" disabled selected>Select Category</option>
                 <option value="1">Action</option>
-                <option value="2">Kids</option>
+                <option value="2">Adventure</option>
                 <option value="3">Comedy</option>
                 <option value="4">Drama</option>
                 <option value="5">Horror</option>
                 <option value="6">Romance</option>
                 <option value="7">Sci-Fi &amp; Fantasy</option>
-                <option value="8">Adventure</option>
+                <option value="8">Kids</option>
                 <option value="series.php">All</option>'
               ?>
               </select>
@@ -97,7 +97,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             echo'<h8 class="my-content">Action TV Shows</h8>';
         }
         elseif ($main_genre == 2) {
-            echo'<h8 class="my-content">Kids TV</h8>';
+            echo'<h8 class="my-content">Adventure TV Shows</h8>';
         }
         elseif ($main_genre == 3) {
             echo'<h8 class="my-content">Comedy TV Shows</h8>';
@@ -115,7 +115,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             echo'<h8 class="my-content">Sci-Fi &amp; Fantasy TV Shows</h8>';
         }
         elseif ($main_genre == 8) {
-            echo'<h8 class="my-content">Adventure TV Shows</h8>';
+            echo'<h8 class="my-content">Kids TV</h8>';
         }
             $dataid;
                      $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id join genres on main_genre=genres.id where main_genre=$main_genre");

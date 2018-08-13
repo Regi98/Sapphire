@@ -135,7 +135,7 @@ $id= $_SESSION['id'];
   
         <ul class="nav">
             <li class="dropdown menu-item">
-              <?php $sql=mysqli_query($con,"select id,product_category_name from product_categories WHERE product_categories.id ='$cid'");
+              <?php $sql=mysqli_query($con,"select id,product_category_name from product_categories");
 
 while($row=mysqli_fetch_array($sql))
 {
