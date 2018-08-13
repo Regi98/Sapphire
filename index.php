@@ -43,7 +43,7 @@
               <div class="info d-flex align-items-center">
                 <div class="content">
                   <div class="logo">
-                    <h1>Welcome!</h1>
+                    <img src="images/logo.png" width="100%">
                   </div>
                 </div>
               </div>

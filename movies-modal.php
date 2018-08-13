@@ -197,16 +197,16 @@ echo '
 <img  src="../inflightapp/storage/app/public/cover_images/'.$row2['cover_image'].'" class="stretchy">
 <a class="clean-link movie-title" data-id="'.$row2['title'] .'" href="#">'.$row2['title'] .'</a>
 </div><br>'; ?>
-    <button class="btn btn-info btn-sm col-md-12 play-with-ads" id="inherit autoplay">
+
+    <button class="btn btn-info btn-sm col-md-6 play-with-ads float-left" id="inherit autoplay">
       <i class="fa fa-play-circle">
-      </i>&nbsp;Play with Ads
+      </i>&nbsp;With Ads
     </button>
 <?php echo '
-    <button class="btn btn-success btn-sm col-md-12 button-movie-id" id="inherit autoplay">
+    <button class="btn btn-success btn-sm col-md-6 float-right button-movie-id" id="inherit autoplay">
       <i class="fa fa-play-circle">
-      </i>&nbsp;Play without Ads
+      </i>&nbsp;Without Ads
     </button>
-    
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
   <button class="btn btn-success btn-sm col-md-4 pull-right" id="inherit autoplay">

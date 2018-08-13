@@ -133,13 +133,15 @@ if(strlen($_SESSION['login'])==0){   ?>
                         </div>
                       </div>
                      <div class="block-body">
-                      <div class="block-gray">
+                      <div class="block-gray text-center">
 
-                    We accept these cards
-
+                    We accept these cards <br>
+                    <div class="mx auto">
                       <img src="img/pay1.png" width=80px> &nbsp;
                      <img src="img/pay2.png" width=50px> &nbsp;
                      <img src="img/pay3.png" width=40px> &nbsp;
+
+                    </div>
                         <!--<div class="form-group"> <br>  
                            <input type="submit" value="Signin" class="btn btn-primary">
                            </div>-->
@@ -219,7 +221,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                            </div>
 
                         </div> -->
-                        <button class="btn btn-info pull-right" id="confirm-credit">Confirm</button>
+                        <button class="btn btn-info pull-right" id="confirm-credit" onclick="window.location.href='creditcard.php';">Confirm</button><br><br>
                       </div>
                   </div>
                </div>
