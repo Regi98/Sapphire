@@ -210,7 +210,7 @@ echo '
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
   <button class="btn btn-dark btn-sm col-md-4 pull-right" id="inherit autoplay">
-      <strong>Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">&nbsp; $'.$row2['ewallet_price'] .' <br> <strong>Sapphires:</strong>&nbsp;<img src="images/gems.png" width="15px" style="margin-top:-3px">&nbsp;'.$num['tokens'] .'
+      <strong>Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">&nbsp; $'.$row2['ewallet_price'] .' <br> <strong>Sapphires:</strong>&nbsp;<img src="images/gems.png" width="15px" style="margin-top:-3px">&nbsp;'.$row2['token_price'] .'
     </button>
 <h5><strong>'.$row2['title'] .'</strong></h5> 
 <p><span class="btn btn-sm btn-dark">'.$row2['content_rating'] .'</span>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;'.$row2['running_time'].'mins &nbsp;&nbsp;| <i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['release_date'].'</p>

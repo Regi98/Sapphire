@@ -694,6 +694,7 @@ nav#sidebar a {
   color: inherit;
   text-decoration: none;
   position: relative;
+  font-size: 1rem;
 }
 
 nav#sidebar a[data-toggle="collapse"]::after {
