@@ -150,7 +150,7 @@ $id= $_SESSION['id'];
 							<div class="category-product  inner-top-vs">
 								<div class="row">									
 			<?php
-$ret=mysqli_query($con,"select * from products where product_sub_category_id='$cid'");
+$ret=mysqli_query($con,"select * from products where product_category_id='$cid'");
 $num=mysqli_num_rows($ret);
 if($num>0)
 {
