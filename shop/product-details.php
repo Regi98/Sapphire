@@ -571,7 +571,13 @@ $num=mysqli_num_rows($rt);
 										<div class="row">
 											<div class="col-sm-1 col-md-3 text-center">
 												<h1>
-													<?php echo htmlentities($one_decimal_place_average); ?>
+													<?php 
+														if(is_numeric($one_decimal_place_average)){
+															echo htmlentities($one_decimal_place_average); 
+														} else {
+															echo '0';
+														}
+													?>
 												</h1>
 												<h6 class="text-secondary">out of 5</h6>
 											</div>
