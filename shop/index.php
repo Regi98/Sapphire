@@ -72,6 +72,7 @@ $id= $_SESSION['id'];
 		<!-- NAVBAR -->
 		<link rel="stylesheet" href="distribution/vendor/bootstrap/css/bootstrap.min.css">
 		<!-- Font Awesome CSS-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 		<link rel="stylesheet" href="distribution/vendor/font-awesome/css/font-awesome.min.css">
 		<!-- Custom Font Icons CSS-->
 		<link rel="stylesheet" href="distribution/css/font.css">

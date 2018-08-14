@@ -76,7 +76,7 @@ $id= $_SESSION['id'];
 		<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
 		<!-- Demo Purpose Only. Should be removed in production : END -->
 
-		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 		<!-- Icons/Glyphs -->
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 

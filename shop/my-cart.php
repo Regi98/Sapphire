@@ -324,7 +324,7 @@ $_SESSION['pid']=$pdtid;
 	<!-- For demo purposes – can be removed on production -->
 	
 	<script src="switchstylesheet/switchstylesheet.js"></script>
-
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
     <!-- NAVBAR SCRIPTS -->
 	<script src="distribution/vendor/popper.js/umd/popper.min.js">
 	</script>

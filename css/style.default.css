@@ -147,8 +147,7 @@ pre {
 }
 
 .breadcrumb li.active {
-  /*color: #585a5f;*/
-  color:#fff;
+  color: #585a5f;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -207,11 +206,18 @@ pre {
 
 .page-content {
   position: relative;
-  background-image: url("../images/plane3.png");
+  background-image: url("../images/aircraft.jpg");
   min-height: 100vh;
   width: calc(100% - 260px);
   padding: 0;
-  color: #fff;
+  color: #585a5f;
+  /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h8{
@@ -220,7 +226,7 @@ h8{
 
 .page-content-home {
   position: relative;
-  background: #232323;
+  background: #EFEFEF;
   min-height: 100vh;
   width: 100%;
   padding: 0;
@@ -257,7 +263,7 @@ h8{
   color: #8a8d93;
   font-size: 1rem;
   min-width: 200px;
-  background: #232323;
+  background: #fff;
   border-radius: 0;
   padding: 0;
   /*margin-top: 21px;*/
@@ -400,7 +406,7 @@ i[class*='icon-'] {
 * ==========================================================
 */
 nav.navbar {
-  background: #232323;
+  background: #5E8BC4;
   color: #fff;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -413,10 +419,9 @@ nav.navbar .sidebar-toggle {
   line-height: 29px;
   text-align: center;
   border-radius: 50%;
-  background: #282b2f;
-  color: #8a8d93;
+  background: #88B6E1;
+  color: #fff;
   font-size: 1.1rem;
-  border: 2px solid #3d4148;
   outline: none;
 }
 
@@ -721,7 +726,7 @@ nav.navbar .dropdown .dropdown-menu.active {
 */
 nav#sidebar {
   width: 260px;
-  background: #e7e7e7;
+  background: #fff;
   color: #232323;
   /* shrinked navbar */
 }
@@ -792,7 +797,7 @@ nav#sidebar .avatar {
   overflow: hidden;
   margin-right: 15px;
   padding: 4px;
-  border: 3px solid #282b2f;
+  border: 3px solid #88B6E1;
 }
 
 nav#sidebar ul {
@@ -814,7 +819,7 @@ nav#sidebar li a {
 }
 
 nav#sidebar li a:hover {
-  background: #E7E7E7;
+  background: #fff;
 }
 
 nav#sidebar li a:hover i {
@@ -838,10 +843,10 @@ nav#sidebar li li a {
 nav#sidebar li li a:hover {
   background: #292c32;
 }
-
+ /*
 nav#sidebar li li a:hover i {
   color: #E7E7E7;
-}
+} */
 
 nav#sidebar li::before {
   content: '';
@@ -1575,7 +1580,7 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
   height: 100%;
   display: block;
   z-index: -1;
-  background: url(../img/bg.jpg);
+  background: url(../images/aircraft.jpg);
   background-size: cover;
   position: absolute;
   top: 0;
@@ -1609,6 +1614,7 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
 .login-page .form-holder .info {
   background: #232323;
   color: #fff;
+  opacity: 0.8;
 }
 
 .login-page .form-holder .info h1 {
@@ -1685,10 +1691,9 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
 * ==========================================================
 */
 .form-control {
-  border: 1px solid #444951;
   background: transparent;
   border-radius: 0;
-  color: #fff;
+  color: #585a5f;
 }
 
 .form-control::-moz-placeholder {
@@ -2668,7 +2673,6 @@ STYLE SWITCHER FOR DEMO
 .btn-outline-light:hover {
   color: #fff;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
 }
 
 .btn-outline-light:focus, .btn-outline-light.focus {
@@ -2762,7 +2766,7 @@ a {
 }
 
 a:focus, a:hover {
-  color: #c52e41;
+  color: #5E8BC4;
   text-decoration: underline;
 }
 
@@ -2985,7 +2989,14 @@ a.bg-success:focus, a.bg-success:hover {
 .bg-info {
   background-color: #17a2b8 !important;
 }
+.bg-default {
+  background-color: #DCDCDC !important;
+  color: #232323 !important;
+}
 
+a.bg-default:focus, a.bg-default:hover {
+  background-color: #DEDCDC !important;
+}
 a.bg-info:focus, a.bg-info:hover {
   background-color: #117a8b !important;
 }
@@ -3249,7 +3260,8 @@ pre code {
 }
 
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
-  border-color: #34373d;
+  color: #fff;
+  background-color: #bebebe;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -3258,9 +3270,8 @@ pre code {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #8a8d93;
-  background-color: #22252a;
-  border-color: #34373d;
+  color: #fff;
+  background-color: #88B6E1;
 }
 
 .nav-tabs .dropdown-menu {

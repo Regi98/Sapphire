@@ -1151,7 +1151,6 @@ a {
 }
 .top-cart-row .dropdown-cart .lnk-cart {
   padding: 0px;
-  border: 1px solid #e1e1e1;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -1163,7 +1162,7 @@ a {
 }
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .total-price-basket {
   padding: 13px 15px;
-  
+  color: #fff;
   text-transform: uppercase;
   float: left;
   background-color: #bababa;
@@ -1186,7 +1185,7 @@ a {
   right: 33px;
   top: -13px;
   width: 21px;
-  background: #071961;
+  background: #88B6E1;
   color: #fff;
   font-size: 13px;
   text-align: center;
@@ -1457,10 +1456,11 @@ a {
   -moz-border-radius: 0px;
   border-radius: 0px;
   color: #FFFFFF;
-  font-size: 13px;
+  font-size: 16px;
+  
   padding: 15px 17px;
   text-transform: uppercase;
-  background: #03132d;
+  background: #315b97;
 }
 .sidebar .side-menu .head .icon {
   margin-right: 20px;

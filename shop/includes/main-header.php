@@ -39,17 +39,7 @@ error_reporting(0);
 	<div class="main-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-4 logo-holder">
-					<!-- ============================================================= LOGO ============================================================= -->
-					<a href="index.php">
-						<img src="assets/images/logo.png" width="350" height="55">
-					</a>
-						<!-- <?php echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';?> -->
-
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-3 top-search-holder" style="margin-top:7px; margin-bottom: -15px;">
+				<div class="col-xs-12 col-sm-12 col-md-6 top-search-holder" style="margin-top:7px; margin-bottom: -15px;">
 					<div class="search-area">
 						<form name="search" method="post" action="search-result.php">
 							<div class="control-group">
@@ -65,22 +55,8 @@ echo '</pre>';?> -->
 					<!-- ============================================================= SEARCH AREA : END ============================================================= -->
 				</div>
 				<!-- /.top-search-holder -->
-				<div class="top-bar animate-dropdown">
-					<div class="container">
-						<div class="header-top-inner">
-							<div class="cnt-account">
-								<ul class="list-unstyled">
-
-								</ul>
-							</div>
-							<!-- /.cnt-account -->
-						</div>
-						<!-- /.header-top-inner -->
-					</div>
-					<!-- /.container -->
-				</div>
 				<!-- /.header-top -->
-				<div class="col-xs-12 col-sm-12 col-md-4 animate-dropdown top-cart-row">
+				<div class="col-xs-12 col-sm-12 col-md-6 animate-dropdown top-cart-row">
 
 					<!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 					<?php

@@ -105,7 +105,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                      $data = mysqli_query($con,"SELECT * FROM movies WHERE category_id = '3'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
-                       echo '<h8 class="my-content">New Releases</h8>
+                       echo '<h6 class="my-content">New Releases</h6>
                              <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -130,7 +130,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category_id = '2'");
                     $count = mysqli_num_rows($data);
                       if ($count != 0) {
-                       echo '<h8 class="my-content">Top Movies</h8>
+                       echo '<h6 class="my-content">Top Movies</h6>
                              <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -155,7 +155,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                     $data = mysqli_query($con,"SELECT * FROM movies WHERE category_id = '1'");
                     $count = mysqli_num_rows($data);
                       if ($count != 0) {
-                       echo '<h8 class="my-content">Featured</h8>
+                       echo '<h6 class="my-content">Featured</h6>
                              <div class="regular text-center">';
                         while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">

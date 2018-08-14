@@ -42,7 +42,7 @@ $id= $_SESSION['id'];
 		<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/myfont.css">
-
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 			<!-- NAVBAR -->
 		<link rel="stylesheet" href="distribution/vendor/bootstrap/css/bootstrap.min.css">
 		<!-- Font Awesome CSS-->

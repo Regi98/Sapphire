@@ -104,6 +104,7 @@ $id= $_SESSION['id'];
 		<!-- theme stylesheet-->
 		<link rel="stylesheet" href="distribution/css/style.default.css" id="theme-stylesheet">
 		<!-- Custom stylesheet - for your changes-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 		<link rel="stylesheet" href="distribution/css/custom.css">
 	</head>
 

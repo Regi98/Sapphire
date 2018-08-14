@@ -68,7 +68,7 @@ header('location:my-wishlist.php');
 
 		<!-- Demo Purpose Only. Should be removed in production -->
 		<link rel="stylesheet" href="assets/css/config.css">
-
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 		<link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
 		<link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
 		<link href="assets/css/red.css" rel="alternate stylesheet" title="Red color">

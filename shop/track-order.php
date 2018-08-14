@@ -20,6 +20,7 @@ window.print();
 <title>Order Tracking Details</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="anuj.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 </head>
 <body>
 

@@ -67,7 +67,7 @@ if(isset($_GET['oid'])){
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 		<link rel="stylesheet" href="assets/css/myfont.css">
-
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 		<!-- NAVBAR -->
 		<link rel="stylesheet" href="distribution/vendor/bootstrap/css/bootstrap.min.css">
 		<!-- Font Awesome CSS-->
