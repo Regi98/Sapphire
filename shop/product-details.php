@@ -222,7 +222,17 @@ while($row=mysqli_fetch_array($ret))
 											</a>
 										</div>
 										<?php } ?>
+										<!-- /.single-product-gallery-item -->
+										<?php if($row['product_image_4'] != 'noimage.jpg'){ ?>
+										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide4">
+											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_4']);?>">
+												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_4']);?>"
+												/>
+											</a>
+										</div>
+										<?php } ?>
 									</div>
+
 									<!-- /.single-product-slider -->
 
 
@@ -250,7 +260,13 @@ while($row=mysqli_fetch_array($ret))
 												</a>
 											</div>
 											<?php } ?>
-
+											<?php if($row['product_image_4'] != 'noimage.jpg'){ ?>
+											<div class="item">
+												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="4" href="#slide4">
+													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_4']);?>"/>
+												</a>
+											</div>
+											<?php } ?>
 
 
 
@@ -538,9 +554,9 @@ $num=mysqli_num_rows($rt);
 					<!-- /.col -->
 					<div class="clearfix"></div>
 
-					<div class="product-tabs inner-bottom-xs  wow fadeInUp ">
-						<div class="row">
-							<div class="col-sm-3 col-md-3">
+					<div class="product-tabs inner-bottom-xs  wow fadeInUp">
+						<div class="row" >
+							<div class="col-sm-3 col-md-3" style="margin-top:30px">
 								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
 									<li class="active">
 										<a data-toggle="tab" href="#generalreview">LATEST REVIEW</a>
@@ -551,7 +567,7 @@ $num=mysqli_num_rows($rt);
 								</ul>
 								<!-- /.nav-tabs #product-tabs -->
 							</div>
-							<div class="col-sm-9 col-md-9">
+							<div class="col-sm-9 col-md-9" style="margin-top:30px">
 
 								<div class="tab-content">
 
