@@ -328,8 +328,8 @@ img.stretchy {
 /* MODAL IN MOVIES MODAL */
 /* POPUP CSS START */
 .modal-content {
-	background-color: #151515 !important;
-	color: #ffffff !important;
+	background-color: #fff !important;
+	color: #002d66 !important;
 }
 .hide {
 	display: none;
@@ -484,7 +484,7 @@ PAYMENT METHODS
 .canvas {
   background: transparent;
   margin: -20px;
-  color: white;
+  color: #002d66;
   transition: all .5s ease;
   width: 100%;
 }
@@ -523,7 +523,7 @@ PAYMENT METHODS
 }
 
 .list a {
-  color: white;
+  color: #002D66;
   font-family: fantasy;
   text-decoration: none;
   font-size: 15px;
@@ -552,7 +552,7 @@ PAYMENT METHODS
  }
 
  #playlist li a {
-   color: white;
+   color: #002D66;
    text-decoration: none;
    font-size: 14px;
  }
