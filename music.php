@@ -216,7 +216,7 @@ echo'
             <td>
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" autostart="0" autostart="false" preload ="none"></audio>
-            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
+            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play play"></i>
             </td>
             <td>
             <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
