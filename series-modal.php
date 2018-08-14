@@ -101,13 +101,13 @@ $num=mysqli_fetch_assoc($results);
               echo '
                 <option value="" disabled selected>Select Category</option>
                 <option value="1">Action</option>
-                <option value="2">Kids</option>
+                <option value="2">Adventure</option>
                 <option value="3">Comedy</option>
                 <option value="4">Drama</option>
                 <option value="5">Horror</option>
                 <option value="6">Romance</option>
                 <option value="7">Sci-Fi &amp; Fantasy</option>
-                <option value="8">Adventure</option>'
+                <option value="8">Kids</option>'
               ?>
               </select>
             </div>
@@ -137,7 +137,7 @@ $num=mysqli_fetch_assoc($results);
             ?> </div><br>
            <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
@@ -251,7 +251,7 @@ $num=mysqli_fetch_assoc($results);
             ?> </div><br>
          <?php
             $dataid;
-                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='2'");
+                     $data = mysqli_query($con,"select *,series.id as series_id from series join series_cover_images on cover_image_id=series_cover_images.id where main_genre='8'");
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
@@ -348,7 +348,7 @@ echo '
             <!-- <button style="margin-top:1px; margin-left:3px;" data-toggle="tooltip" title="Play with Ads" class="btn btn-warning btn-sm pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play with Ads</button>
             <button style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="btn btn-success btn-sm pull-right series-video button-series-video" data-title="<?php echo ''.$row5['title'].'';?>">Play without Ads</button> -->
             <div style="margin-top:1px; margin-left:6px; margin-right:20px;" data-toggle="tooltip" title="Play with Ads" class="pull-right series-video" data-title="<?php echo ''.$row5['title'].'';?>"><img src="images/ads.png" width="33px"></div>
-            <div style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="pull-right button-series-video episode-title" data-id="<?php echo ''.$row5['id'].'';?>"  ><img src="images/playads.png" width="33px"></div>
+            <div style="margin-top:1px" data-toggle="tooltip" title="Play without Ads" class="pull-right button-series-video episode-title" data-id="<?php echo ''.$row5['id'].'';?>"  ><img src="images/crystalsads.png" width="33px"></div>
             <hr color="grey">
             <video class="hide" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['id'].'';?>" width="100%" controls controlsList="nodownload"></video>
             <video class="video_player hide series" src="../inflightapp/storage/app/public/series_videos/<?php echo ''.$row5['episode_video'].''; ?>" id="<?php echo ''.$row5['title'].''; ?>" width="100%" controls controlsList="nodownload" 

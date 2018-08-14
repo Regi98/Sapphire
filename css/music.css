@@ -483,8 +483,7 @@ PAYMENT METHODS
 /* Scroll Button for Series and Music */
 .canvas {
   background: transparent;
-  margin: 0;
-  padding: 0;
+  margin: -20px;
   color: white;
   transition: all .5s ease;
   width: 100%;
@@ -517,7 +516,6 @@ PAYMENT METHODS
 }
 
 .list {
-  background: #151515;
   overflow: auto;
   margin: 0;
   padding: 0;
@@ -556,6 +554,7 @@ PAYMENT METHODS
  #playlist li a {
    color: white;
    text-decoration: none;
+   font-size: 14px;
  }
 
  #playlist .current-song a {
@@ -565,3 +564,13 @@ PAYMENT METHODS
  audio {
    width: 100%;
  }
+.musicheader{
+  font-size: 15px;
+}
+.playlistcss{
+  font-size:14px;
+  padding: 0px 0px 0px 50px;
+}
+.trackscss{
+  width: 90%;
+}

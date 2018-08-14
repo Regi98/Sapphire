@@ -209,11 +209,11 @@ echo '
     </button>
 </div>
 <div class="col-xs-8 col-sm-8 col-md-8"><br>
-  <button class="btn btn-success btn-sm col-md-4 pull-right" id="inherit autoplay">
-      <strong>E-Wallet Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">'.$row2['ewallet_price'] .'
+  <button class="btn btn-dark btn-sm col-md-4 pull-right" id="inherit autoplay">
+      <strong>Price:</strong>&nbsp;<img src="img/dollar.png" width="15px" style="margin-top:-3px">&nbsp; $'.$row2['ewallet_price'] .' <br> <strong>Sapphires:</strong>&nbsp;<img src="images/gems.png" width="15px" style="margin-top:-3px">&nbsp;'.$row2['token_price'] .'
     </button>
 <h5><strong>'.$row2['title'] .'</strong></h5> 
-<p>'.$row2['release_date'] .'&nbsp;&nbsp;&nbsp;<i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['running_time'] .' mins</p>
+<p><span class="btn btn-sm btn-dark">'.$row2['content_rating'] .'</span>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;'.$row2['running_time'].'mins &nbsp;&nbsp;| <i class="fa fa-clock"></i>&nbsp;&nbsp;&nbsp;'.$row2['release_date'].'</p>
 <p>';
 
 $data6 = mysqli_query($con,"select genres.name from movies left join genre_movie on genre_movie.movie_id=movies.id join genres on genres.id=genre_movie.genre_id where movies.id=$hi");
@@ -229,11 +229,9 @@ $x = $x +1;
 }
 echo '
 </p>
-<p>'.$row2['content_rating'] .'</p>
 <p>'.$row2['movie_description'] .'</p>
 <p><strong>Director:</strong> '.$row2['director'] .'</p>
-<p>
-<strong>Cast:</strong> '.$row2['cast'] .'<br><br>
+<p><strong>Cast:</strong> '.$row2['cast'] .'<br><br>
 <button class="btn btn-sm btn-default watch-trailer">
 <i class="fa fa-play-circle">
 </i>&nbsp;Watch Trailer

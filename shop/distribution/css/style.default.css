@@ -694,6 +694,7 @@ nav#sidebar a {
   color: inherit;
   text-decoration: none;
   position: relative;
+  font-size: 1rem;
 }
 
 nav#sidebar a[data-toggle="collapse"]::after {
@@ -2819,7 +2820,7 @@ body {
 a {
   color: #232323;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 12.9px;
 }
 
 a:focus,

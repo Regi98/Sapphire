@@ -64,7 +64,7 @@ function goDoSomethingSeries(identifier){
 function goDoSomethingMusic(identifier) {
   var dataid = $(identifier).data('id');
 
-  window.location.href = "music-modal.php?id=" + dataid;
+  window.open('music-modal.php?id=' + dataid, '_blank');
 
 }
 
@@ -74,6 +74,7 @@ $('#season-number').on('change', function(){
   console.log(season_number+series_id);
 
   window.location.href = "series-modal.php?id=" + series_id+"&season="+season_number;
+
 });
 
 $(document).ready(function(){

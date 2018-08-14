@@ -130,18 +130,18 @@ $id= $_SESSION['id'];
 
 <div class="side-menu animate-dropdown outer-bottom-xs">       
 <div class="side-menu animate-dropdown outer-bottom-xs">
-    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i>Sub Categories</div>        
+    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i>Categories</div>        
     <nav class="yamm megamenu-horizontal" role="navigation">
   
         <ul class="nav">
             <li class="dropdown menu-item">
-              <?php $sql=mysqli_query($con,"select id,product_sub_category_name from product_sub_categories where product_category_id='$cid'");
+              <?php $sql=mysqli_query($con,"select id,product_category_name from product_categories");
 
 while($row=mysqli_fetch_array($sql))
 {
     ?>
                 <a href="sub-category.php?scid=<?php echo $row['id'];?>" class="dropdown-toggle"><i class="icon fas fa-star fa-fw"></i>
-                <?php echo $row['product_sub_category_name'];?></a>
+                <?php echo $row['product_category_name'];?></a>
                 <?php }?>
                         
 </li>
@@ -221,6 +221,82 @@ while ($row=mysqli_fetch_array($ret))
 		</div>	
 	</div>
 		</section>
+<section class="section featured-product wow fadeInUp" style="margin-top :-2em;">
+					<h3 class="section-title">Sponsored Items </h3>
+					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
+				
+
+						<?php 
+$qry=mysqli_query($con,"select * from products where product_sub_category_id='$cid'");
+while($rw=mysqli_fetch_array($qry))
+{
+
+			?>
+
+				<div class="item item-carousel">
+						<div class="col-md-12 col-12 wow fadeInUp">
+							<!-- <div class="products">
+												<div class="product">
+													<div class="product-image">
+														<div class="image"> -->
+							<div class="card">
+							<div class="containerview">
+							<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
+							<div class="overlay"></div>
+  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"> VIEW PRODUCT </a></div>
+							</div>
+								<!-- </div>
+														 /.image 
+
+
+													</div>
+												 /.product-image -->
+								<div class="card-body">
+
+									<div class="product-info text-left">
+										<h3 class="name">
+											<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>">
+												<?php echo htmlentities($rw['product_name']);?>
+											</a>
+										</h3>
+										<div class="rating rateit-small"></div>
+										<div class="description"></div>
+
+										<div class="product-price">
+											<span class="price">$
+												<?php echo htmlentities($rw['product_price']);?>
+											</span>
+											<span class="price-before-discount">
+												<strike>
+													<small>$
+														<?php echo htmlentities($rw['product_price_before_discount']);?>
+													</small>
+												</strike>
+											</span>
+											<span class="token_price pull-right">
+												<img src="assets/images/payments/tokens.png" width="18" height="18">
+												<?php echo htmlentities($rw['product_price_token']);?>
+											</span>
+										</div>
+										<!-- /.product-price -->
+
+									</div>
+									<!-- /.product-info -->
+								</div>
+								<!-- /.cart -->
+							</div>
+							<!-- /.product -->
+
+						</div>
+					</div>
+
+						<!-- /.item -->
+						<?php } ?>
+
+
+					</div>
+					<!-- /.home-owl-carousel -->
+				</section>
 
 <?php include('includes/footer.php');?>
 
