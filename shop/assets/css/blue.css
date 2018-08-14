@@ -234,19 +234,27 @@ a {
 .single-product .product-info .product-social-link .social-icons ul li a:focus {
   background: #03132d;
 }
-.single-product .product-tabs .nav.nav-tabs.nav-tab-cell li a:hover,
-.single-product .product-tabs .nav.nav-tabs.nav-tab-cell li a:focus {
-  background: #03132d;
+a:hover {
+  text-decoration: none !important;
 }
-.single-product .product-tabs .nav.nav-tabs.nav-tab-cell li a:hover:after,
-.single-product .product-tabs .nav.nav-tabs.nav-tab-cell li a:focus:after {
-  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #03132d;
+.nav.nav-tabs.nav-tab-cell li a:hover:after,
+.nav.nav-tabs.nav-tab-cell li a:focus:after {
+  text-decoration: none;
 }
-.single-product .product-tabs .nav.nav-tabs.nav-tab-cell li.active a {
+.nav.nav-tabs.nav-tab-cell li.active a {
   background: #315B97;
-  width:185px;
+  width:200px;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none !important;
 }
-.single-product .product-tabs .nav.nav-tabs.nav-tab-cell li.active a:after {
+.nav.nav-tabs.nav-tab-cell li a {
+  width:200px;
+  padding: 15px;
+  color: #232323;
+  text-decoration: none !important;
+}
+.nav.nav-tabs.nav-tab-cell li.active a:after {
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #03132d;
 }
 .cart .action .add-cart-button .btn.btn-primary.icon:hover,
@@ -386,19 +394,19 @@ a {
 .cnt-homepage .single-product .product-info-block .txt.txt-qty {
   color: #03132d;
 }
-.cnt-homepage .single-product .product-tabs .nav-tab-cell-detail {
+.cnt-homepage .nav-tab-cell-detail {
   border-bottom: none;
 }
-.cnt-homepage .single-product .product-tabs .nav-tab-cell-detail li {
+.cnt-homepage .nav-tab-cell-detail li {
   margin-right: 10px;
   padding: 0;
 }
-.cnt-homepage .single-product .product-tabs .nav-tab-cell-detail li a:hover,
-.cnt-homepage .single-product .product-tabs .nav-tab-cell-detail li a:focus {
+.cnt-homepage .nav-tab-cell-detail li a:hover,
+.cnt-homepage .nav-tab-cell-detail li a:focus {
   background: #03132d;
   border: 2px solid #03132d;
 }
-.cnt-homepage .single-product .product-tabs .nav-tab-cell-detail li.active a {
+.cnt-homepage .nav-tab-cell-detail li.active a {
   background: #03132d;
   border: 2px solid #03132d;
 }
@@ -441,4 +449,7 @@ a {
 }
 .terms-conditions-page .contact-form {
   color: #03132d;
+}
+.product-tabs {
+  list-style: none;
 }
