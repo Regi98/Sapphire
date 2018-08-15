@@ -156,7 +156,7 @@ while ($rw=mysqli_fetch_array($ret)) {
 			</div>
 			<!-- /.container -->
 		</div>
-		<!-- /.breadcrumb -->
+		<!-- /.breadcrumb --><br><br><br>
 		<div class="body-content outer-top-xs">
 			<div class='container'>
 				<div class='row single-product outer-bottom-sm '>
@@ -550,24 +550,27 @@ $num=mysqli_num_rows($rt);
 							</div>
 						</div>
 					</div>
-
+										</div>
 					<!-- /.col -->
 					<div class="clearfix"></div>
 
-					<div class="product-tabs inner-bottom-xs  wow fadeInUp">
-						<div class="row" >
-							<div class="col-sm-3 col-md-3" style="margin-top:30px">
-								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
-									<li class="active">
-										<a data-toggle="tab" href="#generalreview">LATEST REVIEW</a>
+					<div class="product-tabs inner-bottom-xs  wow fadeInUp ">
+						<div class="row">
+						<div class="col-sm-3 col-md-3" style="margin-top:30px">
+								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell text-center">
+									<li class="active review">
+										<a data-toggle="tab" href="#generalreview"><strong>LATEST REVIEW</strong></a>
 									</li>
-									<li>
-										<a data-toggle="tab" href="#review">ALL REVIEWS</a>
+									<li class="review">
+										<a data-toggle="tab" href="#review"><strong>ALL REVIEWS</strong></a>
 									</li>
 								</ul>
 								<!-- /.nav-tabs #product-tabs -->
 							</div>
-							<div class="col-sm-9 col-md-9" style="margin-top:30px">
+										</div>
+						<div class="row " >
+
+							<div class="col-sm-10 col-md-10 mx-auto" style="margin-top:30px">
 
 								<div class="tab-content">
 
@@ -669,7 +672,7 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<hr>
 											<br>
-											<a class="btn btn-sm btn-warning text-white" data-toggle="tab" href="#review">Write your own review</a>
+											<a class="btn btn-sm btn-warning text-white" data-toggle="tab" href="#review">Write your own review</a> <br><br>
 											<?php } ?>
 											<!-- /.reviews -->
 										</div>
@@ -833,14 +836,14 @@ $num=mysqli_num_rows($rt);
 						<!-- /.row -->
 					</div>
 					<!-- /.product-tabs -->
-				</div>
+				
 
 
 
 				<?php $cid=$row['product_category_id'];
 			$subcid=$row['product_sub_category_id']; } ?>
 				<!-- ============================================== UPSELL PRODUCTS ============================================== -->
-				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
+				<section class="section featured-product wow fadeInUp">
 					<h3 class="section-title">Related Products </h3>
 					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 				
@@ -970,7 +973,7 @@ while($rw=mysqli_fetch_array($qry))
 												</strike>
 											</span>
 											<span class="token_price pull-right">
-												<img src="assets/images/payments/tokens.png" width="18" height="18">
+												<img src="../images/gems.png" width="18" height="18">
 												<?php echo htmlentities($rw['product_price_token']);?>
 											</span>
 										</div>
@@ -993,6 +996,7 @@ while($rw=mysqli_fetch_array($qry))
 					</div>
 					<!-- /.home-owl-carousel -->
 				</section>
+				</div>
 			</div>
 		</div>
 		</div>

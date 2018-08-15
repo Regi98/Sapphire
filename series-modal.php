@@ -341,7 +341,7 @@ echo '
 $data5 = mysqli_query($con,"select * from series join seasons on series_id=series.id join episodes on season_id=seasons.id where episodes.series_id = $hi and seasons.season_number = $season_number");
 while($row5 = mysqli_fetch_array($data5)) {  
 echo '          
-          <p>&nbsp 0'.$row5['episode_number'].'. 
+          <p>&emsp;'.$row5['episode_number'].'. 
 
           <a class="col-7 col-md-9"> 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>

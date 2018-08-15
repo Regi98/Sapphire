@@ -211,8 +211,7 @@ pre {
   width: calc(100% - 260px);
   padding: 0;
   color: #585a5f;
-  /* Full height */
-    height: 100%; 
+  /* Full height */ 
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -4351,4 +4350,7 @@ blockquote.blockquote p {
   .blog-post .author {
     margin-bottom: 10px;
   }
+}
+.century-tuna {
+  font-family: 'Crimson Text', serif;
 }
