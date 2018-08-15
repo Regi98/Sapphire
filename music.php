@@ -219,7 +219,7 @@ echo'
             <i class="btn btn-outline-secondary btn-sm text-center fa fa-play play"></i>
             </td>
             <td>
-            <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
+            <a class="btn btn-outline-secondary btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
 										<i class="fa fa-plus fa-xs"></i>
                                     </a>
             </td>
@@ -288,11 +288,11 @@ echo'
 			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" autostart="0" autostart="false" preload ="none"></audio>
-            <i class="btn btn-outline-info btn-sm text-center fa fa-play play"></i>
+            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times fa-xs"></i>
+			<?php echo'<a class="btn btn-outline-secondary btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times fa-xs"></i>
 			</a>'?>
             </td>
             
