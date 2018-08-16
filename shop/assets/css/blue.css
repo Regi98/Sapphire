@@ -453,3 +453,6 @@ a:hover {
 .product-tabs {
   list-style: none;
 }
+.cart-item.product-summary {
+  color: #fff !important;
+}

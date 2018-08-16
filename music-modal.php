@@ -107,7 +107,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">New Albums Releases</h8>
+                            <h6 class="my-content">New Albums Releases</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -126,7 +126,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Top Albums of The Month</h8>
+                            <h6 class="my-content">Top Albums of The Month</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -145,7 +145,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Popular Albums</h8>
+                            <h6 class="my-content">Popular Albums</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
@@ -214,7 +214,7 @@ echo '
         <p class="song-duration">'.$song.'</p>
         </li>
     </ul>
-             <a class="btn btn-outline-info btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
+             <a class="btn btn-outline-secondary btn-sm pull-right" style="margin-top:-30px;" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['id'].'&&action=favorites">
 										<i class="fa fa-plus fa-xs"></i>
 									</a></div>
             </section>
@@ -231,7 +231,7 @@ echo '
 <table class="table">
 <tbody>
 <center>
-<h8>All Songs</h8>
+<h6>All Songs</h6>
 </center>
 <br>
 <tr class="musicheader">
@@ -275,10 +275,10 @@ echo'
             <td>
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" autostart="0" autostart="false" preload ="none"  ></audio>
-            <i class="btn btn-outline-info btn-sm text-center fa fa-play fa-xs play"></i>
+            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play fa-xs play"></i>
             </td>
             <td>
-            <a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
+            <a class="btn btn-outline-secondary btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
 										<i class="fa fa-plus fa-xs"></i>
                                     </a>
             </td>
@@ -301,7 +301,7 @@ echo'
 <table class="table">
 <tbody>
 <center>
-<h8>My Own Playlist</h8>
+<h6>My Own Playlist</h6>
 </center>
 <br>
 <tr class="musicheader">
@@ -345,11 +345,11 @@ echo'
 			<?php echo'
             <div class="play-wrap">
             <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" autostart="0" autostart="false" preload ="none" ></audio>
-            <i class="btn btn-outline-info btn-sm text-center fa fa-play fa-xs play"></i>
+            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play fa-xs play"></i>
             </div>'?>
             </td>
 			<td class=" close-btn">
-			<?php echo'<a class="btn btn-outline-info btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times fa-xs"></i>
+			<?php echo'<a class="btn btn-outline-secondary btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?del='.$row4['favorites_id'].'&&action=del"><i class="fa fa-times fa-xs"></i>
 			</a>'?>
             </td>
             
