@@ -14,7 +14,7 @@
             </a>
             <!-- Sidebar Toggle Btn-->
             <button class="sidebar-toggle">
-              <i class="fa fa-long-arrow-left"></i>
+            <i class="fa fa-bars"></i>
             </button>
           </div>
           <div class="right-menu list-inline no-margin-bottom">  
