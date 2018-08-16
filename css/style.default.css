@@ -3256,11 +3256,13 @@ pre code {
   border: 1px solid transparent;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  font-size: 13px;
 }
 
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
   color: #fff;
   background-color: #bebebe;
+  font-size: 13px;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -3271,6 +3273,7 @@ pre code {
 .nav-tabs .nav-item.show .nav-link {
   color: #fff;
   background-color: #88B6E1;
+  font-size: 13px;
 }
 
 .nav-tabs .dropdown-menu {

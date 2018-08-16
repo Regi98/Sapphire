@@ -92,13 +92,9 @@ if(strlen($_SESSION['login'])==0){   ?>
                 }
               }
             ?>
-      </div>
+                           </div>
 
-    </div>
-  
-      <!-- /.row -->
-        <div class="container-fluid">
-        <h8 class="my-content">Embedded Games</h8>
+              <h6 class="my-content">Embedded Games</h6>
         <br>
                 <div class="row text-center text-lg-left">
                  <div class="col-4 col-md-3" style="padding: 0;">
@@ -134,6 +130,12 @@ if(strlen($_SESSION['login'])==0){   ?>
                 </figure>
                 </div>
       </div>
+
+    </div>
+  
+      <!-- /.row -->
+
+  </div>
 <br>
      
     <!-- JavaScript files-->
