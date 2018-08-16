@@ -556,7 +556,7 @@ $num=mysqli_num_rows($rt);
 
 					<div class="product-tabs inner-bottom-xs  wow fadeInUp ">
 						<div class="row">
-						<div class="col-sm-3 col-md-3" style="margin-top:30px">
+						<div class="col-sm-3 col-md-3">
 								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell text-center">
 									<li class="active review">
 										<a data-toggle="tab" href="#generalreview"><strong>LATEST REVIEW</strong></a>
@@ -568,9 +568,9 @@ $num=mysqli_num_rows($rt);
 								<!-- /.nav-tabs #product-tabs -->
 							</div>
 										</div>
-						<div class="row " >
+						<div class="row">
 
-							<div class="col-sm-10 col-md-10 mx-auto" style="margin-top:30px">
+							<div class="col-sm-10 col-md-10 mx-auto" style="margin-top:30px;">
 
 								<div class="tab-content">
 
