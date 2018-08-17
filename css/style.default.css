@@ -2991,6 +2991,7 @@ a.bg-success:focus, a.bg-success:hover {
 .bg-default {
   background-color: #DCDCDC !important;
   color: #232323 !important;
+  border-radius: 10px;
 }
 
 a.bg-default:focus, a.bg-default:hover {
@@ -3026,6 +3027,7 @@ a.bg-light:focus, a.bg-light:hover {
 
 .bg-dark {
   background-color: #343a40 !important;
+  border-radius: 10px;
 }
 
 a.bg-dark:focus, a.bg-dark:hover {

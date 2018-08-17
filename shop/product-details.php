@@ -555,22 +555,22 @@ $num=mysqli_num_rows($rt);
 					<div class="clearfix"></div>
 
 					<div class="product-tabs inner-bottom-xs  wow fadeInUp ">
-						<div class="row">
-						<div class="col-sm-3 col-md-3">
+						<div class="row " id="menu-outer">
+						<div class="col-12 table">
 								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell text-center">
-									<li class="active review">
+									<li class="active review ">
 										<a data-toggle="tab" href="#generalreview"><strong>LATEST REVIEW</strong></a>
 									</li>
-									<li class="review">
+									<li class="review float-right">
 										<a data-toggle="tab" href="#review"><strong>ALL REVIEWS</strong></a>
 									</li>
 								</ul>
 								<!-- /.nav-tabs #product-tabs -->
 							</div>
-										</div>
+					</div>
 						<div class="row">
 
-							<div class="col-sm-10 col-md-10 mx-auto" style="margin-top:30px;">
+							<div class="col-12 mx-auto" style="margin-top:30px;">
 
 								<div class="tab-content">
 

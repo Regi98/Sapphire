@@ -99,18 +99,18 @@ if(strlen($_SESSION['login'])==0){   ?>
               <div class="megamenu">
                 <div class="row megamenu-buttons">
                   <div class="col-lg-3 col-md-4">
-                    <a href="#" class="d-block megamenu-button-link bg-info">
+                    <a href="#" class="d-block megamenu-button-link bg-dark">
                       <img src="images/gems.png" width="20px">&nbsp;&nbsp;&nbsp;<span>SPH/USD</span>
                       <strong>10,000</strong>
                     </a>
                   </div>
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-warning">
+                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-dark">
                   <img src="images/bitcoin.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BTC/USD</span>
                       <strong>7,348.20</strong></a></div>
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-success">
+                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-dark">
                   <img src="images/bitcoincash.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BCH/USD</span>
                       <strong>710.27</strong></a></div>
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-danger">
+                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-dark">
                   <img src="images/ethereum.png" width="15px">&nbsp;&nbsp;&nbsp;<span>ETH/USD</span>
                       <strong>400.55</strong></a></div>
                 </div>

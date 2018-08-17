@@ -251,47 +251,37 @@ $_SESSION['pid']=$pdtid;
 			</div>			
 <br>
 
-<div class="col-4 cart-shopping-total mt-3 text-right pull-right">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>
-					<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
-						Sub Total:<span class="inner-left-md"><?php
-						echo "$". number_format($_SESSION['tp']). ".00"; ?></span>
-					</div><br>
-					<div class="row">
-			<div class="col-9">
-				<h7 class="label">Ph Tax:&emsp;&emsp;</h7>
-			</div>
-			<div class="col-3">
-				<h7 class="label ph-tax">$0.00</h7>
-			</div>
+<div class="col-12 text-right pull-right">
+	<div class="row">
+		<div class="col-11">
+			<h7 class="label">Sub Total:&emsp;&emsp;</h7>
 		</div>
-		<div class="row">
-			<div class="col-9">
-					<h7 class="label">Service Charge:&emsp;&emsp;</h7>
-			</div>
-			<div class="col-3 ">
-				<h7 class="label service-charge">$0.00</h7>
-			</div>
-		</div><hr>
-			<div class="cart-grand-total ml-3" style="margin-bottom: -1em">
-						Grand Total:<span class="inner-left-md grand-total"></span>
-					</div>
-				</th>
-			</tr>
-		</thead><!-- /thead -->
-		<tbody>
-				<tr>
-					<td>
-						
-						<a type="submit" id="proceed-checkout" style="color:white;" class="btn btn-primary">PROCEED TO CHECKOUT</a>	
-					</td>
-				</tr>
-				
-		</tbody><!-- /tbody -->
-	</table></div>
+		<div class="col-1">
+			<h7 class="label ph-tax"><?php
+			echo "$". number_format($_SESSION['tp']). ".00"; ?></h7>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-11">
+			<h7 class="label">Ph Tax:&emsp;&emsp;</h7>
+		</div>
+		<div class="col-1">
+			<h7 class="label ph-tax">$0.00</h7>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-11">
+			<h7 class="label">Service Charge:&emsp;&emsp;</h7>
+		</div>
+		<div class="col-1 ">
+			<h7 class="label service-charge">$0.00</h7>
+		</div>
+	</div><hr>
+	<div class="cart-grand-total ml-3">
+		Grand Total:<span class="inner-left-md grand-total"></span>
+	</div><br>
+		<a type="submit" id="proceed-checkout" style="color:white;" class="btn btn-primary">PROCEED TO CHECKOUT</a>	
+	</div>
 	<?php } else {
 		echo "<br><p class='text-center'>Your Shopping Cart is empty</p>";
 		}?>
