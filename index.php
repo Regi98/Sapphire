@@ -54,9 +54,12 @@
                     </div>
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" placeholder="Password" required data-msg="Please enter your password" class="input-material">
-                    </div><input id="login" name="login_user" type="submit" value="Login" class="btn btn-primary">
+                    </div><input id="login" name="login_user" type="submit" value="Login" class="btn btn-primary float-right">
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass float-right">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.php" class="signup">Signup</a>
+                  </form><br><br>
+                  <div class="">
+                  <a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.php" class="signup">Signup</a>
+                  </div>
                 </div>
               </div>
             </div>
