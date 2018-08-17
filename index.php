@@ -40,35 +40,27 @@
         <div class="form-holder has-shadow">
           <div class="row">
             <!-- Logo & Information Panel-->
-            <div class="col-lg-6">
+            <div class="col-lg-6 mx-auto">
               <div class="info d-flex align-items-center">
                 <div class="content">
                   <div class="logo">
                     <img src="images/logo.png" width="100%">
                   </div>
-                </div>
-              </div>
-            </div>
-            <!-- Form Panel    -->
-            <div class="col-lg-6 bg-white">
-              <div class="form d-flex align-items-center">
-                <div class="content">
                   <form method="post" action="index.php">
                     <strong>
                     <?php include('errors.php'); ?></strong>
                     <div class="form-group">
-                      <input id="login-email" type="text" name="loginEmail" required data-msg="Please enter your email" class="input-material">
-                      <label for="login-email" class="label-material">E-mail</label>
+                      <input id="login-email" type="text" name="loginEmail" placeholder="E-mail" required data-msg="Please enter your email" class="input-material">
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
-                      <label for="login-password" class="label-material">Password</label>
+                      <input id="login-password" type="password" name="loginPassword" placeholder="Password" required data-msg="Please enter your password" class="input-material">
                     </div><input id="login" name="login_user" type="submit" value="Login" class="btn btn-primary">
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.php" class="signup">Signup</a>
+                  </form><a href="#" class="forgot-pass float-right">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.php" class="signup">Signup</a>
                 </div>
               </div>
             </div>
+            <!-- Form Panel    -->
           </div>
         </div>
       </div>
