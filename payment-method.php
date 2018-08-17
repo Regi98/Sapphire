@@ -126,7 +126,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                                            <div class="row block-blue">
                         <div class="col-4">
                           <img src="images/premium.png" class="pull-left" width=40px>
-                          <div class="paragraph">&nbsp; Amount</div>
+                          <div class="paragraph">Amount</div>
                         </div>
                         <div class="col-8">
                           <div class="paragraph pull-right"> &nbsp; $ &nbsp;1.50</div>

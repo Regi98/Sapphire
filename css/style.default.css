@@ -162,7 +162,7 @@ pre {
 }
 .block-white {
   padding: 20px;
-  color: #4f4f4f;
+  color: #4f4f4f !important;
   margin-bottom: 30px;
 }
 .block-gray {
@@ -390,8 +390,7 @@ i[class*='icon-'] {
 }
 .block-white .title strong:first-child {
   font-size: 1.25rem;
-  /*color: #4f4f4f;*/
-  color:#fff;
+  color: #4f4f4f;
 }
 
 .block .title span:first-child, .block-white .title span:first-child {
