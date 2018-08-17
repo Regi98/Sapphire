@@ -3837,13 +3837,12 @@ a {
   margin-left: 5px;
 }
 .product-tabs .tab-content .tab-pane .product-add-review .title {
-  color: #666666;
+  color: #232323;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   margin: 0 0 20px;
-  text-transform: uppercase;
-  
+  font-weight: bold;
 }
 .product-tabs .tab-content .tab-pane .product-add-review .review-table .table thead th {
   font-weight: normal;

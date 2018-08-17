@@ -574,8 +574,8 @@ $num=mysqli_num_rows($rt);
 
 								<div class="tab-content">
 
-									<div id="generalreview" class="tab-pane in active">
-										<h6>Ratings &amp; Reviews</h6>
+									<div id="generalreview" class="tab-pane in active mx-auto">
+										
 													<?php 
 														$qry=mysqli_query($con,"select * from productreviews where productId='$pid' order by reviewDate desc");
 														$num_reviews = mysqli_num_rows($qry);
@@ -588,7 +588,9 @@ $num=mysqli_num_rows($rt);
 														$one_decimal_place_average = number_format($average_rate, 1);
 													?>
 										<div class="row">
+										
 											<div class="col-sm-1 col-md-3 text-center">
+											<h6 class="text-center">Ratings &amp; Reviews</h6>
 												<h1>
 													<?php 
 														if(is_numeric($one_decimal_place_average)){
@@ -684,7 +686,7 @@ $num=mysqli_num_rows($rt);
 											<!-- /.product-reviews -->
 											<form role="form" class="cnt-form" name="review" method="post">
 												<div class="product-add-review">
-													<h4 class="title">Write your own review</h4>
+													<h4 class="title text-center">Write your own review</h4>
 													<div class="review-table">
 														<div class="table-responsive">
 															<table class="table table-bordered">
