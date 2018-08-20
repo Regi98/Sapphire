@@ -2,6 +2,8 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+$cryptoSPHQuery=mysqli_query($con,"select * from cryptocurrency where id=4");
+$rowSPH=mysqli_fetch_array($cryptoSPHQuery);
 $cid=intval($_GET['scid']);
 if(isset($_GET['action']) && $_GET['action']=="add"){
 	$id=intval($_GET['id']);
@@ -179,7 +181,12 @@ while ($row=mysqli_fetch_array($ret))
 			<div class="product-price">	
 				<span class="price">
 					$ <?php echo htmlentities($row['product_price']);?>			</span>
-										   <span class="price-before-discount"><strike><small>$<?php echo htmlentities($row['product_price_before_discount']);?></small></strike></span><span class="token_price pull-right"><img src="assets/images/payments/tokens.png" width="18" height="18"> <?php echo htmlentities($row['product_price_token']);?></span>		
+										   <span class="price-before-discount"><strike><small>$<?php echo htmlentities($row['product_price_before_discount']);?></small></strike></span><span class="token_price pull-right"><img src="assets/images/payments/tokens.png" width="18" height="18"> <?php 
+											$productPrice = floatval($row['product_price']);
+											$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+											$tokenPrice = $productPrice / $SPHValue;
+											$tokenPriceProduct = number_format($tokenPrice, 8);
+											echo htmlentities($tokenPriceProduct);?></span>		
 									
 			</div><!-- /.product-price -->
 			
@@ -275,7 +282,12 @@ while($rw=mysqli_fetch_array($qry))
 											</span>
 											<span class="token_price pull-right">
 												<img src="assets/images/payments/tokens.png" width="18" height="18">
-												<?php echo htmlentities($rw['product_price_token']);?>
+												<?php 
+												$productPrice = floatval($row['product_price']);
+												$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+												$tokenPrice = $productPrice / $SPHValue;
+												$tokenPriceProduct = number_format($tokenPrice, 8);
+												echo htmlentities($tokenPriceProduct);?>
 											</span>
 										</div>
 										<!-- /.product-price -->
