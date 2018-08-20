@@ -15,7 +15,8 @@ else{
 		$query=mysqli_query($con,"update shopusers set firstname='$firstname', lastname='$lastname',contactno='$contactno' where id='".$_SESSION['id']."'");
 		if($query)
 		{
-echo "<script>alert('Your info has been updated');</script>";
+header('Location: my-account.php');
+exit();
 		}
 	}
 
@@ -142,6 +143,8 @@ $id= $_SESSION['id'];
 										<!-- panel-body  -->
 										<div class="panel-body">
 											<div class="row">
+												<!-- <h4>Account Picture</h4>
+												<img src="	"> -->
 												<h4>Personal info</h4>
 												<div class="col-md-12 col-sm-12 already-registered-login">
 
@@ -157,7 +160,7 @@ while($row=mysqli_fetch_array($query))
 																	<span>*</span>
 																</label>
 																<input type="text" class="form-control unicase-form-control text-input" value="<?php echo $row['firstname'];?>" id="firstname" name="firstname"
-																    required="required">
+																    required="required" disabled pattern="[a-zA-Z0-9-\s]+">
 															</div>
 
 															<div class="form-group">
@@ -165,7 +168,7 @@ while($row=mysqli_fetch_array($query))
 																	<span>*</span>
 																</label>
 																<input type="text" class="form-control unicase-form-control text-input" value="<?php echo $row['lastname'];?>" id="lastname" name="lastname"
-																    required="required">
+																    required="required" disabled pattern="[a-zA-Z0-9-\s]+">
 															</div>
 
 
@@ -175,16 +178,17 @@ while($row=mysqli_fetch_array($query))
 																	<span>*</span>
 																</label>
 																<input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="<?php echo $row['email'];?>"
-																    readonly>
+																    disabled>
 															</div>
 															<div class="form-group">
 																<label class="info-title" for="Contact No.">Contact No.
 																	<span>*</span>
 																</label>
-																<input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" required="required"
-																    value="<?php echo $row['contactno'];?>" maxlength="10">
+																<input type="number" class="form-control unicase-form-control text-input" id="contactno" name="contactno" required="required"
+																    value="<?php echo $row['contactno'];?>" maxlength="11" disabled>
 															</div>
-															<button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button">Update</button>
+															<a id="btn-edit" class="btn-upper btn btn-info btn-edit" style="margin-top:15px; text-decoration: none;"><i class="fa-edit"></i> Edit</a>
+															<button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button hide btn-update">Update</button>
 														</form>
 														<?php } ?>
 												</div>
@@ -277,18 +281,24 @@ while($row=mysqli_fetch_array($query))
 		<script src="switchstylesheet/switchstylesheet.js"></script>
 
 		<script>
-			$(document).ready(function () {
-				$(".changecolor").switchstylesheet({
-					seperator: "color"
-				});
-				$('.show-theme-options').click(function () {
-					$(this).parent().toggleClass('open');
-					return false;
-				});
-			});
+			// $(document).ready(function () {
+			// 	$(".changecolor").switchstylesheet({
+			// 		seperator: "color"
+			// 	});
+			// 	$('.show-theme-options').click(function () {
+			// 		$(this).parent().toggleClass('open');
+			// 		return false;
+			// 	});
+			// });
 
-			$(window).bind("load", function () {
-				$('.show-theme-options').delay(2000).trigger('click');
+			// $(window).bind("load", function () {
+			// 	$('.show-theme-options').delay(2000).trigger('click');
+			// });
+			$('.btn-edit').on("click", function(){
+				$("#firstname, #lastname, #exampleInputEmail1, #contactno").removeAttr("disabled");
+				console.log("hi");
+				$('.btn-update').removeClass('hide');
+				$('.btn-edit').addClass('hide');
 			});
 		</script>
 	</body>
