@@ -56,8 +56,8 @@ $num=mysqli_fetch_assoc($results);
         <div class="sidebar-header d-flex align-items-center">
           <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5">Mikha Maun</h1>
-            <p>Economy Class</p>
+           <h6>Welcome Aboard,<h6>
+           <h1 class="h5"><?php echo htmlentities($_SESSION['name']);?></h1>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
