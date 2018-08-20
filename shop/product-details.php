@@ -909,7 +909,7 @@ while($rw=mysqli_fetch_array($qry))
 											<span class="token_price pull-right">
 												<img src="../images/gems.png" width="18" height="18">
 												<?php 
-												$productPrice = floatval($row['product_price']);
+												$productPrice = floatval($rw['product_price']);
 												$SPHValue = str_replace( ',', '', $rowSPH['value'] );
 												$tokenPrice = $productPrice / $SPHValue;
 												$tokenPriceProduct = number_format($tokenPrice, 8);
@@ -991,7 +991,7 @@ while($rw=mysqli_fetch_array($qry))
 											<span class="token_price pull-right">
 												<img src="../images/gems.png" width="18" height="18">
 												<?php 
-												$productPrice = floatval($row['product_price']);
+												$productPrice = floatval($rw['product_price']);
 												$SPHValue = str_replace( ',', '', $rowSPH['value'] );
 												$tokenPrice = $productPrice / $SPHValue;
 												$tokenPriceProduct = number_format($tokenPrice, 8);
