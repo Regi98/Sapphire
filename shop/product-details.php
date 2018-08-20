@@ -8,58 +8,60 @@ if(strlen($_SESSION['login'])==0){   ?>
 	</script>
 	<?php } else{ ?>
 	<?php include 'includes/connect.php';
-include('includes/config.php');
-if(isset($_POST['submitaddcart'])){
-	$id=$_POST['productId'];
-	$quantity=$_POST['quantity'];
-	if(isset($_SESSION['cart'][$id])){
-		$_SESSION['cart'][$id]['quantity']++;
-	}else{
-		$sql_p="SELECT * FROM products WHERE id={$id}";
-		$query_p=mysqli_query($con,$sql_p);
-		if(mysqli_num_rows($query_p)!=0){
-			$row_p=mysqli_fetch_array($query_p);
-			$_SESSION['cart'][$row_p['id']]=array("quantity" => $quantity, "price" => $row_p['product_price']);
-			header('location:my-cart.php');
-			exit();
-		}else{
-			$message="Product ID is invalid";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+	include('includes/config.php');
+		if(isset($_POST['submitaddcart'])){
+			$id=$_POST['productId'];
+			$quantity=$_POST['quantity'];
+			if(isset($_SESSION['cart'][$id])){
+				$_SESSION['cart'][$id]['quantity']++;
+			}else{
+				$sql_p="SELECT * FROM products WHERE id={$id}";
+				$query_p=mysqli_query($con,$sql_p);
+				if(mysqli_num_rows($query_p)!=0){
+					$row_p=mysqli_fetch_array($query_p);
+					$_SESSION['cart'][$row_p['id']]=array("quantity" => $quantity, "price" => $row_p['product_price']);
+					header('location:my-cart.php');
+					exit();
+				}else{
+					$message="Product ID is invalid";
+					echo "<script type='text/javascript'>alert('$message');</script>";
+				}
+			}
 		}
-	}
-}
-$pid=intval($_GET['pid']);
-if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
-	if(strlen($_SESSION['login'])==0)
-    {   
-header('location:login.php');
-}
-else
-{
-mysqli_query($con,"insert into wishlist(userId,productId) values('".$_SESSION['id']."','$pid')");
-echo "<script>alert('Product aaded in wishlist');</script>";
-header('location:my-wishlist.php');
+		$pid=intval($_GET['pid']);
+		if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
+			if(strlen($_SESSION['login'])==0)
+			{   
+		header('location:login.php');
+		}
+		else
+		{
+		mysqli_query($con,"insert into wishlist(userId,productId) values('".$_SESSION['id']."','$pid')");
+		echo "<script>alert('Product aaded in wishlist');</script>";
+		header('location:my-wishlist.php');
 
-}
-}
-if(isset($_POST['submit']))
-{
-	$rate=$_POST['rate'];
-	$name=$_POST['name'];
-	$summary=$_POST['summary'];
-	$review=$_POST['review'];
-	mysqli_query($con,"insert into productreviews(productId,rate,name,summary,review) values('$pid','$rate','$name','$summary','$review')");
-	$host=$_SERVER['HTTP_HOST'];
-	$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-	$location = basename($_SERVER['REQUEST_URI']);
-	header("location:http://$host$uri/$location");
-	exit();
-}
-$id= $_SESSION['id'];
-      $query = "SELECT * FROM shopusers WHERE id=$id";
-      $results = mysqli_query($con, $query);
-      $num=mysqli_fetch_assoc($results);
-
+		}
+		}
+		if(isset($_POST['submit']))
+		{
+			$rate=$_POST['rate'];
+			$name=$_POST['name'];
+			$summary=$_POST['summary'];
+			$review=$_POST['review'];
+			mysqli_query($con,"insert into productreviews(productId,rate,name,summary,review) values('$pid','$rate','$name','$summary','$review')");
+			$host=$_SERVER['HTTP_HOST'];
+			$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+			$location = basename($_SERVER['REQUEST_URI']);
+			header("location:http://$host$uri/$location");
+			exit();
+		}
+		$id= $_SESSION['id'];
+		$query = "SELECT * FROM shopusers WHERE id=$id";
+		$results = mysqli_query($con, $query);
+		$num=mysqli_fetch_assoc($results);
+		//SPH VALUE
+		$cryptoSPHQuery=mysqli_query($con,"select * from cryptocurrency where id=4");
+		$rowSPH=mysqli_fetch_array($cryptoSPHQuery);
 ?>
 	<!DOCTYPE html>
 	<html lang="en">
@@ -349,7 +351,12 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<div class="col-sm-9">
 												<div class="price-box">
-													<span class="price-token"><?php echo htmlentities($row['product_price_token']);?>
+													<span class="price-token"><?php 
+													$productPrice = floatval($prod_price);
+													$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+													$tokenPrice = $productPrice / $SPHValue;
+													$tokenPriceProduct = number_format($tokenPrice, 8);
+													echo htmlentities($tokenPriceProduct);?>
 													</span>
 												</div>
 											</div>
