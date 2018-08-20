@@ -560,10 +560,10 @@ $num=mysqli_num_rows($rt);
 										</div>
 					<!-- /.col -->
 					<div class="clearfix"></div>
-
+					<br>
 					<div class="product-tabs inner-bottom-xs  wow fadeInUp ">
 						<div class="row " id="menu-outer">
-						<div class="col-12 table">
+						<div class="col-11 table">
 								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell text-center">
 									<li class="active review ">
 										<a data-toggle="tab" href="#generalreview"><strong>LATEST REVIEW</strong></a>
@@ -577,7 +577,7 @@ $num=mysqli_num_rows($rt);
 					</div>
 						<div class="row">
 
-							<div class="col-12 mx-auto" style="margin-top:30px;">
+							<div class="col-10 mx-auto" style="margin-top:30px;">
 
 								<div class="tab-content">
 
