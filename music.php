@@ -169,20 +169,22 @@ if(strlen($_SESSION['login'])==0){   ?>
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
-<table class="table table-striped">
+<div class="table-responsive"> 
+<table class="table table-hover">
 <tbody>
 <center>
 <h6>All Songs</h6>
 </center>
 <br>
 <tr class="musicheader">
-      <th>TITLE</th>
-      <th>DURATION</th>
-      <th>ARTIST</th>
-      <th>ALBUM</th>
-      <th>GENRE</th>
-      <th>STATUS</th>
-      <th>FAVORITE</th>
+      <th class="col-md-3">TITLE</th>
+      <th class="col-md-3">DURATION</th>
+      <th class="col-md-3">ARTIST</th>
+      <th class="col-md-3">ALBUMS</th>
+      <th class="col-md-3">GENRE</th>
+      <th class="col-md-3">STATUS</th>
+      <th class="col-md-3">DELETE</th>
+
 </tr>
 <?php
 $data3 = mysqli_query($con,"select musics.music_song as song, musics.title as title, albums.album_name as album_name, artists.artist_name as artist_name, musics.id as music_id, musics.genre as genre from musics join albums on album_id=albums.id join artists on albums.artist_id=artists.id");
@@ -237,24 +239,27 @@ echo'
 			</table>
 			</div>
             </div>
+            </div>
 
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
-<table class="table table-striped">
+<div class="table-responsive"> 
+<table class="table table-hover">
 <tbody>
 <center>
 <h6>My Own Playlist</h6>
 </center>
 <br>
 <tr class="musicheader">
-      <th>TITLE</th>
-      <th>DURATION</th>
-      <th>ARTIST</th>
-      <th>ALBUM</th>
-      <th>GENRE</th>
-      <th>STATUS</th>
-      <th>DELETE</th>
+      <th class="col-md-3">TITLE</th>
+      <th class="col-md-3">DURATION</th>
+      <th class="col-md-3">ARTIST</th>
+      <th class="col-md-3">ALBUMS</th>
+      <th class="col-md-3">GENRE</th>
+      <th class="col-md-3">STATUS</th>
+      <th class="col-md-3">DELETE</th>
+
 </tr>
 <?php
 $data4 = mysqli_query($con,"select musics.id as music_id,favorites.id as favorites_id, albums.album_name as alname, artists.artist_name as aname, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from musics left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."' ORDER BY favorites.id ASC");
@@ -309,6 +314,7 @@ echo'
 			</div>
 </section>
 </div>
+            </div>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
