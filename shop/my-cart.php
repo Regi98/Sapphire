@@ -40,6 +40,10 @@ $id= $_SESSION['id'];
       $results = mysqli_query($con, $query);
       $num=mysqli_fetch_assoc($results);
 
+//SPH VALUE
+$cryptoSPHQuery=mysqli_query($con,"select * from cryptocurrency where id=4");
+$rowSPH=mysqli_fetch_array($cryptoSPHQuery);
+
 ?>
 
 <!DOCTYPE html>
@@ -224,22 +228,32 @@ if(!empty($_SESSION['cart'])){
 
 
 					<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?php 
-
 					$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['product_price']);
 					$quantity = $_SESSION['cart'][$row['id']]['quantity'];
 					$grand_total = number_format($quantity*$productPrice);
 
 					echo "$".$grand_total; ?>.00</span></td>
 
-					<td class="cart-product-csub-total"><span class="cart-sub-total-price"><img src="../images/gems.png" width="20px"><?php echo "".$row['product_price_token']; ?></span></td>
+					<td class="cart-product-csub-total"><span class="cart-sub-total-price"><img src="../images/gems.png" width="20px">
+							<?php
+								//SAPPHIRE PRICE
+								$productPrice = floatval($productPrice);
+								$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+								$tokenPrice = $productPrice / $SPHValue;
+								$tokenPriceProduct = number_format($tokenPrice, 8);
+								echo htmlentities($tokenPriceProduct);
+							?>
+						</span>
+					</td>
 
-					<td class="cart-product-cgrand-total"><span class="cart-grand-total-price"><img src="../images/gems.png" width="20px"><?php 
-
-					$productPrice = preg_replace('/[^A-Za-z0-9\-]/', '', $row['product_price_token']);
-					$quantity = $_SESSION['cart'][$row['id']]['quantity'];
-					$grand_total = number_format($quantity*$productPrice);
-
-					echo "".$grand_total; ?></span></td>
+					<td class="cart-product-cgrand-total"><span class="cart-grand-total-price"><img src="../images/gems.png" width="20px"> <?php
+								//SAPPHIRE PRICE
+								$productPrice = floatval($grand_total);
+								$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+								$tokenPrice = $productPrice / $SPHValue;
+								$tokenPriceProduct = number_format($tokenPrice, 8);
+								echo htmlentities($tokenPriceProduct);
+							?></td>
 				</tr>
 
 				<?php } }
