@@ -169,7 +169,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
-<table class="table">
+<table class="table table-bordered">
 <tbody>
 <center>
 <h6>All Songs</h6>
@@ -241,7 +241,7 @@ echo'
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
-<table class="table">
+<table class="table table-bordered">
 <tbody>
 <center>
 <h6>My Own Playlist</h6>
