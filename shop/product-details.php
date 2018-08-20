@@ -158,7 +158,7 @@ while ($rw=mysqli_fetch_array($ret)) {
 			</div>
 			<!-- /.container -->
 		</div>
-		<!-- /.breadcrumb -->
+		<!-- /.breadcrumb --><br><br><br>
 		<div class="body-content outer-top-xs">
 			<div class='container'>
 				<div class='row single-product outer-bottom-sm '>
@@ -207,7 +207,7 @@ while($row=mysqli_fetch_array($ret))
 											</a>
 										</div>
 										<!-- /.single-product-gallery-item -->
-										<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
+										<?php if($row['product_image_2'] != 'noimage.jpg' && $row['product_image_2'] != ''){ ?>
 										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide2">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"
@@ -216,7 +216,7 @@ while($row=mysqli_fetch_array($ret))
 										</div>
 										<?php } ?>
 										<!-- /.single-product-gallery-item -->
-										<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
+										<?php if($row['product_image_3'] != 'noimage.jpg'  && $row['product_image_3'] != ''){ ?>
 										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide3">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
@@ -225,7 +225,7 @@ while($row=mysqli_fetch_array($ret))
 										</div>
 										<?php } ?>
 										<!-- /.single-product-gallery-item -->
-										<?php if($row['product_image_4'] != 'noimage.jpg'){ ?>
+										<?php if($row['product_image_4'] != 'noimage.jpg'  && $row['product_image_4'] != ''){ ?>
 										<div class="single-product-gallery-item easyzoom easyzoom--overlay" id="slide4">
 											<a data-lightbox="image-1" data-title="Gallery" href="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_4']);?>">
 												<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_4']);?>"
@@ -247,14 +247,14 @@ while($row=mysqli_fetch_array($ret))
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_1']);?>"/>
 												</a>
 											</div>
-											<?php if($row['product_image_2'] != 'noimage.jpg'){ ?>
+											<?php if($row['product_image_2'] != 'noimage.jpg'  && $row['product_image_2'] != ''){ ?>
 											<div class="item">
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_2']);?>"/>
 												</a>
 											</div>
 											<?php } ?>
-											<?php if($row['product_image_3'] != 'noimage.jpg'){ ?>
+											<?php if($row['product_image_3'] != 'noimage.jpg'  && $row['product_image_3'] != ''){ ?>
 											<div class="item">
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_3']);?>"
@@ -262,7 +262,7 @@ while($row=mysqli_fetch_array($ret))
 												</a>
 											</div>
 											<?php } ?>
-											<?php if($row['product_image_4'] != 'noimage.jpg'){ ?>
+											<?php if($row['product_image_4'] != 'noimage.jpg'  && $row['product_image_4'] != ''){ ?>
 											<div class="item">
 												<a class="horizontal-thumb" data-target="#owl-single-product" data-slide="4" href="#slide4">
 													<img class="img-fluid" alt="" src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($row['product_image_4']);?>"/>
@@ -557,29 +557,32 @@ $num=mysqli_num_rows($rt);
 							</div>
 						</div>
 					</div>
-
+										</div>
 					<!-- /.col -->
 					<div class="clearfix"></div>
 
-					<div class="product-tabs inner-bottom-xs  wow fadeInUp">
-						<div class="row" >
-							<div class="col-sm-3 col-md-3" style="margin-top:30px">
-								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
-									<li class="active">
-										<a data-toggle="tab" href="#generalreview">LATEST REVIEW</a>
+					<div class="product-tabs inner-bottom-xs  wow fadeInUp ">
+						<div class="row " id="menu-outer">
+						<div class="col-12 table">
+								<ul id="product-tabs" class="nav nav-tabs nav-tab-cell text-center">
+									<li class="active review ">
+										<a data-toggle="tab" href="#generalreview"><strong>LATEST REVIEW</strong></a>
 									</li>
-									<li>
-										<a data-toggle="tab" href="#review">ALL REVIEWS</a>
+									<li class="review float-right">
+										<a data-toggle="tab" href="#review"><strong>ALL REVIEWS</strong></a>
 									</li>
 								</ul>
 								<!-- /.nav-tabs #product-tabs -->
 							</div>
-							<div class="col-sm-9 col-md-9" style="margin-top:30px">
+					</div>
+						<div class="row">
+
+							<div class="col-12 mx-auto" style="margin-top:30px;">
 
 								<div class="tab-content">
 
-									<div id="generalreview" class="tab-pane in active">
-										<h6>Ratings &amp; Reviews</h6>
+									<div id="generalreview" class="tab-pane in active mx-auto">
+										
 													<?php 
 														$qry=mysqli_query($con,"select * from productreviews where productId='$pid' order by reviewDate desc");
 														$num_reviews = mysqli_num_rows($qry);
@@ -592,7 +595,9 @@ $num=mysqli_num_rows($rt);
 														$one_decimal_place_average = number_format($average_rate, 1);
 													?>
 										<div class="row">
+										
 											<div class="col-sm-1 col-md-3 text-center">
+											<h6 class="text-center">Ratings &amp; Reviews</h6>
 												<h1>
 													<?php 
 														if(is_numeric($one_decimal_place_average)){
@@ -676,7 +681,7 @@ $num=mysqli_num_rows($rt);
 											</div>
 											<hr>
 											<br>
-											<a class="btn btn-sm btn-warning text-white" data-toggle="tab" href="#review">Write your own review</a>
+											<a class="btn btn-sm btn-warning text-white" data-toggle="tab" href="#review">Write your own review</a> <br><br>
 											<?php } ?>
 											<!-- /.reviews -->
 										</div>
@@ -688,7 +693,7 @@ $num=mysqli_num_rows($rt);
 											<!-- /.product-reviews -->
 											<form role="form" class="cnt-form" name="review" method="post">
 												<div class="product-add-review">
-													<h4 class="title">Write your own review</h4>
+													<h4 class="title text-center">Write your own review</h4>
 													<div class="review-table">
 														<div class="table-responsive">
 															<table class="table table-bordered">
@@ -840,14 +845,14 @@ $num=mysqli_num_rows($rt);
 						<!-- /.row -->
 					</div>
 					<!-- /.product-tabs -->
-				</div>
+				
 
 
 
 				<?php $cid=$row['product_category_id'];
 			$subcid=$row['product_sub_category_id']; } ?>
 				<!-- ============================================== UPSELL PRODUCTS ============================================== -->
-				<section class="section featured-product wow fadeInUp" style="margin-top :-4em;">
+				<section class="section featured-product wow fadeInUp">
 					<h3 class="section-title">Related Products </h3>
 					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 				
@@ -946,7 +951,7 @@ while($rw=mysqli_fetch_array($qry))
 							<div class="containerview">
 							<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
 							<div class="overlay"></div>
-  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"> VIEW PRODUCT </a></div>
+  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>"> VIEW PRODUCT </a></div>
 							</div>
 								<!-- </div>
 														 /.image 
@@ -1000,6 +1005,7 @@ while($rw=mysqli_fetch_array($qry))
 					</div>
 					<!-- /.home-owl-carousel -->
 				</section>
+				</div>
 			</div>
 		</div>
 		</div>

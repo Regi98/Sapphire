@@ -121,7 +121,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Action TV Shows</h8>
+                            <h6 class="my-content">Action TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -141,7 +141,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Adventure TV Shows</h8>
+                            <h6 class="my-content">Adventure TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '    
@@ -160,7 +160,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Comedy TV Shows</h8>
+                            <h6 class="my-content">Comedy TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -179,7 +179,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Drama TV Shows</h8>
+                            <h6 class="my-content">Drama TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '
@@ -198,7 +198,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Horror TV Shows</h8>
+                            <h6 class="my-content">Horror TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '   
@@ -217,7 +217,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Romantic TV Shows</h8>
+                            <h6 class="my-content">Romantic TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '      
@@ -236,7 +236,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Sci-Fi & Fantasy TV Shows</h8>
+                            <h6 class="my-content">Sci-Fi & Fantasy TV Shows</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '                         
@@ -255,7 +255,7 @@ $num=mysqli_fetch_assoc($results);
                       $count = mysqli_num_rows($data);
                       if ($count != 0) {
                        echo '
-                            <h8 class="my-content">Kids TV</h8>
+                            <h6 class="my-content">Kids TV</h6>
                              <div class="regular text-center">';
                       while($row = mysqli_fetch_array($data)) { 
                             echo '                         
@@ -341,7 +341,7 @@ echo '
 $data5 = mysqli_query($con,"select * from series join seasons on series_id=series.id join episodes on season_id=seasons.id where episodes.series_id = $hi and seasons.season_number = $season_number");
 while($row5 = mysqli_fetch_array($data5)) {  
 echo '          
-          <p>&nbsp 0'.$row5['episode_number'].'. 
+          <p>&emsp;'.$row5['episode_number'].'. 
 
           <a class="col-7 col-md-9"> 
             Episode '.$row5['episode_number'].'&nbsp - '.$row5['title'].' </a> '; ?>

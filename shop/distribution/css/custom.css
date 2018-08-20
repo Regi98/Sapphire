@@ -220,3 +220,17 @@
 .containerview:hover .button {
     opacity: 1;
 }
+
+.table {
+	display: table;   
+	margin: 0 auto;
+}
+
+ul#product-tabs {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#product-tabs li {
+		display: inline;
+	}

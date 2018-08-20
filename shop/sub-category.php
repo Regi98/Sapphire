@@ -221,7 +221,7 @@ while ($row=mysqli_fetch_array($ret))
 	
 		    
 </section>
-<section class="section featured-product wow fadeInUp" style="margin-top :-2em;">
+<section class="section featured-product wow fadeInUp" style="margin-top : 200px;">
 					<h3 class="section-title">Sponsored Items </h3>
 					<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 				
@@ -243,7 +243,7 @@ while($rw=mysqli_fetch_array($qry))
 							<div class="containerview">
 							<img src="assets/images/blank.gif" data-echo="../../inflightapp/storage/app/public/product_images/<?php echo htmlentities($rw['product_image_1']);?>" alt="" class="img-fluid" width="100%" height="100%">
 							<div class="overlay"></div>
-  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"> VIEW PRODUCT </a></div>
+  							<div class="card-img-top button"><a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>"> VIEW PRODUCT </a></div>
 							</div>
 								<!-- </div>
 														 /.image 

@@ -10,7 +10,7 @@
 }
 
 .box .icon-cont {
-    border: 6px solid rgba(255, 255, 255, 0.3);
+    border: 6px solid rgba(43, 43, 43, 0.3);
     border-radius: 50%;
     width: 75px;
     height: 75px;
@@ -25,7 +25,7 @@
 }
 
 .box .icon-cont i {
-    color: #fff;
+    color: #232323;
     opacity: 0.7;
     font-size: 2.7em;
     line-height: 65px;
@@ -85,8 +85,8 @@
 }
 
 .box h3 {
-    color: #fff;
-    font-family: 'Open Sans', Arial, sans-serif;
+    color: #232323;
+    font-family: 'Muli', sans-serif;
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -100,8 +100,8 @@
 }
 
 .box ul {
-    font-family: 'Open Sans', Arial, sans-serif;
-    color: #fff;
+    font-family: 'Muli', sans-serif;
+    color: #232323;
     font-size: 13px;
     line-height: 28px;
     text-indent: 14px;
