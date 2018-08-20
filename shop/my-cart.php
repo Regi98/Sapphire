@@ -267,14 +267,8 @@ $_SESSION['pid']=$pdtid;
 
 <div class="col-12 text-right pull-right">
 	<div class="row">
-		<div class="col-9">
-			<h7 class="label">Sub Total:&emsp;&emsp;</h7>
-		</div>
-		<div class="col-1">
-			<h7 class="label ph-tax"><?php
-			echo "$". number_format($_SESSION['tp']). ".00"; ?></h7>
-		</div>											
-		<div class="col-1">
+										
+		<div class="col-11">
 			<h7 class="label">Sub Total:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1">
@@ -283,7 +277,7 @@ $_SESSION['pid']=$pdtid;
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-1">
+		<div class="col-11">
 			<h7 class="label">Ph Tax:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1">
@@ -291,7 +285,7 @@ $_SESSION['pid']=$pdtid;
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-1">
+		<div class="col-11">
 			<h7 class="label">Service Charge:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1 ">
