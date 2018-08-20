@@ -61,11 +61,16 @@ function goDoSomethingSeries(identifier){
          window.location.href = "series-modal.php?id=" + dataid+"&season=1";
              
          }
-function goDoSomethingMusic(identifier) {
+function openMusic(identifier) {
   var dataid = $(identifier).data('id');
 
   window.open('music-modal.php?id=' + dataid, '_blank');
 
+}
+function goDoSomethingMusicModal(identifier) {
+  var dataid = $(identifier).data('id');
+
+  window.location.href = 'music-modal.php?id=' + dataid;
 }
 
 $('#season-number').on('change', function(){

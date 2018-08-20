@@ -118,7 +118,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
-                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
+                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="openMusic(this);"></i>
                                             <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
                                 $dataid = $row['id'];  
@@ -137,7 +137,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
-                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
+                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="openMusic(this);"></i>
                                             <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
                                 $dataid = $row['id'];  
@@ -156,7 +156,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                       while($row = mysqli_fetch_array($data)) { 
                             echo '<div class="snip1205">
                                         <img src="../inflightapp/storage/app/public/cover_images/'. $row['cover_image'] .'" class="stretchy">
-                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="goDoSomethingMusic(this);"></i>
+                                            <i class="fa fa-caret-right" id="trigger" class="identifyingClass" data-id="'. $row['album_id'] .'" data-toggle="modal" data-target="#myModal" onclick="openMusic(this);"></i>
                                             <a class="clean-link movie-label" href="#"" id="album_name">'. $row['album_name'] .'</a>
                                 </div>';
                                 $dataid = $row['id'];  
@@ -169,7 +169,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 <!--tracks tabs-->
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
-<table class="table">
+<table class="table table-striped">
 <tbody>
 <center>
 <h6>All Songs</h6>
@@ -241,7 +241,7 @@ echo'
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
-<table class="table">
+<table class="table table-striped">
 <tbody>
 <center>
 <h6>My Own Playlist</h6>
