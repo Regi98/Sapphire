@@ -224,7 +224,7 @@ while($row=mysqli_fetch_array($query))
                     <img src="../img/pay3.png" width=40px> &nbsp;
               </div>
               <div class="col-12 col-md-3">
-                <input type="radio" class="token" id="paymethod" name="paymethod" value="Sapphire Crystals">Sapphire Crystals
+                <input type="radio" class="token" id="paymethod" name="paymethod" value="TOKENS">Sapphire Crystals
                 <div class="payment-col" id="token">
                   <img src="../images/crystal.png">
                 </div>

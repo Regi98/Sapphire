@@ -10,9 +10,9 @@ $query = "SELECT * FROM shopusers WHERE id='$id'";
 $results = mysqli_query($con, $query);
 $num=mysqli_fetch_assoc($results);
 $method=$_POST['method'];
-if($method == 'E Wallet'){
+if($method == 'EWALLET'){
   $balance=$num['ewallet'];
-} else{
+} else if($method == 'TOKENS'){
   $balance=$num['tokens'];
 }
 $firstname = $_SESSION['name'];
