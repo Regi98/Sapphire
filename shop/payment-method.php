@@ -112,7 +112,12 @@ if (isset($_GET['id'])) {
       <li class="breadcrumb-item active">Payment Method</li>
     </ul> -->
 </div>
-  <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-70px">
+										<?php $query=mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
+$cnt=1;
+$num=mysqli_num_rows($query);
+if($num>0){?>
+
+	  <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-70px">
   <h4>ORDER DETAILS</h4>
   <div class="shopping-cart">
 					<div class="col-md-12 col-sm-12 shopping-cart-table ">
@@ -137,15 +142,13 @@ if (isset($_GET['id'])) {
 									<!-- /thead -->
   
 									<tbody>
-										<?php $query=mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
-$cnt=1;
-$num=mysqli_num_rows($query);
-if($num>0){
-	$_SESSION['totalpprice'] = 0;
+
+	<?php
+	$totalproductprice = 0;
 while($row=mysqli_fetch_array($query))
 {
 	$price=$row['pprice'];
-	$_SESSION['totalpprice'] = $_SESSION['totalpprice'] + ($qty*$price);
+	$totalproductprice = $totalproductprice + ($qty*$price);
 ?>
 
 										<tr>
@@ -297,7 +300,7 @@ while($row=mysqli_fetch_array($query))
 
 			//TAX PERCENTAGE
 			var taxvalue = 0.<?php echo $rowTax['value']; ?>;
-			var totalpprice = <?php echo $_SESSION['totalpprice']; ?>;
+			var totalpprice = <?php echo $totalproductprice; ?>;
 			var totalppricee = parseInt(totalpprice.toString().replace(/,/g , ""));
 			//TAX
 			var taxOneQty = totalppricee * taxvalue;
@@ -362,7 +365,7 @@ while($row=mysqli_fetch_array($query))
 					No: {
 						text: 'No', // With spaces and symbols
 						action: function () {
-							$.alert('Order not successful');
+							$.alert('Order Unsuccessful');
 						}
 					}
 				}
