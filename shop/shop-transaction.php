@@ -58,50 +58,25 @@ $t_out = $totalpprice;
       $stmt1->bindparam(':id', $id);
       $stmt1->bindparam(':balance', $balance);
 
-      if($stmt1->execute())
-      {
+      if($stmt1->execute()){
         $DBcon->commit();
         $res="1";
         echo json_encode($res);
-
-      }
-      else {
+      } else {
         $error="Not Inserted,Some Problem occur.";
         echo json_encode($error);
       }
 
-    }
-    else {
+    } else {
       $error="Not Inserted,Some Problem occur.";
       echo json_encode($error);
     }
 
-  }
-  else {
+  } else {
     $error="Not Inserted,Some Probelm occur.";
     echo json_encode($error);
   }
 
-
-  // $stmt2 = $DBcon->prepare("insert into mvownership(user_id, user, movie_id, movie_title) values(:idno, :fullname, :movieid, :movietitle)");
-
-  // $stmt2->bindparam(':idno', $id);
-  // $stmt2->bindparam(':fullname', $fullname);
-  // $stmt2->bindparam(':movieid', $movieid);
-  // $stmt2->bindparam(':movietitle', $movietitle);
-  
-
-
-  // if($stmt2->execute())
-  // {
-  //   $res="Data Inserted Successfully:";
-  //   echo json_encode($res);
-
-  // }
-  // else {
-  //   $error="Not Inserted,Some Problem occur.";
-  //   echo json_encode($error);
-  // }
  } else {
   $error="2";
   echo json_encode($error);
