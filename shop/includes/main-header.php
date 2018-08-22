@@ -1,5 +1,4 @@
 <?php 
-error_reporting(0);
  if(isset($_Get['action'])){
 		if(!empty($_SESSION['cart'])){
 		foreach($_POST['quantity'] as $key => $val){
@@ -37,6 +36,7 @@ error_reporting(0);
 // echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';
+
 	?>
 	<div class="main-header">
 		<div class="container">

@@ -41,12 +41,6 @@ if (isset($_GET['id'])) {
 		;
 
 	}
-	//TAX
-	$chTaxQuery=mysqli_query($con,"select * from charges where id=1");
-	$rowTax=mysqli_fetch_array($chTaxQuery);
-	//CURRENCY
-	$chCurQuery=mysqli_query($con,"select * from charges where id=3");
-	$rowCur=mysqli_fetch_array($chCurQuery);
 	?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,6 +141,7 @@ if($num>0){?>
 while($row=mysqli_fetch_array($query))
 {
 	$price=$row['pprice'];
+	$qty=$row['qty'];
 	$totalproductprice = $totalproductprice + ($qty*$price);
 ?>
 
@@ -169,7 +164,7 @@ while($row=mysqli_fetch_array($query))
 
 											</td>
 											<td class="cart-product-quantity">
-												<?php echo $qty=$row['qty']; ?>
+												<?php echo $qty; ?>
 											</td>
 											<td class="cart-product-sub-total">
 												<?php echo $price=$row['pprice']; ?> </td>
@@ -210,7 +205,7 @@ while($row=mysqli_fetch_array($query))
                 </div>
 				<p>You can top up your wallets with scratch cards!</p>
 				 <div class="list-inline-item logout">
-             	 <span class="pull-right"><img src="../img/dollar.png" width="20px"> &nbsp; $<?php echo $num['ewallet']; ?></span>
+             	 <span class="pull-right"><img src="../img/dollar.png" width="20px"> &nbsp; <?php echo htmlspecialchars_decode($rowCur['symbol']); ?><?php echo $account['ewallet']; ?></span>
            		 </div>
               </div>
               <div class="col-12 col-md-3 payment">
@@ -230,7 +225,7 @@ while($row=mysqli_fetch_array($query))
                 </div>
 				<p>Buy with our new Sapphire Crystals!</p>
 				<div class="list-inline-item logout">
-            	<span class="pull-right"><img src="../images/gems.png" width="30px"> &nbsp; <?php echo $num['tokens']; ?>&nbsp;&nbsp;</span>
+            	<span class="pull-right"><img src="../images/gems.png" width="30px"> &nbsp; <?php echo $account['tokens']; ?>&nbsp;&nbsp;</span>
            		</div>
               </div>
           </div>
