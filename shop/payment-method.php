@@ -134,7 +134,6 @@ if($num>0){?>
 											<th class="cart-qty item">Quantity</th>
 											<th class="cart-sub-total item">Price Per unit</th>
 											<th class="cart-total">Total Price:</th>
-											<th class="cart-total item">Payment Method</th>
 											<th class="cart-description item">Order Date &amp;Time</th>
 											<th class="cart-total last-item">Action</th>
 										</tr>
@@ -177,8 +176,6 @@ while($row=mysqli_fetch_array($query))
 											<td class="cart-product-grand-total">
 												<?php echo ($qty*$price);?>
 											</td>
-											<td class="cart-product-sub-total">
-												<?php echo $row['paym']; ?> </td>
 											<td class="cart-product-sub-total">
 												<?php echo $row['odate']; ?> </td>
 
