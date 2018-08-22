@@ -108,7 +108,7 @@ $id= $_SESSION['id'];
 
 											<th class="cart-qty item">Quantity</th>
 											<th class="cart-sub-total item">Price Per unit</th>
-											<th class="cart-total">Grand Total</th>
+											<th class="cart-total">Total Price:</th>
 											<th class="cart-total item">Payment Method</th>
 											<th class="cart-description item">Order Date &amp;Time</th>
 											<th class="cart-total last-item">Action</th>
@@ -131,7 +131,7 @@ while($row=mysqli_fetch_array($query))
 											</td>
 											<td class="cart-image">
 												<a class="entry-thumbnail" href="detail.html">
-													<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pimg1'];?>"  width="40%" height="40%">
+													<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pimg1'];?>"  width="60px" height="60px">
 												</a>
 											</td>
 											<td class="cart-product-name-info">

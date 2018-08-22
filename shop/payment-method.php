@@ -34,6 +34,19 @@ if(isset($_GET['oid'])){
 			}
 		}
 }
+
+if (isset($_GET['id'])) {
+
+		mysqli_query($con,"delete from orders  where userId='".$_SESSION['id']."' and paymentMethod is null and id='".$_GET['id']."' ");
+		;
+
+	}
+	//TAX
+	$chTaxQuery=mysqli_query($con,"select * from charges where id=1");
+	$rowTax=mysqli_fetch_array($chTaxQuery);
+	//CURRENCY
+	$chCurQuery=mysqli_query($con,"select * from charges where id=3");
+	$rowCur=mysqli_fetch_array($chCurQuery);
 	?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,13 +112,99 @@ if(isset($_GET['oid'])){
       <li class="breadcrumb-item active">Payment Method</li>
     </ul> -->
 </div>
+  <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-70px">
+  <h4>ORDER DETAILS</h4>
+  <div class="shopping-cart">
+					<div class="col-md-12 col-sm-12 shopping-cart-table ">
+						<div class="table-responsive">
+							<form name="cart" method="post">
+  
+								<table class="table table-bordered table-hover table-condensed">
+									<thead class="cart-item product-summary thead-dark">
+										<tr>
+											<th class="cart-romove item">#</th>
+											<th class="cart-description item">Image</th>
+											<th class="cart-product-name item">Product Name</th>
+  
+											<th class="cart-qty item">Quantity</th>
+											<th class="cart-sub-total item">Price Per unit</th>
+											<th class="cart-total">Total Price:</th>
+											<th class="cart-total item">Payment Method</th>
+											<th class="cart-description item">Order Date &amp;Time</th>
+											<th class="cart-total last-item">Action</th>
+										</tr>
+									</thead>
+									<!-- /thead -->
+  
+									<tbody>
+										<?php $query=mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
+$cnt=1;
+$num=mysqli_num_rows($query);
+if($num>0){
+	$_SESSION['totalpprice'] = 0;
+while($row=mysqli_fetch_array($query))
+{
+	$price=$row['pprice'];
+	$_SESSION['totalpprice'] = $_SESSION['totalpprice'] + ($qty*$price);
+?>
 
-  <div class="container h-100 justify-content-center align-items-center text-center" style="margin-top:-60px">
+										<tr>
+											<td>
+												<?php echo $cnt;?>
+											</td>
+											<td class="cart-image">
+												<a class="entry-thumbnail" href="detail.html">
+													<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pimg1'];?>"  width="60px" height="60px">
+												</a>
+											</td>
+											<td class="cart-product-name-info">
+												<h4 class='cart-product-description'>
+													<a href="product-details.php?pid=<?php echo $row['opid'];?>">
+														<?php echo $row['pname'];?>
+													</a>
+												</h4>
+
+
+											</td>
+											<td class="cart-product-quantity">
+												<?php echo $qty=$row['qty']; ?>
+											</td>
+											<td class="cart-product-sub-total">
+												<?php echo $price=$row['pprice']; ?> </td>
+											<td class="cart-product-grand-total">
+												<?php echo ($qty*$price);?>
+											</td>
+											<td class="cart-product-sub-total">
+												<?php echo $row['paym']; ?> </td>
+											<td class="cart-product-sub-total">
+												<?php echo $row['odate']; ?> </td>
+
+											<td>
+												<a class="btn btn-outline-danger" href="payment-method.php?id=<?php echo $row['oid']; ?> ">Delete</a>
+											</td>
+										</tr>
+										<?php $cnt=$cnt+1;} ?>
+										<tr><hr>
+
+										</tr>
+
+
+									</tbody>
+									<!-- /tbody -->
+								</table>
+								<!-- /table -->
+
+						</div>
+					</div>
+
+				</div>
+				<!-- /.shopping-cart -->
+						<hr>
             <h4>How would you like to pay?</h4><br><br>
             <div class="row justify-content-center align-items-center text-center">
               
               <div class="col-12 col-md-3 col-centered payment">
-                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="E Wallet" checked="checked">E Wallet
+                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="EWALLET" checked="checked">E Wallet
                 <div class="payment-col" id="wallet">
                   <img src="../images/wallet.png">
                 </div>
@@ -141,10 +240,17 @@ if(isset($_GET['oid'])){
    	<br>
    	 <center>
 		<div class="col-md-4">
-		<input id="submit-payment" value="Next" name="submit" class="btn btn-block btn-primary">
+		<a id="submit-payment" name="submit" class="btn btn-block btn-primary">Next</a>
 		</div>
 	</center><br><br>
-
+										<?php } else {?>
+										<tr>
+											<td colspan="10" align="center">
+												<h4>No Result Found</h4>
+											</td>
+										</tr>
+										<?php } ?>
+</div>
 <?php include('includes/footer.php');?>
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 	
@@ -182,31 +288,64 @@ if(isset($_GET['oid'])){
 
 		$('#submit-payment').on( "click", function() {
 
-			var paymethod = $("input[name='paymethod']:checked").val();
 
+
+			var paymethod = $("input[name='paymethod']:checked").val();
+			// var totalpprice = <?php echo $_SESSION['totalpprice']; ?>;
+			// var taxValue = <?php echo $rowTax['value']; ?>;
+
+
+			//TAX PERCENTAGE
+			var taxvalue = 0.<?php echo $rowTax['value']; ?>;
+			var totalpprice = <?php echo $_SESSION['totalpprice']; ?>;
+			var totalppricee = parseInt(totalpprice.toString().replace(/,/g , ""));
+			//TAX
+			var taxOneQty = totalppricee * taxvalue;
+			var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
+			var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			//TOTAL
+			var totalOnewtax = totalppricee + taxOneQty;
+			var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
+			var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			//SYMBOL
+			var taxSymbol = '<?php echo htmlspecialchars_decode($rowTax['symbol']); ?>';
+			var curSymbol = '<?php echo htmlspecialchars_decode($rowCur['symbol']); ?>';
+			//VALUE
+			var taxValue = '<?php echo htmlspecialchars_decode($rowTax['value']); ?>';
 
 			$.confirm({
 				type: 'blue',
 				title: 'Confirmation',
-				content: 'Are you sure you want to use '+ paymethod+'?',
+				content: 'Are you sure you want to use '+ paymethod+'?<br><span class="font-weight-bold text-uppercase"><br>Order Summary</span><br><span class="font-weight-bold font-italic">Subtotal:</span> <span class="pull-right">'+curSymbol+totalppricee+'.00</span><br><span class="font-weight-bold font-italic">Tax: </span> <small class="font-italic">('+taxValue+'%)</small> <span class="pull-right">'+taxSymbol+taxOneQtywComma+'</span><br><hr><span class="font-weight-bold font-italic">Grand Total:</span><span class="pull-right"> '+curSymbol+totalOnewtaxcomma+'</span>',
 				buttons: {
 					Yes: {
 					btnClass: 'btn-green',
 					action: function(){
 
 						$.confirm({
-							type: 'green',
-							title: 'Thank you for shopping with us!',
-							content: 'Your order has been placed',
+							type: 'blue',
+							title: 'Processing..!',
+							content: 'We\'re processing your order',
 							buttons: {
 								OK: function () {
 									$.ajax({
 									type: "POST",
-									url: "insert.php",
-									data: {method:paymethod},
+									url: "shop-transaction.php",
+									data: {method:paymethod,totalpprice:totalOnewtaxcommaFixed},
 									dataType: "JSON",
 									success: function(data) {
-									window.location.replace("order-history.php");
+										if(data == '2'){
+											$.alert('You do not have enough balance.');
+										} else if(data =='1') {
+											$.alert({
+												type: 'green',
+												title: 'Thank you for shopping with us!',
+												content: 'Thank you! Your order is now processing.',
+											});
+												window.location.replace("order-history.php");
+										} else {
+											$.alert('Order unsuccessful please try again.');
+										}
 									},
 									error: function(err) {
 									console.log(err);
@@ -223,7 +362,7 @@ if(isset($_GET['oid'])){
 					No: {
 						text: 'No', // With spaces and symbols
 						action: function () {
-							$.alert('Order has been cancelled');
+							$.alert('Order not successful');
 						}
 					}
 				}

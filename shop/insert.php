@@ -17,5 +17,4 @@ else {
   echo json_encode($error);
 }
 
- 
 ?>

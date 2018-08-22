@@ -34,7 +34,9 @@ error_reporting(0);
 			}
 		}
 	}
-
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
 	?>
 	<div class="main-header">
 		<div class="container">

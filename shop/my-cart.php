@@ -131,9 +131,18 @@ $rowSPH=mysqli_fetch_array($cryptoSPHQuery);
 			<div class="col-md-12 col-sm-12 shopping-cart-table" style="overflow-x:auto;"> 
 	<div style="border:">
 <form name="cart" method="post">	
+		<?php
+			$status='in Process';
+			$rt = mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
+			$num1 = mysqli_num_rows($rt);
+		?>
+		<a href="pending-orders.php" class="btn btn-primary pull-right">
+		  You have <span class="badge badge-light"><?php echo htmlentities($num1); ?></span> Pending Order Payment
+		</a>
 <?php
 if(!empty($_SESSION['cart'])){
 	?>
+<br><br><br>
 <table class="table  table-hover table-condensed">
 			<thead class="thead-dark text-center">
 				<tr>
@@ -271,7 +280,7 @@ $_SESSION['pid']=$pdtid;
 			<h7 class="label">Sub Total:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1">
-			<h7 class="label ph-tax"><?php
+			<h7 class="label"><?php
 			echo "$". number_format($_SESSION['tp']). ".00"; ?></h7>
 		</div>
 	</div>
@@ -415,6 +424,7 @@ $_SESSION['pid']=$pdtid;
 							content: 'Redirecting you to payments page..',
 							buttons: {
 								OK: function () {
+									window.location.replace("payment-method.php");
 									$.ajax({
 									type: "POST",
 									url: "insertone.php",
