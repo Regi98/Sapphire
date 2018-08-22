@@ -162,3 +162,19 @@
 .button{
     margin: 0 30px 30px 0;
 }
+.chart-page .chart-container {
+    border: black solid 0;
+}
+
+.charts {
+    width: 900px;
+    height: 400px;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+    .charts {
+       width: 400px;
+       height: 300px;
+       margin: 0 auto;
+    }
+}

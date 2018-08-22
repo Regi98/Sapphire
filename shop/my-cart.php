@@ -276,6 +276,7 @@ $_SESSION['pid']=$pdtid;
 
 <div class="col-12 text-right pull-right">
 	<div class="row">
+										
 		<div class="col-11">
 			<h7 class="label">Sub Total:&emsp;&emsp;</h7>
 		</div>

@@ -2,6 +2,8 @@
 session_start();
 error_reporting(0);
 include('includes/config.php'); 
+$cryptoSPHQuery=mysqli_query($con,"select * from cryptocurrency where id=4");
+$rowSPH=mysqli_fetch_array($cryptoSPHQuery);
 if(strlen($_SESSION['login'])==0){   ?>
 	<script language="javascript">
 		document.location = "../index.php";
@@ -906,7 +908,12 @@ while($rw=mysqli_fetch_array($qry))
 											</span>
 											<span class="token_price pull-right">
 												<img src="../images/gems.png" width="18" height="18">
-												<?php echo htmlentities($rw['product_price_token']);?>
+												<?php 
+												$productPrice = floatval($rw['product_price']);
+												$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+												$tokenPrice = $productPrice / $SPHValue;
+												$tokenPriceProduct = number_format($tokenPrice, 8);
+												echo htmlentities($tokenPriceProduct);?>
 											</span>
 										</div>
 										<!-- /.product-price -->
@@ -983,7 +990,12 @@ while($rw=mysqli_fetch_array($qry))
 											</span>
 											<span class="token_price pull-right">
 												<img src="../images/gems.png" width="18" height="18">
-												<?php echo htmlentities($rw['product_price_token']);?>
+												<?php 
+												$productPrice = floatval($rw['product_price']);
+												$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+												$tokenPrice = $productPrice / $SPHValue;
+												$tokenPriceProduct = number_format($tokenPrice, 8);
+												echo htmlentities($tokenPriceProduct);?>
 											</span>
 										</div>
 										<!-- /.product-price -->
