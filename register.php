@@ -38,23 +38,14 @@
     <div class="login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
-          <div class="row">
             <!-- Logo & Information Panel-->
-            <div class="col-lg-6">
-              <div class="info d-flex align-items-center">
+            <div class="col-lg-6 mx-auto">
+              <div class="info">
                 <div class="content">
                   <div class="logo">
-                    <h1>Register</h1>
+                    <h3>Register</h3>
                   </div>
-                  <p>Lorem ipsum.</p>
-                </div>
-              </div>
-            </div>
-            <!-- Form Panel    -->
-            <div class="col-lg-6 bg-white">
-              <div class="form d-flex align-items-center">
-                <div class="content">
-                  <form class="text-left form-validate" method="post" >
+                    <form class="text-left form-validate" method="post" >
                     <strong>
                         <?php include('errors.php'); ?>
                       </strong>
@@ -93,7 +84,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
      <!-- <div class="copyrights text-center">
