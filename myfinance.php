@@ -174,6 +174,29 @@ if(strlen($_SESSION['login'])==0){   ?>
         </a>
     </div>
 </div>
+</div><br><br>
+<div class="row">
+<div class="col-12 charts">
+<!-- TradingView Widget BEGIN -->
+<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "autosize": true,
+  "symbol": "COINBASE:BTCUSD",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "Black",
+  "style": "1",
+  "locale": "en",
+  "padding": '1',
+  "toolbar_bg": "rgba(0, 0, 0, 1)",
+  "hide_top_toolbar": true,
+  "save_image": false,
+  "hideideas": true
+});
+</script>
+<!-- TradingView Widget END -->
+</div>
 </div>
             </div>
    </div>
