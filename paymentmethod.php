@@ -89,7 +89,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             </ul>
          </nav>
          <!-- Sidebar Navigation end-->
-         <div class="page-content">
+               <div class="page-content">
             <!-- Page Header-->
           <div class="container  h-100 justify-content-center align-items-center text-center">
              <br><br>
@@ -113,7 +113,7 @@ if(strlen($_SESSION['login'])==0){   ?>
               <div class="col-12 col-md-3">
                 <h6>Sapphire Crystals </h6>
                 <div class="payment-col" id="token">
-                  <img src="images/crystal.png">
+                  <img src="images/crystal.png" width="60px">
 
                 </div>
                 <p>Buy with our new Sapphire Crystals!</p>
@@ -121,41 +121,33 @@ if(strlen($_SESSION['login'])==0){   ?>
           </div><hr color="white" width="90%">
             <div class="row justify-content-center align-items-center text-center">
                   <div class="block-white col-md-9 credit">
-                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong><span class="d-block">Insert details carefully.</span></div>
+                     <div class="title"><strong class="d-block">Paying VIA credit/debit card:</strong></div>
                                            <div class="row block-blue">
                         <div class="col-4">
                           <img src="images/premium.png" class="pull-left" width=40px>
-                          <div class="paragraph">&nbsp; Amount</div>
+                          <div class="paragraph">Amount</div>
                         </div>
                         <div class="col-8">
                           <div class="paragraph pull-right"> &nbsp; $ &nbsp;1.50</div>
                         </div>
                       </div>
                      <div class="block-body">
-                      <div class="block-gray">
+                      <div class="block-gray text-center">
+
+                    We accept these cards <br>
+                    <div class="mx auto">
                       <img src="img/pay1.png" width=80px> &nbsp;
                      <img src="img/pay2.png" width=50px> &nbsp;
                      <img src="img/pay3.png" width=40px> &nbsp;
+
+                    </div>
                         <!--<div class="form-group"> <br>  
                            <input type="submit" value="Signin" class="btn btn-primary">
                            </div>-->
 
                      <!-- DIV START 
                      <form class="text-left form-validate" method="post">-->
-                    <div class="row padding-0">
-                      <div class="col-sm-12"><br>
-                          <div class="form-group row">
-                           <small class="help-block-none">Payment Type</small>
-                           <select id="selectme" class="form-control">
-                              <option value="" disabled selected>Select Payment</option>
-                              <option value="paypal">PayPal</option>
-                              <option value="visa">VISA</option>
-                              <option value="master">Mastercard</option>
-                           </select>
-                        </div>
-                      </div>
-                     </div>
-                     <div class="row padding-0">
+                     <!-- <div class="row padding-0">
                       <div class="col-sm-12"><br>
                         <div class="form-group row">
                             <small class="help-block-none">Card Holder Name</small>
@@ -224,10 +216,11 @@ if(strlen($_SESSION['login'])==0){   ?>
                               </div>
 
                             </div><br>
-                            <button class="btn btn-info pull-right" id="confirm-credit">Confirm</button>
+                            
                            </div>
 
-                        </div>
+                        </div> -->
+                        <button class="btn btn-info pull-right" id="confirm-credit" onclick="window.location.href='creditcard.php';">Confirm</button><br><br>
                       </div>
                   </div>
                </div>

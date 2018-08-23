@@ -92,7 +92,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <!-- Page Header-->
           <div class="container  h-100 justify-content-center">
              <br><br>
-            <h4>Bayad center</h4> <br><br>
+            <h4>Credit Card Payment</h4> <br><br>
             <div class='card-wrapper'></div><br>
 <!-- CSS is included via this JavaScript file -->
 <script src="js/card.js"></script>
