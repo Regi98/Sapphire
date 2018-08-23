@@ -239,11 +239,10 @@ while($row=mysqli_fetch_array($query))
 		</div>
 	</center><br><br>
 										<?php } else {?>
-										<tr>
-											<td colspan="10" align="center">
+										<div class="container">
 												<h4>No Result Found</h4>
-											</td>
-										</tr>
+												<small class="font-italic">Please refresh the page and try again</small>
+										</div>
 										<?php } ?>
 </div>
 <?php include('includes/footer.php');?>
@@ -291,13 +290,16 @@ while($row=mysqli_fetch_array($query))
 
 
 			//TAX PERCENTAGE
-			var taxvalue = 0.<?php echo $rowTax['value']; ?>;
+			var taxvaluee = '<?php echo $rowTax['value']; ?>';
+			var taxvalue = '0.'+parseInt(taxvaluee.toString().replace(/,/g , ""));
 			var totalpprice = <?php echo $totalproductprice; ?>;
 			var totalppricee = parseInt(totalpprice.toString().replace(/,/g , ""));
 			//TAX
 			var taxOneQty = totalppricee * taxvalue;
 			var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
 			var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			//SERVICE CHARGE
+			var servicecharge = "<?php echo $rowSC['value']; ?>"
 			//TOTAL
 			var totalOnewtax = totalppricee + taxOneQty;
 			var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
@@ -311,7 +313,7 @@ while($row=mysqli_fetch_array($query))
 			$.confirm({
 				type: 'blue',
 				title: 'Confirmation',
-				content: 'Are you sure you want to use '+ paymethod+'?<br><span class="font-weight-bold text-uppercase"><br>Order Summary</span><br><span class="font-weight-bold font-italic">Subtotal:</span> <span class="pull-right">'+curSymbol+totalppricee+'.00</span><br><span class="font-weight-bold font-italic">Tax: </span> <small class="font-italic">('+taxValue+'%)</small> <span class="pull-right">'+taxSymbol+taxOneQtywComma+'</span><br><hr><span class="font-weight-bold font-italic">Grand Total:</span><span class="pull-right"> '+curSymbol+totalOnewtaxcomma+'</span>',
+				content: 'Are you sure you want to use '+ paymethod+'?<br><span class="font-weight-bold text-uppercase"><br>Order Summary</span><br><span class="font-weight-bold font-italic">Subtotal:</span> <span class="pull-right">'+curSymbol+totalppricee+'.00</span><br><span class="font-weight-bold font-italic">Tax: </span> <small class="font-italic">('+taxValue+'%)</small> <span class="pull-right">'+taxSymbol+taxOneQtywComma+'</span><br><span class="font-weight-bold font-italic">Service Charge:</span> <span class="pull-right">'+curSymbol+servicecharge+'.00</span><hr><span class="font-weight-bold font-italic">Grand Total:</span><span class="pull-right"> '+curSymbol+totalOnewtaxcomma+'</span>',
 				buttons: {
 					Yes: {
 					btnClass: 'btn-green',
@@ -319,8 +321,8 @@ while($row=mysqli_fetch_array($query))
 
 						$.confirm({
 							type: 'blue',
-							title: 'Processing..!',
-							content: 'We\'re processing your order',
+							title: 'Processing..',
+							content: 'Confirming your order.',
 							buttons: {
 								OK: function () {
 									$.ajax({
@@ -331,13 +333,17 @@ while($row=mysqli_fetch_array($query))
 									success: function(data) {
 										if(data == '2'){
 											$.alert('You do not have enough balance.');
-										} else if(data =='1') {
-											$.alert({
-												type: 'green',
-												title: 'Thank you for shopping with us!',
-												content: 'Thank you! Your order is now processing.',
-											});
-												window.location.replace("order-history.php");
+										} else if(data =='1') {								
+												$.confirm({
+													type: 'green',
+													title: 'Thank you for shopping with us!',
+													content: 'Your order is now in process..',
+													buttons: {
+														OK: function () {
+															window.location.replace("order-history.php");
+														}
+													}
+												})
 										} else {
 											$.alert('Order unsuccessful please try again.');
 										}
