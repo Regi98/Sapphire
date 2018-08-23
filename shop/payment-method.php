@@ -199,7 +199,7 @@ while($row=mysqli_fetch_array($query))
             <div class="row justify-content-center align-items-center text-center">
               
               <div class="col-12 col-md-3 col-centered payment">
-                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="EWALLET" checked="checked">E Wallet
+                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="EWALLET" checked="checked"><br>E Wallet
                 <div class="payment-col" id="wallet">
                   <img src="../images/wallet.png">
                 </div>
@@ -209,7 +209,7 @@ while($row=mysqli_fetch_array($query))
            		 </div>
               </div>
               <div class="col-12 col-md-3 payment">
-                <input type="radio" id="paymethod" name="paymethod" value="Credit Card">Credit/Debit Card
+                <input type="radio" id="paymethod" name="paymethod" value="Credit Card"><br>Credit/Debit Card
                 <div class="payment-col" id="credit">
                   <img src="../images/card.png" >
                 </div>
@@ -219,7 +219,7 @@ while($row=mysqli_fetch_array($query))
                     <img src="../img/pay3.png" width=40px> &nbsp;
               </div>
               <div class="col-12 col-md-3">
-                <input type="radio" class="token" id="paymethod" name="paymethod" value="TOKENS">Sapphire Crystals
+                <input type="radio" class="token" id="paymethod" name="paymethod" value="TOKENS"><br>Sapphire Crystals
                 <div class="payment-col" id="token">
                   <img src="../images/crystal.png">
                 </div>
@@ -243,6 +243,7 @@ while($row=mysqli_fetch_array($query))
 												<h4>No Result Found</h4>
 												<small class="font-italic">Please refresh the page and try again</small>
 										</div>
+										<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 										<?php } ?>
 </div>
 <?php include('includes/footer.php');?>
