@@ -289,8 +289,8 @@ $_SESSION['pid']=$pdtid;
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-11">
-			<h7 class="label font-weight-bold font-italic">Ph Tax: (<?php echo htmlspecialchars_decode($rowTax['value']); ?>%)&emsp;&emsp;</h7>
+		<div class="col-11 font-italic">
+			<h7 class="label font-weight-bold">Ph Tax: </h7> <small>(<?php echo htmlspecialchars_decode($rowTax['value']); ?>%)</small>&emsp;&emsp;
 		</div>
 		<div class="col-1">
 			<h7 class="label ph-tax">$0.00</h7>
@@ -301,7 +301,7 @@ $_SESSION['pid']=$pdtid;
 			<h7 class="label font-weight-bold font-italic">Service Charge:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1 ">
-			<h7 class="label service-charge">$0.00</h7>
+			<h7 class="label service-charge"><?php echo htmlspecialchars_decode($rowCur['symbol']); ?><?php echo htmlspecialchars_decode($rowSC['value']); ?>.00</h7>
 		</div>
 	</div><hr>
 	<div class="cart-grand-total ml-3">
@@ -355,7 +355,7 @@ $_SESSION['pid']=$pdtid;
 
 	<script type="text/javascript">
 		//DEFAUT 1 QUANTITY!
-			//TAX PERCENTAGE
+		//TAX PERCENTAGE
 		var taxvalue = 0.12;
 		var priceOne = "<?php echo $_SESSION['tp']; ?>"
 		var priceeOne = parseInt(priceOne.replace(/,/g , ""));
@@ -364,8 +364,11 @@ $_SESSION['pid']=$pdtid;
 		var taxOneQtywCommaFixed = taxOneQty.toFixed(2);
 		var taxOneQtywComma = taxOneQtywCommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		$( ".label.ph-tax" ).html("$"+taxOneQtywComma);
+		//SERVICE CHARGE
+		var servicecharge = "<?php echo $rowSC['value']; ?>"
+		var serviceChargeQtywoComma = parseInt(servicecharge.replace(/,/g , ""));
 		//TOTAL
-		var totalOnewtax = priceeOne + taxOneQty;
+		var totalOnewtax = priceeOne + taxOneQty + serviceChargeQtywoComma;
 		var totalOnewtaxcommaFixed = totalOnewtax.toFixed(2);
 		var totalOnewtaxcomma = totalOnewtaxcommaFixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		$('.grand-total').html("$"+totalOnewtaxcomma);

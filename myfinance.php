@@ -102,7 +102,7 @@ if(strlen($_SESSION['login'])==0){   ?>
                 $data = mysqli_query($con,"select * from cryptocurrency where id=4");
                 while($row = mysqli_fetch_array($data)) {  
                 echo'
-                  <div class="col-lg-3 col-md-4">
+                  <div class="col-lg-3 col-md-4" style="margin-bottom:20px">
                     <a href="#" class="d-block megamenu-button-link bg-dark">
                       <img src="images/gems.png" width="20px">&nbsp;&nbsp;&nbsp;<span>SPH/USD</span>
                       <strong>'.$row['value'] .'</strong>
@@ -112,21 +112,21 @@ if(strlen($_SESSION['login'])==0){   ?>
                 $data = mysqli_query($con,"select * from cryptocurrency where id=1");
                 while($row = mysqli_fetch_array($data)) {  
                 echo'
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-dark">
+                  <div class="col-lg-3 col-md-4" style="margin-bottom:20px"><a href="#" class="d-block megamenu-button-link bg-dark">
                   <img src="images/bitcoin.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BTC/USD</span>
                       <strong>'.$row['value'] .'</strong></a></div>';}?>
                 <?php
                 $data = mysqli_query($con,"select * from cryptocurrency where id=2");
                 while($row = mysqli_fetch_array($data)) {  
                 echo'
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-dark">
+                  <div class="col-lg-3 col-md-4" style="margin-bottom:20px"><a href="#" class="d-block megamenu-button-link bg-dark">
                   <img src="images/bitcoincash.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BCH/USD</span>
                       <strong>'.$row['value'] .'</strong></a></div>';}?>
                 <?php
                 $data = mysqli_query($con,"select * from cryptocurrency where id=3");
                 while($row = mysqli_fetch_array($data)) {  
                 echo'
-                  <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-dark">
+                  <div class="col-lg-3 col-md-4" style="margin-bottom:20px"><a href="#" class="d-block megamenu-button-link bg-dark">
                   <img src="images/ethereum.png" width="15px">&nbsp;&nbsp;&nbsp;<span>ETH/USD</span>
                       <strong>'.$row['value'] .'</strong></a></div>';}?>
                 </div>
@@ -191,6 +191,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 </div>
 </div><br><br>
 <div class="row">
+<h5 style="text-align:left; margin-left:20px">As of August 23, 2018</h5>
 <div class="col-12 charts">
 <!-- TradingView Widget BEGIN -->
 <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
