@@ -177,13 +177,13 @@ if(strlen($_SESSION['login'])==0){   ?>
 </center>
 <br>
 <tr class="musicheader">
-      <th class="col-md-3">TITLE</th>
-      <th class="col-md-3">DURATION</th>
-      <th class="col-md-3">ARTIST</th>
-      <th class="col-md-3">ALBUMS</th>
-      <th class="col-md-3">GENRE</th>
-      <th class="col-md-3">STATUS</th>
-      <th class="col-md-3">DELETE</th>
+      <th class="col-md-12">TITLE</th>
+      <th class="col-md-12">DURATION</th>
+      <th class="col-md-12">ARTIST</th>
+      <th class="col-md-12">ALBUMS</th>
+      <th class="col-md-12">GENRE</th>
+      <th class="col-md-12">STATUS</th>
+      <th class="col-md-12">DELETE</th>
 
 </tr>
 <?php
@@ -252,13 +252,13 @@ echo'
 </center>
 <br>
 <tr class="musicheader">
-      <th class="col-md-3">TITLE</th>
-      <th class="col-md-3">DURATION</th>
-      <th class="col-md-3">ARTIST</th>
-      <th class="col-md-3">ALBUMS</th>
-      <th class="col-md-3">GENRE</th>
-      <th class="col-md-3">STATUS</th>
-      <th class="col-md-3">DELETE</th>
+      <th class="col-md-12">TITLE</th>
+      <th class="col-md-12">DURATION</th>
+      <th class="col-md-12">ARTIST</th>
+      <th class="col-md-12">ALBUMS</th>
+      <th class="col-md-12">GENRE</th>
+      <th class="col-md-12">STATUS</th>
+      <th class="col-md-12">DELETE</th>
 
 </tr>
 <?php
