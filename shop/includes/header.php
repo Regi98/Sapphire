@@ -100,7 +100,7 @@
                     <li><a href="#">Page</a></li>
                   </ul>
                 </li>-->
-                <li><a href="index.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
+                <li class="active"><a href="index.php"> <i class="fa fa-shopping-bag"></i>Shop</a></li>
                 <li><a href="../games.php"> <i class="fa fa-gamepad"></i>Games</a></li>
                 <li><a href="../news.php"> <i class="fa fa-file"></i>News</a></li>
 
