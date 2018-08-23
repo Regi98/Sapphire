@@ -69,7 +69,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
-               <li class="active"><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
+               <li><a href="home.php"> <i class="fa fa-home"></i>Home </a></li>
                <li><a href="music.php"> <i class="fa fa-music"></i>Music </a></li>
                <li><a href="movies.php"> <i class="fa fa-play"></i>Movies </a></li>
                <li><a href="series.php"> <i class="fa fa-play-circle"></i>Series </a></li>
@@ -86,7 +86,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             </ul>
             <span class="heading">User</span>
             <ul class="list-unstyled">
-               <li> <a href="myfinance.php"> <i class="fa fa-credit-card"></i>My Finance</a></li>
+               <li class="active"> <a href="myfinance.php"> <i class="fa fa-credit-card"></i>My Finance</a></li>
                <li> <a href="shop/my-account.php"> <i class="fa fa-user"></i>My Account</a></li>
             </ul>
          </nav>
