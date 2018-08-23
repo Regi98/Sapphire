@@ -87,6 +87,7 @@ if(strlen($_SESSION['login'])==0){   ?>
             <ul class="list-unstyled">
                <li> <a href="#"> <i class="fa fa-money"></i>Payments</a></li>
                <li> <a href="#"> <i class="fa fa-user"></i>Profile</a></li>
+                <li><a href="myfinance.php"> <i class="fa fa-credit-card"></i>My Finance</a></li>
             </ul>
          </nav>
          <!-- Sidebar Navigation end-->
