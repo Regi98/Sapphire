@@ -226,23 +226,23 @@ echo '
     </div>
     </div>
 <!--tracks tabs-->
-<div class="tab-pane" id="tabs-2" role="tabpanel" ><br>
+<div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
+<div class="table-responsive"> 
 <table class="table table-hover">
 <tbody>
 <center>
 <h6>All Songs</h6>
 </center>
 <br>
-<tr class="musicheader">
-      <th class="col-md-3">TITLE</th>
-      <th class="col-md-3">DURATION</th>
-      <th class="col-md-3">ARTIST</th>
-      <th class="col-md-3">ALBUMS</th>
-      <th class="col-md-3">GENRE</th>
-      <th class="col-md-3">STATUS</th>
-      <th class="col-md-3">DELETE</th>
-
+<tr class="m-0">
+      <th class="w-50">TITLE</th>
+      <th class="w-25">DURATION</th>
+      <th class="w-50">ARTIST</th>
+      <th class="w-50">ALBUMS</th>
+      <th class="w-25">GENRE</th>
+      <th class="w-25">STATUS</th>
+      <th class="w-25">ADD</th>
 </tr>
 <?php
 $data3 = mysqli_query($con,"select musics.music_song as song, musics.title as title, albums.album_name as album_name, artists.artist_name as artist_name, musics.id as music_id, musics.genre as genre from musics join albums on album_id=albums.id join artists on albums.artist_id=artists.id");
@@ -255,28 +255,28 @@ $num=mysqli_num_rows($data3);
  $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
  $song = MP3File::formatTime($duration2);
 echo'
-            <tr class="playlistcss">
-            <td>
+            <tr class="m-0">
+            <td class="w-50">
             '.$row3['title'].'
 			</td>
-            <td>
+            <td class="w-25">
             <div class="song-duration">'.$song.'</div> 
 			</td>
-            <td>
+            <td class="w-50">
             '.$row3['artist_name'].'
             </td>
-            <td>
+            <td class="w-50">
             '.$row3['album_name'].'
             </td>
-            <td>
+            <td class="w-25">
             '.$row3['genre'].'
 			</td>'
             ?>
             <?php echo'
-            <td>
+            <td class="w-25">
             <div class="play-wrap">
-            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" autostart="0" autostart="false" preload ="none"  ></audio>
-            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play fa-xs play"></i>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row3['song'].'" class="music" autostart="0" autostart="false" preload ="none"></audio>
+            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play play"></i>
             </td>
             <td>
             <a class="btn btn-outline-secondary btn-sm text-center" data-toggle="tooltip" data-placement="right" title="Favorites" href="music.php?mid='.$row3['music_id'].'&&action=favorites">
@@ -287,6 +287,7 @@ echo'
             </td>
 			</tr>
             <?php } } else{ ?>
+                
 			<tr>
 			<td style="font-size: 18px; font-weight:bold ">No Songs Uploaded</td>
             </tr>
@@ -296,27 +297,29 @@ echo'
 			</table>
 			</div>
             </div>
+            </div>
+
 <!--playlist tabs-->
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
+<div class="table-responsive"> 
 <table class="table table-hover">
 <tbody>
 <center>
 <h6>My Own Playlist</h6>
 </center>
 <br>
-<tr class="musicheader">
-      <th class="col-md-3">TITLE</th>
-      <th class="col-md-3">DURATION</th>
-      <th class="col-md-3">ARTIST</th>
-      <th class="col-md-3">ALBUMS</th>
-      <th class="col-md-3">GENRE</th>
-      <th class="col-md-3">STATUS</th>
-      <th class="col-md-3">DELETE</th>
-
+<tr class="m-0">
+      <th class="w-50">TITLE</th>
+      <th class="w-25">DURATION</th>
+      <th class="w-50">ARTIST</th>
+      <th class="w-50">ALBUMS</th>
+      <th class="w-25">GENRE</th>
+      <th class="w-25">STATUS</th>
+      <th class="w-25">DELETE</th>
 </tr>
 <?php
-$data4 = mysqli_query($con,"select albums.album_name as alname, artists.artist_name as aname, cover_images.cover_image as mc_image, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from cover_images join musics on musics.cover_image_id=cover_images.id left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."'");
+$data4 = mysqli_query($con,"select musics.id as music_id,favorites.id as favorites_id, albums.album_name as alname, artists.artist_name as aname, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from musics left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."' ORDER BY favorites.id ASC");
 	if($num>0)
 	{
 while($row4 = mysqli_fetch_array($data4)) {
@@ -326,28 +329,28 @@ $mp3file = new MP3File($music);//http://www.npr.org/rss/podcast.php?id=510282
 $duration2 = $mp3file->getDuration();//(slower) for VBR (or CBR)
 $song = MP3File::formatTime($duration2);
 echo'
-			<tr class="playlistcss">
-            <td>
+            <tr class="m-0">
+            <td class="w-50">
             '.$row4['mtitle'].'
-			</td>
-            <td>
-            <div class="song-duration">'.$song.'</div> <!--time-->
-			</td>
-            <td>
+            </td>
+            <td class="w-25">
+            <div class="song-duration">'.$song.'</div> 
+            </td>
+            <td class="w-50">
             '.$row4['aname'].'
             </td>
-            <td>
+            <td class="w-50">
             '.$row4['alname'].'
             </td>
-            <td>
+            <td class="w-25">
             '.$row4['mgenre'].'
-			</td>                            
+            </td>
             <td>'
             ?>
 			<?php echo'
             <div class="play-wrap">
-            <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" autostart="0" autostart="false" preload ="none" ></audio>
-            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play fa-xs play"></i>
+            <audio src="../inflightapp/storage/app/public/music_songs/'.$row4['msong'].'" class="music" autostart="0" autostart="false" preload ="none"></audio>
+            <i class="btn btn-outline-secondary btn-sm text-center fa fa-play play"></i>
             </div>'?>
             </td>
 			<td class=" close-btn">
@@ -368,6 +371,7 @@ echo'
 			</div>
 </section>
 </div>
+            </div>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
