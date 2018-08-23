@@ -93,36 +93,38 @@ $id= $_SESSION['id'];
 	<!-- ============================================== HEADER : END ============================================== -->
 	<div class="body-content outer-top-xs">
 		<div class="container">
+		<h4 class="text-center">PENDING ORDERS</h4>
 			<div class="row inner-bottom-sm">
 				<div class="shopping-cart">
 					<div class="col-md-12 col-sm-12 shopping-cart-table ">
 						<div class="table-responsive">
 							<form name="cart" method="post">
 
-								<table class="table table-bordered table-hover table-condensed">
-									<thead class="cart-item product-summary thead-dark">
-										<tr>
-											<th class="cart-romove item">#</th>
-											<th class="cart-description item">Image</th>
-											<th class="cart-product-name item">Product Name</th>
-
-											<th class="cart-qty item">Quantity</th>
-											<th class="cart-sub-total item">Price Per unit</th>
-											<th class="cart-total">Total Price:</th>
-											<th class="cart-total item">Payment Method</th>
-											<th class="cart-description item">Order Date &amp;Time</th>
-											<th class="cart-total last-item">Action</th>
-										</tr>
-									</thead>
-									<!-- /thead -->
-
-									<tbody>
-
 										<?php $query=mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
 $cnt=1;
 $num=mysqli_num_rows($query);
-if($num>0){
-while($row=mysqli_fetch_array($query))
+if($num>0){?>
+								<table class="table table-bordered table-hover table-condensed">
+															<thead class="cart-item product-summary thead-dark">
+																<tr>
+																	<th class="cart-romove item">#</th>
+																	<th class="cart-description item">Image</th>
+																	<th class="cart-product-name item">Product Name</th>
+
+																	<th class="cart-qty item">Qty</th>
+																	<th class="cart-sub-total item">Price Per unit</th>
+																	<th class="cart-total">Total Price:</th>
+																	<th class="cart-csub-total item">Sapphires</th>
+																	<th class="cart-ctotal last-item">Total Price</th>
+																	<th class="cart-description item">Order Date &amp;Time</th>
+																	<th class="cart-total last-item">Action</th>
+																</tr>
+															</thead>
+															<!-- /thead -->
+
+															<tbody>
+<?php 
+	while($row=mysqli_fetch_array($query))
 {
 ?>
 										<tr>
@@ -131,7 +133,7 @@ while($row=mysqli_fetch_array($query))
 											</td>
 											<td class="cart-image">
 												<a class="entry-thumbnail" href="detail.html">
-													<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pimg1'];?>"  width="60px" height="60px">
+													<img src="../../inflightapp/storage/app/public/product_images/<?php echo $row['pimg1'];?>" alt="<?php echo $row['pimg1'];?>"  width="40px" height="40px">
 												</a>
 											</td>
 											<td class="cart-product-name-info">
@@ -149,10 +151,30 @@ while($row=mysqli_fetch_array($query))
 											<td class="cart-product-sub-total">
 												<?php echo $price=$row['pprice']; ?> </td>
 											<td class="cart-product-grand-total">
-												<?php echo ($qty*$price);?>
+												<?php 
+												$grand_total = number_format($qty*$price);
+												echo ($grand_total);?>
 											</td>
-											<td class="cart-product-sub-total">
-												<?php echo $row['paym']; ?> </td>
+											<td class="cart-product-csub-total"><span class="cart-sub-total-price"><img src="../images/gems.png" width="20px">
+													<?php
+														//SAPPHIRE PRICE
+														$productPrice = floatval($price);
+														$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+														$tokenPrice = $productPrice / $SPHValue;
+														$tokenPriceProduct = number_format($tokenPrice, 8);
+														echo htmlentities($tokenPriceProduct);
+													?>
+												</span>
+											</td>
+
+											<td class="cart-product-cgrand-total"><span class="cart-grand-total-price"><img src="../images/gems.png" width="20px"> <?php
+														//SAPPHIRE PRICE
+														$productPrice = floatval($grand_total);
+														$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+														$tokenPrice = $productPrice / $SPHValue;
+														$tokenPriceProduct = number_format($tokenPrice, 8);
+														echo htmlentities($tokenPriceProduct);
+													?></td>
 											<td class="cart-product-sub-total">
 												<?php echo $row['odate']; ?> </td>
 
@@ -160,32 +182,21 @@ while($row=mysqli_fetch_array($query))
 												<a class="btn btn-outline-danger" href="pending-orders.php?id=<?php echo $row['oid']; ?> ">Delete</a>
 											</td>
 										</tr>
-										<?php $cnt=$cnt+1;} ?>
-										<tr><hr>
-											<td style="border-top: 1px solid gray;" colspan="9">
-												<div class="cart-checkout-btn pull-right">
-													<button type="submit" name="ordersubmit" class="btn btn-primary">
-														<a style="color:white;" href="payment-method.php">Proceed To Payment</a>
-													</button>
-
-												</div>
-											</td>
-
-										</tr>
-										<?php } else {?>
-										<tr>
-											<td colspan="10" align="center">
-												<h4>No Result Found</h4>
-											</td>
-										</tr>
-										<?php } ?>
-
-
-									</tbody>
+								<?php $cnt=$cnt+1;} ?>
+								</tbody>
 									<!-- /tbody -->
-								</table>
+								</table><br>
+								<div class="cart-checkout-btn pull-right">
+									<button type="submit" name="ordersubmit" class="btn btn-primary">
+										<a style="color:white;" href="payment-method.php">Proceed To Payment</a>
+									</button>
+								</div>
 								<!-- /table -->
-
+								<?php } else {?>
+									<span colspan="10" align="center">
+										<h6>No Result Found</h6>
+									</span>
+								<?php } ?>
 						</div>
 					</div>
 
