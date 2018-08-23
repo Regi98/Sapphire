@@ -127,7 +127,9 @@ if($num>0){?>
   
 											<th class="cart-qty item">Quantity</th>
 											<th class="cart-sub-total item">Price Per unit</th>
-											<th class="cart-total">Total Price:</th>
+											<th class="cart-total">Total Price</th>
+											<th class="cart-csub-total item">Sapphires</th>
+											<th class="cart-ctotal last-item">Total Price</th>
 											<th class="cart-description item">Order Date &amp;Time</th>
 											<th class="cart-total last-item">Action</th>
 										</tr>
@@ -160,8 +162,6 @@ while($row=mysqli_fetch_array($query))
 														<?php echo $row['pname'];?>
 													</a>
 												</h4>
-
-
 											</td>
 											<td class="cart-product-quantity">
 												<?php echo $qty; ?>
@@ -169,8 +169,30 @@ while($row=mysqli_fetch_array($query))
 											<td class="cart-product-sub-total">
 												<?php echo $price=$row['pprice']; ?> </td>
 											<td class="cart-product-grand-total">
-												<?php echo ($qty*$price);?>
+												<?php 
+												$grand_total = number_format($qty*$price);
+												echo ($grand_total);?>
 											</td>
+											<td class="cart-product-csub-total"><span class="cart-sub-total-price"><img src="../images/gems.png" width="20px">
+													<?php
+														//SAPPHIRE PRICE
+														$productPrice = floatval($price);
+														$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+														$tokenPrice = $productPrice / $SPHValue;
+														$tokenPriceProduct = number_format($tokenPrice, 8);
+														echo htmlentities($tokenPriceProduct);
+													?>
+												</span>
+											</td>
+
+											<td class="cart-product-cgrand-total"><span class="cart-grand-total-price"><img src="../images/gems.png" width="20px"> <?php
+														//SAPPHIRE PRICE
+														$productPrice = floatval($grand_total);
+														$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+														$tokenPrice = $productPrice / $SPHValue;
+														$tokenPriceProduct = number_format($tokenPrice, 8);
+														echo htmlentities($tokenPriceProduct);
+													?></td>
 											<td class="cart-product-sub-total">
 												<?php echo $row['odate']; ?> </td>
 
@@ -199,7 +221,7 @@ while($row=mysqli_fetch_array($query))
             <div class="row justify-content-center align-items-center text-center">
               
               <div class="col-12 col-md-3 col-centered payment">
-                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="EWALLET" checked="checked">E Wallet
+                <input type="radio" class="wallet" id="paymethod" name="paymethod" value="EWALLET" checked="checked"><br>E Wallet
                 <div class="payment-col" id="wallet">
                   <img src="../images/wallet.png">
                 </div>
@@ -209,7 +231,7 @@ while($row=mysqli_fetch_array($query))
            		 </div>
               </div>
               <div class="col-12 col-md-3 payment">
-                <input type="radio" id="paymethod" name="paymethod" value="Credit Card">Credit/Debit Card
+                <input type="radio" id="paymethod" name="paymethod" value="Credit Card"><br>Credit/Debit Card
                 <div class="payment-col" id="credit">
                   <img src="../images/card.png" >
                 </div>
@@ -219,7 +241,7 @@ while($row=mysqli_fetch_array($query))
                     <img src="../img/pay3.png" width=40px> &nbsp;
               </div>
               <div class="col-12 col-md-3">
-                <input type="radio" class="token" id="paymethod" name="paymethod" value="TOKENS">Sapphire Crystals
+                <input type="radio" class="token" id="paymethod" name="paymethod" value="TOKENS"><br>Sapphire Crystals
                 <div class="payment-col" id="token">
                   <img src="../images/crystal.png">
                 </div>
@@ -243,6 +265,7 @@ while($row=mysqli_fetch_array($query))
 												<h4>No Result Found</h4>
 												<small class="font-italic">Please refresh the page and try again</small>
 										</div>
+										<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 										<?php } ?>
 </div>
 <?php include('includes/footer.php');?>

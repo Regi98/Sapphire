@@ -1,18 +1,21 @@
 <?php
-error_reporting(0);
+    error_reporting(0);
   //FOR THIS ACCOUNT
     $queryy = "SELECT * FROM shopusers WHERE id='$id'";
     $resultss = mysqli_query($con, $queryy);
     $account=mysqli_fetch_assoc($resultss);
   //TAX
-	$chTaxQuery=mysqli_query($con,"select * from charges where id=1");
-  $rowTax=mysqli_fetch_array($chTaxQuery);
+    $chTaxQuery=mysqli_query($con,"select * from charges where id=1");
+    $rowTax=mysqli_fetch_array($chTaxQuery);
   //SERVICE CHARGE
-  $SCTaxQuery=mysqli_query($con,"select * from charges where id=2");
-  $rowSC=mysqli_fetch_array($SCTaxQuery);
+    $SCTaxQuery=mysqli_query($con,"select * from charges where id=2");
+    $rowSC=mysqli_fetch_array($SCTaxQuery);
 	//CURRENCY
-	$chCurQuery=mysqli_query($con,"select * from charges where id=3");
-	$rowCur=mysqli_fetch_array($chCurQuery);
+    $chCurQuery=mysqli_query($con,"select * from charges where id=3");
+    $rowCur=mysqli_fetch_array($chCurQuery);
+  //SPH VALUE
+		$cryptoSPHQuery=mysqli_query($con,"select * from cryptocurrency where id=4");
+		$rowSPH=mysqli_fetch_array($cryptoSPHQuery);
 ?>
 
 <header class="header">

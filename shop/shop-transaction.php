@@ -52,11 +52,11 @@ $t_out = $totalpprice;
   if($stmt2->execute()){
       
       //UPDATE IN BALANCE
-      $stmt1 = $DBcon->prepare("update shopusers SET ewallet=:balance WHERE id=:id");
+      $stmt1 = $DBcon->prepare("update shopusers SET ewallet=:remainingbal WHERE id=:id");
 
 
       $stmt1->bindparam(':id', $id);
-      $stmt1->bindparam(':balance', $balance);
+      $stmt1->bindparam(':remainingbal', $remainingbal);
 
       if($stmt1->execute()){
         $DBcon->commit();
