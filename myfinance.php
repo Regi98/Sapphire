@@ -200,7 +200,7 @@ new TradingView.widget({
   "symbol": "COINBASE:BTCUSD",
   "interval": "D",
   "timezone": "Etc/UTC",
-  "theme": "Black",
+  "theme": "Dark",
   "style": "1",
   "locale": "en",
   "padding": '1',
