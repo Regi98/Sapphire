@@ -230,11 +230,7 @@ echo '
 <div class="container-fluid trackscss" style="overflow-x:auto;">
 <div class="table-responsive"> 
 <table class="table table-hover">
-<tbody>
-<center>
-<h6>All Songs</h6>
-</center>
-<br>
+<thead class="thead-dark">
 <tr class="m-0">
       <th class="w-50">TITLE</th>
       <th class="w-25">DURATION</th>
@@ -244,6 +240,12 @@ echo '
       <th class="w-25">STATUS</th>
       <th class="w-25">ADD</th>
 </tr>
+</thead>
+<tbody>
+<center>
+<h6>All Songs</h6>
+</center>
+<br>
 <?php
 $data3 = mysqli_query($con,"select musics.music_song as song, musics.title as title, albums.album_name as album_name, artists.artist_name as artist_name, musics.id as music_id, musics.genre as genre from musics join albums on album_id=albums.id join artists on albums.artist_id=artists.id");
 	if($num>0)
@@ -305,10 +307,7 @@ echo'
 <div class="table-responsive"> 
 <table class="table table-hover">
 <tbody>
-<center>
-<h6>My Own Playlist</h6>
-</center>
-<br>
+<thead class="thead-dark">
 <tr class="m-0">
       <th class="w-50">TITLE</th>
       <th class="w-25">DURATION</th>
@@ -318,6 +317,11 @@ echo'
       <th class="w-25">STATUS</th>
       <th class="w-25">DELETE</th>
 </tr>
+</thead>
+<center>
+<h6>My Own Playlist</h6>
+</center>
+<br>
 <?php
 $data4 = mysqli_query($con,"select musics.id as music_id,favorites.id as favorites_id, albums.album_name as alname, artists.artist_name as aname, musics.title as mtitle, musics.genre as mgenre, musics.music_song as msong from musics left join favorites on musics.id=favorites.musicId join albums on albums.id=musics.album_id join artists on artists.id=albums.artist_id where favorites.userId='".$_SESSION['id']."' ORDER BY favorites.id ASC");
 	if($num>0)
