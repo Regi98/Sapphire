@@ -182,13 +182,20 @@ input[type=radio] {
 }
 .page-content {
   position: relative;
-  /*background-image:url("../../assets/images/plane3.png");*/
-  background: #fff;
+  background-image:url("../../assets/images/aircraft.jpg");
+  /* background: #fff; */
   min-height: 100vh;
   width: calc(100% - 260px);
   padding: 0;
   padding-bottom: 70px;
   color: #232323;
+    /* Full height */
+
+    /* Center and scale the image nicely */
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .page-content-home {
@@ -680,10 +687,13 @@ nav.navbar .dropdown .dropdown-menu.active {
 *     SIDEBAR
 * ==========================================================
 */
-
+.table-striped>tbody>tr:nth-child(2n+2)>td,
+.table-striped>tbody>tr:nth-child(2n+2)>th {
+  background-color: #fff;
+}
 nav#sidebar {
   width: 260px;
-  background: #E7E7E7;
+  background: #fff;
   color: #232323;
   /* shrinked navbar */
 }
