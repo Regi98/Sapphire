@@ -135,14 +135,17 @@ $rowSPH=mysqli_fetch_array($cryptoSPHQuery);
 			$status='in Process';
 			$rt = mysqli_query($con,"select products.product_image_1 as pimg1,products.product_name as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.product_price as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
 			$num1 = mysqli_num_rows($rt);
+
+		if($num1 != 0){
 		?>
 		<a href="pending-orders.php" class="btn btn-primary pull-right">
 		  You have <span class="badge badge-light"><?php echo htmlentities($num1); ?></span> Pending Order Payment
 		</a>
+		<br><br><br>
 <?php
+}
 if(!empty($_SESSION['cart'])){
 	?>
-<br><br><br>
 <table class="table  table-hover table-condensed">
 			<thead class="thead-dark text-center">
 				<tr>
@@ -278,7 +281,7 @@ $_SESSION['pid']=$pdtid;
 	<div class="row">
 										
 		<div class="col-11">
-			<h7 class="label">Sub Total:&emsp;&emsp;</h7>
+			<h7 class="label font-weight-bold font-italic">Sub Total:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1">
 			<h7 class="label"><?php
@@ -287,7 +290,7 @@ $_SESSION['pid']=$pdtid;
 	</div>
 	<div class="row">
 		<div class="col-11">
-			<h7 class="label">Ph Tax:&emsp;&emsp;</h7>
+			<h7 class="label font-weight-bold font-italic">Ph Tax: (<?php echo htmlspecialchars_decode($rowTax['value']); ?>%)&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1">
 			<h7 class="label ph-tax">$0.00</h7>
@@ -295,14 +298,14 @@ $_SESSION['pid']=$pdtid;
 	</div>
 	<div class="row">
 		<div class="col-11">
-			<h7 class="label">Service Charge:&emsp;&emsp;</h7>
+			<h7 class="label font-weight-bold font-italic">Service Charge:&emsp;&emsp;</h7>
 		</div>
 		<div class="col-1 ">
 			<h7 class="label service-charge">$0.00</h7>
 		</div>
 	</div><hr>
 	<div class="cart-grand-total ml-3">
-		Grand Total:<span class="inner-left-md grand-total"></span>
+		<span class="font-weight-bold font-italic">Grand Total:</span><span class="inner-left-md grand-total"></span>
 	</div><br>
 		<a type="submit" id="proceed-checkout" style="color:white;" class="btn btn-primary">PROCEED TO CHECKOUT</a>	
 	</div>
