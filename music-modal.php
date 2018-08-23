@@ -229,7 +229,7 @@ echo '
 <div class="tab-pane" id="tabs-2" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
 <div class="table-responsive"> 
-<table class="table table-hover">
+<table class="table table-hover table-md">
 <thead class="thead-dark">
 <tr class="m-0">
       <th class="w-50">TITLE</th>
@@ -305,7 +305,7 @@ echo'
 <div class="tab-pane" id="tabs-3" role="tabpanel"><br>
 <div class="container-fluid trackscss" style="overflow-x:auto;">
 <div class="table-responsive"> 
-<table class="table table-hover">
+<table class="table table-hover table-md">
 <tbody>
 <thead class="thead-dark">
 <tr class="m-0">
