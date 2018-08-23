@@ -127,7 +127,9 @@ if($num>0){?>
   
 											<th class="cart-qty item">Quantity</th>
 											<th class="cart-sub-total item">Price Per unit</th>
-											<th class="cart-total">Total Price:</th>
+											<th class="cart-total">Total Price</th>
+											<th class="cart-csub-total item">Sapphires</th>
+											<th class="cart-ctotal last-item">Total Price</th>
 											<th class="cart-description item">Order Date &amp;Time</th>
 											<th class="cart-total last-item">Action</th>
 										</tr>
@@ -160,8 +162,6 @@ while($row=mysqli_fetch_array($query))
 														<?php echo $row['pname'];?>
 													</a>
 												</h4>
-
-
 											</td>
 											<td class="cart-product-quantity">
 												<?php echo $qty; ?>
@@ -169,8 +169,30 @@ while($row=mysqli_fetch_array($query))
 											<td class="cart-product-sub-total">
 												<?php echo $price=$row['pprice']; ?> </td>
 											<td class="cart-product-grand-total">
-												<?php echo ($qty*$price);?>
+												<?php 
+												$grand_total = number_format($qty*$price);
+												echo ($grand_total);?>
 											</td>
+											<td class="cart-product-csub-total"><span class="cart-sub-total-price"><img src="../images/gems.png" width="20px">
+													<?php
+														//SAPPHIRE PRICE
+														$productPrice = floatval($price);
+														$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+														$tokenPrice = $productPrice / $SPHValue;
+														$tokenPriceProduct = number_format($tokenPrice, 8);
+														echo htmlentities($tokenPriceProduct);
+													?>
+												</span>
+											</td>
+
+											<td class="cart-product-cgrand-total"><span class="cart-grand-total-price"><img src="../images/gems.png" width="20px"> <?php
+														//SAPPHIRE PRICE
+														$productPrice = floatval($grand_total);
+														$SPHValue = str_replace( ',', '', $rowSPH['value'] );
+														$tokenPrice = $productPrice / $SPHValue;
+														$tokenPriceProduct = number_format($tokenPrice, 8);
+														echo htmlentities($tokenPriceProduct);
+													?></td>
 											<td class="cart-product-sub-total">
 												<?php echo $row['odate']; ?> </td>
 
