@@ -43,21 +43,37 @@
              <div class="list-inline-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Coins <i class="fa fa-ellipsis-v"></i></a>
               <div class="dropdown-menu megamenu">
                 <div class="row megamenu-buttons">
+                  <?php
+                $data = mysqli_query($con,"select * from cryptocurrency where id=4");
+                while($row = mysqli_fetch_array($data)) {  
+                echo'
                   <div class="col-lg-3 col-md-4">
                     <a href="#" class="d-block megamenu-button-link bg-default">
                       <img src="../images/gems.png" width="20px">&nbsp;&nbsp;&nbsp;<span>SPH/USD</span>
-                      <strong>10,000</strong>
+                      <strong>'.$row['value'] .'</strong>
                     </a>
-                  </div>
+                  </div>';}?>
+                <?php
+                $data = mysqli_query($con,"select * from cryptocurrency where id=1");
+                while($row = mysqli_fetch_array($data)) {  
+                echo'
                   <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-default">
                   <img src="../images/bitcoin.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BTC/USD</span>
-                      <strong>7,348.20</strong></a></div>
+                      <strong>'.$row['value'] .'</strong></a></div>';}?>
+                <?php
+                $data = mysqli_query($con,"select * from cryptocurrency where id=2");
+                while($row = mysqli_fetch_array($data)) {  
+                echo'
                   <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-default">
                   <img src="../images/bitcoincash.png" width="20px">&nbsp;&nbsp;&nbsp;<span>BCH/USD</span>
-                      <strong>710.27</strong></a></div>
+                      <strong>'.$row['value'] .'</strong></a></div>';}?>
+                <?php
+                $data = mysqli_query($con,"select * from cryptocurrency where id=3");
+                while($row = mysqli_fetch_array($data)) {  
+                echo'
                   <div class="col-lg-3 col-md-4"><a href="#" class="d-block megamenu-button-link bg-default">
                   <img src="../images/ethereum.png" width="15px">&nbsp;&nbsp;&nbsp;<span>ETH/USD</span>
-                      <strong>400.55</strong></a></div>
+                      <strong>'.$row['value'] .'</strong></a></div>';}?>
                 </div>
               </div>
             </div>

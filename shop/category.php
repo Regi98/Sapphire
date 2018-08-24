@@ -143,7 +143,7 @@ while($row=mysqli_fetch_array($sql))
 {
     ?>
                 <a href="sub-category.php?scid=<?php echo $row['id'];?>" class="dropdown-toggle"><i class="icon fas fa-star fa-fw"></i>
-                <?php echo $row['product_category_name'];?></a>
+                <?php echo $row['product_category_name'];?></a><br>
                 <?php }?>
                         
 </li>

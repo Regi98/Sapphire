@@ -329,6 +329,7 @@ i[class*='icon-'] {
   padding: 20px !important;
   text-decoration: none;
   font-weight: 300;
+  margin-bottom: 10px;
 }
 
 .megamenu .megamenu-buttons .megamenu-button-link.dashbg-1:hover {
@@ -3071,6 +3072,7 @@ a.bg-info:hover {
 .bg-default {
   background-color: #DCDCDC !important;
   color: #232323 !important;
+  border-radius: 10px;
 }
 
 a.bg-default:focus, a.bg-default:hover {

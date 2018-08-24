@@ -360,8 +360,7 @@ i[class*='icon-'] {
   padding: 20px !important;
   text-decoration: none;
   font-weight: 300;
-  color: white;
-  text-align: left;
+  margin-bottom: 10px;
 }
 
 .megamenu .megamenu-buttons .megamenu-button-link.dashbg-1:hover {

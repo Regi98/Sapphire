@@ -191,7 +191,7 @@ if(strlen($_SESSION['login'])==0){   ?>
 </div>
 </div><br><br>
 <div class="row">
-<h5 style="text-align:left; margin-left:20px">As of August 23, 2018</h5>
+<h5 style="text-align:left; margin-left:20px">As of August 24, 2018</h5>
 <div class="col-12 charts">
 <!-- TradingView Widget BEGIN -->
 <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
