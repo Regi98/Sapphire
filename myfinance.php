@@ -96,7 +96,7 @@ if(strlen($_SESSION['login'])==0){   ?>
     <div class="container col-centeredh-100 justify-content-center align-items-center text-center">
       <br><br>
         <h4>MY FINANCE</h4>
-              <div class="megamenu">
+              <div class="megamenu text-left">
                 <div class="row megamenu-buttons">
                 <?php
                 $data = mysqli_query($con,"select * from cryptocurrency where id=4");
